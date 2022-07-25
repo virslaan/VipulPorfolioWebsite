@@ -560,4 +560,16 @@ b, strong {
     display: inline-block;
     vertical-align: top;
   }
+    .owl-carousel .owl-item img {
+    width: 80%;
+	    
+}
+	.img-fluid {
+    max-width: 60%;
+    height: 60%;
+}
+	img {
+    vertical-align: middle;
+    border-style: solid;
+}
 }
