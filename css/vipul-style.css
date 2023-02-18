@@ -320,7 +320,7 @@ b, strong {
 }
 .timeline-wrapper:before {
   content: "";
-  background: #474559;
+  background: #30303008;
   width: 3px;
   height: 100%;
   position: absolute;
@@ -328,7 +328,7 @@ b, strong {
 }
 
 .timeline-yr {
-  background: #474559;
+  background: #0a7f0057;
   border-radius: 100%;
   position: absolute;
   width: 75px;
@@ -337,7 +337,7 @@ b, strong {
   text-align: center;
 }
 .timeline-yr span {
-  color: #ffffff;
+  color: darkgrey;
   font-size: 16px;
   font-weight: bold;
   display: block;
