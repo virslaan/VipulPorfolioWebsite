@@ -2,7 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,700");
 body {
-  font-family: "Maven Pro", sans-serif;
+  font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
   padding-top: 70px;
 }
 
@@ -269,14 +269,14 @@ b, strong {
   right: 6px;
 }
 .color-mode-icon:after {
-  font-family: 'unicons';
+  font-family: 'SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif';
   content: '\ea9f';
   font-size: 30px;
   font-weight: 300;
   font-style: normal;
 }
 .color-mode-icon.active:after {
-  font-family: 'unicons';
+  font-family: 'SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif';
   content: '\eb65';
   font-size: 30px;
   color: #ffffff;
@@ -370,7 +370,7 @@ b, strong {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  font-family: 'unicons';
+  font-family: 'SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif';
   font-size: 100px;
   line-height: normal;
 }
