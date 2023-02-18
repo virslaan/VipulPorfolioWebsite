@@ -21,7 +21,7 @@
 */
  
  [class^="uil-"]:before, [class*=" uil-"]:before {
-  font-family: "unicons";
+  font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   speak: none;
