@@ -8,7 +8,7 @@ body {
   padding: 8rem 0;
 }
 .small-text {
-  color: #5b5b5b;
+  color: #444444;
   font-size: 14px;
   font-weight: bold;
   padding: 8px 16px;
@@ -95,7 +95,7 @@ b, strong {
 
 .animated-item {
   color: floralwhite;
-  color: #dc3545;
+  color: #00aeff;
 }
 
 .animated-item {
