@@ -28,26 +28,43 @@
 
 <body>
 
-  <style>
-    body {
-      background-image: url("");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: #5A5A5A;
-      border-style: groove;
-    }
-   button {
-  background-color: white;
-  color: black;
-  border: 2px solid #4CAF50; /* Green */
-  border-radius: 2em;
-}
+   <style>
+      /* Body Styling */
+      body {
+        /* Provide fallback colors in case the image doesn't load */
+        background-color: #f5f5f5; 
+        background-image: url("");
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #5A5A5A;
+        border-style: groove;
+      }
 
-    .owl-carousel .owl-item img {
-      width: 60%;
-      display: inline-block;
-    }
-  </style>
+      /* Button Styling */
+      button {
+        background-color: white;
+        color: black;
+        /* Add fallback color */
+        border: 2px solid #4CAF50; /* Green */
+        border-radius: 2em;
+        /* Add some padding for better appearance */
+        padding: 10px 20px; 
+        /* Add some transition for hover effect */
+        transition: background-color 0.3s ease;
+      }
+
+      /* Hover Effect for Button */
+      button:hover {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      /* Carousel Image Styling */
+      .owl-carousel .owl-item img {
+        width: 60%;
+        display: inline-block;
+      }
+    </style>
   <nav class="navbar navbar-expand-sm navbar-light">
     <div class="container">
       <a class="navbar-brand" href="index.html">Vipul's Portfolio</a>
@@ -141,6 +158,62 @@
 
         </div>
     </div>
+</section>
+<section class="project py-5" id="project">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 text-center mx-auto col-12">
+        <div class="col-lg-8 mx-auto">
+          <h2>LIVE Developed Projects (Test Them) here</h2>
+        </div>
+        <div class="owl-carousel owl-theme">
+          <div class="item">
+            <div class="project-info">
+              <iframe src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" width="100%" height="500px">
+              </iframe>
+            </div>
+          </div>
+          <div class="item">
+            <div class="project-info">
+              <iframe src="https://virslaan.github.io/VeeMusic/" width="100%" height="500px">
+              </iframe>
+            </div>
+          </div>
+          <div class="item">
+            <div class="project-info">
+              <iframe src="https://virslaan.github.io/POC_DJ_Software/" width="90%" height="500px">
+              </iframe>
+            </div>
+          </div>
+          <div class="item">
+            <div class="project-info">
+              <iframe src="https://virslaan.github.io/VeeLens-Object-Detection-POC/" width="90%" height="500px">
+              </iframe>
+            </div>
+          </div>
+          
+          <div class="item">
+            <div class="project-info">
+              <iframe src="https://virslaan.github.io/VipulPorfolioWebsite/" width="90%" height="500px">
+              </iframe>
+            </div>
+          </div>
+          <div class="item">
+            <div class="project-info">
+              <iframe src="https://virslaan.github.io/TechHub---By-Vipul-Rules/" width="90%" height="500px">
+              </iframe>
+            </div>
+          </div>
+          <div class="item">
+            <div class="project-info">
+              <iframe src="https://virslaan.github.io/VeePalm-Oracle/" width="90%" height="500px">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
   <!-- CURRENT WORK INFO -->
@@ -360,61 +433,6 @@
 
 
     </section>
-<section class="project py-5" id="project">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-11 text-center mx-auto col-12">
-        <div class="col-lg-8 mx-auto">
-          <h2>My Developed Projects</h2>
-        </div>
-        <div class="owl-carousel owl-theme">
-          <div class="item">
-            <div class="project-info">
-              <iframe src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" width="100%" height="500px">
-              </iframe>
-            </div>
-          </div>
-          <div class="item">
-            <div class="project-info">
-              <iframe src="https://virslaan.github.io/VeeMusic/" width="100%" height="500px">
-              </iframe>
-            </div>
-          </div>
-          <div class="item">
-            <div class="project-info">
-              <iframe src="https://virslaan.github.io/POC_DJ_Software/" width="100%" height="500px">
-              </iframe>
-            </div>
-          </div>
-          <div class="item">
-            <div class="project-info">
-              <iframe src="https://virslaan.github.io/VeeLens-Object-Detection-POC/" width="100%" height="500px">
-              </iframe>
-            </div>
-          </div>
-          <div class="item">
-            <div class="project-info">
-              <iframe src="https://virslaan.github.io/VeePalm-Oracle/" width="100%" height="500px">
-              </iframe>
-            </div>
-          </div>
-          <div class="item">
-            <div class="project-info">
-              <iframe src="https://virslaan.github.io/VipulPorfolioWebsite/" width="100%" height="500px">
-              </iframe>
-            </div>
-          </div>
-          <div class="item">
-            <div class="project-info">
-              <iframe src="https://virslaan.github.io/TechHub---By-Vipul-Rules/" width="100%" height="500px">
-              </iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
     <!-- PROJECTS -->
       
@@ -423,7 +441,7 @@
     <div class="row">
       <div class="col-lg-11 text-center mx-auto col-12">
         <div class="col-lg-8 mx-auto">
-          <h2>My Life Highlights</h2>
+          <h2>Life Highlights</h2>
         </div>
         <div class="owl-carousel owl-theme">
           <div class="item">
