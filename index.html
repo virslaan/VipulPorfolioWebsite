@@ -32,6 +32,10 @@
       background-color: #ffffff;
       padding: 0 20px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
     }
 
     .navbar-brand {
@@ -72,6 +76,7 @@
       text-align: center;
       padding: 40px 20px;
       background-color: #ffffff;
+      margin-top: 60px;
     }
 
     .about-text {
@@ -144,6 +149,28 @@
     .footer a:hover {
       color: #ffffff;
     }
+
+    .contact-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      font-size: 1em;
+    }
+
+    .contact-details a {
+      color: #0071e3;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -151,7 +178,7 @@
   <nav class="navbar">
     <a class="navbar-brand" href="index.html">Vipul H Harihar</a>
     <ul class="navbar-nav">
-      <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="#about" class="nav-link">About Me</a></li>
       <li class="nav-item"><a href="#project" class="nav-link">Projects</a></li>
       <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
       <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
@@ -175,7 +202,7 @@
 
   <section class="project" id="project">
     <div class="container">
-      <h2 class="section-title">🔴 LIVE - Developed Projects</h2>
+      <h2 class="section-title"> LIVE -My handcrafeted Projects</h2>
       <div class="owl-carousel owl-theme">
         <div class="item">
           <div class="project-info">
@@ -210,15 +237,16 @@
     <div class="container">
       <h2 class="section-title">Currently Working As:</h2>
       <div class="current-work">
-        <h3>Software Engineer <small>(Lead)</small></h3>
+        <h3>Senior Software Engineer <small>(Lead)</small></h3>
         <div class="current-work-details">
-          <h6>February, 2023 - Present</h6>
+          <h6>August, 2022 - Present</h6>
           <p><b>Company: GenTrust Wealth Management</b></p>
           <p>
-            • Optimized GenTrust's Investment Platform, boosting scalability and security for 350+ clients, 2 months ahead of schedule<br>
-            • Streamlined AWS infrastructure over 4 months<br>
-            • Devised trade error detection feature, saving Compliance Team 2.5+ hours daily<br>
-            • Automated weekly reports for 12 Advisors, enhancing monitoring and eliminating manual labor
+            • Guided a 4-member team in revamping investment platform infrastructure on AWS, emphasizing automation for 400+ clients<br>
+            • Revamped client intake system, automating 24 data pipelines to streamline portfolio management for 20+ advisors and all clients<br>
+            • Designed 3 in-house ML models to swiftly aid 17 advisors in enhancing their client management & responsiveness<br>
+            • Developed Tax Optimizer algo yielding enhanced strategic asset management and insightful gains for 400+ portfolio benchmarks<br>
+            • Crafted Tax Loss Harvesting system, refining firm-wide tax strategy and saving the firm more than $2M in potential tax liabilities
           </p>
         </div>
       </div>
@@ -291,11 +319,18 @@
     </div>
   </section>
 
+  <section class="contact-details">
+    <div>
+      <b>Vipul Harashawaradhana Harihar</b><br>
+      +19172145091 - <a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a> - <a href="https://www.linkedin.com/in/vipulhharihar/">linkedin.com/in/vipulhharihar</a>
+    </div>
+  </section>
+
   <section class="contact py-5" id="skills">
     <div class="container">
       <h2 class="section-title">Professional Skills & Interests</h2>
       <ul>
-        <li>• <b>Programming:</b> Java, Python, R, SQL, HTML, CSS and JavaScript</li>
+        <li>• <b>Programming:</b> Python, Java, JavaScript, SQL, Linux-Shell, Bash, HTML, CSS</li>
         <li>• <b>Technological Skills:</b> Software Web Application Development, Data Analytics, Agile, SDLC, GitHub, Jenkins, SpringBoot, DevOps, AWS</li>
         <li>• <b>Python Packages:</b> NumPy, Pandas, SciPy, OpenCV, Scikit-Learn, Keras, TensorFlow, Matplotlib, Seaborn</li>
         <li>• <b>ML Techniques:</b> Classification, PCA, ETL, Sentiment Analysis, Time-Series, Cluster Analysis, Regression, DevOps</li>
@@ -330,53 +365,6 @@
         <div class="item">
           <div class="project-info">
             <img src="https://i.pinimg.com/originals/65/25/bc/6525bc791a4734520a351eb6cdde72a5.jpg" class="img-fluid" alt="project image">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact py-5" id="contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-5 mr-lg-5 col-12">
-          <div class="google-map w-100">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.558402180099!2d-73.99373482142036!3d40.75895421922642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855b8fb3083%3A0xa0f9aef176042a5c!2sTheater+District%2C+New+York%2C+NY%2C+USA!5e0!3m2!1sen!2smm!4v1549875377188" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-          </div>
-          <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
-            <div class="contact-info-item">
-              <h3 class="mb-3 text-dark">Come here and say Hello!</h3>
-              <p>Open your Email from here to send email to work mail!<br><a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a></p>
-            </div>
-            <ul class="social-links">
-              <li><a href="https://linktr.ee/vipulharihar" class="uil uil-dribbble" data-toggle="tooltip" data-placement="left" title="LinkTree"></a></li>
-              <li><a href="https://www.instagram.com/vipulruless/?hl=en" class="uil uil-instagram" data-toggle="tooltip" data-placement="left" title="Instagram"></a></li>
-              <li><a href="https://www.youtube.com/channel/UCYqM-AlwKVrfotOYmoGgdPQ" class="uil uil-youtube" data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 col-12">
-          <h2 class="mb-4">Interested in Working Together? Let's Communicate</h2>
-          <div class="contact-form">
-            <form action="mailto:vhh2105@columbia.edu" method="POST" enctype="text/plain">
-              <div class="row">
-                <div class="col-lg-6 col-12">
-                  <input type="text" class="form-control" name="name" placeholder="Your Name" id="name">
-                </div>
-                <div class="col-lg-6 col-12">
-                  <input type="email" class="form-control" name="email" placeholder="Email" id="email">
-                </div>
-                <div class="col-12">
-                  <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
-                  <div class="col-12 mt-4">
-                    <button class="form-control submit-btn" style="background-color: #0071e3; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
-                      Click Here to Submit
-                    </button>
-                    <p class="mt-4">You'll be redirected to your default email vendor.</p>
-                  </div>
-                </div>
-              </div>
-            </form>
           </div>
         </div>
       </div>
