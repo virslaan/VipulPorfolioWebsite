@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="css/unicons.css">
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <title>Vipul's Portfolio Website</title>
 
@@ -21,14 +21,14 @@
 
   <style>
     /* Google Fonts */
-    @import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,700");
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
     /* General Styling */
     body {
-      font-family: "Maven Pro", sans-serif;
+      font-family: 'Poppins', sans-serif;
       padding-top: 70px;
-      background: #f5f5f5;
-      color: #5a5a5a;
+      background: #ffffff;
+      color: #333;
     }
 
     /* Navbar Styling */
@@ -59,42 +59,46 @@
       background-color: #212121;
     }
 
+    /* Sections */
+    section {
+      padding: 60px 0;
+    }
+
     /* Parallax Sections */
     .parallax {
       background-attachment: fixed;
       background-size: cover;
       background-repeat: no-repeat;
-      color: #fff;
-      padding: 10rem 0;
+      color: #333;
     }
 
     .parallax h1,
     .parallax h2,
     .parallax h3 {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     }
 
     .about {
-      background-image: url('https://media.istockphoto.com/id/1258152428/vector/soft-light-pink-and-white-coloured-ombre-stroked-vector-backgrounds.jpg?s=170667a&w=0&k=20&c=r-eai4FdP-66BBbHTh9vuatU4it-Co0ztHoI38NTXEM=');
+      background-color: #ffffff;
     }
 
     .project {
-      background-color: #333;
-      color: #fff;
+      background-color: #f7f7f7;
+      color: #333;
     }
 
     .resume {
-      background-color: #f5f5f5;
+      background-color: #ffffff;
       color: #333;
     }
 
     .skills {
-      background-image: url('https://media.istockphoto.com/id/1258152428/vector/soft-light-pink-and-white-coloured-ombre-stroked-vector-backgrounds.jpg?s=170667a&w=0&k=20&c=r-eai4FdP-66BBbHTh9vuatU4it-Co0ztHoI38NTXEM=');
+      background-color: #f7f7f7;
     }
 
     .contact {
-      background-color: #333;
-      color: #fff;
+      background-color: #ffffff;
+      color: #333;
     }
 
     /* Button Styling */
@@ -105,6 +109,8 @@
       padding: 12px 28px;
       transition: all 0.3s ease;
       text-decoration: none;
+      display: inline-block;
+      margin: 10px;
     }
 
     .custom-btn:hover {
@@ -134,9 +140,38 @@
 
     /* Owl Carousel */
     .owl-carousel .owl-item img {
-      width: 80%;
+      width: 100%;
+      height: auto;
       display: block;
-      margin: 0 auto;
+    }
+
+    .owl-nav button {
+      background: #ffc200;
+      border: none;
+      color: #333;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .owl-nav button:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    .owl-dots .owl-dot {
+      background: #ffc200;
+      border-radius: 50%;
+      display: inline-block;
+      height: 12px;
+      margin: 5px;
+      width: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .owl-dots .owl-dot.active {
+      background: #333;
     }
 
     /* Footer */
@@ -255,27 +290,27 @@
       <div class="owl-carousel owl-theme">
         <div class="item">
           <div class="project-info">
-            <iframe src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" width="80%" height="600px"></iframe>
+            <img src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" alt="Wind Turbine Blades">
           </div>
         </div>
         <div class="item">
           <div class="project-info">
-            <iframe src="https://virslaan.github.io/VeeMusic/" width="80%" height="500px"></iframe>
+            <img src="https://virslaan.github.io/VeeMusic/" alt="VeeMusic">
           </div>
         </div>
         <div class="item">
           <div class="project-info">
-            <iframe src="https://virslaan.github.io/POC_DJ_Software/" width="80%" height="600px"></iframe>
+            <img src="https://virslaan.github.io/POC_DJ_Software/" alt="DJ Software">
           </div>
         </div>
         <div class="item">
           <div class="project-info">
-            <iframe src="https://virslaan.github.io/medicalPassportversion2/" width="80%" height="600px"></iframe>
+            <img src="https://virslaan.github.io/medicalPassportversion2/" alt="Medical Passport">
           </div>
         </div>
         <div class="item">
           <div class="project-info">
-            <iframe src="https://virslaan.github.io/TechHub---By-Vipul-Rules/" width="80%" height="600px"></iframe>
+            <img src="https://virslaan.github.io/TechHub---By-Vipul-Rules/" alt="TechHub">
           </div>
         </div>
       </div>
@@ -387,13 +422,27 @@
         loop: true,
         margin: 10,
         nav: true,
-        items: 1
+        dots: true,
+        items: 1,
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 2
+          },
+          1000: {
+            items: 3
+          }
+        }
       });
     });
   </script>
 </body>
 
 </html>
+
 
 <!-- <!doctype html>
 <html lang="en">
