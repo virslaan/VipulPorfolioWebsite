@@ -19,45 +19,34 @@
     body, html {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #f5f5f7;
       color: #333333;
     }
 
     .navbar {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      height: 80px;
+      height: 60px;
       background-color: #ffffff;
+      padding: 0 20px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .navbar-brand {
-      font-size: 1.5em;
+      font-size: 1.2em;
       color: #333333;
-      text-transform: uppercase;
       text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .navbar-brand:hover {
-      color: #ff5722;
-    }
-
-    .navbar-toggler {
-      background: none;
-      border: none;
-      color: #333333;
-      font-size: 1.5em;
-      cursor: pointer;
+      font-weight: 600;
     }
 
     .navbar-nav {
+      display: flex;
+      align-items: center;
       list-style: none;
       padding: 0;
       margin: 0;
-      display: flex;
     }
 
     .nav-item {
@@ -67,29 +56,12 @@
     .nav-link {
       color: #333333;
       text-decoration: none;
-      font-size: 1.2em;
-      position: relative;
+      font-size: 1em;
       transition: color 0.3s;
     }
 
-    .nav-link::before {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -5px;
-      left: 50%;
-      background-color: #ff5722;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .nav-link:hover::before {
-      width: 100%;
-      left: 0;
-    }
-
     .nav-link:hover {
-      color: #ff5722;
+      color: #0071e3;
     }
 
     .about {
@@ -98,7 +70,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
       background-color: #ffffff;
     }
 
@@ -108,110 +80,68 @@
       animation: fadeIn 2s ease-in-out;
     }
 
-    .animated-text {
-      font-size: 2em;
-      margin-top: 0.5em;
-      color: #ff5722;
+    .about-text h1 {
+      font-size: 2.5em;
+      font-weight: 600;
+      margin-bottom: 20px;
     }
 
-    .animated-info {
-      display: inline-block;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: scrollText 10s linear infinite;
-    }
-
-    .animated-item {
-      display: inline-block;
-      margin: 0 15px;
-    }
-
-    @keyframes scrollText {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+    .about-text p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #666666;
     }
 
     .custom-btn {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 12px 30px;
       color: #ffffff;
-      background-color: #ff5722;
+      background-color: #0071e3;
       text-decoration: none;
-      border-radius: 5px;
-      margin: 10px;
+      border-radius: 8px;
+      font-size: 1em;
+      margin: 15px 10px;
       transition: background-color 0.3s;
     }
 
     .custom-btn:hover {
-      background-color: #e64a19;
+      background-color: #005bb5;
     }
 
-    .project {
+    .project, .resume, .contact {
       padding: 60px 0;
-      background-color: #f9f9f9;
     }
 
-    .project-info {
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2em;
+      font-weight: 600;
+      color: #333333;
+    }
+
+    .project-info, .current-work, .timeline-wrapper, .contact-info, .contact-form {
       padding: 20px;
       background-color: #ffffff;
-      border: 1px solid #e0e0e0;
-      border-radius: 5px;
+      border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
     }
 
-    .resume {
-      padding: 60px 0;
-      background-color: #ffffff;
-    }
-
-    .current-work,
-    .timeline-wrapper,
-    .timeline {
-      padding: 20px;
-      background-color: #f9f9f9;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact {
-      padding: 60px 0;
-      background-color: #f9f9f9;
-    }
-
-    .contact-info {
-      background-color: #ffffff;
-      border: 1px solid #e0e0e0;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-    }
-
-    .contact-form {
-      background-color: #ffffff;
-      border: 1px solid #e0e0e0;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-    }
-
-    footer {
+    .footer {
       background-color: #333333;
       color: #ffffff;
       padding: 20px 0;
       text-align: center;
     }
 
-    footer a {
-      color: #ff5722;
+    .footer a {
+      color: #0071e3;
       text-decoration: none;
       transition: color 0.3s;
     }
 
-    footer a:hover {
+    .footer a:hover {
       color: #ffffff;
     }
   </style>
@@ -219,179 +149,143 @@
 
 <body>
   <nav class="navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Vipul's Portfolio</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="#project" class="nav-link">Projects</a></li>
-          <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
-          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-          <li class="nav-item"><a href="https://www.linkedin.com/in/vipulhharihar/" class="nav-link">LinkedIn</a></li>
-          <li class="nav-item"><a href="https://github.com/virslaan" class="nav-link">GitHub</a></li>
-        </ul>
-      </div>
-    </div>
+    <a class="navbar-brand" href="index.html">Vipul H Harihar</a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="#project" class="nav-link">Projects</a></li>
+      <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
+      <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+      <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      <li class="nav-item"><a href="https://www.linkedin.com/in/vipulhharihar/" class="nav-link">LinkedIn</a></li>
+      <li class="nav-item"><a href="https://github.com/virslaan" class="nav-link">GitHub</a></li>
+    </ul>
   </nav>
 
-  <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
-    <div class="container">
-      <div class="about-text">
-        <h1>Together, Let's Develop and Grow</h1>
-        <h1 class="animated-text">
-          <span>Welcome! I am </span>
-          <div class="animated-info">
-            <span class="animated-item">Vipul H Harihar,</span>
-            <span class="animated-item">A Software Engineer,</span>
-            <span class="animated-item">A Data Scientist.</span>
-          </div>
-        </h1>
-        <p>
-          As a Software Engineer, I bring forth a broad spectrum of technical prowess and a flair for innovation to each project.<br>
-          My expertise in various programming languages and platforms enables me to create scalable, high-performance software solutions that go beyond client expectations.
-        </p>
-        <a href="https://github.com/virslaan/VipulResume/raw/main/Vipul_H_Harihar_Resume.pdf" class="custom-btn">Download Resume</a>
-        <a href="https://linktr.ee/vipulharihar" class="custom-btn">Social Links</a>
-      </div>
+  <section class="about" id="about">
+    <div class="about-text">
+      <h1>Welcome to My Portfolio</h1>
+      <p>
+        As a Software Engineer, I bring forth a broad spectrum of technical prowess and a flair for innovation to each project.
+        My expertise in various programming languages and platforms enables me to create scalable, high-performance software solutions that go beyond client expectations.
+      </p>
+      <a href="https://github.com/virslaan/VipulResume/raw/main/Vipul_H_Harihar_Resume.pdf" class="custom-btn">Download Resume</a>
+      <a href="https://linktr.ee/vipulharihar" class="custom-btn">Social Links</a>
     </div>
   </section>
 
-  <section class="project py-5" id="project">
+  <section class="project" id="project">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-11 text-center mx-auto col-12">
-          <div class="col-lg-8 mx-auto">
-            <h2>🔴 LIVE - Developed Projects</h2>
+      <h2 class="section-title">🔴 LIVE - Developed Projects</h2>
+      <div class="owl-carousel owl-theme">
+        <div class="item">
+          <div class="project-info">
+            <iframe src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" width="80%" height="600px"></iframe>
           </div>
-          <div class="owl-carousel owl-theme">
-            <div class="item">
-              <div class="project-info">
-                <iframe src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" width="80%" height="600px"></iframe>
-              </div>
-            </div>
-            <div class="item">
-              <div class="project-info">
-                <iframe src="https://virslaan.github.io/VeeMusic/" width="80%" height="500px"></iframe>
-              </div>
-            </div>
-            <div class="item">
-              <div class="project-info">
-                <iframe src="https://virslaan.github.io/POC_DJ_Software/" width="80%" height="600px"></iframe>
-              </div>
-            </div>
-            <div class="item">
-              <div class="project-info">
-                <iframe src="https://virslaan.github.io/medicalPassportversion2/" width="80%" height="600px"></iframe>
-              </div>
-            </div>
-            <div class="item">
-              <div class="project-info">
-                <iframe src="https://virslaan.github.io/TechHub---By-Vipul-Rules/" width="80%" height="600px"></iframe>
-              </div>
-            </div>
+        </div>
+        <div class="item">
+          <div class="project-info">
+            <iframe src="https://virslaan.github.io/VeeMusic/" width="80%" height="500px"></iframe>
+          </div>
+        </div>
+        <div class="item">
+          <div class="project-info">
+            <iframe src="https://virslaan.github.io/POC_DJ_Software/" width="80%" height="600px"></iframe>
+          </div>
+        </div>
+        <div class="item">
+          <div class="project-info">
+            <iframe src="https://virslaan.github.io/medicalPassportversion2/" width="80%" height="600px"></iframe>
+          </div>
+        </div>
+        <div class="item">
+          <div class="project-info">
+            <iframe src="https://virslaan.github.io/TechHub---By-Vipul-Rules/" width="80%" height="600px"></iframe>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
+  <section class="resume" id="resume">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-12">
-          <h2 class="mb-4">Currently Working As:</h2>
-          <div class="current-work">
-            <h3>Software Engineer <small>(Lead)</small></h3>
-            <div class="current-work-details">
-              <h6>February, 2023 - Present</h6>
-              <p><b>Company: GenTrust Wealth Management</b></p>
-              <p>
-                • Optimized GenTrust's Investment Platform, boosting scalability and security for 350+ clients, 2 months ahead of schedule<br>
-                • Streamlined AWS infrastructure over 4 months<br>
-                • Devised trade error detection feature, saving Compliance Team 2.5+ hours daily<br>
-                • Automated weekly reports for 12 Advisors, enhancing monitoring and eliminating manual labor
-              </p>
-            </div>
-          </div>
+      <h2 class="section-title">Currently Working As:</h2>
+      <div class="current-work">
+        <h3>Software Engineer <small>(Lead)</small></h3>
+        <div class="current-work-details">
+          <h6>February, 2023 - Present</h6>
+          <p><b>Company: GenTrust Wealth Management</b></p>
+          <p>
+            • Optimized GenTrust's Investment Platform, boosting scalability and security for 350+ clients, 2 months ahead of schedule<br>
+            • Streamlined AWS infrastructure over 4 months<br>
+            • Devised trade error detection feature, saving Compliance Team 2.5+ hours daily<br>
+            • Automated weekly reports for 12 Advisors, enhancing monitoring and eliminating manual labor
+          </p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-12">
-          <h2 class="mb-4">Professional Experiences</h2>
-          <div class="timeline-wrapper">
-            <div class="timeline-yr"><span>2021-2022</span></div>
-            <div class="timeline-info">
-              <h3>Software Engineer Intern <small>At GenTrust LLC</small></h3>
-              <p>
-                • Successfully migrated existing software application to AWS Cloud Formation (IAAS) utilizing Python 3 and implemented from scratch within 3 months.<br>
-                • Designed and developed a new trader tool focused on 'Tax Loss Harvesting' incorporating algorithms including 2 advanced trading algorithms.
-              </p>
-            </div>
-            <div class="timeline-yr"><span>2021</span></div>
-            <div class="timeline-info">
-              <h3>Application Developer <small>At IBM</small></h3>
-              <p>
-                • Led a team to translate IT requirements into great design, development, and solution of software bugs and components, coding, and unit testing.<br>
-                • Managed client's customer invoice global data and enhanced the pre-accounting module.
-              </p>
-            </div>
-            <div class="timeline-yr"><span>2020</span></div>
-            <div class="timeline-info">
-              <h3>Policy Intern <small>At Solve Foundation- Indian Roads Safety Campaign</small></h3>
-              <p>
-                • Built a software application platform to connect public and spread awareness and safety instructions to the local people using descriptive analysis.
-              </p>
-            </div>
-            <div class="timeline-yr"><span>2020</span></div>
-            <div class="timeline-info">
-              <h3>Java Full Stack Engineer Intern <small>At IBM</small></h3>
-              <p>
-                • Devised food delivery software application named Omni Food to serve food to all people and stray animals during Covid-19 pandemic.<br>
-                • Led a team to devise a dashboard for service providers, integrating machine learning-based regression models to predict sales and perform analytics.
-              </p>
-            </div>
-            <div class="timeline-yr"><span>2019</span></div>
-            <div class="timeline-info">
-              <h3>Big Data Analyst Intern <small>At ONGC, Ministry of Petroleum and Natural Gas, Government of India-MRTH</small></h3>
-              <p>
-                • Extracted data from top fifty news media websites and utilized mapper-reducer techniques to filter specific keywords and analyze the company's social presence.
-              </p>
-            </div>
-          </div>
+      <h2 class="section-title">Professional Experiences</h2>
+      <div class="timeline-wrapper">
+        <div class="timeline-yr"><span>2021-2022</span></div>
+        <div class="timeline-info">
+          <h3>Software Engineer Intern <small>At GenTrust LLC</small></h3>
+          <p>
+            • Successfully migrated existing software application to AWS Cloud Formation (IAAS) utilizing Python 3 and implemented from scratch within 3 months.<br>
+            • Designed and developed a new trader tool focused on 'Tax Loss Harvesting' incorporating algorithms including 2 advanced trading algorithms.
+          </p>
         </div>
-        <div class="col-lg-6 col-12">
-          <h2 class="mb-4">Academic Timeline</h2>
-          <div class="timeline">
-            <div class="timeline-yr"><span>2021-2022</span></div>
-            <div class="timeline-info">
-              <h3>Data Science <small>Masters Degree</small></h3>
-              <p><b>Columbia University</b><br>
-                Relevant Coursework: Algorithmic Analysis, Exploratory Visualizations, Statistics and Inference Modelling, Machine Learning, Data Analytics and Pipeline, Applied Deep Learning.
-              </p>
-            </div>
-            <div class="timeline-yr"><span>2016-2020</span></div>
-            <div class="timeline-info">
-              <h3>Computer Science and Engineering <small>Bachelors Degree</small></h3>
-              <p><b>DIT University</b><br>
-                With specialization in Big Data Analytics.<br>
-                Relevant Coursework: Linear Algebra, Theory of Computation, Artificial Intelligence, Advanced Relational Database Systems, Data Warehousing and Mining, Intelligent Systems.
-              </p>
-            </div>
-            <div class="timeline-yr"><span>2015</span></div>
-            <div class="timeline-info">
-              <h3>Grade 12th: Senior Secondary <small>St. Joseph's Academy</small></h3>
-              <p>CISCE Student scored 94.25% in final examination. Recognized in Top 5% of bright students in India according to 2015 survey.</p>
-            </div>
-          </div>
+        <div class="timeline-yr"><span>2021</span></div>
+        <div class="timeline-info">
+          <h3>Application Developer <small>At IBM</small></h3>
+          <p>
+            • Led a team to translate IT requirements into great design, development, and solution of software bugs and components, coding, and unit testing.<br>
+            • Managed client's customer invoice global data and enhanced the pre-accounting module.
+          </p>
+        </div>
+        <div class="timeline-yr"><span>2020</span></div>
+        <div class="timeline-info">
+          <h3>Policy Intern <small>At Solve Foundation- Indian Roads Safety Campaign</small></h3>
+          <p>
+            • Built a software application platform to connect public and spread awareness and safety instructions to the local people using descriptive analysis.
+          </p>
+        </div>
+        <div class="timeline-yr"><span>2020</span></div>
+        <div class="timeline-info">
+          <h3>Java Full Stack Engineer Intern <small>At IBM</small></h3>
+          <p>
+            • Devised food delivery software application named Omni Food to serve food to all people and stray animals during Covid-19 pandemic.<br>
+            • Led a team to devise a dashboard for service providers, integrating machine learning-based regression models to predict sales and perform analytics.
+          </p>
+        </div>
+        <div class="timeline-yr"><span>2019</span></div>
+        <div class="timeline-info">
+          <h3>Big Data Analyst Intern <small>At ONGC, Ministry of Petroleum and Natural Gas, Government of India-MRTH</small></h3>
+          <p>
+            • Extracted data from top fifty news media websites and utilized mapper-reducer techniques to filter specific keywords and analyze the company's social presence.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="section-title">Academic Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-yr"><span>2021-2022</span></div>
+        <div class="timeline-info">
+          <h3>Data Science <small>Masters Degree</small></h3>
+          <p><b>Columbia University</b><br>
+            Relevant Coursework: Algorithmic Analysis, Exploratory Visualizations, Statistics and Inference Modelling, Machine Learning, Data Analytics and Pipeline, Applied Deep Learning.
+          </p>
+        </div>
+        <div class="timeline-yr"><span>2016-2020</span></div>
+        <div class="timeline-info">
+          <h3>Computer Science and Engineering <small>Bachelors Degree</small></h3>
+          <p><b>DIT University</b><br>
+            With specialization in Big Data Analytics.<br>
+            Relevant Coursework: Linear Algebra, Theory of Computation, Artificial Intelligence, Advanced Relational Database Systems, Data Warehousing and Mining, Intelligent Systems.
+          </p>
+        </div>
+        <div class="timeline-yr"><span>2015</span></div>
+        <div class="timeline-info">
+          <h3>Grade 12th: Senior Secondary <small>St. Joseph's Academy</small></h3>
+          <p>CISCE Student scored 94.25% in final examination. Recognized in Top 5% of bright students in India according to 2015 survey.</p>
         </div>
       </div>
     </div>
@@ -399,7 +293,7 @@
 
   <section class="contact py-5" id="skills">
     <div class="container">
-      <h2>Professional Skills & Interests</h2>
+      <h2 class="section-title">Professional Skills & Interests</h2>
       <ul>
         <li>• <b>Programming:</b> Java, Python, R, SQL, HTML, CSS and JavaScript</li>
         <li>• <b>Technological Skills:</b> Software Web Application Development, Data Analytics, Agile, SDLC, GitHub, Jenkins, SpringBoot, DevOps, AWS</li>
@@ -414,34 +308,28 @@
     </div>
   </section>
 
-  <section class="project py-5" id="project">
+  <section class="project" id="project">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-11 text-center mx-auto col-12">
-          <div class="col-lg-8 mx-auto">
-            <h2>Life Highlights</h2>
+      <h2 class="section-title">Life Highlights</h2>
+      <div class="owl-carousel owl-theme">
+        <div class="item">
+          <div class="project-info">
+            <img src="https://i.pinimg.com/originals/c7/a6/7b/c7a67b3038541070c9652fbba12d9f96.jpg" class="img-fluid" alt="project image">
           </div>
-          <div class="owl-carousel owl-theme">
-            <div class="item">
-              <div class="project-info">
-                <img src="https://i.pinimg.com/originals/c7/a6/7b/c7a67b3038541070c9652fbba12d9f96.jpg" class="img-fluid" alt="project image">
-              </div>
-            </div>
-            <div class="item">
-              <div class="project-info">
-                <img src="https://i.pinimg.com/originals/1a/15/16/1a1516e35479dcebd7afc5d1d2b5fd7e.jpg" class="img-fluid" alt="project image">
-              </div>
-            </div>
-            <div class="item">
-              <div class="project-info">
-                <img src="images/project/project-image02.png" class="img-fluid" alt="project image">
-              </div>
-            </div>
-            <div class="item">
-              <div class="project-info">
-                <img src="https://i.pinimg.com/originals/65/25/bc/6525bc791a4734520a351eb6cdde72a5.jpg" class="img-fluid" alt="project image">
-              </div>
-            </div>
+        </div>
+        <div class="item">
+          <div class="project-info">
+            <img src="https://i.pinimg.com/originals/1a/15/16/1a1516e35479dcebd7afc5d1d2b5fd7e.jpg" class="img-fluid" alt="project image">
+          </div>
+        </div>
+        <div class="item">
+          <div class="project-info">
+            <img src="images/project/project-image02.png" class="img-fluid" alt="project image">
+          </div>
+        </div>
+        <div class="item">
+          <div class="project-info">
+            <img src="https://i.pinimg.com/originals/65/25/bc/6525bc791a4734520a351eb6cdde72a5.jpg" class="img-fluid" alt="project image">
           </div>
         </div>
       </div>
@@ -481,7 +369,7 @@
                 <div class="col-12">
                   <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
                   <div class="col-12 mt-4">
-                    <button class="form-control submit-btn" style="background-color: #ff5722; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
+                    <button class="form-control submit-btn" style="background-color: #0071e3; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
                       Click Here to Submit
                     </button>
                     <p class="mt-4">You'll be redirected to your default email vendor.</p>
