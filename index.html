@@ -7,6 +7,403 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/unicons.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <title>Vipul's Portfolio Website</title>
+
+  <!-- MAIN STYLE -->
+  <link rel="stylesheet" href="css/vipul-style.css">
+
+  <style>
+    /* Google Fonts */
+    @import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,700");
+
+    /* General Styling */
+    body {
+      font-family: "Maven Pro", sans-serif;
+      padding-top: 70px;
+      background: #f5f5f5;
+      color: #5a5a5a;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid #eaeaea;
+      transition: background 0.5s ease;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover {
+      color: #ffc200;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .navbar-toggler-icon {
+      background-color: #212121;
+    }
+
+    /* Parallax Sections */
+    .parallax {
+      background-attachment: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #fff;
+      padding: 10rem 0;
+    }
+
+    .parallax h1,
+    .parallax h2,
+    .parallax h3 {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .about {
+      background-image: url('https://media.istockphoto.com/id/1258152428/vector/soft-light-pink-and-white-coloured-ombre-stroked-vector-backgrounds.jpg?s=170667a&w=0&k=20&c=r-eai4FdP-66BBbHTh9vuatU4it-Co0ztHoI38NTXEM=');
+    }
+
+    .project {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .resume {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .skills {
+      background-image: url('https://media.istockphoto.com/id/1258152428/vector/soft-light-pink-and-white-coloured-ombre-stroked-vector-backgrounds.jpg?s=170667a&w=0&k=20&c=r-eai4FdP-66BBbHTh9vuatU4it-Co0ztHoI38NTXEM=');
+    }
+
+    .contact {
+      background-color: #333;
+      color: #fff;
+    }
+
+    /* Button Styling */
+    .custom-btn {
+      background: #ffc200;
+      color: #333;
+      border-radius: 50px;
+      padding: 12px 28px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .custom-btn:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    /* Animation */
+    .animated {
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+
+    .animated.fadeIn {
+      animation-name: fadeIn;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Owl Carousel */
+    .owl-carousel .owl-item img {
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #222;
+      color: #aaa;
+      padding: 20px 0;
+    }
+
+    .footer a {
+      color: #ffc200;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: #fff;
+    }
+
+    .footer .copyright-text {
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px 15px;
+      margin-bottom: 15px;
+    }
+
+    .contact-form button {
+      background: #ffc200;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        background: #fff;
+        padding: 10px 20px;
+      }
+
+      .navbar-nav {
+        text-align: center;
+      }
+
+      .navbar-nav .nav-link {
+        padding: 10px 0;
+      }
+
+      .parallax {
+        padding: 5rem 0;
+      }
+
+      .contact-info-item {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Vipul's Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#project">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#resume">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ABOUT SECTION -->
+  <section class="parallax about" id="about">
+    <div class="container text-center">
+      <h1 class="animated fadeIn">Together, Let's Develop and Grow</h1>
+      <h2 class="animated fadeIn">Welcome! I am Vipul H Harihar</h2>
+      <p class="animated fadeIn">A Software Engineer, A Data Scientist.</p>
+      <a href="https://github.com/virslaan/VipulResume/raw/main/Vipul_H_Harihar_Resume.pdf" class="custom-btn">Download Resume</a>
+      <a href="https://linktr.ee/vipulharihar" class="custom-btn">Social Links</a>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section class="parallax project" id="project">
+    <div class="container text-center">
+      <h2>🔴 LIVE - Developed Projects</h2>
+      <div class="owl-carousel owl-theme">
+        <div class="item">
+          <div class="project-info">
+            <iframe src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" width="80%" height="600px"></iframe>
+          </div>
+        </div>
+        <div class="item">
+          <div class="project-info">
+            <iframe src="https://virslaan.github.io/VeeMusic/" width="80%" height="500px"></iframe>
+          </div>
+        </div>
+        <div class="item">
+          <div class="project-info">
+            <iframe src="https://virslaan.github.io/POC_DJ_Software/" width="80%" height="600px"></iframe>
+          </div>
+        </div>
+        <div class="item">
+          <div class="project-info">
+            <iframe src="https://virslaan.github.io/medicalPassportversion2/" width="80%" height="600px"></iframe>
+          </div>
+        </div>
+        <div class="item">
+          <div class="project-info">
+            <iframe src="https://virslaan.github.io/TechHub---By-Vipul-Rules/" width="80%" height="600px"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME SECTION -->
+  <section class="parallax resume" id="resume">
+    <div class="container text-center">
+      <h2 class="animated fadeIn">Currently Working As</h2>
+      <h3 class="animated fadeIn"><span>Software Engineer</span> <small>(Lead)</small></h3>
+      <p class="animated fadeIn"><b>Company: GenTrust Wealth Management</b><br>Optimized GenTrust's Investment Platform, boosting scalability and security for 350+ clients, 2 months ahead of schedule. Streamlined AWS infrastructure over 4 months. Devised trade error detection feature, saving Compliance Team 2.5+ hours daily. Automated weekly reports for 12 Advisors, enhancing monitoring and eliminating manual labor.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section class="parallax skills" id="skills">
+    <div class="container text-center">
+      <h2>Professional Skills & Interests</h2>
+      <ul class="list-unstyled">
+        <li>• <b>Programming:</b> Java, Python, R, SQL, HTML, CSS and JavaScript</li>
+        <li>• <b>Technological Skills: </b>Software Web Application Development, Data Analytics, Agile, SDLC, GitHub, Jenkins, SpringBoot, DevOps, Amazon Web Services, Data Science</li>
+        <li>• <b>Python Packages:</b> NumPy, Pandas, SciPy, OpenCV, Scikit-Learn, Keras, TensorFlow, Matplotlib, Seaborn</li>
+        <li>• <b>ML Techniques:</b> Classification, PCA, ETL, Sentiment Analysis, Time-Series, Cluster Analysis, Regression, DevOps</li>
+        <li>• <b>Databases:</b> MS SQL Server, MongoDB, Google BigQuery, Google Firebase</li>
+        <li>• <b>Data Visualization:</b> Tableau, Power BI, R, Google Data Studio, IBM Cognos Analytics, ggplot2</li>
+        <li>
+          <div class="custom-btn-group mt-4">
+            • 
+            <button class="btn mr-lg-2 custom-btn" style="background-color: #ffc200; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
+              Certifications
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="parallax contact" id="contact">
+    <div class="container text-center">
+      <h2 class="animated fadeIn">Interested in Working Together? Let's Communicate</h2>
+      <div class="row">
+        <div class="col-lg-5 mr-lg-5 col-12">
+          <div class="google-map w-100">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.558402180099!2d-73.99373482142036!3d40.75895421922642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855b8fb3083%3A0xa0f9aef176042a5c!2sTheater+District%2C+New+York%2C+NY%2C+USA!5e0!3m2!1sen!2smm!4v1549875377188" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+
+          <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
+            <div class="contact-info-item">
+              <h3 class="mb-3 text-white">Come here and say Hello!</h3>
+              <p>Open your Email from here to send email to work mail!</p>
+              <a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a>
+            </div>
+            <ul class="social-links list-inline">
+              <li class="list-inline-item"><a href="https://linktr.ee/vipulharihar" class="uil uil-dribbble" data-toggle="tooltip" data-placement="left" title="LinkTree"></a></li>
+              <li class="list-inline-item"><a href="https://www.instagram.com/vipulruless/?hl=en" class="uil uil-instagram" data-toggle="tooltip" data-placement="left" title="Instagram"></a></li>
+              <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCYqM-AlwKVrfotOYmoGgdPQ" class="uil uil-youtube" data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12">
+          <div class="contact-form">
+            <form action="mailto:vhh2105@columbia.edu" method="POST" enctype="text/plain">
+              <div class="row">
+                <div class="col-lg-6 col-12">
+                  <input type="text" class="form-control" name="name" placeholder="Your Name" id="name">
+                </div>
+                <div class="col-lg-6 col-12">
+                  <input type="email" class="form-control" name="email" placeholder="Email" id="email">
+                </div>
+                <div class="col-12">
+                  <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
+                </div>
+                <div class="col-12 mt-4">
+                  <button class="form-control submit-btn" style="background-color: #ffc200; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
+                    Click Here to Submit
+                  </button>
+                  <p class="mt-4">You'll be redirected to your default email vendor.</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer text-center">
+    <div class="container">
+      <p class="copyright-text">Created by Vipul | <a href="https://www.linkedin.com/in/vipulhharihar/">Connect on LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/Headroom.js"></script>
+  <script src="js/jQuery.headroom.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/smoothscroll.js"></script>
+  <script src="js/custom.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        items: 1
+      });
+    });
+  </script>
+</body>
+
+</html>
+
+<!-- <!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
 
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -603,3 +1000,4 @@
 </body>
 
 </html>
+ -->
