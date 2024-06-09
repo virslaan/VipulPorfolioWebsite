@@ -11,337 +11,369 @@
   <link rel="stylesheet" href="css/unicons.css">
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/vipul-style.css">
 
   <title>Vipul's Portfolio Website</title>
 
-  <!-- MAIN STYLE -->
-  <link rel="stylesheet" href="css/vipul-style.css">
-
   <style>
-    /* Google Fonts */
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
-    /* General Styling */
     body {
-      font-family: 'Poppins', sans-serif;
-      padding-top: 70px;
-      background: #ffffff;
-      color: #333;
+      background-color: #f5f5f5;
+      color: #5A5A5A;
+      border-style: groove;
+      transition: all 0.5s ease;
     }
 
-    /* Navbar Styling */
     .navbar {
-      background: #fff;
-      border-bottom: 1px solid #eaeaea;
-      transition: background 0.5s ease;
-    }
-
-    .navbar-light .navbar-nav .nav-link {
-      color: #333;
-      transition: color 0.3s ease;
-    }
-
-    .navbar-light .navbar-nav .nav-link:hover {
-      color: #007bff;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .navbar-brand {
       font-weight: bold;
+      color: #4CAF50;
     }
 
-    .navbar-toggler {
-      border: none;
+    .nav-link {
+      color: #4CAF50;
+      transition: color 0.3s ease;
     }
 
-    .navbar-toggler-icon {
-      background-color: #212121;
+    .nav-link:hover {
+      color: gold;
     }
 
-    /* Sections */
-    section {
-      padding: 60px 0;
+    .about-text h1, .about-text p {
+      color: #4CAF50;
     }
 
-    .section-title {
-      font-size: 2.5em;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .section-subtitle {
-      font-size: 1.2em;
-      font-weight: 300;
-      color: #555;
-      margin-bottom: 40px;
-    }
-
-    /* Button Styling */
     .custom-btn {
-      background: #007bff;
-      color: #fff;
-      border-radius: 50px;
-      padding: 12px 28px;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      margin: 10px;
+      background-color: #FFD700;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     .custom-btn:hover {
-      background: #0056b3;
+      background-color: #4CAF50;
     }
 
-    /* Animation */
-    .animated {
-      animation-duration: 1s;
-      animation-fill-mode: both;
-    }
-
-    .animated.fadeIn {
-      animation-name: fadeIn;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* Owl Carousel */
-    .owl-carousel .owl-item img {
+    .project-info img, .project-info iframe {
       width: 100%;
-      height: auto;
-      display: block;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .owl-nav button {
-      background: #007bff;
-      border: none;
-      color: #fff;
-      padding: 10px 20px;
-      margin: 5px;
-      border-radius: 50px;
-      transition: all 0.3s ease;
+    .project-info img:hover, .project-info iframe:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
-    .owl-nav button:hover {
-      background: #0056b3;
+    .current-work-details, .timeline-info, .contact-form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .owl-dots .owl-dot {
-      background: #007bff;
-      border-radius: 50%;
-      display: inline-block;
-      height: 12px;
-      margin: 5px;
-      width: 12px;
-      transition: all 0.3s ease;
+    .current-work-details:hover, .timeline-info:hover, .contact-form:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
-    .owl-dots .owl-dot.active {
-      background: #0056b3;
+    .google-map iframe {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Footer */
+    .google-map iframe:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
     .footer {
-      background-color: #222;
-      color: #aaa;
+      background: #4CAF50;
+      color: white;
+      text-align: center;
       padding: 20px 0;
-    }
-
-    .footer a {
-      color: #007bff;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      color: #fff;
-    }
-
-    .footer .copyright-text {
-      margin: 0;
-      padding: 0;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 10px 15px;
-      margin-bottom: 15px;
-    }
-
-    .contact-form button {
-      background: #007bff;
-      border: none;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .contact-form button:hover {
-      background: #0056b3;
-    }
-
-    /* Responsive */
-    @media (max-width: 991px) {
-      .navbar-collapse {
-        background: #fff;
-        padding: 10px 20px;
-      }
-
-      .navbar-nav {
-        text-align: center;
-      }
-
-      .navbar-nav .nav-link {
-        padding: 10px 0;
-      }
-
-      .contact-info-item {
-        margin-top: 20px;
-      }
     }
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+
+  <nav class="navbar navbar-expand-sm navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="#">Vipul's Portfolio</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="index.html">Vipul's Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#project">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#resume">Resume</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#skills">Skills</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#project" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="https://www.linkedin.com/in/vipulhharihar/" class="nav-link">LinkedIn</a></li>
+          <li class="nav-item"><a href="https://github.com/virslaan" class="nav-link">GitHub</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- ABOUT SECTION -->
-  <section class="about" id="about">
-    <div class="container text-center">
-      <h1 class="section-title animated fadeIn">Together, Let's Develop and Grow</h1>
-      <h2 class="section-subtitle animated fadeIn">Welcome! I am Vipul H Harihar</h2>
-      <p class="animated fadeIn">A Software Engineer, A Data Scientist.</p>
-      <a href="https://github.com/virslaan/VipulResume/raw/main/Vipul_H_Harihar_Resume.pdf" class="custom-btn">Download Resume</a>
-      <a href="https://linktr.ee/vipulharihar" class="custom-btn">Social Links</a>
-    </div>
-  </section>
-
-  <!-- PROJECTS SECTION -->
-  <section class="project" id="project">
-    <div class="container text-center">
-      <h2 class="section-title">🔴 LIVE - Developed Projects</h2>
-      <div class="owl-carousel owl-theme">
-        <div class="item">
-          <div class="project-info">
-            <img src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" alt="Wind Turbine Blades">
+  <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
+          <div class="about-text wow fadeInLeft">
+            <h1>Together, Let's Develop and Grow</h1>
+            <h1 class="animated-text">
+              <span>Welcome! I am </span>
+              <div class="animated-info">
+                <span class="animated-item">Vipul H Harihar,</span>
+                <span class="animated-item">A Software Engineer,</span>
+                <span class="animated-item">A Data Scientist.</span>
+              </div>
+            </h1>
+            <p>
+              As a Software Engineer, I bring forth a broad spectrum of technical prowess and a flair for innovation to each project.<br> 
+              My expertise in various programming languages and platforms enables me to create scalable, high-performance software solutions that go beyond client expectations.
+            </p>
+            <div style="display: inline-block; margin: 10px;">
+              <a href="https://github.com/virslaan/VipulResume/raw/main/Vipul_H_Harihar_Resume.pdf" class="custom-btn">Download Resume</a>
+            </div>
+            <div style="display: inline-block; margin: 10px;">
+              <a href="https://linktr.ee/vipulharihar" class="custom-btn">Social Links</a>
+            </div>
           </div>
         </div>
-        <div class="item">
-          <div class="project-info">
-            <img src="https://virslaan.github.io/VeeMusic/" alt="VeeMusic">
-          </div>
-        </div>
-        <div class="item">
-          <div class="project-info">
-            <img src="https://virslaan.github.io/POC_DJ_Software/" alt="DJ Software">
-          </div>
-        </div>
-        <div class="item">
-          <div class="project-info">
-            <img src="https://virslaan.github.io/medicalPassportversion2/" alt="Medical Passport">
-          </div>
-        </div>
-        <div class="item">
-          <div class="project-info">
-            <img src="https://virslaan.github.io/TechHub---By-Vipul-Rules/" alt="TechHub">
+        <div class="col-lg-5 col-md-12 col-12 wow fadeInRight">
+          <div class="about-image svg">
+            <img src="https://avatars.githubusercontent.com/u/40139279?v=4" class="img-fluid" alt="Vipul H Harihar" style="border-radius: 20%">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RESUME SECTION -->
-  <section class="resume" id="resume">
-    <div class="container text-center">
-      <h2 class="section-title animated fadeIn">Currently Working As</h2>
-      <h3 class="animated fadeIn"><span>Software Engineer</span> <small>(Lead)</small></h3>
-      <p class="animated fadeIn"><b>Company: GenTrust Wealth Management</b><br>Optimized GenTrust's Investment Platform, boosting scalability and security for 350+ clients, 2 months ahead of schedule. Streamlined AWS infrastructure over 4 months. Devised trade error detection feature, saving Compliance Team 2.5+ hours daily. Automated weekly reports for 12 Advisors, enhancing monitoring and eliminating manual labor.</p>
+  <section class="project py-5" id="project">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 text-center mx-auto col-12">
+          <div class="col-lg-8 mx-auto">
+            <h2>🔴 LIVE - Developed Projects</h2>
+          </div>
+          <div class="owl-carousel owl-theme">
+            <div class="item">
+              <div class="project-info">
+                <iframe src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" width="80%" height="600px"></iframe>
+              </div>
+            </div>
+            <div class="item">
+              <div class="project-info">
+                <iframe src="https://virslaan.github.io/VeeMusic/" width="80%" height="500px"></iframe>
+              </div>
+            </div>
+            <div class="item">
+              <div class="project-info">
+                <iframe src="https://virslaan.github.io/POC_DJ_Software/" width="80%" height="600px"></iframe>
+              </div>
+            </div>
+            <div class="item">
+              <div class="project-info">
+                <iframe src="https://virslaan.github.io/medicalPassportversion2/" width="80%" height="600px"></iframe>
+              </div>
+            </div>
+            <div class="item">
+              <div class="project-info">
+                <iframe src="https://virslaan.github.io/TechHub---By-Vipul-Rules/" width="80%" height="600px"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
-  <section class="skills" id="skills">
-    <div class="container text-center">
-      <h2 class="section-title">Professional Skills & Interests</h2>
-      <ul class="list-unstyled section-subtitle">
+  <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-12">
+          <h2 class="mb-4">Currently Working As:</h2>
+          <div class="current-work">
+            <h3>Software Engineer <small>(Lead)</small></h3>
+            <div class="current-work-details">
+              <h6>February, 2023 - Present</h6>
+              <p><b>Company: GenTrust Wealth Management</b></p>
+              <p>
+                • Optimized GenTrust's Investment Platform, boosting scalability and security for 350+ clients, 2 months ahead of schedule<br>
+                • Streamlined AWS infrastructure over 4 months<br>
+                • Devised trade error detection feature, saving Compliance Team 2.5+ hours daily<br>
+                • Automated weekly reports for 12 Advisors, enhancing monitoring and eliminating manual labor
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-12">
+          <h2 class="mb-4">Professional Experiences</h2>
+          <div class="timeline-wrapper">
+            <div class="timeline-yr"><span>2021-2022</span></div>
+            <div class="timeline-info">
+              <h3>Software Engineer Intern <small>At GenTrust LLC</small></h3>
+              <p>
+                • Successfully migrated existing software application to AWS Cloud Formation (IAAS) utilizing Python 3 and implemented from scratch within 3 months.<br>
+                • Designed and developed a new trader tool focused on 'Tax Loss Harvesting' incorporating algorithms including 2 advanced trading algorithms.
+              </p>
+            </div>
+            <div class="timeline-yr"><span>2021</span></div>
+            <div class="timeline-info">
+              <h3>Application Developer <small>At IBM</small></h3>
+              <p>
+                • Led a team to translate IT requirements into great design, development, and solution of software bugs and components, coding, and unit testing.<br>
+                • Managed client's customer invoice global data and enhanced the pre-accounting module.
+              </p>
+            </div>
+            <div class="timeline-yr"><span>2020</span></div>
+            <div class="timeline-info">
+              <h3>Policy Intern <small>At Solve Foundation- Indian Roads Safety Campaign</small></h3>
+              <p>
+                • Built a software application platform to connect public and spread awareness and safety instructions to the local people using descriptive analysis.
+              </p>
+            </div>
+            <div class="timeline-yr"><span>2020</span></div>
+            <div class="timeline-info">
+              <h3>Java Full Stack Engineer Intern <small>At IBM</small></h3>
+              <p>
+                • Devised food delivery software application named Omni Food to serve food to all people and stray animals during Covid-19 pandemic.<br>
+                • Led a team to devise a dashboard for service providers, integrating machine learning-based regression models to predict sales and perform analytics.
+              </p>
+            </div>
+            <div class="timeline-yr"><span>2019</span></div>
+            <div class="timeline-info">
+              <h3>Big Data Analyst Intern <small>At ONGC, Ministry of Petroleum and Natural Gas, Government of India-MRTH</small></h3>
+              <p>
+                • Extracted data from top fifty news media websites and utilized mapper-reducer techniques to filter specific keywords and analyze the company's social presence.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12">
+          <h2 class="mb-4">Academic Timeline</h2>
+          <div class="timeline">
+            <div class="timeline-yr"><span>2021-2022</span></div>
+            <div class="timeline-info">
+              <h3>Data Science <small>Masters Degree</small></h3>
+              <p><b>Columbia University</b><br>
+                Relevant Coursework: Algorithmic Analysis, Exploratory Visualizations, Statistics and Inference Modelling, Machine Learning, Data Analytics and Pipeline, Applied Deep Learning.
+              </p>
+            </div>
+            <div class="timeline-yr"><span>2016-2020</span></div>
+            <div class="timeline-info">
+              <h3>Computer Science and Engineering <small>Bachelors Degree</small></h3>
+              <p><b>DIT University</b><br>
+                With specialization in Big Data Analytics.<br>
+                Relevant Coursework: Linear Algebra, Theory of Computation, Artificial Intelligence, Advanced Relational Database Systems, Data Warehousing and Mining, Intelligent Systems.
+              </p>
+            </div>
+            <div class="timeline-yr"><span>2015</span></div>
+            <div class="timeline-info">
+              <h3>Grade 12th: Senior Secondary <small>St. Joseph's Academy</small></h3>
+              <p>CISCE Student scored 94.25% in final examination. Recognized in Top 5% of bright students in India according to 2015 survey.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact py-5" id="skills">
+    <div class="container">
+      <h2>Professional Skills & Interests</h2>
+      <ul>
         <li>• <b>Programming:</b> Java, Python, R, SQL, HTML, CSS and JavaScript</li>
-        <li>• <b>Technological Skills: </b>Software Web Application Development, Data Analytics, Agile, SDLC, GitHub, Jenkins, SpringBoot, DevOps, Amazon Web Services, Data Science</li>
+        <li>• <b>Technological Skills:</b> Software Web Application Development, Data Analytics, Agile, SDLC, GitHub, Jenkins, SpringBoot, DevOps, AWS</li>
         <li>• <b>Python Packages:</b> NumPy, Pandas, SciPy, OpenCV, Scikit-Learn, Keras, TensorFlow, Matplotlib, Seaborn</li>
         <li>• <b>ML Techniques:</b> Classification, PCA, ETL, Sentiment Analysis, Time-Series, Cluster Analysis, Regression, DevOps</li>
         <li>• <b>Databases:</b> MS SQL Server, MongoDB, Google BigQuery, Google Firebase</li>
         <li>• <b>Data Visualization:</b> Tableau, Power BI, R, Google Data Studio, IBM Cognos Analytics, ggplot2</li>
         <li>
-          <div class="custom-btn-group mt-4">
-            • 
-            <button class="btn mr-lg-2 custom-btn">Certifications</button>
-          </div>
+          <button class="btn mr-lg-2 custom-btn">Certifications</button>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section class="contact" id="contact">
-    <div class="container text-center">
-      <h2 class="section-title animated fadeIn">Interested in Working Together? Let's Communicate</h2>
+  <section class="project py-5" id="project">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 text-center mx-auto col-12">
+          <div class="col-lg-8 mx-auto">
+            <h2>Life Highlights</h2>
+          </div>
+          <div class="owl-carousel owl-theme">
+            <div class="item">
+              <div class="project-info">
+                <img src="https://i.pinimg.com/originals/c7/a6/7b/c7a67b3038541070c9652fbba12d9f96.jpg" class="img-fluid" alt="project image">
+              </div>
+            </div>
+            <div class="item">
+              <div class="project-info">
+                <img src="https://i.pinimg.com/originals/1a/15/16/1a1516e35479dcebd7afc5d1d2b5fd7e.jpg" class="img-fluid" alt="project image">
+              </div>
+            </div>
+            <div class="item">
+              <div class="project-info">
+                <img src="images/project/project-image02.png" class="img-fluid" alt="project image">
+              </div>
+            </div>
+            <div class="item">
+              <div class="project-info">
+                <img src="https://i.pinimg.com/originals/65/25/bc/6525bc791a4734520a351eb6cdde72a5.jpg" class="img-fluid" alt="project image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact py-5" id="contact">
+    <div class="container">
       <div class="row">
         <div class="col-lg-5 mr-lg-5 col-12">
           <div class="google-map w-100">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.558402180099!2d-73.99373482142036!3d40.75895421922642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855b8fb3083%3A0xa0f9aef176042a5c!2sTheater+District%2C+New+York%2C+NY%2C+USA!5e0!3m2!1sen!2smm!4v1549875377188" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
-
           <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
             <div class="contact-info-item">
-              <h3 class="mb-3">Come here and say Hello!</h3>
-              <p>Open your Email from here to send email to work mail!</p>
-              <a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a>
+              <h3 class="mb-3 text-white">Come here and say Hello!</h3>
+              <p>Open your Email from here to send email to work mail!<br><a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a></p>
             </div>
-            <ul class="social-links list-inline">
-              <li class="list-inline-item"><a href="https://linktr.ee/vipulharihar" class="uil uil-dribbble" data-toggle="tooltip" data-placement="left" title="LinkTree"></a></li>
-              <li class="list-inline-item"><a href="https://www.instagram.com/vipulruless/?hl=en" class="uil uil-instagram" data-toggle="tooltip" data-placement="left" title="Instagram"></a></li>
-              <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCYqM-AlwKVrfotOYmoGgdPQ" class="uil uil-youtube" data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
+            <ul class="social-links">
+              <li><a href="https://linktr.ee/vipulharihar" class="uil uil-dribbble" data-toggle="tooltip" data-placement="left" title="LinkTree"></a></li>
+              <li><a href="https://www.instagram.com/vipulruless/?hl=en" class="uil uil-instagram" data-toggle="tooltip" data-placement="left" title="Instagram"></a></li>
+              <li><a href="https://www.youtube.com/channel/UCYqM-AlwKVrfotOYmoGgdPQ" class="uil uil-youtube" data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
             </ul>
           </div>
         </div>
-
         <div class="col-lg-6 col-12">
+          <h2 class="mb-4">Interested in Working Together? Let's Communicate</h2>
           <div class="contact-form">
             <form action="mailto:vhh2105@columbia.edu" method="POST" enctype="text/plain">
               <div class="row">
@@ -353,10 +385,12 @@
                 </div>
                 <div class="col-12">
                   <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
-                </div>
-                <div class="col-12 mt-4">
-                  <button class="form-control submit-btn">Click Here to Submit</button>
-                  <p class="mt-4">You'll be redirected to your default email vendor.</p>
+                  <div class="col-12 mt-4">
+                    <button class="form-control submit-btn" style="background-color: #FFD700; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
+                      Click Here to Submit
+                    </button>
+                    <p class="mt-4">You'll be redirected to your default email vendor.</p>
+                  </div>
                 </div>
               </div>
             </form>
@@ -366,10 +400,9 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer text-center">
+  <footer class="footer py-5">
     <div class="container">
-      <p class="copyright-text">Created by Vipul | <a href="https://www.linkedin.com/in/vipulhharihar/">Connect on LinkedIn</a></p>
+      <p class="copyright-text text-center">Created by Vipul | <a href="https://www.linkedin.com/in/vipulhharihar/">Connect on LinkedIn</a></p>
     </div>
   </footer>
 
@@ -380,30 +413,11 @@
   <script src="js/jQuery.headroom.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/smoothscroll.js"></script>
+  <script src="js/wow.min.js"></script>
   <script src="js/custom.js"></script>
 
   <script>
-    $(document).ready(function () {
-      $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        dots: true,
-        items: 1,
-        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 2
-          },
-          1000: {
-            items: 3
-          }
-        }
-      });
-    });
+    new WOW().init();
   </script>
 </body>
 
