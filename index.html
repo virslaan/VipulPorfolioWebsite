@@ -15,221 +15,250 @@
   <link rel="stylesheet" href="css/vipul-style.css">
 
   <title>Vipul H Harihar</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-        }
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333333;
+    }
 
-        .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100px;
-            background-color: #1a1a1a;
-            position: relative;
-        }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        .navbar-brand {
-            font-size: 1.5em;
-            color: #ffffff;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+    .navbar-brand {
+      font-size: 1.5em;
+      color: #333333;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
 
-        .navbar-brand:hover {
-            color: #ff5722;
-        }
+    .navbar-brand:hover {
+      color: #ff5722;
+    }
 
-        .navbar-toggler {
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
+    .navbar-toggler {
+      background: none;
+      border: none;
+      color: #333333;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
 
-        .navbar-nav {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
+    .navbar-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
 
-        .nav-item {
-            margin: 0 15px;
-        }
+    .nav-item {
+      margin: 0 15px;
+    }
 
-        .nav-link {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.2em;
-            position: relative;
-            transition: color 0.3s;
-        }
+    .nav-link {
+      color: #333333;
+      text-decoration: none;
+      font-size: 1.2em;
+      position: relative;
+      transition: color 0.3s;
+    }
 
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            width: 0%;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background-color: #ff5722;
-            transition: all 0.3s ease-in-out;
-        }
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background-color: #ff5722;
+      transition: all 0.3s ease-in-out;
+    }
 
-        .nav-link:hover::before {
-            width: 100%;
-            left: 0;
-        }
+    .nav-link:hover::before {
+      width: 100%;
+      left: 0;
+    }
 
-        .nav-link:hover {
-            color: #ff5722;
-        }
+    .nav-link:hover {
+      color: #ff5722;
+    }
 
-        .navbar {
-            position: relative;
-            z-index: 1000;
-        }
+    .about {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+    }
 
-        .navbar .container {
-            display: flex;
-            align-items: center;
-        }
+    .about-text {
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeIn 2s ease-in-out;
+    }
 
-        .navbar-nav::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #ff5722 0%, #1a1a1a 60%);
-            z-index: -1;
-            animation: rotate 6s linear infinite;
-        }
+    .animated-text {
+      font-size: 2em;
+      margin-top: 0.5em;
+      color: #ff5722;
+    }
 
-        .navbar-toggler-icon {
-            background: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%2888, 88, 88, 0.7%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E') center/contain no-repeat;
-        }
+    .animated-info {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: scrollText 10s linear infinite;
+    }
 
-        @keyframes rotate {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
+    .animated-item {
+      display: inline-block;
+      margin: 0 15px;
+    }
 
-        .about {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
+    @keyframes scrollText {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
 
-        .about-text {
-            max-width: 600px;
-            margin: 0 auto;
-            animation: fadeIn 2s ease-in-out;
-        }
+    .custom-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      color: #ffffff;
+      background-color: #ff5722;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 10px;
+      transition: background-color 0.3s;
+    }
 
-        .animated-text {
-            font-size: 2em;
-            margin-top: 0.5em;
-        }
+    .custom-btn:hover {
+      background-color: #e64a19;
+    }
 
-        .animated-info {
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: scrollText 10s linear infinite;
-        }
+    .project {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
 
-        .animated-item {
-            display: inline-block;
-            margin: 0 15px;
-        }
+    .project-info {
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        @keyframes scrollText {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
+    .resume {
+      padding: 60px 0;
+      background-color: #ffffff;
+    }
 
-        .custom-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            color: #ffffff;
-            background-color: #ff5722;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 10px;
-            transition: background-color 0.3s;
-        }
+    .current-work,
+    .timeline-wrapper,
+    .timeline {
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        .custom-btn:hover {
-            background-color: #e64a19;
-        }
+    .contact {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
 
-    </style>
+    .contact-info {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .contact-form {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    footer {
+      background-color: #333333;
+      color: #ffffff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ff5722;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+  </style>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Vipul's Portfolio</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#project" class="nav-link">Projects</a></li>
-                    <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
-                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                    <li class="nav-item"><a href="https://www.linkedin.com/in/vipulhharihar/" class="nav-link">LinkedIn</a></li>
-                    <li class="nav-item"><a href="https://github.com/virslaan" class="nav-link">GitHub</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
-        <div class="container">
-            <div class="about-text">
-                <h1>Together, Let's Develop and Grow</h1>
-                <h1 class="animated-text">
-                    <span>Welcome! I am </span>
-                    <div class="animated-info">
-                        <span class="animated-item">Vipul H Harihar,</span>
-                        <span class="animated-item">A Software Engineer,</span>
-                        <span class="animated-item">A Data Scientist.</span>
-                    </div>
-                </h1>
-                <p>
-                    As a Software Engineer, I bring forth a broad spectrum of technical prowess and a flair for innovation to each project.<br>
-                    My expertise in various programming languages and platforms enables me to create scalable, high-performance software solutions that go beyond client expectations.
-                </p>
-                <a href="https://github.com/virslaan/VipulResume/raw/main/Vipul_H_Harihar_Resume.pdf" class="custom-btn">Download Resume</a>
-                <a href="https://linktr.ee/vipulharihar" class="custom-btn">Social Links</a>
-            </div>
-        </div>
-    </section>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Vipul's Portfolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#project" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="https://www.linkedin.com/in/vipulhharihar/" class="nav-link">LinkedIn</a></li>
+          <li class="nav-item"><a href="https://github.com/virslaan" class="nav-link">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
+    <div class="container">
+      <div class="about-text">
+        <h1>Together, Let's Develop and Grow</h1>
+        <h1 class="animated-text">
+          <span>Welcome! I am </span>
+          <div class="animated-info">
+            <span class="animated-item">Vipul H Harihar,</span>
+            <span class="animated-item">A Software Engineer,</span>
+            <span class="animated-item">A Data Scientist.</span>
+          </div>
+        </h1>
+        <p>
+          As a Software Engineer, I bring forth a broad spectrum of technical prowess and a flair for innovation to each project.<br>
+          My expertise in various programming languages and platforms enables me to create scalable, high-performance software solutions that go beyond client expectations.
+        </p>
+        <a href="https://github.com/virslaan/VipulResume/raw/main/Vipul_H_Harihar_Resume.pdf" class="custom-btn">Download Resume</a>
+        <a href="https://linktr.ee/vipulharihar" class="custom-btn">Social Links</a>
+      </div>
+    </div>
+  </section>
 
   <section class="project py-5" id="project">
     <div class="container">
@@ -428,7 +457,7 @@
           </div>
           <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
             <div class="contact-info-item">
-              <h3 class="mb-3 text-white">Come here and say Hello!</h3>
+              <h3 class="mb-3 text-dark">Come here and say Hello!</h3>
               <p>Open your Email from here to send email to work mail!<br><a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a></p>
             </div>
             <ul class="social-links">
@@ -452,7 +481,7 @@
                 <div class="col-12">
                   <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
                   <div class="col-12 mt-4">
-                    <button class="form-control submit-btn" style="background-color: #FFD700; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
+                    <button class="form-control submit-btn" style="background-color: #ff5722; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
                       Click Here to Submit
                     </button>
                     <p class="mt-4">You'll be redirected to your default email vendor.</p>
