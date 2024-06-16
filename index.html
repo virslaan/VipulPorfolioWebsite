@@ -27,19 +27,16 @@
 
     /* Navbar Styling */
     .navbar {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: transparent;
       position: fixed;
-      top: 0;
-      width: 100%;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 60px;
       z-index: 1000;
-    }
-
-    .navbar-nav {
-      flex-direction: row;
-    }
-
-    .nav-item {
-      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .navbar-brand,
@@ -47,6 +44,7 @@
       color: #ffffff !important;
       text-align: center;
       transition: font-size 0.3s ease;
+      margin-bottom: 10px;
     }
 
     .nav-link.active {
@@ -55,7 +53,7 @@
 
     .navbar-brand {
       font-size: 1.2em;
-      margin-right: auto;
+      margin-bottom: 20px;
     }
 
     /* Section Styling */
@@ -141,7 +139,7 @@
     /* Panels */
     .panel {
       padding: 20px;
-      border: 2px solid #ff6699;
+      border: 2px solid #ffffff;
       border-radius: 15px;
       margin: 10px 0;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -150,22 +148,6 @@
     .panel:hover {
       transform: translateY(-10px);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Top Links Section */
-    .top-links {
-      background-color: rgba(255, 255, 255, 0.2);
-      padding: 20px;
-      border-radius: 15px;
-      margin-top: 30px;
-    }
-
-    .top-links h3 {
-      color: #ff6699;
-    }
-
-    .top-links a {
-      color: #ff99aa;
     }
   </style>
 
@@ -212,11 +194,8 @@
 
   <nav class="navbar navbar-expand-sm navbar-light">
     <a class="navbar-brand" href="#vipul_about">Vipul</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#vipul_navbarNav" aria-controls="vipul_navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="vipul_navbarNav">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav">
         <li class="nav-item">
           <a href="#vipul_about" class="nav-link">About</a>
         </li>
@@ -267,7 +246,7 @@
         </div>
         <div class="col-lg-5 col-md-12 col-12">
           <div class="about-image svg">
-            <img src="https://avatars.githubusercontent.com/u/40139279?v=4" class="img-fluid" alt="Vipul H Harihar" style="border-radius: 50%">
+            <img src="https://avatars.githubusercontent.com/u/40139279?v=4" class="img-fluid" alt="Vipul H Harihar" style="border-radius: 10%">
           </div>
         </div>
       </div>
@@ -418,6 +397,7 @@
           <li> <b>Data Visualization:</b> Tableau, Power BI, R, Google Data Studio, IBM Cognos Analytics, ggplot2</li>
           <li>
             <div class="custom-btn-group mt-4">
+              
               <button class="btn mr-lg-2 custom-btn" style="background-color: #000000; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
                 Certifications
               </button>
@@ -425,22 +405,6 @@
           </li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- TOP LINKS -->
-  <section class="section top-links" id="top_links">
-    <div class="container">
-      <h3>Top Links</h3>
-      <div class="panel">
-        <h4>Google Link 1</h4>
-        <a href="#">Link to Google Result 1</a>
-      </div>
-      <div class="panel">
-        <h4>Google Link 2</h4>
-        <a href="#">Link to Google Result 2</a>
-      </div>
-     
     </div>
   </section>
 
