@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
             color: #ffffff;
             overflow-x: hidden;
         }
-        #netflix-intro {
+        #intro {
             position: fixed;
             width: 100%;
             height: 100%;
@@ -28,18 +28,18 @@
             z-index: 10;
             animation: fadeOut 3s forwards 3s;
         }
-        #netflix-intro::before, #netflix-intro::after {
+        #intro::before, #intro::after {
             content: '';
             position: absolute;
-            width: 10px;
+            width: 6px;
             height: 100px;
             background: white;
             animation: strike 1s ease-in-out infinite;
         }
-        #netflix-intro::before {
+        #intro::before {
             transform: rotate(45deg);
         }
-        #netflix-intro::after {
+        #intro::after {
             transform: rotate(-45deg);
         }
         @keyframes fadeOut {
@@ -83,7 +83,8 @@
         }
         ul {
             list-style-type: disc;
-            padding-left: 20px;
+            padding-left: 40px;
+            margin-bottom: 20px;
         }
         /* About Section */
         #about .owl-stage-outer {
@@ -137,7 +138,7 @@
     </style>
 </head>
 <body>
-    <div id="netflix-intro" class="animate__animated animate__fadeOut">V</div>
+    <div id="intro" class="animate__animated animate__fadeOut">V</div>
     
     <nav id="navbar">
         <button onclick="scrollToSection('about')" class="active">Welcome</button>
@@ -219,25 +220,6 @@
                 <li>Coded robust application using Angular, Spring, & NodeJS, achieving a 24.87% faster performance compared to legacy platform</li>
                 <li>Developed Java Angular dashboard, resulting in 12% quicker data access and a 18% uptick in user satisfaction over past interface</li>
             </ul>
-            <p>INDUSTRIAL INTERNSHIPS</p>
-            <p>NYC Department of Design and Construction, New York, NY</p>
-            <p>Data Science Research Fellow - Capstone Project Lead, Sep 2022 - Dec 2022</p>
-            <ul>
-                <li>Utilized 15 GB data to design 3 statistical models to predict carbon emissions for repurposing 70,800 wind turbine blades</li>
-                <li>Demonstrated proficiency in DevOps by deploying app on cloud at zero setup cost within an 8-day timeframe</li>
-            </ul>
-            <p>Indian Roads Safety Campaign: Solve, MRTH- Government of India, Dehradun, IN</p>
-            <p>Software Engineer Intern, Jul 2020 - Dec 2020</p>
-            <ul>
-                <li>Empowered safety of over 16,000 commuters by devising Spring(Angular) road safety application a non-profit organization</li>
-                <li>Guided a team of 4 during Covid in developing real-time data-driven models to identify 17 accident-prone areas in the city</li>
-            </ul>
-            <p>Oil and Natural Gas Corporation Limited (ONGC), Dehradun, IN</p>
-            <p>Big Data Engineer Intern, May 2019 - Jun 2019</p>
-            <ul>
-                <li>Executed 10 GB data scraping from 5 news websites using Python libraries and conducted big data processing on Java and Hadoop</li>
-                <li>Built 5 data pipelines in Java and React to assist 8 membered team to publish online-posts based on insights every week</li>
-            </ul>
         </section>
         
         <section id="contact" class="section animate__animated animate__fadeIn">
@@ -302,5 +284,4 @@
     </script>
 </body>
 </html>
-
 
