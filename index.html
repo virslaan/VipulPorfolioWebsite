@@ -37,6 +37,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin: 10%;
     }
 
     .navbar-brand,
@@ -44,6 +45,8 @@
       color: #ffffff !important;
       text-align: center;
       transition: font-size 0.3s ease;
+      display: block;
+      margin-bottom: 20px;
     }
 
     .nav-link.active {
@@ -58,22 +61,23 @@
     /* Section Styling */
     .section {
       padding: 50px 20px;
-      margin: 0 80px;
+      margin: 0 10%;
       border-radius: 15px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: #ffffff;
+      color: #333;
     }
 
     .section h2 {
       text-align: center;
       margin-bottom: 30px;
-      color: #ff6699;
+      color: #333;
     }
 
     .section p,
     .section li {
       font-size: 1.2rem;
-      color: #ffffff;
+      color: #333;
     }
 
     /* Footer Styling */
@@ -85,7 +89,7 @@
     }
 
     .footer a {
-      color: #ff6699;
+      color: #ffffff;
     }
 
     /* Intro Animation */
@@ -106,14 +110,12 @@
       font-size: 4rem;
       margin: 0;
       animation: fadeInUp 1s ease-in-out forwards;
-      color: #ff6699;
     }
 
     .intro p {
       margin: 0;
       font-size: 1.5rem;
       animation: fadeInUp 2s ease-in-out forwards;
-      color: #ff99aa;
     }
 
     @keyframes fadeInUp {
@@ -138,7 +140,7 @@
     /* Panels */
     .panel {
       padding: 20px;
-      border: 2px solid #ff6699;
+      border: 2px solid #333;
       border-radius: 15px;
       margin: 10px 0;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -148,35 +150,6 @@
       transform: translateY(-10px);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-
-    /* Typing Animation */
-    .typing-animation {
-      font-size: 1.5rem;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid #ff6699;
-      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
-    }
-
-    @keyframes blink {
-      from,
-      to {
-        border-color: transparent;
-      }
-      50% {
-        border-color: #ff6699;
-      }
-    }
-
   </style>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -184,6 +157,10 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
   <script>
+    const GOOGLE_API_KEY = 'YOUR_GOOGLE_API_KEY';
+    const SEARCH_ENGINE_ID = 'YOUR_SEARCH_ENGINE_ID';
+    const BING_API_KEY = 'YOUR_BING_API_KEY';
+
     $(document).ready(function () {
       $(".owl-carousel").owlCarousel({
         items: 1,
@@ -208,46 +185,39 @@
         });
       });
 
-      // Fetch top 3 links from Google and Bing
+      // Fetch links from Google and Bing
       fetchLinks();
     });
 
     function fetchLinks() {
-      const googleSearchUrl = 'https://www.googleapis.com/customsearch/v1?key=YOUR_GOOGLE_API_KEY&cx=YOUR_SEARCH_ENGINE_ID&q=Vipul+H+Harihar';
-      const bingSearchUrl = 'https://api.bing.microsoft.com/v7.0/search?q=Vipul+H+Harihar&count=3&offset=0&mkt=en-us&safesearch=Moderate';
+      const query = 'Vipul H Harihar';
+      const googleUrl = `https://www.googleapis.com/customsearch/v1?key=${GOOGLE_API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${query}`;
+      const bingUrl = `https://api.bing.microsoft.com/v7.0/search?q=${query}`;
 
-      $.when(
-        $.getJSON(googleSearchUrl),
-        $.getJSON(bingSearchUrl, {
-          headers: { 'Ocp-Apim-Subscription-Key': 'YOUR_BING_API_KEY' }
-        })
-      ).then(function (googleResponse, bingResponse) {
-        displayLinks(googleResponse[0].items, bingResponse[0].webPages.value);
+      $.get(googleUrl, function (data) {
+        displayLinks(data.items, '#vipul_google_links');
+      });
+
+      $.ajax({
+        url: bingUrl,
+        headers: { 'Ocp-Apim-Subscription-Key': BING_API_KEY },
+        success: function (data) {
+          displayLinks(data.webPages.value, '#vipul_bing_links');
+        }
       });
     }
 
-    function displayLinks(googleLinks, bingLinks) {
-      let htmlContent = '';
-
-      googleLinks.forEach(link => {
-        htmlContent += `
+    function displayLinks(links, container) {
+      const containerElement = $(container);
+      containerElement.empty();
+      links.slice(0, 3).forEach(link => {
+        containerElement.append(`
           <div class="panel">
-            <a href="${link.link}" target="_blank">${link.title}</a>
+            <a href="${link.link || link.url}" target="_blank">${link.title}</a>
             <p>${link.snippet}</p>
           </div>
-        `;
+        `);
       });
-
-      bingLinks.forEach(link => {
-        htmlContent += `
-          <div class="panel">
-            <a href="${link.url}" target="_blank">${link.name}</a>
-            <p>${link.snippet}</p>
-          </div>
-        `;
-      });
-
-      $('#vipul_links').html(htmlContent);
     }
   </script>
 </head>
@@ -314,7 +284,7 @@
         </div>
         <div class="col-lg-5 col-md-12 col-12">
           <div class="about-image svg">
-            <img src="https://avatars.githubusercontent.com/u/40139279?v=4" class="img-fluid" alt="Vipul H Harihar" style="border-radius: 50%">
+            <img src="https://avatars.githubusercontent.com/u/40139279?v=4" class="img-fluid" alt="Vipul H Harihar" style="border-radius: 10%">
           </div>
         </div>
       </div>
@@ -465,7 +435,6 @@
           <li> <b>Data Visualization:</b> Tableau, Power BI, R, Google Data Studio, IBM Cognos Analytics, ggplot2</li>
           <li>
             <div class="custom-btn-group mt-4">
-              
               <button class="btn mr-lg-2 custom-btn" style="background-color: #000000; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
                 Certifications
               </button>
@@ -479,10 +448,9 @@
   <!-- LINKS -->
   <section class="section" id="vipul_links">
     <div class="container">
-      <h2>Top Links for Vipul H Harihar</h2>
-      <div id="vipul_links_content" class="panel">
-        <p>Loading...</p>
-      </div>
+      <h2>Top Links</h2>
+      <div id="vipul_google_links"></div>
+      <div id="vipul_bing_links"></div>
     </div>
   </section>
 
@@ -499,3 +467,4 @@
 </body>
 
 </html>
+
