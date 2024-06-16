@@ -149,6 +149,34 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
+    /* Typing Animation */
+    .typing-animation {
+      font-size: 1.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #ff6699;
+      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      from,
+      to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: #ff6699;
+      }
+    }
+
   </style>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -179,9 +207,49 @@
           }
         });
       });
-    });
-  </script>
 
+      // Fetch top 3 links from Google and Bing
+      fetchLinks();
+    });
+
+    function fetchLinks() {
+      const googleSearchUrl = 'https://www.googleapis.com/customsearch/v1?key=YOUR_GOOGLE_API_KEY&cx=YOUR_SEARCH_ENGINE_ID&q=Vipul+H+Harihar';
+      const bingSearchUrl = 'https://api.bing.microsoft.com/v7.0/search?q=Vipul+H+Harihar&count=3&offset=0&mkt=en-us&safesearch=Moderate';
+
+      $.when(
+        $.getJSON(googleSearchUrl),
+        $.getJSON(bingSearchUrl, {
+          headers: { 'Ocp-Apim-Subscription-Key': 'YOUR_BING_API_KEY' }
+        })
+      ).then(function (googleResponse, bingResponse) {
+        displayLinks(googleResponse[0].items, bingResponse[0].webPages.value);
+      });
+    }
+
+    function displayLinks(googleLinks, bingLinks) {
+      let htmlContent = '';
+
+      googleLinks.forEach(link => {
+        htmlContent += `
+          <div class="panel">
+            <a href="${link.link}" target="_blank">${link.title}</a>
+            <p>${link.snippet}</p>
+          </div>
+        `;
+      });
+
+      bingLinks.forEach(link => {
+        htmlContent += `
+          <div class="panel">
+            <a href="${link.url}" target="_blank">${link.name}</a>
+            <p>${link.snippet}</p>
+          </div>
+        `;
+      });
+
+      $('#vipul_links').html(htmlContent);
+    }
+  </script>
 </head>
 
 <body>
@@ -209,7 +277,7 @@
           <a href="#vipul_skills" class="nav-link">Skills</a>
         </li>
         <li class="nav-item">
-          <a href="#vipul_contact" class="nav-link">Contact</a>
+          <a href="#vipul_links" class="nav-link">Links</a>
         </li>
         <li class="nav-item">
           <a href="https://www.linkedin.com/in/vipulhharihar/" class="nav-link">LinkedIn</a>
@@ -408,56 +476,12 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="section" id="vipul_contact">
+  <!-- LINKS -->
+  <section class="section" id="vipul_links">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-5 mr-lg-5 col-12">
-          <div class="google-map w-100">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.558402180099!2d-73.99373482142036!3d40.75895421922642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855b8fb3083%3A0xa0f9aef176042a5c!2sTheater+District%2C+New+York%2C+NY%2C+USA!5e0!3m2!1sen!2smm!4v1549875377188"
-              width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-          </div>
-          <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
-            <div class="contact-info-item">
-              <h3 class="mb-3 text-dark">Come here and say Hello!</h3>
-              <p>Open your Email from here to send email to work mail!<br>
-                <a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a></p>
-            </div>
-            <ul class="social-links">
-              <li><a href="https://linktr.ee/vipulharihar" class="uil uil-dribbble" data-toggle="tooltip"
-                  data-placement="left" title="LinkTree"></a></li>
-              <li><a href="https://www.instagram.com/vipulruless/?hl=en" class="uil uil-instagram"
-                  data-toggle="tooltip" data-placement="left" title="Instagram"></a></li>
-              <li><a href="https://www.youtube.com/channel/UCYqM-AlwKVrfotOYmoGgdPQ" class="uil uil-youtube"
-                  data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 col-12">
-          <h2 class="mb-4">Interested in Working Together? Let's Communicate</h2>
-          <div class="contact-form">
-            <form action="mailto:vhh2105@columbia.edu" method="POST" enctype="text/plain">
-              <div class="row">
-                <div class="col-lg-6 col-12">
-                  <input type="text" class="form-control" name="name" placeholder="Your Name" id="vipul_name">
-                </div>
-                <div class="col-lg-6 col-12">
-                  <input type="email" class="form-control" name="email" placeholder="Email" id="vipul_email">
-                </div>
-                <div class="col-12">
-                  <textarea name="message" rows="6" class="form-control" id="vipul_message" placeholder="Message"></textarea>
-                  <div class="col-12 mt-4">
-                    <button class="form-control submit-btn" style="background-color: #000000; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
-                      Click Here to Submit
-                    </button>
-                    <p class="mt-4">You'll be redirected to your default email vendor.</p>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+      <h2>Top Links for Vipul H Harihar</h2>
+      <div id="vipul_links_content" class="panel">
+        <p>Loading...</p>
       </div>
     </div>
   </section>
