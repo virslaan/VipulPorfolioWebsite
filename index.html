@@ -81,9 +81,13 @@
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.8);
             padding: 10px;
             border-radius: 10px 0 0 10px;
+            transition: background 0.3s;
+        }
+        nav:hover {
+            background: rgba(0, 0, 0, 0.9);
         }
         nav a {
             color: white;
@@ -91,10 +95,13 @@
             display: block;
             margin: 10px 0;
             font-size: 1.2rem;
-            transition: color 0.3s;
+            transition: color 0.3s, background 0.3s;
         }
         nav a.active, nav a:hover {
             color: #f39c12;
+            background: rgba(243, 156, 18, 0.2);
+            padding: 5px 10px;
+            border-radius: 5px;
         }
     </style>
 </head>
