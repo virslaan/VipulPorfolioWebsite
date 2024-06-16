@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vipul's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
         /* Global Styles */
         body, html {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background: #121212;
             color: #ffffff;
+            overflow-x: hidden;
         }
         #netflix-intro {
             position: fixed;
@@ -52,6 +54,9 @@
             text-align: center;
             margin-bottom: 20px;
         }
+        p, li {
+            font-size: 1.2rem;
+        }
         /* About Section */
         #about .owl-stage-outer {
             overflow: hidden;
@@ -73,29 +78,31 @@
         /* Navigation */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: #000;
-            padding: 10px 0;
-            text-align: center;
-            z-index: 100;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px 0 0 10px;
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            display: block;
+            margin: 10px 0;
             font-size: 1.2rem;
+            transition: color 0.3s;
         }
-        nav a:hover {
+        nav a.active, nav a:hover {
             color: #f39c12;
         }
     </style>
 </head>
 <body>
-    <div id="netflix-intro">V</div>
+    <div id="netflix-intro" class="animate__animated animate__fadeOut">V</div>
     
-    <nav>
-        <a href="#about">About</a>
+    <nav id="navbar">
+        <a href="#about" class="active">Welcome</a>
         <a href="#time-machine">Time Machine</a>
         <a href="#education">Education</a>
         <a href="#professional-experience">Professional Experience</a>
@@ -103,8 +110,9 @@
     </nav>
 
     <div id="content">
-        <section id="about" class="section">
-            <h1>About</h1>
+        <section id="about" class="section animate__animated animate__fadeIn">
+            <h1>Welcome to Vipul H Harihar's Portfolio Site</h1>
+            <p>Driven by a growth mindset, I excel in Full Stack development, AI, machine learning, and cloud technologies. Committed to ethical coding, I build innovative solutions for a sustainable, intelligent future.</p>
             <div class="owl-stage-outer">
                 <div class="owl-stage">
                     <div class="owl-item">
@@ -126,38 +134,78 @@
             </div>
         </section>
         
-        <section id="time-machine" class="section">
+        <section id="time-machine" class="section animate__animated animate__fadeIn">
             <h1>Time Machine</h1>
             <p>All academic and professional history.</p>
         </section>
         
-        <section id="education" class="section">
+        <section id="education" class="section animate__animated animate__fadeIn">
             <h1>Education</h1>
             <p>Columbia University, New York, NY</p>
-            <p>Master of Science in Data Science, Dec 2022</p>
+            <p>Master of Science in Data Science, GPA: 3.6, Dec 2022</p>
+            <ul>
+                <li>Applied Machine Learning, Deep Learning, Computer Systems, Advanced DBMS, Advanced Data Structures and Algorithms Analytics</li>
+                <li>Department Representative, PDL Fellow, Best Data Science CA Award 2022 & 2023, Columbia Golden Graduate Marshal 2023</li>
+            </ul>
             <p>DIT University, Dehradun, IN</p>
-            <p>Bachelor of Technology in Computer Science & Engineering, GPA: May 2020</p>
+            <p>Bachelor of Technology in Computer Science & Engineering, GPA: 9.62, May 2020</p>
+            <ul>
+                <li>Software Engineering, Artificial Intelligence, Discrete Mathematics, Data Science, Object Oriented Programming, Engineering Economics</li>
+                <li>Computer Science Gold Medal & University Bronze Medal Recipient, Academic Excellence Scholarship every year</li>
+            </ul>
         </section>
         
-        <section id="professional-experience" class="section">
+        <section id="professional-experience" class="section animate__animated animate__fadeIn">
             <h1>Professional Experience</h1>
             <p>GenTrust Wealth and Assets Management Company, New York, NY</p>
-            <p>Lead Software Engineer, Aug 2022 - Present</p>
+            <p>Senior Software Engineer (Lead), Aug 2022 - Present</p>
+            <ul>
+                <li>Guided 4 membered team in revamping investment platform infrastructure on AWS, emphasizing automation for 400+ clients</li>
+                <li>Revamped client intake system, automating 24 data pipelines to streamline portfolio management for 20+ advisors and all clients</li>
+                <li>Designed 3 in-house ML models to swiftly aid 17 advisors in enhancing their client management & responsiveness</li>
+                <li>Developed Tax Optimizer algo yielding enhanced strategic asset management and insightful gains for 400+ portfolio benchmarks</li>
+                <li>Crafted Tax Loss Harvesting system, refining firm-wide tax strategy and saving the firm more than $2M in potential tax liabilities</li>
+            </ul>
             <p>NewYork-Presbyterian - Children's Hospital, Columbia Medical Center, New York, NY</p>
             <p>Research Assistant and Engineer, May 2022 - Dec 2022</p>
+            <ul>
+                <li>Led 2 software development initiatives, mentoring fellow 2 research assistants in web application-specific coding, and debugging</li>
+                <li>Engineered medical passport system for 79 cardiac patients, leveraging encryption to ensure data confidentiality on local storage</li>
+                <li>Data engineered 2 data pipelines that enhanced client-side analysis speed and accuracy without storing data on any server</li>
+            </ul>
             <p>IBM (International Business Machines Corporation), Bangalore, IN</p>
             <p>Java Full Stack Application Developer, Feb 2020 - Aug 2021</p>
+            <ul>
+                <li>Managed a team of 5 members, migrating client’s Pre-Accounting Module to RedHat, realizing a 33% app-hosting cost reduction</li>
+                <li>Collaborated with IBM Sweden using Java to optimize 8 CI/CD flows, removing 5K+ redundancies & reducing time by 2 hours</li>
+                <li>Coded robust application using Angular, Spring, & NodeJS, achieving a 24.87% faster performance compared to legacy platform</li>
+                <li>Developed Java Angular dashboard, resulting in 12% quicker data access and a 18% uptick in user satisfaction over past interface</li>
+            </ul>
+            <p>INDUSTRIAL INTERNSHIPS</p>
             <p>NYC Department of Design and Construction, New York, NY</p>
             <p>Data Science Research Fellow - Capstone Project Lead, Sep 2022 - Dec 2022</p>
+            <ul>
+                <li>Utilized 15 GB data to design 3 statistical models to predict carbon emissions for repurposing 70,800 wind turbine blades</li>
+                <li>Demonstrated proficiency in DevOps by deploying app on cloud at zero setup cost within an 8-day timeframe</li>
+            </ul>
             <p>Indian Roads Safety Campaign: Solve, MRTH- Government of India, Dehradun, IN</p>
             <p>Software Engineer Intern, Jul 2020 - Dec 2020</p>
+            <ul>
+                <li>Empowered safety of over 16,000 commuters by devising Spring(Angular) road safety application a non-profit organization</li>
+                <li>Guided a team of 4 during Covid in developing real-time data-driven models to identify 17 accident-prone areas in the city</li>
+            </ul>
             <p>Oil and Natural Gas Corporation Limited (ONGC), Dehradun, IN</p>
             <p>Big Data Engineer Intern, May 2019 - Jun 2019</p>
+            <ul>
+                <li>Executed 10 GB data scraping from 5 news websites using Python libraries and conducted big data processing on Java and Hadoop</li>
+                <li>Built 5 data pipelines in Java and React to assist 8 membered team to publish online-posts based on insights every week</li>
+            </ul>
         </section>
         
-        <section id="contact" class="section">
+        <section id="contact" class="section animate__animated animate__fadeIn">
             <h1>Contact</h1>
-            <p>Email: vipul@example.com</p>
+            <p>Vipul Harashawaradhana Harihar</p>
+            <p>+19172145091 - vhh2105@columbia.edu - linkedin.com/in/vipulhharihar</p>
         </section>
     </div>
 
@@ -174,6 +222,37 @@
             }
 
             setInterval(showNextItem, 3000);
+
+            // Smooth scroll and active link highlighting
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
         });
     </script>
 </body>
