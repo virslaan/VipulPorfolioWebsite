@@ -10,17 +10,15 @@
   <title>Vipul's Portfolio Website</title>
 
   <!-- MAIN STYLE -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/unicons.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/vipul-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
 
   <style>
     /* Body Styling */
     body {
-      background-color: #121212;
-      color: #ffffff;
+      background-color: #ffffff;
+      color: #333;
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
@@ -29,9 +27,9 @@
 
     /* Button Styling */
     .custom-btn {
-      background-color: #ff6600;
+      background-color: #000000;
       color: #ffffff;
-      border: 2px solid #ff6600;
+      border: 2px solid #000000;
       padding: 10px 20px;
       text-decoration: none;
       display: inline-block;
@@ -39,13 +37,13 @@
     }
 
     .custom-btn:hover {
-      background-color: #ff4500;
-      border-color: #ff4500;
+      background-color: #333333;
+      border-color: #333333;
     }
 
     /* Navbar Styling */
     .navbar {
-      background-color: #1a1a1a;
+      background-color: #000000;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
@@ -66,18 +64,18 @@
     .section h2 {
       text-align: center;
       margin-bottom: 30px;
-      color: #ffffff;
+      color: #333;
     }
 
     .section p,
     .section li {
       font-size: 1.2rem;
-      color: #cccccc;
+      color: #555;
     }
 
     /* Footer Styling */
     .footer {
-      background-color: #333;
+      background-color: #000000;
       color: white;
       padding: 20px 0;
     }
@@ -92,8 +90,8 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #1a1a1a;
-      color: #ff6600;
+      background-color: #000000;
+      color: #ffffff;
       font-size: 2rem;
       text-align: center;
       position: relative;
@@ -128,14 +126,8 @@
       width: 100%;
       display: block;
     }
-
-    .mirror {
-      transform: scaleX(-1);
-    }
   </style>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css" />
 </head>
 
 <body>
@@ -185,7 +177,7 @@
   <section class="section" id="vipul_about">
     <div class="container">
       <div class="row">
-        <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center mirror">
+        <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
           <div class="about-text">
             <h1>Welcome to Vipul's Portfolio</h1>
             <h1 class="animated animated-text">
@@ -221,7 +213,7 @@
           <div class="col-lg-8 mx-auto">
             <h2>Developed Projects</h2>
           </div>
-          <div class="owl-carousel owl-theme mirror">
+          <div class="owl-carousel owl-theme">
             <div class="item">
               <div class="project-info">
                 <iframe src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" width="100%" height="600px"></iframe>
@@ -257,7 +249,7 @@
   <section class="section" id="vipul_resume">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 col-12 mirror">
+        <div class="col-lg-6 col-12">
           <h2 class="mb-4">Currently Working As:</h2>
           <div class="current-work">
             <h3><span>Software Engineer</span> <small>(Lead)</small></h3>
@@ -357,8 +349,8 @@
           <li>• <b>Data Visualization:</b> Tableau, Power BI, R, Google Data Studio, IBM Cognos Analytics, ggplot2</li>
           <li>
             <div class="custom-btn-group mt-4">
-              • 
-              <button class="btn mr-lg-2 custom-btn" style="background-color: #ffc200; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
+              •
+              <button class="btn mr-lg-2 custom-btn" style="background-color: #000000; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
                 Certifications
               </button>
             </div>
@@ -408,7 +400,7 @@
                 <div class="col-12">
                   <textarea name="message" rows="6" class="form-control" id="vipul_message" placeholder="Message"></textarea>
                   <div class="col-12 mt-4">
-                    <button class="form-control submit-btn" style="background-color: #FFD700; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
+                    <button class="form-control submit-btn" style="background-color: #000000; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
                       Click Here to Submit
                     </button>
                     <p class="mt-4">You'll be redirected to your default email vendor.</p>
@@ -433,14 +425,21 @@
     </div>
   </footer>
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/Headroom.js"></script>
-  <script src="js/jQuery.headroom.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/smoothscroll.js"></script>
-  <script src="js/custom.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".owl-carousel").owlCarousel({
+        items: 1,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true
+      });
+    });
+  </script>
 </body>
 
 </html>
