@@ -42,13 +42,8 @@
     }
 
     /* Navbar Styling */
-    .navbar-vertical {
-      position: fixed;
-      right: 0;
-      top: 0;
-      height: 100%;
+    .navbar {
       background-color: #000000;
-      padding-top: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
@@ -132,34 +127,37 @@
       display: block;
     }
 
-    /* Panel Animations */
+    /* Panel Styling */
     .panel {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #f8f9fa;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       opacity: 0;
-      transform: translateX(-100px);
+      transform: translateX(-50px);
       animation: slideIn 0.5s forwards;
     }
 
-    .panel:nth-child(even) {
-      background-color: #001f3f;
-      color: #ff6600;
-      animation-delay: 0.5s;
-    }
-
-    .panel:nth-child(odd) {
-      background-color: #001f3f;
-      color: #ff6600;
-      animation-delay: 1s;
-    }
-
     @keyframes slideIn {
-      to {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      100% {
         opacity: 1;
         transform: translateX(0);
       }
     }
 
+    .panel:nth-child(even) {
+      animation-delay: 0.5s;
+      background-color: #e0e0e0;
+    }
+
     .panel:hover {
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
   </style>
 
@@ -173,39 +171,36 @@
     </div>
   </div>
 
-  <nav class="navbar-vertical">
+  <nav class="navbar navbar-expand-sm navbar-dark fixed-right">
     <div class="container">
       <a class="navbar-brand" href="#vipul_about">Vipul's Portfolio</a>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a href="#vipul_about" class="nav-link"><span>About</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#vipul_projects" class="nav-link"><span>Projects</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#vipul_resume" class="nav-link"><span>Resume</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#vipul_skills" class="nav-link"><span>Skills</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="#vipul_contact" class="nav-link"><span>Contact</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="https://www.linkedin.com/in/vipulhharihar/" class="nav-link"><span>LinkedIn</span></a>
-        </li>
-        <li class="nav-item">
-          <a href="https://github.com/virslaan" class="nav-link"><span>GitHub</span></a>
-        </li>
-      </ul>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#vipul_navbarNav"
+        aria-controls="vipul_navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="vipul_navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a href="#vipul_about" class="nav-link"><span>About</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#vipul_projects" class="nav-link"><span>Projects</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#vipul_resume" class="nav-link"><span>Resume</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#vipul_skills" class="nav-link"><span>Skills</span></a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 
   <!-- ABOUT -->
   <section class="section" id="vipul_about">
     <div class="container">
-      <div class="row panel">
+      <div class="row">
         <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
           <div class="about-text">
             <h1>Welcome to Vipul's Portfolio</h1>
@@ -237,7 +232,7 @@
   <!-- PROJECTS -->
   <section class="section" id="vipul_projects">
     <div class="container">
-      <div class="row panel">
+      <div class="row">
         <div class="col-lg-11 text-center mx-auto col-12">
           <div class="col-lg-8 mx-auto">
             <h2>Developed Projects</h2>
@@ -277,10 +272,10 @@
   <!-- RESUME -->
   <section class="section" id="vipul_resume">
     <div class="container">
-      <div class="row panel">
+      <div class="row">
         <div class="col-lg-6 col-12">
           <h2 class="mb-4">Currently Working As:</h2>
-          <div class="current-work">
+          <div class="panel current-work">
             <h3><span>Software Engineer</span> <small>(Lead)</small></h3>
             <div class="current-work-details">
               <h6><br>February, 2023 - Present</h6>
@@ -295,7 +290,7 @@
         </div>
         <div class="col-lg-6 col-12">
           <h2 class="mb-4 mobile-mt-2">Professional Experiences</h2>
-          <div class="timeline">
+          <div class="panel timeline">
             <div class="timeline-wrapper">
               <div class="timeline-yr">
                 <span>2021-22</span>
@@ -361,50 +356,31 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Academic Timeline -->
-      <div class="row panel">
+  <!-- EDUCATION -->
+  <section class="section" id="vipul_education">
+    <div class="container">
+      <div class="row">
         <div class="col-lg-6 col-12">
-          <h2 class="mb-4">Academic Timeline</h2>
-          <div class="timeline">
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span>2021-22</span>
-              </div>
-              <div class="timeline-info">
-                <h3><span>Data Science</span> <small>Masters Degree</small></h3>
-                <p><b>Columbia University, New York, NY</b><br>
-                  • GPA: 3.6<br>
-                  • Applied Machine Learning, Deep Learning, Computer Systems, Advanced DBMS, Advanced Data Structures and Algorithms Analytics<br>
-                  • Department Representative, PDL Fellow, Best Data Science CA Award 2022 & 2023, Columbia Golden Graduate Marshal 2023
-                </p>
-              </div>
-            </div>
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span>2016-20</span>
-              </div>
-              <div class="timeline-info">
-                <h3><span>Computer Science and Engineering</span> <small>Bachelors Degree</small></h3>
-                <p><b>DIT University, Dehradun, IN</b><br>
-                  • GPA: 9.62<br>
-                  • Specialization in Big Data Analytics<br>
-                  • Software Engineering, Artificial Intelligence, Discrete Mathematics, Data Science, Object Oriented Programming, Engineering Economics<br>
-                  • Computer Science Gold Medal & University Bronze Medal Recipient, Academic Excellence Scholarship every year
-                </p>
-              </div>
-            </div>
-            <div class="timeline-wrapper">
-              <div class="timeline-yr">
-                <span>2015</span>
-              </div>
-              <div class="timeline-info">
-                <h3><span>Grade 12th: Senior Secondary</span></h3>
-                <p><b>St. Joseph's Academy</b><br>
-                  • CISCE Student scored 94.25 % in final examination. Got recognised in Top 5% of bright students in whole India according to 2015 survey
-                </p>
-              </div>
-            </div>
+          <h2 class="mb-4">Education</h2>
+          <div class="panel">
+            <h3><span>Columbia University, New York, NY</span></h3>
+            <p><b>Master of Science in Data Science, GPA: 3.6</b> <br>Dec 2022<br>
+              • Applied Machine Learning, Deep Learning, Computer Systems, Advanced DBMS, Advanced Data Structures and Algorithms Analytics<br>
+              • Department Representative, PDL Fellow, Best Data Science CA Award 2022 & 2023, Columbia Golden Graduate Marshal 2023
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12">
+          <div class="panel">
+            <h3><span>DIT University, Dehradun, IN</span></h3>
+            <p><b>Bachelor of Technology in Computer Science & Engineering, GPA: 9.62</b> <br>May 2020<br>
+              Specialization in Big Data Analytics<br>
+              • Software Engineering, Artificial Intelligence, Discrete Mathematics, Data Science, Object Oriented Programming, Engineering Economics<br>
+              • Computer Science Gold Medal & University Bronze Medal Recipient, Academic Excellence Scholarship every year
+            </p>
           </div>
         </div>
       </div>
@@ -417,75 +393,21 @@
       <div class="custom-btn-group mt-4" style="color:black">
         <h2>Professional Skills & Interests</h2>
         <ul>
-          <li>• <b>Programming:</b> Java, Python, R, SQL, HTML, CSS and JavaScript</li>
-          <li>• <b>Technological Skills:</b> Software Web Application Development, Data Analytics, Agile, SDLC, GitHub, Jenkins, SpringBoot, DevOps, Amazon Web Services, Data Science</li>
-          <li>• <b>Python Packages:</b> NumPy, Pandas, SciPy, OpenCV, Scikit-Learn, Keras, TensorFlow, Matplotlib, Seaborn</li>
-          <li>• <b>ML Techniques:</b> Classification, PCA, ETL, Sentiment Analysis, Time-Series, Cluster Analysis, Regression, DevOps</li>
-          <li>• <b>Databases:</b> MS SQL Server, MongoDB, Google BigQuery, Google Firebase</li>
-          <li>• <b>Data Visualization:</b> Tableau, Power BI, R, Google Data Studio, IBM Cognos Analytics, ggplot2</li>
+          <li> <b>Programming:</b> Java, Python, R, SQL, HTML, CSS and JavaScript</li>
+          <li> <b>Technological Skills:</b> Software Web Application Development, Data Analytics, Agile, SDLC, GitHub, Jenkins, SpringBoot, DevOps, Amazon Web Services, Data Science</li>
+          <li> <b>Python Packages:</b> NumPy, Pandas, SciPy, OpenCV, Scikit-Learn, Keras, TensorFlow, Matplotlib, Seaborn</li>
+          <li> <b>ML Techniques:</b> Classification, PCA, ETL, Sentiment Analysis, Time-Series, Cluster Analysis, Regression, DevOps</li>
+          <li> <b>Databases:</b> MS SQL Server, MongoDB, Google BigQuery, Google Firebase</li>
+          <li> <b>Data Visualization:</b> Tableau, Power BI, R, Google Data Studio, IBM Cognos Analytics, ggplot2</li>
           <li>
             <div class="custom-btn-group mt-4">
-              •
+              
               <button class="btn mr-lg-2 custom-btn" style="background-color: #000000; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
                 Certifications
               </button>
             </div>
           </li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="vipul_contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-5 mr-lg-5 col-12">
-          <div class="google-map w-100">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.558402180099!2d-73.99373482142036!3d40.75895421922642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855b8fb3083%3A0xa0f9aef176042a5c!2sTheater+District%2C+New+York%2C+NY%2C+USA!5e0!3m2!1sen!2smm!4v1549875377188"
-              width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-          </div>
-          <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
-            <div class="contact-info-item">
-              <h3 class="mb-3 text-dark">Come here and say Hello!</h3>
-              <p>Open your Email from here to send email to work mail!<br>
-                <a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a></p>
-            </div>
-            <ul class="social-links">
-              <li><a href="https://linktr.ee/vipulharihar" class="uil uil-dribbble" data-toggle="tooltip"
-                  data-placement="left" title="LinkTree"></a></li>
-              <li><a href="https://www.instagram.com/vipulruless/?hl=en" class="uil uil-instagram"
-                  data-toggle="tooltip" data-placement="left" title="Instagram"></a></li>
-              <li><a href="https://www.youtube.com/channel/UCYqM-AlwKVrfotOYmoGgdPQ" class="uil uil-youtube"
-                  data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 col-12">
-          <h2 class="mb-4">Interested in Working Together? Let's Communicate</h2>
-          <div class="contact-form">
-            <form action="mailto:vhh2105@columbia.edu" method="POST" enctype="text/plain">
-              <div class="row">
-                <div class="col-lg-6 col-12">
-                  <input type="text" class="form-control" name="name" placeholder="Your Name" id="vipul_name">
-                </div>
-                <div class="col-lg-6 col-12">
-                  <input type="email" class="form-control" name="email" placeholder="Email" id="vipul_email">
-                </div>
-                <div class="col-12">
-                  <textarea name="message" rows="6" class="form-control" id="vipul_message" placeholder="Message"></textarea>
-                  <div class="col-12 mt-4">
-                    <button class="form-control submit-btn" style="background-color: #000000; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
-                      Click Here to Submit
-                    </button>
-                    <p class="mt-4">You'll be redirected to your default email vendor.</p>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
       </div>
     </div>
   </section>
