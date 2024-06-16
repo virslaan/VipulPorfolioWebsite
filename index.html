@@ -119,35 +119,29 @@
 
     /* Zigzag and Expansion Effect */
     .zigzag-section {
-      position: relative;
-      overflow: hidden;
+      display: flex;
+      align-items: center;
       transition: all 0.5s ease;
-    }
-
-    .zigzag-section:hover .zigzag-content {
-      width: 100%;
+      padding: 20px 0;
     }
 
     .zigzag-content {
-      width: 80%;
-      float: left;
-      transition: all 0.5s ease;
+      flex: 1;
       padding: 20px;
       background-color: #1a1a1a;
     }
 
     .zigzag-heading {
       width: 20%;
-      float: left;
       background-color: #ff6600;
       color: #ffffff;
       padding: 20px;
-      transition: all 0.5s ease;
       cursor: pointer;
+      transition: all 0.5s ease;
     }
 
-    .zigzag-heading:hover {
-      background-color: #ff4500;
+    .zigzag-section:hover .zigzag-content {
+      flex: 0 0 100%;
     }
 
     /* Flying Bullets Animation */
