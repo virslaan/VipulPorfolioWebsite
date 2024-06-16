@@ -28,10 +28,34 @@
             z-index: 10;
             animation: fadeOut 3s forwards 3s;
         }
+        #netflix-intro::before, #netflix-intro::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 100px;
+            background: white;
+            animation: strike 1s ease-in-out infinite;
+        }
+        #netflix-intro::before {
+            transform: rotate(45deg);
+        }
+        #netflix-intro::after {
+            transform: rotate(-45deg);
+        }
         @keyframes fadeOut {
             to {
                 opacity: 0;
                 visibility: hidden;
+            }
+        }
+        @keyframes strike {
+            0%, 100% {
+                height: 0;
+                opacity: 0;
+            }
+            50% {
+                height: 100px;
+                opacity: 1;
             }
         }
         #content {
@@ -49,6 +73,11 @@
         .section {
             padding: 50px 20px;
             border-bottom: 1px solid #333;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
         h1 {
             text-align: center;
@@ -89,19 +118,22 @@
         nav:hover {
             background: rgba(0, 0, 0, 0.9);
         }
-        nav a {
+        nav button {
+            background: transparent;
+            border: none;
             color: white;
             text-decoration: none;
             display: block;
             margin: 10px 0;
             font-size: 1.2rem;
             transition: color 0.3s, background 0.3s;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
         }
-        nav a.active, nav a:hover {
+        nav button.active, nav button:hover {
             color: #f39c12;
             background: rgba(243, 156, 18, 0.2);
-            padding: 5px 10px;
-            border-radius: 5px;
         }
     </style>
 </head>
@@ -109,11 +141,11 @@
     <div id="netflix-intro" class="animate__animated animate__fadeOut">V</div>
     
     <nav id="navbar">
-        <a href="#about" class="active">Welcome</a>
-        <a href="#time-machine">Time Machine</a>
-        <a href="#education">Education</a>
-        <a href="#professional-experience">Professional Experience</a>
-        <a href="#contact">Contact</a>
+        <button onclick="scrollToSection('about')" class="active">Welcome</button>
+        <button onclick="scrollToSection('time-machine')">Time Machine</button>
+        <button onclick="scrollToSection('education')">Education</button>
+        <button onclick="scrollToSection('professional-experience')">Professional Experience</button>
+        <button onclick="scrollToSection('contact')">Contact</button>
     </nav>
 
     <div id="content">
@@ -232,7 +264,7 @@
 
             // Smooth scroll and active link highlighting
             const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
+            const navButtons = document.querySelectorAll('nav button');
 
             window.addEventListener('scroll', () => {
                 let current = '';
@@ -244,23 +276,30 @@
                     }
                 });
 
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
-                        link.classList.add('active');
+                navButtons.forEach(button => {
+                    button.classList.remove('active');
+                    if (button.getAttribute('onclick').includes(current)) {
+                        button.classList.add('active');
                     }
                 });
             });
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+            navButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    const targetSection = this.getAttribute('onclick').split("'")[1];
+                    document.getElementById(targetSection).scrollIntoView({
                         behavior: 'smooth'
                     });
                 });
             });
         });
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     </script>
 </body>
 </html>
