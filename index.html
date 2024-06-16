@@ -9,19 +9,15 @@
 
   <title>Vipul's Portfolio Website</title>
 
-  <!-- MAIN STYLE -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/unicons.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/vipul-style.css">
-
   <style>
     /* Body Styling */
     body {
       background-color: #121212;
       color: #ffffff;
       font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
     }
 
     /* Button Styling */
@@ -40,20 +36,14 @@
       border-color: #ff4500;
     }
 
-    /* Carousel Image Styling */
-    .owl-carousel .owl-item img {
-      width: 100%;
-      display: block;
-      border-radius: 0;
-    }
-
     /* Navbar Styling */
     .navbar {
       background-color: #1a1a1a;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .navbar-brand, .nav-link {
+    .navbar-brand,
+    .nav-link {
       color: #ffffff !important;
     }
 
@@ -72,7 +62,8 @@
       color: #ffffff;
     }
 
-    .section p, .section li {
+    .section p,
+    .section li {
       font-size: 1.2rem;
       color: #cccccc;
     }
@@ -117,9 +108,98 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       100% {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    /* Zigzag and Expansion Effect */
+    .zigzag-section {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s ease;
+    }
+
+    .zigzag-section:hover .zigzag-content {
+      width: 100%;
+    }
+
+    .zigzag-content {
+      width: 80%;
+      float: left;
+      transition: all 0.5s ease;
+      padding: 20px;
+      background-color: #1a1a1a;
+    }
+
+    .zigzag-heading {
+      width: 20%;
+      float: left;
+      background-color: #ff6600;
+      color: #ffffff;
+      padding: 20px;
+      transition: all 0.5s ease;
+      cursor: pointer;
+    }
+
+    .zigzag-heading:hover {
+      background-color: #ff4500;
+    }
+
+    /* Flying Bullets Animation */
+    .flying-bullets {
+      list-style: none;
+      padding: 0;
+    }
+
+    .flying-bullets li {
+      opacity: 0;
+      animation: flyIn 1s ease forwards;
+    }
+
+    .flying-bullets li:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .flying-bullets li:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .flying-bullets li:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .flying-bullets li:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .flying-bullets li:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    .flying-bullets li:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+
+    .flying-bullets li:nth-child(7) {
+      animation-delay: 0.7s;
+    }
+
+    .flying-bullets li:nth-child(8) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes flyIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
       }
     }
   </style>
@@ -163,14 +243,6 @@
           <li class="nav-item">
             <a href="https://github.com/virslaan" class="nav-link"><span>GitHub</span></a>
           </li>
-        </ul>
-        <ul class="navbar-nav ml-lg-auto">
-          <div class="ml-lg-4">
-            <div class="color-mode d-lg-flex justify-content-center align-items-center">
-              <i class="color-mode-icon"></i>
-              Change Theme
-            </div>
-          </div>
         </ul>
       </div>
     </div>
@@ -343,76 +415,17 @@
     <div class="container">
       <div class="custom-btn-group mt-4" style="color:black">
         <h2>Professional Skills & Interests</h2>
-        <ul>
-          <li>• <b>Programming:</b> Java, Python, R, SQL, HTML, CSS and JavaScript</li>
-          <li>• <b>Technological Skills:</b> Software Web Application Development, Data Analytics, Agile, SDLC, GitHub, Jenkins, SpringBoot, DevOps, Amazon Web Services, Data Science</li>
-          <li>• <b>Python Packages:</b> NumPy, Pandas, SciPy, OpenCV, Scikit-Learn, Keras, TensorFlow, Matplotlib, Seaborn</li>
-          <li>• <b>ML Techniques:</b> Classification, PCA, ETL, Sentiment Analysis, Time-Series, Cluster Analysis, Regression, DevOps</li>
-          <li>• <b>Databases:</b> MS SQL Server, MongoDB, Google BigQuery, Google Firebase</li>
-          <li>• <b>Data Visualization:</b> Tableau, Power BI, R, Google Data Studio, IBM Cognos Analytics, ggplot2</li>
-          <li>
-            <div class="custom-btn-group mt-4">
-              • 
-              <button class="btn mr-lg-2 custom-btn" style="background-color: #ffc200; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
-                Certifications
-              </button>
-            </div>
-          </li>
+        <ul class="flying-bullets">
+          <li>• <b>FrontEnd Engineering</b></li>
+          <li>• <b>BackEnd Engineering</b></li>
+          <li>• <b>Middleware Engineering</b></li>
+          <li>• <b>APIs Development</b></li>
+          <li>• <b>Software Engineering</b></li>
+          <li>• <b>Artificial Intelligence Developer</b></li>
+          <li>• <b>Business Intelligence</b></li>
+          <li>• <b>Data Management and Handling</b></li>
+          <li>• <b>Cloud Computing</b></li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="vipul_contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-5 mr-lg-5 col-12">
-          <div class="google-map w-100">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.558402180099!2d-73.99373482142036!3d40.75895421922642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855b8fb3083%3A0xa0f9aef176042a5c!2sTheater+District%2C+New+York%2C+NY%2C+USA!5e0!3m2!1sen!2smm!4v1549875377188"
-              width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-          </div>
-          <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
-            <div class="contact-info-item">
-              <h3 class="mb-3 text-dark">Contact Vipul</h3>
-              <p>Open your Email from here to send email to work mail!<br>
-                <a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a></p>
-            </div>
-            <ul class="social-links">
-              <li><a href="https://linktr.ee/vipulharihar" class="uil uil-dribbble" data-toggle="tooltip"
-                  data-placement="left" title="LinkTree"></a></li>
-              <li><a href="https://www.instagram.com/vipulruless/?hl=en" class="uil uil-instagram"
-                  data-toggle="tooltip" data-placement="left" title="Instagram"></a></li>
-              <li><a href="https://www.youtube.com/channel/UCYqM-AlwKVrfotOYmoGgdPQ" class="uil uil-youtube"
-                  data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 col-12">
-          <h2 class="mb-4">Interested in Working Together? Let's Communicate</h2>
-          <div class="contact-form">
-            <form action="mailto:vhh2105@columbia.edu" method="POST" enctype="text/plain">
-              <div class="row">
-                <div class="col-lg-6 col-12">
-                  <input type="text" class="form-control" name="name" placeholder="Your Name" id="vipul_name">
-                </div>
-                <div class="col-lg-6 col-12">
-                  <input type="email" class="form-control" name="email" placeholder="Email" id="vipul_email">
-                </div>
-                <div class="col-12">
-                  <textarea name="message" rows="6" class="form-control" id="vipul_message" placeholder="Message"></textarea>
-                  <div class="col-12 mt-4">
-                    <button class="form-control submit-btn" style="background-color: #FFD700; border-radius: 5px; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer;">
-                      Click Here to Submit
-                    </button>
-                    <p class="mt-4">You'll be redirected to your default email vendor.</p>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -439,4 +452,3 @@
 </body>
 
 </html>
-
