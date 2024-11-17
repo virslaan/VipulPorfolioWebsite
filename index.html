@@ -1,148 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Vipul H. Harihar - Portfolio</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-        <style>
-            .about-section {
-                background-color: #ffffff;
-                color: #000000;
-                padding: 100px 0;
-                border-bottom-right-radius: 120px;
-                border-bottom-left-radius: 120px;
-                }
-            .about-section h2, .about-section p, .contact-section .card hr {
-                color: beige!important;
-            }
-            body {
-                font-family: 'Nunito', sans-serif;
-                background-color: #000000;
-                color: #ffffff;
-            }
-            .masthead {
-                background: linear-gradient(to right, #000000, #333333);
-                color: #ffffff;
-                text-align: center;
-                padding: 100px 0;
-            }
-            .masthead h1 {
-                font-size: 3rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                animation: netflix-animation 5s infinite;
-            }
-            .masthead h2 {
-                font-size: 1.5rem;
-                color: #cccccc;
-            }
-            @keyframes netflix-animation {
-                0%, 100% {
-                    transform: scale(1);
-                    opacity: 1;
-                }
-                50% {
-                    transform: scale(1.1);
-                    opacity: 0.8;
-                }
-            }
-            .rotating-text {
-                display: inline-block;
-                position: relative;
-            }
-            .rotating-text > div {
-                position: absolute;
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Portfolio of Vipul H. Harihar" />
+    <meta name="author" content="Vipul H. Harihar" />
+    <title>Vipul H. Harihar - Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+        nav.navbar {
+            background-color: #161b22;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav.navbar a.navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #58a6ff;
+        }
+        nav.navbar a.nav-link {
+            color: #8b949e;
+            font-weight: 500;
+        }
+        nav.navbar a.nav-link:hover {
+            color: #58a6ff;
+        }
+        header.masthead {
+            height: 100vh;
+            background: linear-gradient(to bottom right, #0d1117, #161b22);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        header.masthead h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        header.masthead span {
+            font-size: 1.2rem;
+            color: #8b949e;
+        }
+        @keyframes fadeIn {
+            from {
                 opacity: 0;
-                animation: rotateText 10s linear infinite;
+                transform: translateY(-20px);
             }
-            .rotating-text > div:nth-child(2) {
-                animation-delay: 2s;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            .rotating-text > div:nth-child(3) {
-                animation-delay: 4s;
-            }
-            .rotating-text > div:nth-child(4) {
-                animation-delay: 6s;
-            }
-            .rotating-text > div:nth-child(5) {
-                animation-delay: 8s;
-            }
-            @keyframes rotateText {
-                0%, 100% { opacity: 0; }
-                25%, 75% { opacity: 1; }
-            }
-            .about-section {
-                background-color: #ffffff;
-                color: #000000;
-                padding: 100px 0;
-            }
-            .about-section h2, .about-section p {
-                margin-bottom: 30px;
-            }
-            .project-info {
-                margin-bottom: 30px;
-            }
-            .zoom-in-out {
-                animation: zoom-in-out 10s infinite;
-            }
-            @keyframes zoom-in-out {
-                0%, 100% {
-                    transform: scale(1);
-                }
-                50% {
-                    transform: scale(1.05);
-                }
-            }
-            h4,.h4
-            {
-                color:black;
-            }
-            .contact-section .card {
-                border: antiquewhite;
-                border-bottom: 1.25rem solid beige;
-            }
-        </style>
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Vipul H. Harihar</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">Bio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#education">Academic Excellence</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#experience">Professional Timeline</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">Live Project</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+        }
+        section {
+            padding: 60px 0;
+        }
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #58a6ff;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        section p {
+            font-size: 1.1rem;
+            color: #8b949e;
+            text-align: center;
+            line-height: 1.8;
+        }
+        section#projects .owl-carousel .item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background-color: #161b22;
+            color: #8b949e;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #8b949e;
+        }
+        .btn-primary {
+            background-color: #58a6ff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1f6feb;
+        }
+    </style>
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">Vipul H. Harihar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Bio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container d-flex h-100 align-items-center justify-content-center">
-                <div class="text-center">
-                    <h1>Vipul H. Harihar<br>
-                   <span style="font-size: 14px;margin-top: -20px;">Coding Beyond Compare</span></h1>
-                   
-                </div>
-            </div>
-        </header>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container text-center">
+            <h1>Vipul H. Harihar</h1>
+            <span>Coding Beyond Compare</span>
+        </div>
+    </header>
+
         <!-- About-->
         <section class="about-section text-center" id="about">
             <div class="container px-4 px-lg-5">
@@ -319,23 +324,24 @@
             </div>
         </section>
         
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright 2024 &copy; Vipul H. Harihar</div></footer>
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-       
-        <script src="js/scripts.js"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                $(".owl-carousel").owlCarousel({
-                    items: 1,
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 6000,
-                    autoplayHoverPause: true
-                });
+        <footer>
+        <div class="container">
+            <p>Copyright &copy; 2024 Vipul H. Harihar. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
             });
-        </script>
-    </body>
+        });
+    </script>
+</body>
 </html>
