@@ -1,137 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Portfolio of Vipul H. Harihar" />
-    <meta name="author" content="Vipul H. Harihar" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vipul H Harihar - Portfolio">
+    <meta name="author" content="Vipul Harihar">
     <title>Vipul H. Harihar - Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Owl Carousel CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-    <!-- Custom Styles -->
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <style>
+        /* Global Styles */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            background-color: #0f0f0f;
+            color: #eaeaea;
         }
+
+        h1, h2, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navbar */
         nav.navbar {
-            background-color: #161b22;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
+
         nav.navbar a.navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #58a6ff;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #f4d03f;
         }
+
         nav.navbar a.nav-link {
-            color: #8b949e;
-            font-weight: 500;
+            font-size: 1rem;
+            color: #eaeaea;
         }
+
         nav.navbar a.nav-link:hover {
-            color: #58a6ff;
+            color: #f4d03f;
         }
+
+        /* Masthead */
         header.masthead {
             height: 100vh;
-            background: linear-gradient(to bottom right, #0d1117, #161b22);
-            color: #ffffff;
+            background: linear-gradient(to right, #000000, #333333);
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 0 20px;
+            color: #ffffff;
         }
+
         header.masthead h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            animation: fadeIn 2s ease-in-out;
         }
-        header.masthead span {
-            font-size: 1.2rem;
-            color: #8b949e;
+
+        header.masthead p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            color: #f4d03f;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+
+        /* Sections */
         section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
+
         section h2 {
             font-size: 2.5rem;
-            font-weight: bold;
-            color: #58a6ff;
+            color: #f4d03f;
             text-align: center;
             margin-bottom: 40px;
         }
-        section p {
-            font-size: 1.1rem;
-            color: #8b949e;
-            text-align: center;
-            line-height: 1.8;
+
+        /* Cards */
+        .card {
+            background-color: #1c1c1c;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
         }
-        section#projects .owl-carousel .item {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+        .card:hover {
+            transform: scale(1.05);
         }
+
+        .card h4 {
+            color: #f4d03f;
+        }
+
+        .card p {
+            color: #bbbbbb;
+        }
+
+        /* Footer */
         footer {
-            background-color: #161b22;
-            color: #8b949e;
+            background-color: #161616;
             padding: 20px 0;
+            color: #bbbbbb;
             text-align: center;
         }
+
         footer a {
-            color: #58a6ff;
+            color: #f4d03f;
             text-decoration: none;
         }
+
         footer a:hover {
-            color: #8b949e;
-        }
-        .btn-primary {
-            background-color: #58a6ff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
             color: #ffffff;
-            font-size: 1rem;
-            font-weight: 600;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
         }
+
+        /* Button Styling */
+        .btn-primary {
+            background: linear-gradient(45deg, #f4d03f, #e67e22);
+            border: none;
+            color: #000;
+            font-weight: 600;
+            border-radius: 25px;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
         .btn-primary:hover {
-            background-color: #1f6feb;
+            background: linear-gradient(45deg, #e67e22, #f4d03f);
+            transform: scale(1.1);
         }
     </style>
 </head>
-<body id="page-top">
-    <!-- Navigation-->
+<body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#page-top">Vipul H. Harihar</a>
+            <a class="navbar-brand" href="#page-top">Vi.PUL</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">Bio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
@@ -140,15 +158,15 @@
             </div>
         </div>
     </nav>
-    <!-- Masthead-->
+
+    <!-- Masthead -->
     <header class="masthead">
         <div class="container text-center">
             <h1>Vipul H. Harihar</h1>
-            <span>Coding Beyond Compare</span>
+            <p>Coding Beyond Compare</p>
         </div>
-    </header>
-
-        <!-- About-->
+    </header> 
+       <!-- About-->
         <section class="about-section text-center" id="about">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
