@@ -1,357 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Vipul H. Harihar - Portfolio</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-        <style>
-            .about-section {
-                background-color: #ffffff;
-                color: #000000;
-                padding: 100px 0;
-                border-bottom-right-radius: 120px;
-                border-bottom-left-radius: 120px;
-                }
-            .about-section h2, .about-section p, .contact-section .card hr {
-                color: beige!important;
-            }
-            body {
-                font-family: 'Nunito', sans-serif;
-                background-color: #000000;
-                color: #ffffff;
-            }
-            .masthead {
-                background: linear-gradient(to right, #000000, #333333);
-                color: #ffffff;
-                text-align: center;
-                padding: 100px 0;
-            }
-            .masthead h1 {
-                font-size: 3rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                animation: netflix-animation 5s infinite;
-            }
-            .masthead h2 {
-                font-size: 1.5rem;
-                color: #cccccc;
-            }
-            @keyframes netflix-animation {
-                0%, 100% {
-                    transform: scale(1);
-                    opacity: 1;
-                }
-                50% {
-                    transform: scale(1.1);
-                    opacity: 0.8;
-                }
-            }
-            .rotating-text {
-                display: inline-block;
-                position: relative;
-            }
-            .rotating-text > div {
-                position: absolute;
-                opacity: 0;
-                animation: rotateText 10s linear infinite;
-            }
-            .rotating-text > div:nth-child(2) {
-                animation-delay: 2s;
-            }
-            .rotating-text > div:nth-child(3) {
-                animation-delay: 4s;
-            }
-            .rotating-text > div:nth-child(4) {
-                animation-delay: 6s;
-            }
-            .rotating-text > div:nth-child(5) {
-                animation-delay: 8s;
-            }
-            @keyframes rotateText {
-                0%, 100% { opacity: 0; }
-                25%, 75% { opacity: 1; }
-            }
-            .about-section {
-                background-color: #ffffff;
-                color: #000000;
-                padding: 100px 0;
-            }
-            .about-section h2, .about-section p {
-                margin-bottom: 30px;
-            }
-            .project-info {
-                margin-bottom: 30px;
-            }
-            .zoom-in-out {
-                animation: zoom-in-out 10s infinite;
-            }
-            @keyframes zoom-in-out {
-                0%, 100% {
-                    transform: scale(1);
-                }
-                50% {
-                    transform: scale(1.05);
-                }
-            }
-            h4,.h4
-            {
-                color:black;
-            }
-            .contact-section .card {
-                border: antiquewhite;
-                border-bottom: 1.25rem solid beige;
-            }
-        </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vipul OS – Portfolio of Vipul H. Harihar</title>
+    <!-- Google Fonts & FontAwesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Share+Tech+Mono&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
     </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Vipul H. Harihar</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">Bio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#education">Academic Excellence</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#experience">Professional Timeline</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">Live Project</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
+<body>
+    <!-- Boot Sequence Overlay -->
+    <div id="boot-sequence" class="boot-overlay">
+        <div class="boot-content">
+            <span class="boot-logo"><i class="fa-solid fa-microchip"></i></span>
+            <span class="boot-text">Booting <span class="brand">Vipul OS</span><span class="boot-dots">...</span></span>
+        </div>
+    </div>
+
+    <!-- Desktop Background (with parallax stars) -->
+    <div id="desktop-bg">
+        <canvas id="stars-canvas"></canvas>
+        <!-- Unique star pixel that follows mouse -->
+        <div id="star-pixel"></div>
+    </div>
+
+    <!-- Top Navbar (MacOS-style) -->
+    <div id="top-navbar">
+      <div id="navbar-left"><i class="fa-solid fa-laptop-code"></i> Vipul OS</div>
+      <div id="navbar-right">
+        <span id="navbar-user"></span>
+        <span id="navbar-clock"></span>
+        <span id="navbar-calendar" style="cursor:pointer;"><i class="fa-regular fa-calendar"></i></span>
+        <div id="calendar-dropdown" style="display:none;"></div>
+      </div>
+    </div>
+    <!-- User Name Modal -->
+    <div id="user-modal" style="display:none;">
+      <div id="user-modal-content">
+        <h3>Welcome!</h3>
+        <p>Please enter your name for a personalized experience:</p>
+        <input id="user-name-input" type="text" placeholder="Your name" style="padding:8px 12px; border-radius:8px; border:1.5px solid #60AAD8; font-size:1.1rem;">
+        <button id="user-name-submit" style="margin-left:10px; background:#60AAD8; color:#0a1626; border:none; border-radius:8px; padding:8px 18px; font-size:1.1rem; font-family:'Nunito',sans-serif; font-weight:700; cursor:pointer;">Enter</button>
                 </div>
             </div>
+
+    <!-- Dock (bottom navigation) -->
+    <nav id="dock">
+        <ul>
+            <li data-window="about" title="About Me"><span class="icon-bubble"><i class="fa-solid fa-user"></i></span></li>
+            <li data-window="projects" title="Projects"><span class="icon-bubble"><i class="fa-solid fa-diagram-project"></i></span></li>
+            <li data-window="experience" title="Experience"><span class="icon-bubble"><i class="fa-solid fa-briefcase"></i></span></li>
+            <li data-window="skills" title="Skills"><span class="icon-bubble"><i class="fa-solid fa-gears"></i></span></li>
+            <li data-window="awards" title="Awards"><span class="icon-bubble"><i class="fa-solid fa-award"></i></span></li>
+            <li data-window="contact" title="Contact"><span class="icon-bubble"><i class="fa-solid fa-terminal"></i></span></li>
+            <li data-window="resume" title="Resume"><span class="icon-bubble"><i class="fa-solid fa-file-arrow-down"></i></span></li>
+            <li data-window="easter" title="?" class="easter-egg"><span class="icon-bubble"><i class="fa-solid fa-ghost"></i></span></li>
+        </ul>
         </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container d-flex h-100 align-items-center justify-content-center">
-                <div class="text-center">
-                    <h1>Vipul H. Harihar<br>
-                   <span style="font-size: 14px;margin-top: -20px;">Coding Beyond Compare</span></h1>
-                   
+
+    <!-- Draggable Windows (hidden by default, shown on dock click) -->
+    <div id="windows-container">
+        <!-- About Me Window -->
+        <div class="window" id="window-about" data-window="about">
+            <div class="window-header">
+                <span class="window-title"><i class="fa-solid fa-user"></i> About Me</span>
+                <div class="window-controls">
+                    <button class="win-min" title="Minimize"></button>
+                    <button class="win-max" title="Maximize"></button>
+                    <button class="win-close" title="Close"></button>
                 </div>
             </div>
-        </header>
-        <!-- About-->
-        <section class="about-section text-center" id="about">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2 class="text-black mb-4">About Vipul</h2>
-                        <p class="text-black-50">
-                            Vipul H. Harihar is currently the Lead Software Engineer in Financial Services. He excels with a background in Data Science, Artificial Intelligence and Advanced Algorithms. He holds a Master of Science in Data Science from Columbia University and a Bachelor of Technology in Computer Science & Engineering from DIT University. Vipul specializes in full-stack development, machine learning, cloud computing, business intelligence, product development and data engineering.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Education-->
-        <section class="bg-light text-center" id="education">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-black mb-4">Education</h2>
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="mb-4">
-                            <h4>Columbia University, New York, NY</h4>
-                            <p class="text-black-50">Master of Science in Data Science, GPA: 3.6 (Dec 2022)</p>
-                            <p class="text-black-50">• Applied Machine Learning, Deep Learning, Computer Systems, Advanced DBMS, Advanced Data Structures and Algorithms Analytics</p>
-                            <p class="text-black-50">• Department Representative, PDL Fellow, Best Data Science CA Award 2022 & 2023, Columbia Golden Graduate Marshal 2023</p>
-                        </div>
-                        <div class="mb-4">
-                            <h4>DIT University, Dehradun, IN</h4>
-                            <p class="text-black-50">Bachelor of Technology in Computer Science & Engineering, GPA: 9.62 (May 2020)</p>
-                            <p class="text-black-50">• Specialization in Big Data Analytics</p>
-                            <p class="text-black-50">• Software Engineering, Artificial Intelligence, Discrete Mathematics, Data Science, Object Oriented Programming, Engineering Economics</p>
-                            <p class="text-black-50">• Computer Science Gold Medal & University Bronze Medal Recipient, Academic Excellence Scholarship every year</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Skills-->
-        <section class="text-center" id="skills">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-black mb-4">Skills</h2>
-                <p class="text-black-50">
-                    • Python, Java, JavaScript, SQL, Linux-Shell, Bash, HTML, CSS<br>
-                    • Flask, React, Angular, Frontend, MVC Architecture, Backend APIs, CI/CD, Spring, Git-Version Control, Tableau<br>
-                    • Data Pipelines, ETL Processes, AWS, RedHat, OLAP, Cloud Data Warehouses (GCP- BigQuery), IBM-Cognos, Power BI<br>
-                    • Regression, Classification, Random Forests, XGBoost, NLP, Time Series, Quantitative Data Analysis, Image Processing<br>
-                    • Team Managing, Web Applications, Full Stack Development, Distributed System Design, Advanced DBMS, Debugging, Testing
+            <div class="window-body">
+                <!-- About content -->
+                <h2>Vipul H Harihar</h2>
+                <p>563 W 169th Street, Apt 3A &bull; New York, NY 10032<br>
+                +1 (917) 214-5091 &bull; <a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a><br>
+                <a href="https://www.linkedin.com/in/vipulhharihar" target="_blank">LinkedIn</a> &bull; <a href="#" target="_blank">Portfolio</a>
                 </p>
+                <h3>Professional Summary</h3>
+                <p>Software Engineer with 4+ years of experience designing and deploying infrastructure-grade platforms across finance, healthcare, and government sectors. Independently developed and implemented four mission-critical AI and automation products—Product A, B, C, and D—used daily at a $5B investment firm. Proficient in full-stack development, secure cloud deployments, distributed systems, and real-time LLM integrations. Columbia MSDS graduate, Forbes 30 Under 30 nominee, and driven systems thinker with a product-first mindset.</p>
+                <h3>Education</h3>
+                <ul>
+                  <li><strong>Columbia University, New York, NY</strong><br>
+                  Master of Science in Data Science, GPA: 3.6/4.0 — Dec 2022<br>
+                  <em>Golden Graduate Marshal 2023 • PDL Fellow • Best Teaching Assistant Award 2022 & 2023</em><br>
+                  <span style="font-size:0.95em;">Coursework: Applied Machine Learning, Deep Learning, Distributed Systems, Advanced DBMS, Advanced Algorithms</span></li>
+                  <li><strong>DIT University, Dehradun, India</strong><br>
+                  Bachelor of Technology in Computer Science & Engineering, GPA: 9.62/10.0 — May 2020<br>
+                  <em>Specialization: Big Data Analytics • Gold Medalist • Academic Excellence Scholar (3 years)</em></li>
+                </ul>
+                        </div>
+                    </div>
+        <!-- Projects Window -->
+        <div class="window" id="window-projects" data-window="projects">
+            <div class="window-header">
+                <span class="window-title"><i class="fa-solid fa-diagram-project"></i> Projects</span>
+                <div class="window-controls">
+                    <button class="win-min" title="Minimize"></button>
+                    <button class="win-max" title="Maximize"></button>
+                    <button class="win-close" title="Close"></button>
+                </div>
             </div>
-        </section>
-        <!-- Projects-->
-        <section class="projects-section bg-light" id="projects">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-black mb-4">Developed Projects</h2>
-                <div class="owl-carousel owl-theme">
-                    <div class="item zoom-in-out">
-                        <div class="project-info">
-                            <iframe src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
+            <div class="window-body">
+                <!-- Projects content -->
+                <div>
+                  <div class="project-card">
+                    <iframe src="https://virslaan.github.io/Wind-Turbine-Blades-CUCP/" width="100%" height="220px" frameborder="0" allowfullscreen style="border-radius:10px; margin-bottom:10px;"></iframe>
+                    <h4 class="project-title">Wind Turbine Blade Repurposing</h4>
+                    <div style="font-size:0.98rem; color:#b0e0ff; margin-bottom:4px;">AI-powered carbon emission prediction for wind turbine blade repurposing.</div>
+                    <div style="font-size:0.93rem; color:#b0e0ff;">(Python, Flask, ML, Cloud)</div>
+                  </div>
+                  <div class="project-card">
+                    <iframe src="https://virslaan.github.io/VeeMusic/" width="100%" height="180px" frameborder="0" allowfullscreen style="border-radius:10px; margin-bottom:10px;"></iframe>
+                    <h4 class="project-title">VeeMusic</h4>
+                    <div style="font-size:0.98rem; color:#b0e0ff; margin-bottom:4px;">Next-gen music streaming with real-time recommendations.</div>
+                    <div style="font-size:0.93rem; color:#b0e0ff;">(React, Node.js, AI)</div>
+                  </div>
+                  <div class="project-card">
+                    <iframe src="https://virslaan.github.io/POC_DJ_Software/" width="100%" height="220px" frameborder="0" allowfullscreen style="border-radius:10px; margin-bottom:10px;"></iframe>
+                    <h4 class="project-title">DJ Software POC</h4>
+                    <div style="font-size:0.98rem; color:#b0e0ff; margin-bottom:4px;">DJ software with live audio analysis and mixing.</div>
+                    <div style="font-size:0.93rem; color:#b0e0ff;">(JavaScript, Web Audio API)</div>
                         </div>
-                    </div>
-                    <div class="item zoom-in-out">
-                        <div class="project-info">
-                            <iframe src="https://virslaan.github.io/VeeMusic/" width="100%" height="500px" frameborder="0" allowfullscreen></iframe>
+                  <div class="project-card">
+                    <iframe src="https://virslaan.github.io/medicalPassportversion2/" width="100%" height="220px" frameborder="0" allowfullscreen style="border-radius:10px; margin-bottom:10px;"></iframe>
+                    <h4 class="project-title">Medical Passport</h4>
+                    <div style="font-size:0.98rem; color:#b0e0ff; margin-bottom:4px;">Encrypted medical passport for cardiac patients.</div>
+                    <div style="font-size:0.93rem; color:#b0e0ff;">(React, Encryption, Healthcare)</div>
                         </div>
-                    </div>
-                    <div class="item zoom-in-out">
-                        <div class="project-info">
-                            <iframe src="https://virslaan.github.io/POC_DJ_Software/" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="item zoom-in-out">
-                        <div class="project-info">
-                            <iframe src="https://virslaan.github.io/medicalPassportversion2/" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="item zoom-in-out">
-                        <div class="project-info">
-                            <iframe src="https://virslaan.github.io/TechHub---By-Vipul-Rules/" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
-                        </div>
+                  <div class="project-card">
+                    <iframe src="https://virslaan.github.io/TechHub---By-Vipul-Rules/" width="100%" height="220px" frameborder="0" allowfullscreen style="border-radius:10px; margin-bottom:10px;"></iframe>
+                    <h4 class="project-title">TechHub</h4>
+                    <div style="font-size:0.98rem; color:#b0e0ff; margin-bottom:4px;">Resource aggregator for developers.</div>
+                    <div style="font-size:0.93rem; color:#b0e0ff;">(Full Stack, Cloud, APIs)</div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Professional Experience-->
-        <section class="bg-light text-center" id="experience">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-black mb-4">Professional Experience</h2>
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="mb-4">
-                            <h4>GenTrust Wealth and Assets Management Company, New York, NY</h4>
-                            <p class="text-black-50" style="color:antiquewhite;">Lead Software Engineer - Aug 2022 - Present</p>
-                            <p class="text-black-50">• Guided 4 membered team in revamping investment platform infrastructure on AWS, emphasizing automation for 400+ clients</p>
-                            <p class="text-black-50">• Revamped client intake system, automating 24 data pipelines to streamline portfolio management for 20+ advisors and all clients</p>
-                            <p class="text-black-50">• Designed 3 in-house ML models to swiftly aid 17 advisors in enhancing their client management & responsiveness</p>
-                            <p class="text-black-50">• Developed Tax Optimizer algo yielding enhanced strategic asset management and insightful gains for 400+ portfolio benchmarks</p>
-                            <p class="text-black-50">• Crafted Tax Loss Harvesting system, refining firm-wide tax strategy and saving the firm more than $2M in potential tax liabilities</p>
-                        </div>
-                        <div class="mb-4">
-                            <h4>NewYork-Presbyterian - Children's Hospital, Columbia Medical Center, New York, NY</h4>
-                            <p class="text-black-50">Research Assistant and Engineer - May 2022 - Dec 2022</p>
-                            <p class="text-black-50">• Led 2 software development initiatives, mentoring fellow 2 research assistants in web application-specific coding, and debugging</p>
-                            <p class="text-black-50">• Engineered medical passport system for 79 cardiac patients, leveraging encryption to ensure data confidentiality on local storage</p>
-                            <p class="text-black-50">• Data engineered 2 data pipelines that enhanced client-side analysis speed and accuracy without storing data on any server</p>
-                        </div>
-                        <div class="mb-4">
-                            <h4>IBM (International Business Machines Corporation), Bangalore, IN</h4>
-                            <p class="text-black-50">Java Full Stack Application Developer - Feb 2020 - Aug 2021</p>
-                            <p class="text-black-50">• Managed a team of 5 members, migrating client’s Pre-Accounting Module to RedHat, realizing a 33% app-hosting cost reduction</p>
-                            <p class="text-black-50">• Collaborated with IBM Sweden using Java to optimize 8 CI/CD flows, removing 5K+ redundancies & reducing time by 2 hours</p>
-                            <p class="text-black-50">• Coded robust application using Angular, Spring, & NodeJS, achieving a 24.87% faster performance compared to legacy platform</p>
-                            <p class="text-black-50">• Developed Java Angular dashboard, resulting in 12% quicker data access and a 18% uptick in user satisfaction over past interface</p>
-                        </div>
-                        <div class="mb-4">
-                            <h4>NYC Department of Design and Construction, New York, NY</h4>
-                            <p class="text-black-50">Data Science Research Fellow - Capstone Project Lead - Sep 2022 - Dec 2022</p>
-                            <p class="text-black-50">• Utilized 15 GB data to design 3 statistical models to predict carbon emissions for repurposing 70,800 wind turbine blades</p>
-                            <p class="text-black-50">• Demonstrated proficiency in DevOps by deploying app on cloud at zero setup cost within an 8-day timeframe</p>
-                        </div>
-                        <div class="mb-4">
-                            <h4>Indian Roads Safety Campaign: Solve, MRTH- Government of India, Dehradun, IN</h4>
-                            <p class="text-black-50">Software Engineer Intern - Jul 2020 - Dec 2020</p>
-                            <p class="text-black-50">• Empowered safety of over 16,000 commuters by devising Spring(Angular) road safety application a non-profit organization</p>
-                            <p class="text-black-50">• Guided a team of 4 during Covid in developing real-time data-driven models to identify 17 accident-prone areas in the city</p>
-                        </div>
-                        <div class="mb-4">
-                            <h4>Oil and Natural Gas Corporation Limited (ONGC), Dehradun, IN</h4>
-                            <p class="text-black-50">Big Data Engineer Intern - May 2019 - Jun 2019</p>
-                            <p class="text-black-50">• Executed 10 GB data scraping from 5 news websites using Python libraries and conducted big data processing on Java and Hadoop</p>
-                            <p class="text-black-50">• Built 5 data pipelines in Java and React to assist 8 membered team to publish online-posts based on insights every week</p>
-                        </div>
-                    </div>
+        </div>
+        <!-- Experience Window -->
+        <div class="window" id="window-experience" data-window="experience">
+            <div class="window-header">
+                <span class="window-title"><i class="fa-solid fa-briefcase"></i> Experience</span>
+                <div class="window-controls">
+                    <button class="win-min" title="Minimize"></button>
+                    <button class="win-max" title="Maximize"></button>
+                    <button class="win-close" title="Close"></button>
                 </div>
             </div>
-        </section>
-        <!-- Contact-->
-        <section class="contact-section bg-black" id="contact">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Currently based in:</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">Manhattan, New York, United States</div>
+            <div class="window-body">
+                <!-- Experience content -->
+                <div class="exp-entry">
+                  <h3>GenTrust, New York, NY</h3>
+                  <strong>Chief AI Architect and Lead Software Engineer</strong> — Aug 2022 – Present
+                  <ul>
+                    <li>Designed and launched four core AI-powered systems (Product A–D), transforming portfolio oversight, CRM workflows, research automation, and document intelligence</li>
+                    <li>Built 25+ data pipelines supporting compliance, trading, and tax workflows, saving over $2M</li>
+                    <li>Architected secure full-stack systems with real-time LLM integrations and cloud-first deployment strategy</li>
+                  </ul>
+                        </div>
+                <div class="exp-entry">
+                  <h3>NYC Department of Design and Construction (NYC-DDC), New York, NY</h3>
+                  <strong>Infrastructure Fellow – Wind Energy Capstone</strong> — Sep 2022 – Dec 2022
+                  <ul>
+                    <li>Modeled carbon impact of repurposing 70K+ wind turbine blades in NY State</li>
+                    <li>Delivered a scalable sustainability planning tool, deployed via cloud platform and now in DDC use</li>
+                  </ul>
+                        </div>
+                <div class="exp-entry">
+                  <h3>NewYork-Presbyterian – Columbia Medical Center, New York, NY</h3>
+                  <strong>Research Assistant & Engineer</strong> — May 2022 – Dec 2022
+                  <ul>
+                    <li>Developed encrypted medical passport app for pediatric cardiac patients with offline-first capability</li>
+                    <li>Mentored junior devs in secure clinical tool development for internal hospital use</li>
+                  </ul>
+                        </div>
+                <div class="exp-entry">
+                  <h3>IBM, Bangalore, India</h3>
+                  <strong>Full Stack Application Developer</strong> — Feb 2020 – Aug 2021
+                  <ul>
+                    <li>Modernized financial infrastructure by migrating core Java modules to RedHat-based microservices</li>
+                    <li>Cut hosting costs by 33% and streamlined CI/CD processes for global production releases</li>
+                  </ul>
+                    </div>
+                <div class="exp-entry">
+                  <h3>Indian Road Safety Campaign (Govt. of India), Dehradun, India</h3>
+                  <strong>Software Engineering Intern</strong> — Jul 2020 – Dec 2020
+                  <ul>
+                    <li>Built a full-stack accident risk mapping tool using Angular and Spring, reducing hazards across 17+ zones</li>
+                  </ul>
+                </div>
+            </div>
+                        </div>
+        <!-- Skills Window -->
+        <div class="window" id="window-skills" data-window="skills">
+            <div class="window-header">
+                <span class="window-title"><span class="icon-bubble"><i class="fa-solid fa-gears"></i></span> Skills</span>
+                <div class="window-controls">
+                    <button class="win-min" title="Minimize"></button>
+                    <button class="win-max" title="Maximize"></button>
+                    <button class="win-close" title="Close"></button>
+                        </div>
+                    </div>
+            <div class="window-body">
+                <!-- Animated Skills Ring -->
+                <div class="skills-ring">
+                  <div class="skills-center"><i class="fa-solid fa-robot"></i></div>
+                  <div class="skill-orbit">
+                    <div class="skill-icon" style="--i:0;"><i class="fa-brands fa-python"></i><span class="skill-label">Python</span></div>
+                    <div class="skill-icon" style="--i:1;"><i class="fa-brands fa-js"></i><span class="skill-label">JavaScript</span></div>
+                    <div class="skill-icon" style="--i:2;"><i class="fa-brands fa-java"></i><span class="skill-label">Java</span></div>
+                    <div class="skill-icon" style="--i:3;"><i class="fa-brands fa-aws"></i><span class="skill-label">AWS</span></div>
+                    <div class="skill-icon" style="--i:4;"><i class="fa-brands fa-react"></i><span class="skill-label">React</span></div>
+                    <div class="skill-icon" style="--i:5;"><i class="fa-solid fa-database"></i><span class="skill-label">SQL/DB</span></div>
+                    <div class="skill-icon" style="--i:6;"><i class="fa-solid fa-brain"></i><span class="skill-label">AI/ML</span></div>
+                    <div class="skill-icon" style="--i:7;"><i class="fa-brands fa-git-alt"></i><span class="skill-label">Git</span></div>
+                    <div class="skill-icon" style="--i:8;"><i class="fa-solid fa-cloud"></i><span class="skill-label">Cloud</span></div>
+                    <div class="skill-icon" style="--i:9;"><i class="fa-solid fa-shield-halved"></i><span class="skill-label">Security</span></div>
+                        </div>
+                    </div>
+                <div style="text-align:center; color:#b0e0ff; font-size:1.08rem; margin-top:12px;">Hover a skill to see its name!</div>
+                        </div>
+                    </div>
+        <!-- Awards Window -->
+        <div class="window" id="window-awards" data-window="awards">
+            <div class="window-header">
+                <span class="window-title"><i class="fa-solid fa-award"></i> Certifications & Awards</span>
+                <div class="window-controls">
+                    <button class="win-min" title="Minimize"></button>
+                    <button class="win-max" title="Maximize"></button>
+                    <button class="win-close" title="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <!-- Certifications & Awards content -->
+                <ul>
+                  <li>Columbia University PDL Fellow</li>
+                  <li>IBM Certified Python & Cognos Developer</li>
+                  <li>Google Data Analytics Professional Certificate – Jul 2022</li>
+                  <li>Microsoft Certified: Azure Fundamentals – May 2021</li>
+                  <li>IBM Data Science & Big Data Tracks (20+ badges): Python, Spark, Kafka, Hadoop, Visualization, etc.</li>
+                  <li>IBM Mastery Awards: AI Analyst, Predictive & Business Intelligence</li>
+                  <li>Full Badge Portfolio (Credly)</li>
+                </ul>
+                        </div>
+                    </div>
+        <!-- Contact Window -->
+        <div class="window" id="window-contact" data-window="contact">
+            <div class="window-header">
+                <span class="window-title"><i class="fa-solid fa-terminal"></i> Contact</span>
+                <div class="window-controls">
+                    <button class="win-min" title="Minimize"></button>
+                    <button class="win-max" title="Maximize"></button>
+                    <button class="win-close" title="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <!-- AI avatar for terminal -->
+                <div style="display:flex; align-items:flex-start; gap:12px;">
+                  <div id="ai-avatar"></div>
+                  <div style="flex:1;">
+                    <div id="contact-terminal" style="margin-bottom:18px;"></div>
+                    <form id="terminal-form" style="margin-bottom:24px; text-align:center;">
+                      <input id="terminal-input" type="text" autocomplete="off" placeholder="Type a command (help, about, skills...)" style="width:80%; max-width:340px; background:#181f2a; color:#b0e0ff; border:1.5px solid #60AAD8; border-radius:8px; padding:8px 12px; font-size:1.08rem; font-family:'Share Tech Mono',monospace; outline:none;">
+                    </form>
+                            </div>
+                        </div>
+                <!-- Contact content -->
+                <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; align-items: stretch;">
+                  <div style="flex:1 1 180px; min-width:180px; max-width:220px; background:rgba(255,255,255,0.07); border-radius:14px; padding:18px; margin-bottom:12px; text-align:center;">
+                    <div style="font-size:2rem; color:#60AAD8;"><i class="fas fa-map-marked-alt"></i></div>
+                    <h4 style="margin:10px 0 6px 0; font-size:1.1rem; letter-spacing:1px;">Currently based in:</h4>
+                    <hr style="width:40px; border:1px solid #60AAD8; margin:8px auto;">
+                    <div style="font-size:0.98rem; color:#b0e0ff;">Manhattan, New York, United States</div>
+                    </div>
+                  <div style="flex:1 1 180px; min-width:180px; max-width:220px; background:rgba(255,255,255,0.07); border-radius:14px; padding:18px; margin-bottom:12px; text-align:center;">
+                    <div style="font-size:2rem; color:#60AAD8;"><i class="fas fa-envelope"></i></div>
+                    <h4 style="margin:10px 0 6px 0; font-size:1.1rem; letter-spacing:1px;">Email</h4>
+                    <hr style="width:40px; border:1px solid #60AAD8; margin:8px auto;">
+                    <div style="font-size:0.98rem;"><a href="mailto:vhh2105@columbia.edu" style="color:#b0e0ff; text-decoration:underline;">vhh2105@columbia.edu</a></div>
+                            </div>
+                  <div style="flex:1 1 180px; min-width:180px; max-width:220px; background:rgba(255,255,255,0.07); border-radius:14px; padding:18px; margin-bottom:12px; text-align:center;">
+                    <div style="font-size:2rem; color:#60AAD8;"><i class="fas fa-mobile-alt"></i></div>
+                    <h4 style="margin:10px 0 6px 0; font-size:1.1rem; letter-spacing:1px;">Contact</h4>
+                    <hr style="width:40px; border:1px solid #60AAD8; margin:8px auto;">
+                    <div style="font-size:0.98rem; color:#b0e0ff;">Vipul for new opportunities and business ventures</div>
+                        </div>
+                    </div>
+                <div style="text-align:center; margin-top:18px;">
+                  <a href="https://www.linkedin.com/in/vipulhharihar" target="_blank" style="display:inline-block; margin:0 10px; color:#60AAD8; font-size:2rem;"><i class="fab fa-linkedin"></i></a>
+                  <a href="https://github.com/virslaan" target="_blank" style="display:inline-block; margin:0 10px; color:#60AAD8; font-size:2rem;"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-envelope text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Email</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">vhh2105@columbia.edu</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Contact</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">Vipul for new opportunities and business ventures</div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Resume Window -->
+        <div class="window" id="window-resume" data-window="resume">
+            <div class="window-header">
+                <span class="window-title"><i class="fa-solid fa-file-arrow-down"></i> Resume</span>
+                <div class="window-controls">
+                    <button class="win-min" title="Minimize"></button>
+                    <button class="win-max" title="Maximize"></button>
+                    <button class="win-close" title="Close"></button>
                 </div>
-                <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="https://www.linkedin.com/in/vipulhharihar"><i class="fab fa-linkedin"></i></a>
-                </div>
-                
             </div>
-        </section>
-        
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright 2024 &copy; Vipul H. Harihar</div></footer>
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+            <div class="window-body">
+                <!-- Resume content -->
+                <div style="text-align:center; margin-bottom:18px;">
+                  <button id="download-resume-btn" style="background:#60AAD8; color:#0a1626; border:none; border-radius:8px; padding:10px 24px; font-size:1.1rem; font-family:'Nunito',sans-serif; font-weight:700; cursor:pointer; box-shadow:0 2px 8px #60aad822; transition:background 0.2s;">Download Resume (PDF)</button>
+                </div>
+                <div style="text-align:center; margin-bottom:10px; color:#b0e0ff; font-size:0.98rem;">Or preview below:</div>
+                <iframe id="resume-pdf" src="Vipul_Harihar_Resume_2025.pdf" width="100%" height="500px" style="border-radius:12px; border:1.5px solid #60AAD8; box-shadow:0 2px 16px #60aad822;"></iframe>
+                <script>
+                  document.getElementById('download-resume-btn').onclick = function() {
+                    const link = document.createElement('a');
+                    link.href = 'Vipul_Harihar_Resume_2025.pdf';
+                    link.download = 'Vipul_Harihar_Resume_2025.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  };
+                </script>
+            </div>
+        </div>
+        <!-- Easter Egg Window (hidden by default) -->
+        <div class="window" id="window-easter" data-window="easter">
+            <div class="window-header">
+                <span class="window-title"><i class="fa-solid fa-ghost"></i> Credits</span>
+                <div class="window-controls">
+                    <button class="win-min" title="Minimize"></button>
+                    <button class="win-max" title="Maximize"></button>
+                    <button class="win-close" title="Close"></button>
+                </div>
+            </div>
+            <div class="window-body" style="text-align:center; font-size:1.15rem;">
+                <!-- Fun personal message goes here -->
+                <div style="font-size:2.2rem; margin-bottom:10px;">👨‍💻✨🚀</div>
+                <strong>Vipul H Harihar</strong> crafted this portfolio OS with 💡, ☕, and a dash of AI magic.<br><br>
+                <span style="font-size:1.3rem;">Thank you for visiting! 🙏<br>Keep innovating, keep dreaming. 🌌</span>
+                <div style="margin-top:18px; color:#b0e0ff; font-size:1rem;">(P.S. – Try finding all the hidden features! 🕵️‍♂️)</div>
+            </div>
+        </div>
+    </div>
        
-        <script src="js/scripts.js"></script>
-          <script>
-            function enterPage() {
-                const input = document.getElementById("user-input").value;
-                const landingSection = document.getElementById("landing");
-                const contentSection = document.getElementById("content");
-                const greeting = document.getElementById("dynamic-greeting");
-
-                if (input.trim() !== "") {
-                    greeting.innerText = `Welcome, ${input}!`;
-                } else {
-                    greeting.innerText = "Welcome!";
-                }
-
-                landingSection.style.display = "none";
-                contentSection.style.display = "block";
-            }
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                $(".owl-carousel").owlCarousel({
-                    items: 1,
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 6000,
-                    autoplayHoverPause: true
-                });
-            });
-        </script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
     </body>
 </html>
