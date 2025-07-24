@@ -7,15 +7,25 @@
     <!-- Google Fonts & FontAwesome for icons -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Share+Tech+Mono&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
     </head>
 <body>
-    <!-- Boot Sequence Overlay -->
+    <!-- Cinematic Boot Sequence Overlay -->
     <div id="boot-sequence" class="boot-overlay">
         <div class="boot-content">
-            <span class="boot-logo"><i class="fa-solid fa-microchip"></i></span>
-            <span class="boot-text">Booting <span class="brand">Vipul OS</span><span class="boot-dots">...</span></span>
+            <div class="boot-logo-container">
+                <span class="boot-logo"><i class="fa-solid fa-microchip"></i></span>
+            </div>
+            <div class="boot-text-container">
+                <span class="boot-text">Initializing <span class="brand">Vipul OS</span></span>
+                <div class="boot-progress">
+                    <div class="boot-progress-bar"></div>
+                </div>
+                <span class="boot-status">Loading core systems...</span>
+            </div>
         </div>
     </div>
 
@@ -24,27 +34,207 @@
         <canvas id="stars-canvas"></canvas>
         <!-- Unique star pixel that follows mouse -->
         <div id="star-pixel"></div>
+        <!-- Handcrafted by Vipul signature -->
+        <div id="vipul-signature">Handcrafted by Vipul</div>
+    </div>
+
+
+
+    <!-- Achievement System -->
+    <div id="achievement-container"></div>
+    
+    <!-- Comprehensive Achievements Showcase -->
+    <div id="achievements-showcase" class="achievements-showcase">
+        <button class="achievement-close" onclick="closeAchievementsShowcase()">×</button>
+        <div class="achievements-header">
+            <h2>🏆 Vipul's Achievements</h2>
+            <p>From India to NYC - A journey of innovation and excellence</p>
+        </div>
+        
+        <div class="achievements-categories">
+            <button class="category-filter active" data-category="all">All</button>
+            <button class="category-filter" data-category="academic">Academic</button>
+            <button class="category-filter" data-category="professional">Professional</button>
+            <button class="category-filter" data-category="technical">Technical</button>
+            <button class="category-filter" data-category="awards">Awards</button>
+        </div>
+        
+        <div class="achievements-grid">
+            <div class="achievement-card" data-category="academic awards">
+                <span class="achievement-icon">🎓</span>
+                <div class="achievement-title">Columbia University Graduate</div>
+                <div class="achievement-description">Master of Science in Data Science with 3.6/4.0 GPA. Golden Graduate Marshal 2023, Best Teaching Assistant Award winner.</div>
+                <div class="achievement-stats">
+                    <span>GPA: 3.6/4.0</span>
+                    <span>2022</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-category="awards professional">
+                <span class="achievement-icon">🌟</span>
+                <div class="achievement-title">Forbes 30 Under 30 Nominee</div>
+                <div class="achievement-description">Valued for exceptional contributions to AI and technology innovation in the finance sector.</div>
+                <div class="achievement-stats">
+                    <span>Nomination</span>
+                    <span>2024</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-category="professional technical">
+                <span class="achievement-icon">🤖</span>
+                <div class="achievement-title">Chief AI Architect</div>
+                <div class="achievement-description">Built 4 core AI systems at $5B investment firm, saving over $2M annually through automation.</div>
+                <div class="achievement-stats">
+                    <span>$2M+ Savings</span>
+                    <span>2022-Present</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-category="academic">
+                <span class="achievement-icon">🏅</span>
+                <div class="achievement-title">Gold Medalist</div>
+                <div class="achievement-description">Bachelor's degree with 9.62/10.0 GPA. Academic Excellence Scholar for 3 consecutive years.</div>
+                <div class="achievement-stats">
+                    <span>GPA: 9.62/10.0</span>
+                    <span>2020</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-category="technical professional">
+                <span class="achievement-icon">⚡</span>
+                <div class="achievement-title">25+ Data Pipelines</div>
+                <div class="achievement-description">Designed and deployed infrastructure-grade data pipelines supporting compliance, trading, and tax workflows.</div>
+                <div class="achievement-stats">
+                    <span>25+ Pipelines</span>
+                    <span>2022-Present</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-category="technical">
+                <span class="achievement-icon">🔒</span>
+                <div class="achievement-title">Security Expert</div>
+                <div class="achievement-description">Developed encrypted medical passport for pediatric cardiac patients with offline-first capability.</div>
+                <div class="achievement-stats">
+                    <span>Healthcare</span>
+                    <span>2022</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-category="professional">
+                <span class="achievement-icon">🏛️</span>
+                <div class="achievement-title">NYC Infrastructure Fellow</div>
+                <div class="achievement-description">Modeled carbon impact of repurposing 70K+ wind turbine blades in NY State for sustainable city planning.</div>
+                <div class="achievement-stats">
+                    <span>70K+ Blades</span>
+                    <span>2022</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-category="technical professional">
+                <span class="achievement-icon">💼</span>
+                <div class="achievement-title">IBM Full Stack Developer</div>
+                <div class="achievement-description">Modernized financial infrastructure, cut hosting costs by 33% through microservices migration.</div>
+                <div class="achievement-stats">
+                    <span>33% Cost Reduction</span>
+                    <span>2020-2021</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-category="awards">
+                <span class="achievement-icon">🏆</span>
+                <div class="achievement-title">Columbia PDL Fellow</div>
+                <div class="achievement-description">Selected for prestigious PDL Fellowship program, recognizing leadership and innovation potential.</div>
+                <div class="achievement-stats">
+                    <span>Fellowship</span>
+                    <span>2022</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-category="technical">
+                <span class="achievement-icon">🎵</span>
+                <div class="achievement-title">VeeMusic Creator</div>
+                <div class="achievement-description">Built next-generation music streaming platform with real-time AI recommendations and advanced audio processing.</div>
+                <div class="achievement-stats">
+                    <span>AI Streaming</span>
+                    <span>2023</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-category="technical">
+                <span class="achievement-icon">🌱</span>
+                <div class="achievement-title">Sustainable AI Pioneer</div>
+                <div class="achievement-description">Developed AI-powered carbon emission prediction system for wind turbine blade repurposing.</div>
+                <div class="achievement-stats">
+                    <span>Green Tech</span>
+                    <span>2022</span>
+                </div>
+            </div>
+            
+            <div class="achievement-card" data-category="awards">
+                <span class="achievement-icon">📜</span>
+                <div class="achievement-title">IBM Certified Developer</div>
+                <div class="achievement-description">IBM Certified Python & Cognos Developer with 20+ badges in AI, Data Science, and Big Data technologies.</div>
+                <div class="achievement-stats">
+                    <span>20+ Badges</span>
+                    <span>2021</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Top Navbar (MacOS-style) -->
     <div id="top-navbar">
-      <div id="navbar-left"><i class="fa-solid fa-laptop-code"></i> Vipul OS</div>
+      <div id="navbar-left">
+        <i class="fa-solid fa-laptop-code"></i> Vipul OS
+        <i class="fa-solid fa-share share-contact-icon" onclick="showVipulExpertisePanel()" title="View Vipul's Expertise"></i>
+      </div>
+      <div id="navbar-center">
+        <!-- Notifications will be dynamically added here -->
+      </div>
       <div id="navbar-right">
-        <span id="navbar-user"></span>
         <span id="navbar-clock"></span>
         <span id="navbar-calendar" style="cursor:pointer;"><i class="fa-regular fa-calendar"></i></span>
         <div id="calendar-dropdown" style="display:none;"></div>
       </div>
     </div>
-    <!-- User Name Modal -->
-    <div id="user-modal" style="display:none;">
-      <div id="user-modal-content">
-        <h3>Welcome!</h3>
-        <p>Please enter your name for a personalized experience:</p>
-        <input id="user-name-input" type="text" placeholder="Your name" style="padding:8px 12px; border-radius:8px; border:1.5px solid #60AAD8; font-size:1.1rem;">
-        <button id="user-name-submit" style="margin-left:10px; background:#60AAD8; color:#0a1626; border:none; border-radius:8px; padding:8px 18px; font-size:1.1rem; font-family:'Nunito',sans-serif; font-weight:700; cursor:pointer;">Enter</button>
-                </div>
+
+    <!-- Cinematic Notifications Panel -->
+    <div id="notifications-panel" class="notifications-panel">
+        <div class="notifications-header">
+            <div class="notifications-title">
+                <i class="fa-solid fa-info-circle"></i>
+                <span>Professional Info</span>
             </div>
+            <button class="notifications-close" onclick="closeNotificationsPanel()">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="notifications-content">
+            <div class="notifications-tabs">
+                <button class="tab-btn active" data-tab="all">All</button>
+                <button class="tab-btn" data-tab="timeline">Timeline</button>
+                <button class="tab-btn" data-tab="achievements">Achievements</button>
+                <button class="tab-btn" data-tab="skills">Skills</button>
+                <button class="tab-btn" data-tab="contact">Contact</button>
+            </div>
+            
+            <div class="notifications-list" id="notifications-list">
+                <!-- Notifications will be dynamically populated here -->
+            </div>
+        </div>
+        
+        <div class="notifications-footer">
+            <button class="clear-all-btn" onclick="clearAllNotifications()">
+                <i class="fa-solid fa-trash"></i>
+                Clear All
+            </button>
+            <div class="notifications-stats">
+                <span id="total-notifications">0</span> notifications
+            </div>
+        </div>
+    </div>
+
 
     <!-- Dock (bottom navigation) -->
     <nav id="dock">
@@ -204,24 +394,57 @@
                         </div>
                     </div>
             <div class="window-body">
-                <!-- Animated Skills Ring -->
-                <div class="skills-ring">
-                  <div class="skills-center"><i class="fa-solid fa-robot"></i></div>
-                  <div class="skill-orbit">
-                    <div class="skill-icon" style="--i:0;"><i class="fa-brands fa-python"></i><span class="skill-label">Python</span></div>
-                    <div class="skill-icon" style="--i:1;"><i class="fa-brands fa-js"></i><span class="skill-label">JavaScript</span></div>
-                    <div class="skill-icon" style="--i:2;"><i class="fa-brands fa-java"></i><span class="skill-label">Java</span></div>
-                    <div class="skill-icon" style="--i:3;"><i class="fa-brands fa-aws"></i><span class="skill-label">AWS</span></div>
-                    <div class="skill-icon" style="--i:4;"><i class="fa-brands fa-react"></i><span class="skill-label">React</span></div>
-                    <div class="skill-icon" style="--i:5;"><i class="fa-solid fa-database"></i><span class="skill-label">SQL/DB</span></div>
-                    <div class="skill-icon" style="--i:6;"><i class="fa-solid fa-brain"></i><span class="skill-label">AI/ML</span></div>
-                    <div class="skill-icon" style="--i:7;"><i class="fa-brands fa-git-alt"></i><span class="skill-label">Git</span></div>
-                    <div class="skill-icon" style="--i:8;"><i class="fa-solid fa-cloud"></i><span class="skill-label">Cloud</span></div>
-                    <div class="skill-icon" style="--i:9;"><i class="fa-solid fa-shield-halved"></i><span class="skill-label">Security</span></div>
+                <!-- Enhanced Skills Section -->
+                <div class="skills-container">
+                    <div class="skills-ring">
+                        <div class="skills-center">
+                            <i class="fa-solid fa-robot"></i>
+                            <button id="skills-expand-btn" class="skills-expand-btn">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="skill-orbit">
+                            <div class="skill-icon" style="--i:0;" data-skill="python"><i class="fa-brands fa-python"></i><span class="skill-label">Python</span></div>
+                            <div class="skill-icon" style="--i:1;" data-skill="javascript"><i class="fa-brands fa-js"></i><span class="skill-label">JavaScript</span></div>
+                            <div class="skill-icon" style="--i:2;" data-skill="java"><i class="fa-brands fa-java"></i><span class="skill-label">Java</span></div>
+                            <div class="skill-icon" style="--i:3;" data-skill="aws"><i class="fa-brands fa-aws"></i><span class="skill-label">AWS</span></div>
+                            <div class="skill-icon" style="--i:4;" data-skill="react"><i class="fa-brands fa-react"></i><span class="skill-label">React</span></div>
+                            <div class="skill-icon" style="--i:5;" data-skill="database"><i class="fa-solid fa-database"></i><span class="skill-label">SQL/DB</span></div>
+                            <div class="skill-icon" style="--i:6;" data-skill="ai"><i class="fa-solid fa-brain"></i><span class="skill-label">AI/ML</span></div>
+                            <div class="skill-icon" style="--i:7;" data-skill="git"><i class="fa-brands fa-git-alt"></i><span class="skill-label">Git</span></div>
+                            <div class="skill-icon" style="--i:8;" data-skill="cloud"><i class="fa-solid fa-cloud"></i><span class="skill-label">Cloud</span></div>
+                            <div class="skill-icon" style="--i:9;" data-skill="security"><i class="fa-solid fa-shield-halved"></i><span class="skill-label">Security</span></div>
                         </div>
                     </div>
-                <div style="text-align:center; color:#b0e0ff; font-size:1.08rem; margin-top:12px;">Hover a skill to see its name!</div>
+                    
+                    <div class="skills-detail" id="skills-detail">
+                        <div class="skills-detail-content">
+                            <h3>Vipul's Expertise</h3>
+                            <div id="skill-details">
+                                <div class="skill-category">
+                                    <h4>🐍 Programming Languages</h4>
+                                    <p>Expert in Python (5+ years), JavaScript, Java, SQL, Bash. Built enterprise systems serving millions of users.</p>
+                                </div>
+                                <div class="skill-category">
+                                    <h4>🧠 AI & Machine Learning</h4>
+                                    <p>Deep Learning, NLP, LLMs, Real-time AI systems. Built 4 production AI products at $5B investment firm.</p>
+                                </div>
+                                <div class="skill-category">
+                                    <h4>☁️ Cloud & Infrastructure</h4>
+                                    <p>AWS, GCP, Docker, CI/CD, Microservices. Reduced hosting costs by 33% through optimization.</p>
+                                </div>
+                                <div class="skill-category">
+                                    <h4>🚀 Full-Stack Development</h4>
+                                    <p>React, Angular, Node.js, Flask, Spring. Built scalable applications from frontend to backend.</p>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+                <div style="text-align:center; color:var(--text-secondary); font-size:0.9rem; margin-top:12px;">
+                    <span id="skills-instruction">Click the center to see detailed expertise!</span>
+                </div>
+            </div>
                     </div>
         <!-- Awards Window -->
         <div class="window" id="window-awards" data-window="awards">
@@ -262,36 +485,41 @@
                   <div id="ai-avatar"></div>
                   <div style="flex:1;">
                     <div id="contact-terminal" style="margin-bottom:18px;"></div>
-                    <form id="terminal-form" style="margin-bottom:24px; text-align:center;">
-                      <input id="terminal-input" type="text" autocomplete="off" placeholder="Type a command (help, about, skills...)" style="width:80%; max-width:340px; background:#181f2a; color:#b0e0ff; border:1.5px solid #60AAD8; border-radius:8px; padding:8px 12px; font-size:1.08rem; font-family:'Share Tech Mono',monospace; outline:none;">
+                    <form id="terminal-form" style="margin-bottom:24px; text-align:center; margin-top:16px;">
+                      <input id="terminal-input" type="text" autocomplete="off" placeholder="Ask me anything about Vipul... (try 'help')" style="width:90%; max-width:400px;">
                     </form>
                             </div>
                         </div>
                 <!-- Contact content -->
                 <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; align-items: stretch;">
                   <div style="flex:1 1 180px; min-width:180px; max-width:220px; background:rgba(255,255,255,0.07); border-radius:14px; padding:18px; margin-bottom:12px; text-align:center;">
-                    <div style="font-size:2rem; color:#60AAD8;"><i class="fas fa-map-marked-alt"></i></div>
+                    <div style="font-size:2rem; color:#00d4ff;"><i class="fas fa-map-marked-alt"></i></div>
                     <h4 style="margin:10px 0 6px 0; font-size:1.1rem; letter-spacing:1px;">Currently based in:</h4>
-                    <hr style="width:40px; border:1px solid #60AAD8; margin:8px auto;">
+                    <hr style="width:40px; border:1px solid #00d4ff; margin:8px auto;">
                     <div style="font-size:0.98rem; color:#b0e0ff;">Manhattan, New York, United States</div>
                     </div>
                   <div style="flex:1 1 180px; min-width:180px; max-width:220px; background:rgba(255,255,255,0.07); border-radius:14px; padding:18px; margin-bottom:12px; text-align:center;">
-                    <div style="font-size:2rem; color:#60AAD8;"><i class="fas fa-envelope"></i></div>
+                    <div style="font-size:2rem; color:#00d4ff;"><i class="fas fa-envelope"></i></div>
                     <h4 style="margin:10px 0 6px 0; font-size:1.1rem; letter-spacing:1px;">Email</h4>
-                    <hr style="width:40px; border:1px solid #60AAD8; margin:8px auto;">
+                    <hr style="width:40px; border:1px solid #00d4ff; margin:8px auto;">
                     <div style="font-size:0.98rem;"><a href="mailto:vhh2105@columbia.edu" style="color:#b0e0ff; text-decoration:underline;">vhh2105@columbia.edu</a></div>
                             </div>
                   <div style="flex:1 1 180px; min-width:180px; max-width:220px; background:rgba(255,255,255,0.07); border-radius:14px; padding:18px; margin-bottom:12px; text-align:center;">
-                    <div style="font-size:2rem; color:#60AAD8;"><i class="fas fa-mobile-alt"></i></div>
+                    <div style="font-size:2rem; color:#00d4ff;"><i class="fas fa-mobile-alt"></i></div>
                     <h4 style="margin:10px 0 6px 0; font-size:1.1rem; letter-spacing:1px;">Contact</h4>
-                    <hr style="width:40px; border:1px solid #60AAD8; margin:8px auto;">
+                    <hr style="width:40px; border:1px solid #00d4ff; margin:8px auto;">
                     <div style="font-size:0.98rem; color:#b0e0ff;">Vipul for new opportunities and business ventures</div>
                         </div>
                     </div>
                 <div style="text-align:center; margin-top:18px;">
-                  <a href="https://www.linkedin.com/in/vipulhharihar" target="_blank" style="display:inline-block; margin:0 10px; color:#60AAD8; font-size:2rem;"><i class="fab fa-linkedin"></i></a>
-                  <a href="https://github.com/virslaan" target="_blank" style="display:inline-block; margin:0 10px; color:#60AAD8; font-size:2rem;"><i class="fab fa-github"></i></a>
-                            </div>
+                  <a href="https://www.linkedin.com/in/vipulhharihar" target="_blank" style="display:inline-block; margin:0 10px; color:#00d4ff; font-size:2rem;"><i class="fab fa-linkedin"></i></a>
+                  <a href="https://github.com/virslaan" target="_blank" style="display:inline-block; margin:0 10px; color:#00d4ff; font-size:2rem;"><i class="fab fa-github"></i></a>
+                </div>
+                <div style="text-align:center; margin-top:16px;">
+                  <button onclick="showContactShareNotification()" style="background: linear-gradient(135deg, #00d4ff, #0099cc); border: none; border-radius: 8px; padding: 10px 20px; color: #0a0a0f; font-weight: 600; cursor: pointer; font-size: 0.95rem; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0, 212, 255, 0.3);">
+                    <i class="fa-solid fa-share"></i> Share Contact Info
+                  </button>
+                </div>
                         </div>
                     </div>
         <!-- Resume Window -->
@@ -307,10 +535,10 @@
             <div class="window-body">
                 <!-- Resume content -->
                 <div style="text-align:center; margin-bottom:18px;">
-                  <button id="download-resume-btn" style="background:#60AAD8; color:#0a1626; border:none; border-radius:8px; padding:10px 24px; font-size:1.1rem; font-family:'Nunito',sans-serif; font-weight:700; cursor:pointer; box-shadow:0 2px 8px #60aad822; transition:background 0.2s;">Download Resume (PDF)</button>
+                  <button id="download-resume-btn" style="background:#00d4ff; color:#0a0a0f; border:none; border-radius:8px; padding:10px 24px; font-size:1.1rem; font-family:'Nunito',sans-serif; font-weight:700; cursor:pointer; box-shadow:0 2px 8px rgba(0, 212, 255, 0.3); transition:background 0.2s;">Download Resume (PDF)</button>
                 </div>
                 <div style="text-align:center; margin-bottom:10px; color:#b0e0ff; font-size:0.98rem;">Or preview below:</div>
-                <iframe id="resume-pdf" src="Vipul_Harihar_Resume_2025.pdf" width="100%" height="500px" style="border-radius:12px; border:1.5px solid #60AAD8; box-shadow:0 2px 16px #60aad822;"></iframe>
+                <iframe id="resume-pdf" src="Vipul_Harihar_Resume_2025.pdf" width="100%" height="500px" style="border-radius:12px; border:1.5px solid #00d4ff; box-shadow:0 2px 16px rgba(0, 212, 255, 0.3);"></iframe>
                 <script>
                   document.getElementById('download-resume-btn').onclick = function() {
                     const link = document.createElement('a');
