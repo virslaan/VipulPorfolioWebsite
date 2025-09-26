@@ -870,11 +870,11 @@ if (skillOrbit && skillIcons.length) {
 const achievementNews = [
     {
         icon: '🏆',
-        message: 'Forbes 30 Under 30 Nominee -2025'
+        message: 'Forbes 30 Under 30 Nominee 2026'
     },
     {
         icon: '💼',
-        message: 'Chief AI Architect at $5B AUM Wealth management firm'
+        message: 'Chief AI Architect/ Lead SWE at $5B AUM Wealth management firm'
     },
     {
         icon: '🎓',
