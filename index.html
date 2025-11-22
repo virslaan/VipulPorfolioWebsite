@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vipul H. Harihar – Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    </head>
+<body>
+    <!-- Human Verification Overlay -->
+    <div class="verification-overlay" id="verificationOverlay">
+        <div class="verification-content">
+            <h2 class="verification-title">Welcome</h2>
+            <p class="verification-subtitle">Please verify you're human to continue</p>
+            <button class="verification-button" id="verifyButton">I'm Human</button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <div class="nav-logo">Vipul H. Harihar</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline webkit-playsinline>
+            <!-- Video source will be set randomly by JavaScript -->
+        </video>
+        <!-- Fallback image -->
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&h=1080&fit=crop&q=80" alt="Technology background" class="hero-image">
+        <div class="hero-overlay"></div>
+        <!-- Video Navigation Arrows -->
+        <button class="video-nav video-nav-prev" id="videoPrev" aria-label="Previous video">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        <button class="video-nav video-nav-next" id="videoNext" aria-label="Next video">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+        <div class="hero-content">
+            <h1>Vipul H. Harihar</h1>
+            <p class="hero-subtitle">Chief AI Architect & Lead Software Engineer</p>
+            <p class="hero-description">
+                Software Engineer with 5 years of experience designing and deploying infrastructure-grade platforms 
+                across finance, healthcare, and government sectors. Independently developed and implemented four 
+                mission-critical AI and automation products used daily at a $5B investment firm.
+            </p>
+            <div class="hero-badge" id="forbesBadge">Forbes 30 Under 30 2026 Nominee</div>
+        </div>
+    </section>
+
+    <!-- Forbes Achievement Modal -->
+    <div class="forbes-modal" id="forbesModal">
+        <div class="forbes-modal-backdrop"></div>
+        <div class="forbes-modal-content">
+            <button class="forbes-modal-close" id="forbesModalClose">&times;</button>
+            <div class="forbes-content">
+                <div class="forbes-header">
+                    <img src="assets/img/vipul-photo.jpg" alt="Vipul Harihar" class="forbes-photo" onerror="this.style.display='none'">
+                    <div class="forbes-header-text">
+                        <h2 class="forbes-title">Forbes 30 Under 30</h2>
+                        <h3 class="forbes-subtitle">2026 Nominee</h3>
+                    </div>
+                </div>
+                
+                <div class="forbes-story">
+                    <h4 class="story-title">A Data Science Alum Was Hired to Fix Code. He Built an Operating System Instead.</h4>
+                    <p class="story-source">Columbia Data Science Institute • September 16, 2025</p>
+                    
+                    <div class="story-content">
+                        <p><em>A solo AI project from a Columbia grad is streamlining daily operations at a multi-billion-dollar wealth firm by automating critical, time-consuming tasks.</em></p>
+                        
+                        <p>When <strong>Vipul Harihar (MS '23)</strong> was hired by GenTrust, a wealth management firm with offices in New York, Miami and Puerto Rico, the expectations were straightforward: clean up code, support internal systems, and help modernize a traditional trade operation.</p>
+                        
+                        <p>But when company leadership asked if he could "do something with AI," he took it as a serious engineering challenge. Four months later, he had designed and built an AI-powered proprietary operating system that integrates with internal and third-party software, which is now the core of the firm's trading technology platform.</p>
+                        
+                        <p class="quote">"They brought me in to clean up legacy systems," Harihar says. "What started as maintenance turned into a complete reinvention."</p>
+                        
+                        <p>The platform, launched in July 2025, uses the same kind of language model that is behind tools like ChatGPT, but adapted into a secure system built for financial operations.</p>
+                        
+                        <p>Many AI tools are unusable in wealth management given their tendency to hallucinate, and the risk that user data could be shared or used to train models. Drawing on his education at the Data Science Institute, where he learned both the theory behind AI and how to apply it in high-stakes, real-world settings, Harihar developed a solution that worked around both issues. Harihar built a custom system that transforms thousands of internal documents, workflows, and compliance rules into information the model can draw on and use. Crucially, the system doesn't share any data.</p>
+                        
+                        <p>He also reduced hallucinations by limiting what the model is asked to do. The platform operates within tight boundaries, using clear instructions and limited options to keep its answers accurate.</p>
+                        
+                        <p>Unlike most language models—which work by generating the most statistically likely answers without grasp of meaning—this system asks clarifying questions when it's unsure.</p>
+                        
+                        <p>Beyond automation and workflow coordination, Harihar focused heavily on user experience, and the range of staff, from traders to administrative staff – who would have to use it. The multilingual system adjusts tone, language, and detail based on the user.</p>
+                        
+                        <p class="quote">"If someone isn't a statistics person, the answer has to make sense to them too," Harihar says. "I wanted to make something people actually want to use."</p>
+                        
+                        <p>Perhaps most remarkable is that Harihar built the entire system himself—front end, back end, mobile integration, dashboards, data pipelines, and even the product's visual design. The total development budget was $50 a month, covering access to the language model API. With GenTrust fully onboarded, Harihar and firm leadership are now exploring ways to bring the system to other firms.</p>
+                        
+                        <p class="quote">"I didn't come to DSI with all the answers," he says. "But I left with the ability to build something from start to finish. Columbia teaches you how to operate without a fixed blueprint."</p>
+                    </div>
+                    
+                    <div class="story-link">
+                        <a href="https://datascience.columbia.edu/news/2025/a-data-science-alum-was-hired-to-fix-code-he-built-an-operating-system-instead/" target="_blank" rel="noopener noreferrer">Read Full Article on Columbia DSI →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <canvas id="confettiCanvas"></canvas>
+    </div>
+            
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="section-content">
+            <div class="section-title">About</div>
+            <div class="about-content">
+                <p class="about-text">
+                    Software Engineer with 5 years of experience designing and deploying infrastructure-grade platforms 
+                    across finance, healthcare, and government sectors. Independently developed and implemented four 
+                    mission-critical AI and automation products—Product A, B, C, and D—used daily at a $5B investment firm. 
+                    Proficient in full-stack development, secure cloud deployments, distributed systems, and real-time LLM 
+                    integrations. Columbia MSDS graduate, Forbes 30 Under 30 2026 nominee, and driven systems thinker with a 
+                    product-first mindset.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section">
+        <div class="section-content">
+            <div class="section-title">Experience</div>
+            
+            <div class="timeline-container">
+                <div class="timeline-thread"></div>
+                
+                <div class="timeline-item" data-date="Aug 2022 - Present">
+                    <div class="timeline-node">
+                        <div class="timeline-image-wrapper">
+                            <img src="https://image.pitchbook.com/XEVfNDDbzEiYzuBV89ast30SDwf1734099562038_200x200" alt="GenTrust" class="timeline-image">
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-content-header">
+                            <div class="timeline-header-left">
+                                <h3 class="timeline-title">Chief AI Architect and Lead Software Engineer</h3>
+                                <div class="timeline-company">GenTrust, New York, NY</div>
+                            </div>
+                            <div class="timeline-date-right">Aug 2022 – Present</div>
+                        </div>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Designed and launched four core AI-powered systems (Product A–D), transforming portfolio oversight, CRM workflows, research automation, and document intelligence</li>
+                                <li>Built 25+ data pipelines supporting compliance, trading, and tax workflows, saving over $2M</li>
+                                <li>Architected secure full-stack systems with real-time LLM integrations and cloud-first deployment strategy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-date="Sep 2022 - Dec 2022">
+                    <div class="timeline-node">
+                        <div class="timeline-image-wrapper">
+                            <img src="https://www.nyc.gov/assets/ddc/images/content/header/logo.png" alt="NYC DDC" class="timeline-image">
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-content-header">
+                            <div class="timeline-header-left">
+                                <h3 class="timeline-title">Infrastructure Fellow – Wind Energy Capstone</h3>
+                                <div class="timeline-company">NYC Department of Design and Construction (NYC-DDC), New York, NY</div>
+                            </div>
+                            <div class="timeline-date-right">Sep 2022 – Dec 2022</div>
+                        </div>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Modeled carbon impact of repurposing 70K+ wind turbine blades in NY State</li>
+                                <li>Delivered a scalable sustainability planning tool, deployed via cloud platform and now in DDC use</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-date="May 2022 - Dec 2022">
+                    <div class="timeline-node">
+                        <div class="timeline-image-wrapper">
+                            <img src="https://logo.clearbit.com/nyp.org" alt="NewYork-Presbyterian" class="timeline-image">
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-content-header">
+                            <div class="timeline-header-left">
+                                <h3 class="timeline-title">Research Assistant & Engineer</h3>
+                                <div class="timeline-company">NewYork-Presbyterian – Columbia Medical Center, New York, NY</div>
+                            </div>
+                            <div class="timeline-date-right">May 2022 – Dec 2022</div>
+                        </div>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Developed encrypted medical passport app for pediatric cardiac patients with offline-first capability</li>
+                                <li>Mentored junior devs in secure clinical tool development for internal hospital use</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-date="Feb 2020 - Aug 2021">
+                    <div class="timeline-node">
+                        <div class="timeline-image-wrapper">
+                            <img src="https://animationvisarts.com/wp-content/uploads/2021/01/IBM-Logo-Design-1972-present.png" alt="IBM" class="timeline-image">
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-content-header">
+                            <div class="timeline-header-left">
+                                <h3 class="timeline-title">Full Stack Application Developer</h3>
+                                <div class="timeline-company">IBM, Bangalore, India</div>
+                            </div>
+                            <div class="timeline-date-right">Feb 2020 – Aug 2021</div>
+                        </div>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Modernized financial infrastructure by migrating core Java modules to RedHat-based microservices</li>
+                                <li>Cut hosting costs by 33% and streamlined CI/CD processes for global production releases</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-date="Jul 2020 - Dec 2020">
+                    <div class="timeline-node">
+                        <div class="timeline-image-wrapper">
+                            <img src="https://framerusercontent.com/images/HUQwisNO5v8oyzhBhzOCqPXH4M.png" alt="Indian Road Safety Campaign" class="timeline-image">
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-content-header">
+                            <div class="timeline-header-left">
+                                <h3 class="timeline-title">Software Engineering Intern</h3>
+                                <div class="timeline-company">Indian Road Safety Campaign (Govt. of India), Dehradun, India</div>
+                            </div>
+                            <div class="timeline-date-right">Jul 2020 – Dec 2020</div>
+                        </div>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Built a full-stack accident risk mapping tool using Angular and Spring, reducing hazards across 17+ zones</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects & Skills Combined Section -->
+    <section id="projects" class="section">
+        <div class="section-content">
+            <div class="section-title">Projects & Skills</div>
+            <div class="projects-skills-section">
+                <!-- Projects Grid -->
+                <div class="projects-container">
+                    <div class="project-thumbnail" data-project="wind-turbine">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80" alt="Wind Turbine Project" class="project-thumbnail-image">
+                        <div class="project-thumbnail-overlay">
+                            <div class="project-thumbnail-info">
+                                <div class="project-thumbnail-title">Wind Turbine Blade Repurposing</div>
+                                <div class="project-thumbnail-tech">Python, Flask, ML, Cloud</div>
+            </div>
+        </div>
+    </div>
+
+                    <div class="project-thumbnail" data-project="veemusic">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop&q=80" alt="VeeMusic" class="project-thumbnail-image">
+                        <div class="project-thumbnail-overlay">
+                            <div class="project-thumbnail-info">
+                                <div class="project-thumbnail-title">VeeMusic</div>
+                                <div class="project-thumbnail-tech">React, Node.js, AI</div>
+            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-thumbnail" data-project="dj-software">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=600&fit=crop&q=80" alt="DJ Software" class="project-thumbnail-image">
+                        <div class="project-thumbnail-overlay">
+                            <div class="project-thumbnail-info">
+                                <div class="project-thumbnail-title">DJ Software POC</div>
+                                <div class="project-thumbnail-tech">JavaScript, Web Audio API</div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-thumbnail" data-project="capstone">
+                        <img src="assets/img/g1.JPG" alt="Capstone Presentation 2022 with team" class="project-thumbnail-image">
+                        <div class="project-thumbnail-overlay">
+                            <div class="project-thumbnail-info">
+                                <div class="project-thumbnail-title">Capstone Presentation 2022</div>
+                                <div class="project-thumbnail-tech">Team Project, Columbia University</div>
+            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-thumbnail" data-project="medical-passport">
+                        <img src="assets/img/medical-passport.jpg" alt="Medical Passport" class="project-thumbnail-image">
+                        <div class="project-thumbnail-overlay">
+                            <div class="project-thumbnail-info">
+                                <div class="project-thumbnail-title">Medical Passport</div>
+                                <div class="project-thumbnail-tech">React, Encryption, Healthcare</div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-thumbnail" data-project="techhub">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop&q=80" alt="TechHub" class="project-thumbnail-image">
+                        <div class="project-thumbnail-overlay">
+                            <div class="project-thumbnail-info">
+                                <div class="project-thumbnail-title">TechHub</div>
+                                <div class="project-thumbnail-tech">Full Stack, Cloud, APIs</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills Sidebar -->
+                <div class="skills-sidebar">
+                    <div class="skills-sidebar-title">Skills</div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">LLMs</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">Distributed Systems</span>
+                        <span class="skill-tag">Full-Stack Development</span>
+                    </div>
+                </div>
+            </div>
+                    </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="project-modal-content">
+            <div class="project-modal-header">
+                <div class="project-modal-title" id="modalTitle">Project</div>
+                <button class="project-modal-close" id="modalClose">&times;</button>
+            </div>
+            <iframe class="project-modal-iframe" id="modalIframe" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="section-content">
+            <div class="section-title">Education</div>
+            
+            <div class="education-item">
+                <div class="education-content-wrapper">
+                    <div class="education-content">
+                        <div class="education-title">Columbia University, New York, NY</div>
+                        <div class="education-degree">Master of Science in Data Science, GPA: 3.6/4.0 — Dec 2022</div>
+                        <div class="education-details">
+                            <strong>Golden Graduate Marshal 2023 • PDL Fellow • Best Teaching Assistant Award 2022 & 2023</strong><br>
+                            Coursework: Applied Machine Learning, Deep Learning, Distributed Systems, Advanced DBMS, Advanced Algorithms
+                        </div>
+                    </div>
+                    <div class="education-logo">
+                        <img src="https://logo.clearbit.com/columbia.edu" alt="Columbia University" onerror="this.src='https://via.placeholder.com/120x120?text=Columbia'">
+                    </div>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-content-wrapper">
+                    <div class="education-content">
+                        <div class="education-title">DIT University, Dehradun, India</div>
+                        <div class="education-degree">Bachelor of Technology in Computer Science & Engineering, GPA: 9.62/10.0 — May 2020</div>
+                        <div class="education-details">
+                            <strong>Specialization: Big Data Analytics • Gold Medalist • Academic Excellence Scholar (3 years)</strong>
+                        </div>
+                    </div>
+                    <div class="education-logo">
+                        <img src="https://logo.clearbit.com/dituniversity.edu.in" alt="DIT University" onerror="this.src='https://via.placeholder.com/120x120?text=DIT'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="section">
+        <div class="section-content">
+            <div class="section-title">Certifications & Awards</div>
+            <ul class="awards-list">
+                <li>Forbes 30 Under 30 2026 Nominee</li>
+                  <li>Columbia University PDL Fellow</li>
+                  <li>IBM Certified Python & Cognos Developer</li>
+                  <li>Google Data Analytics Professional Certificate – Jul 2022</li>
+                  <li>Microsoft Certified: Azure Fundamentals – May 2021</li>
+                  <li>IBM Data Science & Big Data Tracks (20+ badges): Python, Spark, Kafka, Hadoop, Visualization, etc.</li>
+                  <li>IBM Mastery Awards: AI Analyst, Predictive & Business Intelligence</li>
+                <li><a href="https://www.credly.com/users/vipul-harihar" target="_blank">Full Badge Portfolio (Credly)</a></li>
+                </ul>
+                        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume-section">
+        <a href="Vipul_Harihar_Resume_2025.pdf" download class="resume-button">Download Resume (PDF)</a>
+        <div class="resume-preview">
+            <iframe src="Vipul_Harihar_Resume_2025.pdf" width="100%" height="600px"></iframe>
+                    </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <div class="footer-contact-grid">
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </span>
+                    <div class="footer-contact-label">Location</div>
+                    <div class="footer-contact-value">Manhattan, New York, United States</div>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </span>
+                    <div class="footer-contact-label">Email</div>
+                    <div class="footer-contact-value">
+                        <a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </span>
+                    <div class="footer-contact-label">Phone</div>
+                    <div class="footer-contact-value">+1 (917) 214-5091</div>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </span>
+                    <div class="footer-contact-label">LinkedIn</div>
+                    <div class="footer-contact-value">
+                        <a href="https://www.linkedin.com/in/vipulhharihar" target="_blank" rel="noopener noreferrer">linkedin.com/in/vipulhharihar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/vipulhharihar" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="https://github.com/virslaan" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+                <a href="mailto:vhh2105@columbia.edu" aria-label="Email">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="footer-copyright">© 2025 Vipul H. Harihar. All rights reserved.</div>
+        </div>
+    </footer>
+       
+    <script src="js/main.js"></script>
+    </body>
+</html>
