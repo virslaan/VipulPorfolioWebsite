@@ -24,39 +24,88 @@ document.addEventListener('DOMContentLoaded', () => {
     const verificationOverlay = document.getElementById('verificationOverlay');
     const verifyButton = document.getElementById('verifyButton');
     
-    // Check if user is already verified (stored in localStorage)
-    const isVerified = localStorage.getItem('humanVerified') === 'true';
+    // Ensure elements exist
+    if (!verificationOverlay || !verifyButton) {
+        console.error('Verification elements not found');
+        // If elements don't exist, ensure body is not locked
+        document.body.classList.remove('verification-active');
+        return;
+    }
     
+    // Check if localStorage is available
+    let isVerified = false;
+    try {
+        isVerified = localStorage.getItem('humanVerified') === 'true';
+    } catch (e) {
+        console.warn('localStorage not available:', e);
+        // If localStorage fails, show verification
+        isVerified = false;
+    }
+    
+    // Show or hide overlay based on verification status
     if (isVerified) {
         verificationOverlay.classList.add('hidden');
         document.body.classList.remove('verification-active');
-                } else {
+    } else {
+        // Ensure overlay is visible
+        verificationOverlay.classList.remove('hidden');
+        verificationOverlay.style.display = 'flex';
+        verificationOverlay.style.opacity = '1';
+        verificationOverlay.style.visibility = 'visible';
         document.body.classList.add('verification-active');
     }
     
     // Handle verification button click
-    verifyButton.addEventListener('click', () => {
-        // Store verification in localStorage
-        localStorage.setItem('humanVerified', 'true');
+    verifyButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         
-        // Hide overlay with smooth animation
-        verificationOverlay.classList.add('hidden');
-        document.body.classList.remove('verification-active');
-        
-        // Trigger hero animation after verification
-        setTimeout(() => {
-            const heroContent = document.querySelector('.hero-content');
-            if (heroContent) {
-                heroContent.style.opacity = '0';
-                heroContent.style.transform = 'translateY(30px)';
-                heroContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                
-    setTimeout(() => {
-                    heroContent.style.opacity = '1';
-                    heroContent.style.transform = 'translateY(0)';
-                }, 100);
+        try {
+            // Store verification in localStorage
+            try {
+                localStorage.setItem('humanVerified', 'true');
+            } catch (storageError) {
+                console.warn('Could not save to localStorage:', storageError);
+            }
+            
+            // Hide overlay with smooth animation
+            verificationOverlay.classList.add('hidden');
+            document.body.classList.remove('verification-active');
+            
+            // Ensure overlay is completely hidden
+            setTimeout(() => {
+                verificationOverlay.style.display = 'none';
+            }, 500);
+            
+            // Trigger hero animation after verification
+            setTimeout(() => {
+                const heroContent = document.querySelector('.hero-content');
+                if (heroContent) {
+                    heroContent.style.opacity = '0';
+                    heroContent.style.transform = 'translateY(30px)';
+                    heroContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    
+                    setTimeout(() => {
+                        heroContent.style.opacity = '1';
+                        heroContent.style.transform = 'translateY(0)';
+                    }, 100);
                 }
             }, 300);
+        } catch (error) {
+            console.error('Verification error:', error);
+            // Fallback: just hide the overlay
+            verificationOverlay.classList.add('hidden');
+            verificationOverlay.style.display = 'none';
+            document.body.classList.remove('verification-active');
+        }
+    });
+    
+    // Also handle Enter key on button
+    verifyButton.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            verifyButton.click();
+        }
     });
     
     // Navigation scroll effect - minimalistic
@@ -380,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (image) {
                             image.style.filter = 'grayscale(0%)';
                         }
-                    } else {
+    } else {
                         // Only remove scroll-expanded if not manually active
                         if (!item.classList.contains('active')) {
                             item.classList.remove('scroll-expanded');
@@ -443,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isVerified) {
         const heroContent = document.querySelector('.hero-content');
         if (heroContent) {
-    setTimeout(() => {
+            setTimeout(() => {
                 heroContent.style.opacity = '1';
                 heroContent.style.transform = 'translateY(0)';
             }, 300);

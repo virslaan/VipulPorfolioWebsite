@@ -136,15 +136,17 @@ body.verification-active {
     display: flex;
     align-items: center;
     justify-content: center;
-        opacity: 1;
+    opacity: 1;
     visibility: visible;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    pointer-events: auto;
 }
 
 .verification-overlay.hidden {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .verification-content {
@@ -192,6 +194,11 @@ body.verification-active {
 
 .verification-button:active {
     transform: translateY(0);
+}
+
+.verification-button:focus {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 2px;
 }
 
 /* Hero Section - Ultra Minimal with Video */
@@ -276,13 +283,13 @@ body.verification-active {
     justify-content: center;
     cursor: pointer;
     z-index: 3;
-    opacity: 0;
+        opacity: 0;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     color: rgba(255, 255, 255, 0.9);
-}
+    }
 
 .hero:hover .video-nav {
-    opacity: 1;
+        opacity: 1;
 }
 
 .video-nav:hover {
@@ -424,7 +431,7 @@ body.verification-active {
 
 .forbes-modal.active {
     display: flex;
-        opacity: 1;
+    opacity: 1;
 }
 
 .forbes-modal-backdrop {
@@ -436,13 +443,13 @@ body.verification-active {
     background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    opacity: 0;
+        opacity: 0; 
     transition: opacity 0.4s ease;
-}
+    }
 
 .forbes-modal.active .forbes-modal-backdrop {
-    opacity: 1;
-}
+        opacity: 1; 
+    }
 
 .forbes-modal-content {
     position: relative;
@@ -626,7 +633,7 @@ body.verification-active {
 @keyframes bounceIn {
     0% {
         transform: scale(0);
-        opacity: 0;
+    opacity: 0;
     }
     50% {
         transform: scale(1.2);
@@ -1198,8 +1205,8 @@ a, button, .contact-card, .project-thumbnail, .experience-item, .education-item 
     
     .education-logo {
         flex: 0 0 auto;
-        width: 100px;
-        height: 100px;
+    width: 100px;
+    height: 100px;
         margin: 0 auto;
     }
 }
@@ -1930,5 +1937,5 @@ a, button, .contact-card, .project-thumbnail, .experience-item, .education-item 
     
     .nav-links {
         gap: var(--spacing-md);
-    }
+}
     }
