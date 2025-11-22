@@ -19,7 +19,381 @@ const projectTitles = {
     'techhub': 'TechHub'
 };
 
+// Audio Visualizer - Using native browser audio
+let audioContext = null;
+let analyser = null;
+let dataArray = null;
+let source = null;
+let animationFrame = null;
+let isPlaying = false;
+let useSimpleAudio = false; // Fallback to simple audio if Web Audio API fails
+
+function initAudioVisualizer() {
+    const audioPlayer = document.getElementById('audioPlayer');
+    if (!audioPlayer) {
+        console.error('Audio player element not found');
+        return;
+    }
+    
+    const ringToggle = document.getElementById('ringToggle');
+    const ringPlayer = document.getElementById('ringPlayer');
+    const ringVisualization = document.getElementById('ringVisualization');
+    const miniPlayer = document.getElementById('miniPlayer');
+    
+    if (!ringToggle || !ringPlayer || !miniPlayer) {
+        console.error('Ring player elements not found');
+        return;
+    }
+    
+    const playIcon = ringToggle.querySelector('.ring-play-icon');
+    const pauseIcon = ringToggle.querySelector('.ring-pause-icon');
+    
+    // Create visualization bars around the ring
+    const barCount = 16;
+    const radius = 30; // Distance from center
+    for (let i = 0; i < barCount; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'ring-bar';
+        const angle = (i / barCount) * Math.PI * 2 - Math.PI / 2; // Start from top
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+        bar.style.transform = `translate(${x}px, ${y}px) rotate(${angle + Math.PI / 2}rad)`;
+        ringVisualization.appendChild(bar);
+    }
+    
+    const ringBars = ringVisualization.querySelectorAll('.ring-bar');
+    
+    // Log audio source for debugging
+    console.log('Audio source:', audioPlayer.src || audioPlayer.currentSrc);
+    console.log('Audio readyState:', audioPlayer.readyState);
+    console.log('Protocol:', window.location.protocol);
+    
+    // Note about file:// protocol limitations
+    if (window.location.protocol === 'file:') {
+        console.log('⚠️ Running from file:// - Some features may be limited. For full functionality, use a local server:');
+        console.log('   Python: python -m http.server 8000');
+        console.log('   Node: npx http-server');
+        console.log('   Then open: http://localhost:8000');
+    }
+    
+    // Mini player text animation
+    function startMiniPlayerText() {
+        const miniPlayerText = document.getElementById('miniPlayerText');
+        if (!miniPlayerText) return;
+        
+        const textWrapper = miniPlayerText.querySelector('.mini-player-text-wrapper');
+        if (!textWrapper) return;
+        
+        // Reset and start animation
+        textWrapper.style.animation = 'none';
+        setTimeout(() => {
+            textWrapper.style.animation = 'flowText 180s linear infinite';
+        }, 10);
+    }
+    
+    // Update ring visualization
+    function updateRingVisualization() {
+        if (!isPlaying || !analyser || !dataArray || !ringBars) {
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+                animationFrame = null;
+            }
+            return;
+        }
+        
+        animationFrame = requestAnimationFrame(updateRingVisualization);
+        
+        analyser.getByteFrequencyData(dataArray);
+        
+        ringBars.forEach((bar, i) => {
+            const dataIndex = Math.floor((i / barCount) * dataArray.length);
+            const value = dataArray[dataIndex];
+            const height = Math.max(4, (value / 255) * 16);
+            bar.style.height = `${height}px`;
+        });
+    }
+    
+    // Initialize audio context - using Chrome's native audio
+    function setupAudioContext() {
+        if (!audioContext) {
+            try {
+                // Use Chrome's native AudioContext
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // Only setup analyser if we can connect (not file:// protocol)
+                if (window.location.protocol !== 'file:') {
+                    try {
+                        analyser = audioContext.createAnalyser();
+                        analyser.fftSize = 256;
+                        analyser.smoothingTimeConstant = 0.8;
+                        
+                        const bufferLength = analyser.frequencyBinCount;
+                        dataArray = new Uint8Array(bufferLength);
+                        
+                        // Check if audio element is already connected
+                        if (audioPlayer.src || audioPlayer.currentSrc) {
+                            source = audioContext.createMediaElementSource(audioPlayer);
+                            source.connect(analyser);
+                            analyser.connect(audioContext.destination);
+                            console.log('Audio context setup complete with visualization');
+                        }
+                    } catch (corsError) {
+                        console.warn('Web Audio API not available, using native HTML5 audio only');
+                        useSimpleAudio = true;
+                    }
+                } else {
+                    // For file:// protocol, just use native audio playback
+                    console.log('Using native HTML5 audio (file:// protocol)');
+                    useSimpleAudio = true;
+                }
+            } catch (error) {
+                console.warn('Audio context setup failed, using native HTML5 audio:', error);
+                useSimpleAudio = true;
+            }
+        }
+    }
+    
+    // No visualization needed - just color inversion
+    
+    // Check if audio file exists and handle errors
+    audioPlayer.addEventListener('error', (e) => {
+        const error = audioPlayer.error;
+        console.error('Audio error:', error);
+        console.error('Error code:', error?.code);
+        console.error('Error message:', error?.message);
+        console.error('Audio src:', audioPlayer.src || audioPlayer.currentSrc);
+        console.error('Audio readyState:', audioPlayer.readyState);
+        
+        let errorMsg = 'Audio file error. ';
+        if (error) {
+            switch(error.code) {
+                case error.MEDIA_ERR_ABORTED:
+                    errorMsg += 'Playback aborted.';
+                    break;
+                case error.MEDIA_ERR_NETWORK:
+                    errorMsg += 'Network error. Please check your connection.';
+                    break;
+                case error.MEDIA_ERR_DECODE:
+                    errorMsg += 'Audio decode error. File may be corrupted.';
+                    break;
+                case error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+                    errorMsg += 'Audio format not supported or file not found.';
+                    break;
+                default:
+                    errorMsg += 'Unknown error occurred.';
+            }
+        }
+        console.error(errorMsg);
+    });
+    
+    audioPlayer.addEventListener('canplay', () => {
+        console.log('Audio can play - readyState:', audioPlayer.readyState);
+    });
+    
+    audioPlayer.addEventListener('loadstart', () => {
+        console.log('Audio loading started');
+    });
+    
+    audioPlayer.addEventListener('loadeddata', () => {
+        console.log('Audio data loaded');
+    });
+    
+    // Try to load audio on page load
+    audioPlayer.load();
+    
+    // Test if file is accessible (only works with http/https, not file://)
+    // Skip fetch check if using file:// protocol to avoid CORS errors
+    if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+        fetch('assets/shining-spotlight.mp3', { method: 'HEAD' })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Audio file found and accessible');
+                } else {
+                    console.warn('Audio file not found or not accessible:', response.status);
+                }
+            })
+            .catch(error => {
+                console.warn('Could not verify audio file (this is normal with file:// protocol):', error);
+            });
+    } else {
+        console.log('Running from file:// protocol - audio will work when served via http://');
+    }
+    
+    // Toggle play/pause
+    ringToggle.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        try {
+            // Setup audio context on first interaction (optional for visualization)
+            if (!audioContext && !useSimpleAudio) {
+                try {
+                    setupAudioContext();
+                } catch (contextError) {
+                    console.warn('Audio context setup failed, using native audio:', contextError);
+                    useSimpleAudio = true;
+                }
+            }
+            
+            // Resume audio context if suspended (only if using Web Audio API)
+            if (audioContext && !useSimpleAudio && audioContext.state === 'suspended') {
+                try {
+                    await audioContext.resume();
+                } catch (resumeError) {
+                    console.warn('Could not resume audio context:', resumeError);
+                    useSimpleAudio = true;
+                }
+            }
+            
+            // For native HTML5 audio, we don't need audio context
+            // Chrome's built-in audio player will handle everything
+            
+            if (isPlaying) {
+                // Pause
+                audioPlayer.pause();
+                isPlaying = false;
+                miniPlayer.classList.remove('active');
+                ringPlayer.classList.remove('active');
+                document.body.classList.remove('music-playing');
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+                } else {
+                // Play using Chrome's native HTML5 audio API
+                try {
+                    // Check for errors first
+                    if (audioPlayer.error) {
+                        throw new Error(`Audio error: ${audioPlayer.error.message || 'Unknown error'}`);
+                    }
+                    
+                    // Use Chrome's native audio.play() method directly
+                    // This is the simplest and most reliable way
+                    console.log('Using Chrome native audio.play() - ReadyState:', audioPlayer.readyState);
+                    
+                    // Ensure audio is loaded
+                    if (audioPlayer.readyState < 2) {
+                        console.log('Loading audio with Chrome native loader...');
+                        audioPlayer.load();
+                        
+                        // Wait briefly for Chrome to load the audio
+                        await new Promise((resolve) => {
+                            if (audioPlayer.readyState >= 2) {
+                                resolve();
+    } else {
+                                const checkReady = () => {
+                                    if (audioPlayer.readyState >= 2) {
+                                        audioPlayer.removeEventListener('canplay', checkReady);
+                                        audioPlayer.removeEventListener('loadeddata', checkReady);
+                                        resolve();
+                                    }
+                                };
+                                audioPlayer.addEventListener('canplay', checkReady, { once: true });
+                                audioPlayer.addEventListener('loadeddata', checkReady, { once: true });
+                                // Timeout after 2 seconds
+                                setTimeout(resolve, 2000);
+        }
+    });
+}
+
+                    // Use Chrome's built-in play() method - no Web Audio API needed
+                    console.log('Calling Chrome native audio.play()...');
+                    // Chrome's native play() method - works with file:// protocol
+                    const playPromise = audioPlayer.play();
+                    
+                    // Handle the promise returned by Chrome's play() method
+                    if (playPromise !== undefined) {
+                        await playPromise;
+                        console.log('✅ Audio playing successfully with Chrome native player');
+                    }
+                    
+                    isPlaying = true;
+                    miniPlayer.classList.add('active');
+                    ringPlayer.classList.add('active');
+                    document.body.classList.add('music-playing');
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                    
+                    // Start mini player text animation
+                    startMiniPlayerText();
+                    
+                    // Start ring visualization
+                    if (analyser && dataArray) {
+                        updateRingVisualization();
+                    }
+                } catch (playError) {
+                    console.error('Play error:', playError);
+                    console.error('Audio element:', {
+                        src: audioPlayer.src,
+                        currentSrc: audioPlayer.currentSrc,
+                        readyState: audioPlayer.readyState,
+                        error: audioPlayer.error
+                    });
+                    
+                    let errorMessage = 'Unable to play audio. ';
+                    if (playError.name === 'NotAllowedError') {
+                        errorMessage += 'Please interact with the page first (browser autoplay restriction).';
+                    } else if (playError.name === 'NotSupportedError') {
+                        errorMessage += 'Audio format not supported.';
+                    } else if (audioPlayer.error) {
+                        errorMessage += audioPlayer.error.message || 'Audio file error.';
+                    } else if (playError.message && playError.message.includes('CORS')) {
+                        errorMessage += 'CORS restriction with file:// protocol. Audio may play but visualizer is limited. Try using a local server (see console for instructions).';
+    } else {
+                        errorMessage += playError.message || 'Please check if the file exists at: assets/shining-spotlight.mp3';
+                    }
+                    
+                    // Only show alert for critical errors, not CORS warnings
+                    if (!playError.message || !playError.message.includes('CORS')) {
+                        console.warn(errorMessage);
+  } else {
+                        console.warn('Audio CORS warning (normal with file://):', playError.message);
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Error with audio:', error);
+            alert('Audio error: ' + error.message);
+        }
+    });
+    
+    // Handle audio end
+    audioPlayer.addEventListener('ended', () => {
+        isPlaying = false;
+        miniPlayer.classList.remove('active');
+        ringPlayer.classList.remove('active');
+        document.body.classList.remove('music-playing');
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+    });
+    
+    // Handle audio errors
+    audioPlayer.addEventListener('error', (e) => {
+        console.error('Audio error:', e);
+    });
+    
+    // Make startMiniPlayerText available globally
+    window.startMiniPlayerText = startMiniPlayerText;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize audio visualizer
+    initAudioVisualizer();
+    
+    // Resume Section Toggle
+    const resumeToggle = document.getElementById('resumeToggle');
+    const resumePreview = document.getElementById('resumePreview');
+    
+    if (resumeToggle && resumePreview) {
+        resumeToggle.addEventListener('click', () => {
+            const isActive = resumePreview.classList.contains('active');
+            if (isActive) {
+                resumePreview.classList.remove('active');
+                resumeToggle.classList.remove('active');
+    } else {
+                resumePreview.classList.add('active');
+                resumeToggle.classList.add('active');
+            }
+        });
+    }
     // Human Verification System
     const verificationOverlay = document.getElementById('verificationOverlay');
     const verifyButton = document.getElementById('verifyButton');
@@ -73,19 +447,19 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('verification-active');
             
             // Ensure overlay is completely hidden
-            setTimeout(() => {
+    setTimeout(() => {
                 verificationOverlay.style.display = 'none';
             }, 500);
-            
+    
             // Trigger hero animation after verification
-            setTimeout(() => {
+    setTimeout(() => {
                 const heroContent = document.querySelector('.hero-content');
                 if (heroContent) {
                     heroContent.style.opacity = '0';
                     heroContent.style.transform = 'translateY(30px)';
                     heroContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                    
-                    setTimeout(() => {
+    
+            setTimeout(() => {
                         heroContent.style.opacity = '1';
                         heroContent.style.transform = 'translateY(0)';
                     }, 100);
@@ -117,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentScroll > 20) {
             nav.style.background = 'rgba(255, 255, 255, 0.95)';
             nav.style.borderBottomColor = 'rgba(0, 0, 0, 0.08)';
-        } else {
+    } else {
             nav.style.background = 'rgba(255, 255, 255, 0.8)';
             nav.style.borderBottomColor = 'rgba(0, 0, 0, 0.05)';
         }
@@ -183,7 +557,10 @@ document.addEventListener('DOMContentLoaded', () => {
         'assets/img/hero-video-2.mp4',
         'assets/img/hero-video-3.mp4',
         'assets/img/hero-video-4.mp4',
-        'assets/img/hero-video-5.mp4'
+        'assets/img/hero-video-5.mp4',
+        'assets/img/hero-video-6.mp4',
+        'assets/img/hero-video-7.mp4',
+        'assets/img/hero-video-8.mp4'
     ];
     
     // Current video index
@@ -203,8 +580,9 @@ document.addEventListener('DOMContentLoaded', () => {
             heroVideo.style.opacity = '0';
             heroVideo.style.transition = 'opacity 0.3s ease';
             
-    setTimeout(() => {
+            setTimeout(() => {
                 heroVideo.src = videoFiles[currentVideoIndex];
+                heroVideo.loop = false; // Ensure loop is off
                 heroVideo.load();
                 
                 // Fade in after load
@@ -252,8 +630,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Force video attributes
         heroVideo.muted = true;
-        heroVideo.loop = true;
+        heroVideo.loop = false; // Play once, then change
         heroVideo.playsInline = true;
+        
+        // When video ends, automatically change to next video
+        heroVideo.addEventListener('ended', function() {
+            changeVideo('next');
+        });
         
         // Handle successful video load
         heroVideo.addEventListener('loadeddata', function() {
@@ -466,7 +849,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
                 // Stagger animations more smoothly
-            setTimeout(() => {
+    setTimeout(() => {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }, index * 20);
