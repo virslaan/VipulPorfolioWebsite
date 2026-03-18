@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://virslaan.github.io/VipulPorfolioWebsite/sitemap.xml
