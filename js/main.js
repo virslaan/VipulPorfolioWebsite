@@ -415,8 +415,8 @@
         resumeToggle.addEventListener('click', () => {
             const iframe = $('iframe', resumePreview);
             const opening = resumePreview.hidden;
-            if (opening && iframe && !iframe.src) {
-                iframe.src = iframe.dataset.src;
+            if (opening && iframe && !iframe.getAttribute('src')) {
+                iframe.setAttribute('src', iframe.dataset.src);
             }
             resumePreview.hidden = !opening;
             resumeToggle.setAttribute('aria-expanded', String(opening));
