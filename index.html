@@ -47,21 +47,34 @@
 
 <!-- ─────────── NAVIGATION ─────────── -->
 <nav class="nav" id="nav" aria-label="Primary">
-    <div class="nav-inner">
-        <a href="#top" class="nav-name">Vipul H. Harihar</a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#work">Work</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#resume">Résumé</a></li>
-            <li><a href="#contact" class="nav-cta">Contact</a></li>
-        </ul>
-        <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <div class="nav-pill" id="navPill">
+        <a href="#top" class="nav-mark" aria-label="Top">
+            <span>VH</span>
+        </a>
+        <div class="nav-set" id="navSet">
+            <span class="nav-indicator" id="navIndicator" aria-hidden="true"></span>
+            <a href="#work" data-section="work">Work</a>
+            <a href="#experience" data-section="experience">Experience</a>
+            <a href="#projects" data-section="projects">Projects</a>
+            <a href="#education" data-section="education">Education</a>
+            <a href="#resume" data-section="resume">Résumé</a>
+        </div>
+        <a href="#contact" class="nav-cta">Contact</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navSheet">
             <span></span><span></span>
         </button>
     </div>
 </nav>
+
+<div class="nav-sheet" id="navSheet" hidden>
+    <a href="#work"><span>01</span> Work</a>
+    <a href="#experience"><span>02</span> Experience</a>
+    <a href="#projects"><span>03</span> Projects</a>
+    <a href="#education"><span>04</span> Education</a>
+    <a href="#recognition"><span>05</span> Recognition</a>
+    <a href="#resume"><span>06</span> Résumé</a>
+    <a href="#contact"><span>07</span> Contact</a>
+</div>
 
 <!-- ─────────── HERO ─────────── -->
 <header class="hero" id="top">

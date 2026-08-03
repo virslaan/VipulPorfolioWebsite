@@ -13,35 +13,84 @@
     /* ── Navigation ─────────────────────────────────── */
 
     const nav = $('#nav');
-    const navLinks = $('#navLinks');
+    const navSet = $('#navSet');
+    const navIndicator = $('#navIndicator');
     const navToggle = $('#navToggle');
+    const navSheet = $('#navSheet');
+    const navItems = $$('#navSet a');
     let lastY = window.scrollY;
+    let activeLink = null;
+
+    const moveIndicator = (link) => {
+        if (!navIndicator || !navSet) return;
+        if (!link) {
+            navIndicator.style.opacity = '0';
+            return;
+        }
+        const a = link.getBoundingClientRect();
+        const b = navSet.getBoundingClientRect();
+        navIndicator.style.width = a.width + 'px';
+        navIndicator.style.transform = `translate(${a.left - b.left}px, -50%)`;
+        navIndicator.style.opacity = '1';
+    };
+
+    const setActive = (id) => {
+        const link = navItems.find((a) => a.dataset.section === id) || null;
+        if (link === activeLink) return;
+        activeLink = link;
+        navItems.forEach((a) => a.classList.toggle('on', a === link));
+        moveIndicator(link);
+    };
+
+    // Which section is under the reading line
+    const spy = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) setActive(entry.target.id);
+        });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+
+    ['work', 'experience', 'projects', 'education', 'resume'].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) spy.observe(el);
+    });
+
+    const closeSheet2 = () => {
+        if (!navSheet) return;
+        navSheet.hidden = true;
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('locked');
+    };
+
+    if (navToggle && navSheet) {
+        navToggle.addEventListener('click', () => {
+            const opening = navSheet.hidden;
+            navSheet.hidden = !opening;
+            navToggle.classList.toggle('open', opening);
+            navToggle.setAttribute('aria-expanded', String(opening));
+            document.body.classList.toggle('locked', opening);
+        });
+        navSheet.addEventListener('click', (e) => {
+            if (e.target.closest('a')) closeSheet2();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !navSheet.hidden) closeSheet2();
+        });
+    }
 
     const updateNav = () => {
         if (!nav) return;
         const y = window.scrollY;
-        nav.classList.toggle('solid', y > 10);
-        // Step out of the way going down, return on the way up
-        const menuOpen = navLinks && navLinks.classList.contains('open');
-        const goingDown = y > lastY && y > 420;
-        nav.classList.toggle('hidden', goingDown && !menuOpen);
+        nav.classList.toggle('lifted', y > 10);
+        const sheetOpen = navSheet && !navSheet.hidden;
+        const goingDown = y > lastY + 2 && y > 420;
+        const goingUp = y < lastY - 2;
+        if (goingDown && !sheetOpen) nav.classList.add('tucked');
+        else if (goingUp || y < 120) nav.classList.remove('tucked');
         lastY = y;
     };
 
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-            const open = navLinks.classList.toggle('open');
-            navToggle.classList.toggle('open', open);
-            navToggle.setAttribute('aria-expanded', String(open));
-        });
-        navLinks.addEventListener('click', (e) => {
-            if (e.target.closest('a')) {
-                navLinks.classList.remove('open');
-                navToggle.classList.remove('open');
-                navToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    }
+    window.addEventListener('resize', () => moveIndicator(activeLink), { passive: true });
 
     /* ── Reveals ────────────────────────────────────── */
 
@@ -348,11 +397,11 @@
         // Navy anchors the field; the colour sits on top at low alpha so
         // the band reads deep and premium rather than neon.
         const blobs = [
-            { c: [ 88,  80, 236], a: 0.62, x: 0.26, y: 0.32, r: 0.60, ax: 0.18, ay: 0.15, sx: 0.00023, sy: 0.00031, ph: 0.0 },
-            { c: [ 12, 122, 224], a: 0.58, x: 0.72, y: 0.26, r: 0.56, ax: 0.17, ay: 0.19, sx: 0.00019, sy: 0.00026, ph: 1.7 },
-            { c: [  0, 168, 176], a: 0.46, x: 0.86, y: 0.74, r: 0.46, ax: 0.15, ay: 0.16, sx: 0.00025, sy: 0.00018, ph: 3.1 },
-            { c: [190,  70, 150], a: 0.34, x: 0.54, y: 0.82, r: 0.44, ax: 0.19, ay: 0.13, sx: 0.00027, sy: 0.00021, ph: 4.6 },
-            { c: [216, 118,  72], a: 0.26, x: 0.14, y: 0.84, r: 0.38, ax: 0.14, ay: 0.14, sx: 0.00017, sy: 0.00029, ph: 5.9 },
+            { c: [ 74,  68, 200], a: 0.50, x: 0.26, y: 0.32, r: 0.60, ax: 0.18, ay: 0.15, sx: 0.00023, sy: 0.00031, ph: 0.0 },
+            { c: [ 16, 102, 190], a: 0.42, x: 0.72, y: 0.26, r: 0.56, ax: 0.17, ay: 0.19, sx: 0.00019, sy: 0.00026, ph: 1.7 },
+            { c: [  0, 140, 152], a: 0.34, x: 0.86, y: 0.74, r: 0.46, ax: 0.15, ay: 0.16, sx: 0.00025, sy: 0.00018, ph: 3.1 },
+            { c: [150,  58, 124], a: 0.26, x: 0.54, y: 0.82, r: 0.44, ax: 0.19, ay: 0.13, sx: 0.00027, sy: 0.00021, ph: 4.6 },
+            { c: [170,  94,  60], a: 0.20, x: 0.14, y: 0.84, r: 0.38, ax: 0.14, ay: 0.14, sx: 0.00017, sy: 0.00029, ph: 5.9 },
         ];
 
         const paint = (t) => {
