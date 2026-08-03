@@ -334,6 +334,73 @@
         if (!reduced) requestAnimationFrame(scrubLoop);
     }
 
+    /* ── Mesh gradient band ─────────────────────────── */
+    /* Drawn at a small size with additive blending, then blurred up
+       by CSS. Cheap to run and gives the soft mesh blending.       */
+
+    const bandCanvas = $('#bandCanvas');
+    if (bandCanvas) {
+        const g = bandCanvas.getContext('2d');
+        const W = 300, H = 170;
+        bandCanvas.width = W;
+        bandCanvas.height = H;
+
+        // Navy anchors the field; the colour sits on top at low alpha so
+        // the band reads deep and premium rather than neon.
+        const blobs = [
+            { c: [ 88,  80, 236], a: 0.62, x: 0.26, y: 0.32, r: 0.60, ax: 0.18, ay: 0.15, sx: 0.00023, sy: 0.00031, ph: 0.0 },
+            { c: [ 12, 122, 224], a: 0.58, x: 0.72, y: 0.26, r: 0.56, ax: 0.17, ay: 0.19, sx: 0.00019, sy: 0.00026, ph: 1.7 },
+            { c: [  0, 168, 176], a: 0.46, x: 0.86, y: 0.74, r: 0.46, ax: 0.15, ay: 0.16, sx: 0.00025, sy: 0.00018, ph: 3.1 },
+            { c: [190,  70, 150], a: 0.34, x: 0.54, y: 0.82, r: 0.44, ax: 0.19, ay: 0.13, sx: 0.00027, sy: 0.00021, ph: 4.6 },
+            { c: [216, 118,  72], a: 0.26, x: 0.14, y: 0.84, r: 0.38, ax: 0.14, ay: 0.14, sx: 0.00017, sy: 0.00029, ph: 5.9 },
+        ];
+
+        const paint = (t) => {
+            g.globalCompositeOperation = 'source-over';
+            g.fillStyle = '#08203a';
+            g.fillRect(0, 0, W, H);
+            g.globalCompositeOperation = 'lighter';
+
+            for (const b of blobs) {
+                const x = (b.x + Math.sin(t * b.sx + b.ph) * b.ax) * W;
+                const y = (b.y + Math.cos(t * b.sy + b.ph) * b.ay) * H;
+                const r = b.r * W;
+                const grad = g.createRadialGradient(x, y, 0, x, y, r);
+                grad.addColorStop(0,    `rgba(${b.c[0]},${b.c[1]},${b.c[2]},${b.a})`);
+                grad.addColorStop(0.45, `rgba(${b.c[0]},${b.c[1]},${b.c[2]},${(b.a * 0.4).toFixed(3)})`);
+                grad.addColorStop(1,    `rgba(${b.c[0]},${b.c[1]},${b.c[2]},0)`);
+                g.fillStyle = grad;
+                g.beginPath();
+                g.arc(x, y, r, 0, Math.PI * 2);
+                g.fill();
+            }
+            g.globalCompositeOperation = 'source-over';
+        };
+
+        paint(0);
+
+        if (!reduced) {
+            let running = false;
+            let raf = null;
+            const loop = (now) => {
+                paint(now);
+                raf = requestAnimationFrame(loop);
+            };
+            // Only animate while the band is on screen
+            new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !running) {
+                        running = true;
+                        raf = requestAnimationFrame(loop);
+                    } else if (!entry.isIntersecting && running) {
+                        running = false;
+                        cancelAnimationFrame(raf);
+                    }
+                });
+            }, { threshold: 0 }).observe(bandCanvas.parentElement);
+        }
+    }
+
     /* ── Work showcase counter ──────────────────────── */
 
     const workCards = $$('[data-work]');
