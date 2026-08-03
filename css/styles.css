@@ -274,32 +274,6 @@ img { max-width: 100%; display: block; }
     opacity: 1;
 }
 
-#heroVideoAlt {
-    object-position: center center;
-    filter: saturate(1.18) contrast(1.08) brightness(0.8);
-}
-
-.hero-film-index {
-    position: absolute;
-    right: 7%;
-    bottom: 8%;
-    z-index: 1;
-    display: flex;
-    gap: 6px;
-}
-
-.hero-film-index span {
-    width: 18px;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.26);
-    transition: width 0.7s var(--ease), background 0.7s ease;
-}
-
-.hero-film-index span.is-active {
-    width: 38px;
-    background: rgba(255, 255, 255, 0.82);
-}
-
 /* Deep cinematic veil so the interactive field and type can breathe */
 .hero-scrim {
     position: absolute;
@@ -335,20 +309,83 @@ html.cover-live .cover-veil {
     top: 0;
     left: 0;
     z-index: 3;
-    width: 28px;
-    height: 28px;
-    margin: -14px 0 0 -14px;
+    width: 88px;
+    height: 88px;
+    margin: -44px 0 0 -44px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.55);
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 70%);
-    box-shadow: 0 0 40px rgba(180, 210, 255, 0.35);
+    border: 1px solid rgba(225, 238, 255, 0.48);
+    background: rgba(202, 222, 255, 0.035);
+    box-shadow:
+        inset 0 0 28px rgba(205, 225, 255, 0.055),
+        0 0 50px rgba(140, 180, 255, 0.14);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.35s ease;
+    transition: opacity 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     will-change: transform;
 }
 
 .cover-cursor.on { opacity: 1; }
+
+.cover-cursor::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    margin: -2px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 14px rgba(195, 220, 255, 0.95);
+    transition: transform 0.3s var(--ease), opacity 0.3s ease;
+}
+
+.cover-cursor::after {
+    content: "EXPLORE";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding-top: 28px;
+    color: rgba(242, 247, 255, 0.78);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.17em;
+    transition: transform 0.3s var(--ease), color 0.3s ease;
+}
+
+.cover-cursor.is-link {
+    border-color: rgba(255, 255, 255, 0.86);
+    background: rgba(225, 237, 255, 0.1);
+    box-shadow:
+        inset 0 0 34px rgba(220, 235, 255, 0.09),
+        0 0 64px rgba(150, 190, 255, 0.24);
+}
+
+.cover-cursor.is-link::before { transform: scale(2); }
+.cover-cursor.is-link::after { content: "OPEN"; color: #fff; transform: translateY(-1px); }
+.cover-cursor.is-down::before { transform: scale(3.2); opacity: 0.55; }
+.cover-cursor.is-down::after { transform: scale(0.92); }
+
+.cover-signature {
+    position: absolute;
+    top: 26px;
+    left: 30px;
+    right: 30px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: riseIn 1.2s var(--ease) 1.7s forwards;
+}
 
 .hero-copy {
     position: relative;
