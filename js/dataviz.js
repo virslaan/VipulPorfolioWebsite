@@ -36,6 +36,7 @@
         varying float vDepth;
         varying float vEdge;
         varying float vTip;
+        varying float vSweep;
 
         float column(vec2 p, float t) {
             float h  = sin(p.x * 2.9 + t * 0.62) * 0.5 + 0.5;
@@ -52,9 +53,13 @@
             float level = column(g, t);
 
             // A sweep of light travels away from the viewer
-            float sweep = fract(t * 0.09);
-            float band = 1.0 - smoothstep(0.0, 0.16, abs((g.y * 0.5 + 0.5) - sweep));
-            level += band * 0.55;
+            float sweep = fract(t * 0.13);
+            float band = 1.0 - smoothstep(0.0, 0.18, abs((g.y * 0.5 + 0.5) - sweep));
+            // A second sweep crosses the field the other way
+            float sweep2 = fract(t * 0.07 + 0.5);
+            float band2 = 1.0 - smoothstep(0.0, 0.13, abs((g.x * 0.5 + 0.5) - sweep2));
+            vSweep = clamp(band * 0.85 + band2 * 0.55, 0.0, 1.0);
+            level += band * 0.78 + band2 * 0.42;
 
             // The pointer lifts the columns nearest to it
             float d = distance(g, uPointer);
@@ -71,7 +76,7 @@
                   * (1.0 - smoothstep(0.5, 1.0, g.y))
                   * leftFade;
 
-            float height = level * 0.40 * aBar.z;
+            float height = level * 0.52 * aBar.z;
 
             float zNear = 1.15;
             float zFar  = 11.0;
@@ -110,22 +115,33 @@
         varying float vDepth;
         varying float vEdge;
         varying float vTip;
+        varying float vSweep;
 
         void main() {
-            float lv = clamp(vLevel * 0.72, 0.0, 1.4);
+            float lv = clamp(vLevel * 0.72, 0.0, 1.5);
 
-            vec3 base = vec3(0.13, 0.24, 0.60);   // deep indigo at the floor
-            vec3 mid  = vec3(0.26, 0.56, 1.00);   // stripe blue
-            vec3 hot  = vec3(0.72, 0.94, 1.00);   // near-white crest
+            // A full spectrum climbing the columns: violet floor, electric
+            // blue, cyan, magenta, then a hot gold crest
+            vec3 c0 = vec3(0.32, 0.12, 0.72);
+            vec3 c1 = vec3(0.10, 0.42, 1.00);
+            vec3 c2 = vec3(0.10, 0.92, 0.98);
+            vec3 c3 = vec3(1.00, 0.24, 0.72);
+            vec3 c4 = vec3(1.00, 0.82, 0.36);
 
-            vec3 col = mix(base, mid, smoothstep(0.05, 0.62, lv));
-            col = mix(col, hot, smoothstep(0.72, 1.25, lv));
+            vec3 col = mix(c0, c1, smoothstep(0.00, 0.34, lv));
+            col = mix(col, c2, smoothstep(0.30, 0.62, lv));
+            col = mix(col, c3, smoothstep(0.62, 0.94, lv));
+            col = mix(col, c4, smoothstep(0.98, 1.32, lv));
 
-            // Caps burn brighter than the shafts, the floor sits quietly under both
-            float tipBoost = mix(0.42, 1.0, vTip);
+            // The travelling sweep flares the hue further along the spectrum
+            col = mix(col, c4, vSweep * 0.55);
+            col += vSweep * 0.30;
+
+            // Caps burn brighter than the shafts, the floor glows underneath
+            float tipBoost = mix(0.46, 1.0, vTip);
 
             float depthFade = smoothstep(10.5, 1.4, vDepth);
-            float alpha = vEdge * depthFade * tipBoost * (0.30 + lv * 1.05);
+            float alpha = vEdge * depthFade * tipBoost * (0.34 + lv * 1.15);
             alpha = clamp(alpha, 0.0, 1.0);
 
             gl_FragColor = vec4(col * alpha, alpha);
@@ -244,7 +260,7 @@
         canvas.height = nh;
         gl.viewport(0, 0, nw, nh);
         gl.uniform1f(uAspect, w / h);
-        gl.uniform1f(uSize, 5.4);
+        gl.uniform1f(uSize, 7.0);
     };
 
     const pointer = { x: 0.4, y: 0.2, tx: 0.4, ty: 0.2 };
