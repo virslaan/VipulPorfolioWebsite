@@ -20,8 +20,6 @@
     const media = hero.querySelector('.hero-media');
     const copy = document.getElementById('heroCopy');
     const cursor = document.getElementById('coverCursor');
-    const films = Array.from(hero.querySelectorAll('.hero-video'));
-    const filmMarks = Array.from(hero.querySelectorAll('.hero-film-index span'));
 
     let w = 0;
     let h = 0;
@@ -32,47 +30,10 @@
 
     const pointer = { x: 0.5, y: 0.45, tx: 0.5, ty: 0.45, active: false };
     const tilt = { x: 0, y: 0, tx: 0, ty: 0 };
+    const cursorPos = { x: 0, y: 0, tx: 0, ty: 0, ready: false };
 
-    const COUNT = Math.min(140, Math.floor((window.innerWidth * window.innerHeight) / 14000));
+    const COUNT = Math.min(80, Math.floor((window.innerWidth * window.innerHeight) / 19000));
     const nodes = Array.from({ length: COUNT }, () => spawn(true));
-
-    /* Distinct films breathe through the cover instead of repeating one shot. */
-    if (films.length > 1 && !reduced) {
-        let activeFilm = 0;
-        let filmTimer = 0;
-
-        const showFilm = (next) => {
-            const incoming = films[next];
-            incoming.play().catch(() => {});
-            films.forEach((film, index) => film.classList.toggle('is-active', index === next));
-            filmMarks.forEach((mark, index) => mark.classList.toggle('is-active', index === next));
-            activeFilm = next;
-        };
-
-        const scheduleFilm = () => {
-            window.clearTimeout(filmTimer);
-            filmTimer = window.setTimeout(() => {
-                showFilm((activeFilm + 1) % films.length);
-                scheduleFilm();
-            }, 9000);
-        };
-
-        films.forEach((film) => {
-            film.muted = true;
-            film.play().catch(() => {});
-        });
-        scheduleFilm();
-
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                window.clearTimeout(filmTimer);
-                films.forEach((film) => film.pause());
-            } else {
-                films[activeFilm].play().catch(() => {});
-                scheduleFilm();
-            }
-        });
-    }
 
     function spawn(spread) {
         return {
@@ -102,7 +63,7 @@
         }
     }
 
-    function onMove(clientX, clientY) {
+    function onMove(clientX, clientY, target) {
         const rect = hero.getBoundingClientRect();
         if (rect.height <= 0) return;
         pointer.tx = (clientX - rect.left) / rect.width;
@@ -112,25 +73,34 @@
         tilt.ty = (pointer.ty - 0.5) * 2;
 
         if (cursor) {
-            cursor.style.transform = `translate(${clientX - rect.left}px, ${clientY - rect.top}px)`;
+            cursorPos.tx = clientX - rect.left;
+            cursorPos.ty = clientY - rect.top;
+            if (!cursorPos.ready) {
+                cursorPos.x = cursorPos.tx;
+                cursorPos.y = cursorPos.ty;
+                cursorPos.ready = true;
+            }
             cursor.classList.add('on');
+            cursor.classList.toggle('is-link', Boolean(target?.closest('a, button')));
         }
     }
 
-    hero.addEventListener('pointermove', (e) => onMove(e.clientX, e.clientY), { passive: true });
+    hero.addEventListener('pointermove', (e) => onMove(e.clientX, e.clientY, e.target), { passive: true });
     hero.addEventListener('pointerleave', () => {
         pointer.active = false;
         pointer.tx = 0.5;
         pointer.ty = 0.42;
         tilt.tx = 0;
         tilt.ty = 0;
-        if (cursor) cursor.classList.remove('on');
+        if (cursor) cursor.classList.remove('on', 'is-link', 'is-down');
     }, { passive: true });
+    hero.addEventListener('pointerdown', () => cursor?.classList.add('is-down'), { passive: true });
+    hero.addEventListener('pointerup', () => cursor?.classList.remove('is-down'), { passive: true });
 
     // Touch: keep the field alive under the finger
     hero.addEventListener('touchmove', (e) => {
         const t = e.touches[0];
-        if (t) onMove(t.clientX, t.clientY);
+        if (t) onMove(t.clientX, t.clientY, e.target);
     }, { passive: true });
 
     function step(now) {
@@ -141,6 +111,11 @@
         pointer.y += (pointer.ty - pointer.y) * 0.08;
         tilt.x += (tilt.tx - tilt.x) * 0.06;
         tilt.y += (tilt.ty - tilt.y) * 0.06;
+        cursorPos.x += (cursorPos.tx - cursorPos.x) * 0.2;
+        cursorPos.y += (cursorPos.ty - cursorPos.y) * 0.2;
+        if (cursor && cursorPos.ready) {
+            cursor.style.transform = `translate3d(${cursorPos.x}px, ${cursorPos.y}px, 0)`;
+        }
 
         // Film and type lean with the pointer
         if (media && !reduced) {
