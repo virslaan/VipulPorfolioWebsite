@@ -382,8 +382,11 @@
         if (!reduced) {
             let running = false;
             let raf = null;
+            let frame = 0;
             const loop = (now) => {
-                paint(now);
+                // The field drifts slowly, so a third of the frames is plenty
+                // and it leaves the budget to the WebGL layer above it
+                if ((frame++ & 3) === 0) paint(now);
                 raf = requestAnimationFrame(loop);
             };
             // Only animate while the band is on screen
