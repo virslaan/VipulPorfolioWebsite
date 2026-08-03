@@ -75,12 +75,18 @@ img { max-width: 100%; display: block; }
     display: flex;
     justify-content: center;
     pointer-events: none;
-    transition: transform 0.45s var(--ease), opacity 0.35s var(--ease);
+    transition: transform 0.55s var(--ease), opacity 0.45s var(--ease);
 }
 
+/* Absent on the cover. Appears only after you leave the entrance. */
+.nav.is-dormant,
 .nav.tucked {
     transform: translateY(-140%);
     opacity: 0;
+}
+
+.nav.is-dormant .nav-pill {
+    pointer-events: none;
 }
 
 .nav-pill {
@@ -229,7 +235,7 @@ img { max-width: 100%; display: block; }
     letter-spacing: 0;
 }
 
-/* ── Hero ───────────────────────────────────────────── */
+/* ── Cover / Hero ───────────────────────────────────── */
 
 .hero {
     position: relative;
@@ -240,116 +246,212 @@ img { max-width: 100%; display: block; }
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    background: #060d1e;
+    background: #040814;
+    cursor: none;
 }
 
-.hero-media { position: absolute; inset: 0; }
+.hero-media {
+    position: absolute;
+    inset: -4%;
+    will-change: transform;
+    transition: transform 0.8s var(--ease);
+}
 
 .hero-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Favour the abstract side of the frame over the subject */
     object-position: 26% center;
-    /* Very slow drift keeps the frame alive without drawing attention */
-    animation: driftIn 26s ease-out forwards;
+    transform: scale(1.08);
+    filter: saturate(1.05) contrast(1.04) brightness(0.92);
 }
 
-@keyframes driftIn {
-    from { transform: scale(1.06); }
-    to   { transform: scale(1.14); }
-}
-
-/* The film is dark and saturated, so the type is white and the veil
-   only deepens the field behind the words */
+/* Deep cinematic veil so the interactive field and type can breathe */
 .hero-scrim {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(64% 56% at 50% 48%, rgba(4, 8, 22, 0.62) 0%, rgba(4, 8, 22, 0.40) 58%, rgba(4, 8, 22, 0.18) 100%),
-        linear-gradient(180deg, rgba(4, 8, 22, 0.52) 0%, rgba(4, 8, 22, 0.10) 26%, rgba(4, 8, 22, 0.14) 72%, rgba(4, 8, 22, 0.62) 100%);
+        radial-gradient(70% 58% at 50% 42%, rgba(3, 8, 20, 0.28) 0%, rgba(3, 8, 20, 0.55) 55%, rgba(3, 8, 20, 0.78) 100%),
+        linear-gradient(180deg, rgba(3, 8, 20, 0.72) 0%, rgba(3, 8, 20, 0.18) 34%, rgba(3, 8, 20, 0.22) 68%, rgba(3, 8, 20, 0.82) 100%);
 }
+
+.cover-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.cover-veil {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: #02050e;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 1.6s var(--ease);
+}
+
+html.cover-live .cover-veil {
+    opacity: 0;
+}
+
+.cover-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 28px;
+    height: 28px;
+    margin: -14px 0 0 -14px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 70%);
+    box-shadow: 0 0 40px rgba(180, 210, 255, 0.35);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    will-change: transform;
+}
+
+.cover-cursor.on { opacity: 1; }
 
 .hero-copy {
     position: relative;
     z-index: 2;
     padding: 0 22px;
     color: #fff;
-    max-width: 860px;
+    max-width: 900px;
+    will-change: transform;
+    transition: transform 0.7s var(--ease);
+}
+
+.cover-kicker {
+    margin-bottom: 18px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    opacity: 0;
+    transform: translateY(12px);
+    animation: riseIn 1.2s var(--ease) 0.9s forwards;
 }
 
 .hero-name {
-    font-size: clamp(2.9rem, 8.2vw, 5.6rem);
+    font-size: clamp(3.1rem, 9vw, 6.2rem);
     font-weight: 600;
-    line-height: 1.04;
-    letter-spacing: -0.032em;
+    line-height: 1.02;
+    letter-spacing: -0.038em;
+    text-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+}
+
+.hero-name .ch {
+    display: inline-block;
     opacity: 0;
-    animation: riseIn 1.3s var(--ease) 0.25s forwards;
+    transform: translateY(28px) scale(0.96);
+    filter: blur(8px);
+    animation: letterIn 1.15s var(--ease) forwards;
+}
+
+.hero-name .ch.space {
+    width: 0.28em;
 }
 
 .hero-role {
-    margin-top: 14px;
-    font-size: clamp(1.05rem, 2.4vw, 1.6rem);
+    margin-top: 16px;
+    font-size: clamp(1.1rem, 2.5vw, 1.7rem);
     font-weight: 400;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.018em;
     color: rgba(255, 255, 255, 0.94);
     opacity: 0;
-    animation: riseIn 1.3s var(--ease) 0.42s forwards;
+    animation: riseIn 1.35s var(--ease) 1.35s forwards;
 }
 
 .hero-line {
-    margin: 22px auto 0;
+    margin: 24px auto 0;
     max-width: 560px;
     font-size: 1.0625rem;
-    color: rgba(255, 255, 255, 0.76);
+    color: rgba(255, 255, 255, 0.72);
     opacity: 0;
-    animation: riseIn 1.3s var(--ease) 0.58s forwards;
+    animation: riseIn 1.35s var(--ease) 1.55s forwards;
 }
 
 .hero-links {
-    margin-top: 32px;
+    margin-top: 36px;
     display: flex;
     gap: 30px;
     justify-content: center;
     flex-wrap: wrap;
     opacity: 0;
-    animation: riseIn 1.3s var(--ease) 0.74s forwards;
+    animation: riseIn 1.35s var(--ease) 1.75s forwards;
 }
 
-.hero-links .link-chevron { color: #fff; }
+.hero-links .link-chevron {
+    color: #fff;
+    position: relative;
+}
+
+.hero-links .link-chevron::after {
+    transition: transform 0.35s var(--ease);
+}
+
+.hero-links .link-chevron:hover::after {
+    transform: translateX(4px);
+}
 
 @keyframes riseIn {
-    from { opacity: 0; transform: translateY(18px); }
+    from { opacity: 0; transform: translateY(22px); }
     to   { opacity: 1; transform: none; }
+}
+
+@keyframes letterIn {
+    to {
+        opacity: 1;
+        transform: none;
+        filter: blur(0);
+    }
 }
 
 .hero-hint {
     position: absolute;
-    bottom: 34px;
+    bottom: 28px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    width: 20px;
-    height: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 11px;
     display: flex;
-    justify-content: center;
-    padding-top: 6px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    animation: riseIn 1.2s var(--ease) 2.1s forwards;
 }
 
-.hero-hint span {
-    width: 2px;
-    height: 6px;
-    border-radius: 2px;
-    background: rgba(255, 255, 255, 0.82);
-    animation: hint 2s var(--ease) infinite;
+.hero-hint-line {
+    width: 1px;
+    height: 42px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75));
+    transform-origin: top center;
+    animation: hintLine 2.4s var(--ease) infinite;
 }
 
-@keyframes hint {
-    0%   { transform: translateY(0); opacity: 1; }
-    70%  { transform: translateY(11px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 0; }
+.hero-hint-label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+@keyframes hintLine {
+    0%   { transform: scaleY(0.35); opacity: 0; }
+    35%  { transform: scaleY(1); opacity: 1; }
+    100% { transform: scaleY(1); opacity: 0; }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .hero { cursor: auto; }
+    .cover-cursor { display: none; }
+    .cover-kicker { letter-spacing: 0.18em; }
 }
 
 /* ── Links and buttons ──────────────────────────────── */
@@ -1277,7 +1379,11 @@ img { max-width: 100%; display: block; }
     }
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; }
-    .hero-name, .hero-role, .hero-line, .hero-links { opacity: 1; }
+    .hero-name, .hero-role, .hero-line, .hero-links, .cover-kicker, .hero-hint { opacity: 1; transform: none; filter: none; }
+    .hero-name .ch { opacity: 1; transform: none; filter: none; }
+    .cover-veil { opacity: 0; }
+    .hero { cursor: auto; }
+    .cover-cursor { display: none; }
     .hero-video { animation: none; }
     .cards .card { opacity: 1; transform: none; }
     .words span { color: var(--ink); }

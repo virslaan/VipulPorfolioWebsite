@@ -45,8 +45,8 @@
 </head>
 <body>
 
-<!-- ─────────── NAVIGATION ─────────── -->
-<nav class="nav" id="nav" aria-label="Primary">
+<!-- ─────────── NAVIGATION (hidden on the cover) ─────────── -->
+<nav class="nav is-dormant" id="nav" aria-label="Primary" aria-hidden="true">
     <div class="nav-pill" id="navPill">
         <a href="#top" class="nav-mark" aria-label="Top">
             <span>VH</span>
@@ -76,28 +76,35 @@
     <a href="#contact"><span>07</span> Contact</a>
 </div>
 
-<!-- ─────────── HERO ─────────── -->
-<header class="hero" id="top">
-    <div class="hero-media" data-parallax="0.35">
+<!-- ─────────── COVER ─────────── -->
+<header class="hero cover" id="top">
+    <div class="cover-veil" aria-hidden="true"></div>
+    <div class="hero-media">
         <video class="hero-video" id="heroVideo" poster="assets/img/hero-poster.jpg"
                autoplay muted loop playsinline preload="metadata" aria-hidden="true">
             <source src="assets/img/hero-film.mp4" type="video/mp4">
         </video>
         <div class="hero-scrim"></div>
     </div>
+    <canvas class="cover-canvas" id="coverCanvas" aria-hidden="true"></canvas>
+    <div class="cover-cursor" id="coverCursor" aria-hidden="true"></div>
     <div class="hero-copy" id="heroCopy">
-        <h1 class="hero-name">Vipul H. Harihar</h1>
+        <p class="cover-kicker">Move through the field</p>
+        <h1 class="hero-name" data-split="Vipul H. Harihar">Vipul H. Harihar</h1>
         <p class="hero-role">Computer AI and Technology Scientist</p>
         <p class="hero-line">
             Architect of AIRIA and AURA, the AI-powered operating platforms
             behind a $5&nbsp;billion investment firm.
         </p>
         <div class="hero-links">
-            <a href="#work" class="link-chevron">See the work</a>
+            <a href="#work" class="link-chevron">Enter the work</a>
             <a href="#contact" class="link-chevron">Get in touch</a>
         </div>
     </div>
-    <div class="hero-hint" aria-hidden="true"><span></span></div>
+    <div class="hero-hint" aria-hidden="true">
+        <span class="hero-hint-line"></span>
+        <span class="hero-hint-label">Scroll</span>
+    </div>
 </header>
 
 <!-- ─────────── STATEMENT ─────────── -->
@@ -686,6 +693,7 @@
     </div>
 </div>
 
+<script src="js/cover.js"></script>
 <script src="js/main.js"></script>
 <script src="js/dataviz.js" defer></script>
 </body>
