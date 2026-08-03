@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "maintenance-to-operating-system",
+    "date": "2026-07-20",
+    "label": "Product engineering",
+    "title": "From maintenance request to operating system",
+    "excerpt": "AIRIA and AURA began with legacy modernization and became a connected operating environment for investment, trading, research, reporting, advisory, compliance and operations.",
+    "tags": ["AIRIA", "AURA", "Systems"],
+    "body": [
+      "The useful question was not how to patch one workflow. It was how the firm’s workflows, data and decisions should connect.",
+      "That shift in scope turned a maintenance assignment into a production platform spanning front end, back end, APIs, mobile, dashboards, pipelines, security, deployment and product design."
+    ]
+  },
+  {
+    "slug": "financial-ai-clarifying-questions",
+    "date": "2026-07-12",
+    "label": "Applied AI",
+    "title": "Financial AI should know when to ask",
+    "excerpt": "A useful model in a regulated environment needs boundaries, secure retrieval and the ability to ask a clarifying question when certainty is low.",
+    "tags": ["RAG", "Governance", "Financial AI"],
+    "body": [
+      "General language models can be unsafe in financial operations when they invent an answer or expose sensitive context. The system has to narrow the task before it generates.",
+      "AURA uses controlled retrieval, constrained workflows and clarification behavior so uncertainty becomes visible instead of being hidden behind confident prose."
+    ]
+  },
+  {
+    "slug": "fifty-dollar-model-budget",
+    "date": "2026-07-01",
+    "label": "Architecture",
+    "title": "What a fifty-dollar model budget forces you to learn",
+    "excerpt": "A small initial monthly model budget made architecture, caching, retrieval quality and task boundaries more important than brute-force inference.",
+    "tags": ["Efficiency", "LLM systems", "Architecture"],
+    "body": [
+      "The initial model budget was about fifty dollars a month. That constraint rewarded careful context selection, bounded calls and workflows that only used a model where it added value.",
+      "Cost discipline was not separate from product quality. It led to a system that was easier to reason about, easier to govern and practical to operate."
+    ]
+  }
+]

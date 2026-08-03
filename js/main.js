@@ -49,7 +49,7 @@
         });
     }, { rootMargin: '-45% 0px -50% 0px' });
 
-    ['work', 'experience', 'playground', 'education', 'resume'].forEach((id) => {
+    ['work', 'experience', 'education', 'resume'].forEach((id) => {
         const el = document.getElementById(id);
         if (el) spy.observe(el);
     });
@@ -116,6 +116,32 @@
             span.style.animationDelay = (0.55 + i * 0.045) + 's';
             splitName.appendChild(span);
         });
+    }
+
+    /* ── Work heading: pointer-driven spectrum ───────── */
+
+    const workSection = $('.work-section');
+    const workHeading = $('.work-sticky .sec-title');
+    if (workSection && workHeading && !reduced) {
+        workSection.addEventListener('pointermove', (event) => {
+            if (event.pointerType === 'touch') return;
+            const sectionRect = workSection.getBoundingClientRect();
+            const headingRect = workHeading.getBoundingClientRect();
+            const sectionX = ((event.clientX - sectionRect.left) / sectionRect.width) * 100;
+            const sectionY = ((event.clientY - sectionRect.top) / sectionRect.height) * 100;
+            const headingX = ((event.clientX - headingRect.left) / headingRect.width) * 100;
+            const headingY = ((event.clientY - headingRect.top) / headingRect.height) * 100;
+
+            workSection.style.setProperty('--work-x', `${sectionX.toFixed(2)}%`);
+            workSection.style.setProperty('--work-y', `${sectionY.toFixed(2)}%`);
+            workHeading.style.setProperty('--heading-x', `${headingX.toFixed(2)}%`);
+            workHeading.style.setProperty('--heading-y', `${headingY.toFixed(2)}%`);
+            workSection.classList.add('is-tracking');
+        }, { passive: true });
+
+        workSection.addEventListener('pointerleave', () => {
+            workSection.classList.remove('is-tracking');
+        }, { passive: true });
     }
 
     window.addEventListener('resize', () => moveIndicator(activeLink), { passive: true });
