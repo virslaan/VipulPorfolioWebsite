@@ -397,6 +397,16 @@ img { max-width: 100%; display: block; }
     align-items: start;
 }
 
+/* The sticky element lives inside a plain block so its containing
+   block is unambiguous. Sticky directly on a grid item is clamped to
+   the grid area by Blink but to the whole grid container by WebKit,
+   which let the pinned heading run into the next row in Safari. */
+.work-aside {
+    position: relative;
+    /* Must fill the row, otherwise the heading has no travel to stick through */
+    align-self: stretch;
+}
+
 .work-sticky {
     position: sticky;
     top: 118px;
@@ -1015,6 +1025,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 980px) {
     .work-layout { grid-template-columns: 1fr; gap: 40px; }
+    .work-aside { position: static; }
     .work-sticky { position: static; }
     .work-counter { display: none; }
 }
