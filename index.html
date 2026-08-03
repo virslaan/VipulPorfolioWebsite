@@ -39,7 +39,6 @@
     { "@type": "CollegeOrUniversity", "name": "DIT University" }
   ],
   "email": "mailto:vhh2105@columbia.edu",
-  "telephone": "+1-917-214-5091",
   "address": { "@type": "PostalAddress", "addressLocality": "New York", "addressRegion": "NY", "addressCountry": "US" }
 }
 </script>
@@ -55,9 +54,8 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#education">Education</a></li>
-            <li><a href="#recognition">Recognition</a></li>
             <li><a href="#resume">Résumé</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" class="nav-cta">Contact</a></li>
         </ul>
         <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
             <span></span><span></span>
@@ -67,14 +65,14 @@
 
 <!-- ─────────── HERO ─────────── -->
 <header class="hero" id="top">
-    <div class="hero-media">
+    <div class="hero-media" data-parallax="0.35">
         <video class="hero-video" id="heroVideo" poster="assets/img/hero-poster.jpg"
                autoplay muted loop playsinline preload="metadata" aria-hidden="true">
             <source src="assets/img/hero-film.mp4" type="video/mp4">
         </video>
         <div class="hero-scrim"></div>
     </div>
-    <div class="hero-copy">
+    <div class="hero-copy" id="heroCopy">
         <h1 class="hero-name">Vipul H. Harihar</h1>
         <p class="hero-role">Lead Software Engineer</p>
         <p class="hero-line">
@@ -92,9 +90,8 @@
 <!-- ─────────── STATEMENT ─────────── -->
 <section class="statement" id="about">
     <div class="wrap">
-        <p class="statement-text reveal">
-            Hired to fix code.<br>
-            <span class="muted">Built an operating system instead.</span>
+        <p class="statement-text words" data-words>
+            Hired to fix code. Built an operating system instead.
         </p>
         <div class="statement-body reveal">
             <p>
@@ -137,16 +134,17 @@
 </section>
 
 <!-- ─────────── WORK / PLATFORMS ─────────── -->
-<section class="section-grey" id="work">
-    <div class="wrap">
-        <header class="sec-head reveal">
+<section class="section-grey work-section" id="work">
+    <div class="wrap work-layout">
+        <header class="sec-head work-sticky reveal">
             <p class="eyebrow">The work</p>
             <h2 class="sec-title">One engineer.<br><span class="muted">An entire product suite.</span></h2>
-            <p class="sec-sub">Every platform below runs in production today.</p>
+            <p class="sec-sub">Every platform below runs in production today at a firm managing more than $5 billion.</p>
+            <p class="work-counter"><span id="workIndex">01</span> <span class="muted">/ 06</span></p>
         </header>
 
         <div class="cards">
-            <article class="card card-wide reveal">
+            <article class="card card-wide reveal" data-work>
                 <p class="card-kicker">Investment operating platform</p>
                 <h3 class="card-title">AIRIA</h3>
                 <p class="card-text">
@@ -157,7 +155,7 @@
                 <p class="card-meta">Portfolio oversight · Benchmarks · Risk and betas · Tax-loss harvesting</p>
             </article>
 
-            <article class="card card-wide reveal">
+            <article class="card card-wide reveal" data-work>
                 <p class="card-kicker">Enterprise AI assistant and application builder</p>
                 <h3 class="card-title">AURA</h3>
                 <p class="card-text">
@@ -168,7 +166,7 @@
                 <p class="card-meta">Agent framework · Retrieval context · Multilingual · Role aware</p>
             </article>
 
-            <article class="card reveal">
+            <article class="card reveal" data-work>
                 <p class="card-kicker">Meeting intelligence</p>
                 <h3 class="card-title">OTO</h3>
                 <p class="card-text">
@@ -177,7 +175,7 @@
                 </p>
             </article>
 
-            <article class="card reveal">
+            <article class="card reveal" data-work>
                 <p class="card-kicker">Concierge analytics</p>
                 <h3 class="card-title">ACE</h3>
                 <p class="card-text">
@@ -186,7 +184,7 @@
                 </p>
             </article>
 
-            <article class="card reveal">
+            <article class="card reveal" data-work>
                 <p class="card-kicker">Research and reporting</p>
                 <h3 class="card-title">Document intelligence</h3>
                 <p class="card-text">
@@ -195,7 +193,7 @@
                 </p>
             </article>
 
-            <article class="card reveal">
+            <article class="card reveal" data-work>
                 <p class="card-kicker">Quantitative tooling</p>
                 <h3 class="card-title">Research and backtesting</h3>
                 <p class="card-text">
@@ -217,17 +215,25 @@
     </div>
 </section>
 
-<!-- ─────────── FILM + QUOTE ─────────── -->
-<section class="film" aria-label="Feature">
-    <video class="film-video" id="workVideo" poster="assets/img/work-poster.jpg"
-           muted loop playsinline preload="none" aria-hidden="true">
-        <source src="assets/img/work-film.mp4" type="video/mp4">
-    </video>
-    <div class="film-scrim"></div>
-    <blockquote class="film-quote reveal">
-        <p>“They brought me in to clean up legacy systems. What started as maintenance turned into a complete reinvention.”</p>
-        <cite>Columbia Data Science Institute, September 2025</cite>
-    </blockquote>
+<!-- ─────────── SCROLL-SCRUBBED REVEAL ─────────── -->
+<section class="reveal-film" id="revealFilm" aria-label="Feature">
+    <div class="reveal-film-stage">
+        <video class="reveal-film-video" id="scrubVideo" poster="assets/img/reveal-poster.jpg"
+               muted playsinline preload="auto" aria-hidden="true">
+            <source src="assets/img/reveal-film.mp4" type="video/mp4">
+        </video>
+        <div class="reveal-film-scrim"></div>
+        <div class="reveal-film-copy">
+            <blockquote data-scrub-copy="0">
+                <p>“They brought me in to clean up legacy systems. What started as maintenance turned into a complete reinvention.”</p>
+                <cite>Columbia Data Science Institute, September 2025</cite>
+            </blockquote>
+            <blockquote data-scrub-copy="1">
+                <p>“I wanted to make something people actually want to use.”</p>
+                <cite>Vipul H. Harihar</cite>
+            </blockquote>
+        </div>
+    </div>
 </section>
 
 <!-- ─────────── EXPERIENCE ─────────── -->
@@ -378,7 +384,7 @@
 
         <div class="tiles">
             <a class="tile tile-media reveal" href="https://github.com/virslaan" target="_blank" rel="noopener noreferrer">
-                <div class="tile-image"><img src="assets/img/medical-passport.jpg" alt="Medical Passport application" loading="lazy"></div>
+                <div class="tile-image" data-tilt-in><img data-parallax-img src="assets/img/medical-passport.jpg" alt="Medical Passport application" loading="lazy"></div>
                 <div class="tile-copy">
                     <h3>Medical Passport</h3>
                     <p>Encrypted, offline-first healthcare application for 79 pediatric cardiac patients.</p>
@@ -386,7 +392,7 @@
             </a>
 
             <a class="tile tile-media reveal" href="https://github.com/virslaan" target="_blank" rel="noopener noreferrer">
-                <div class="tile-image"><img src="assets/img/g1.JPG" alt="Columbia capstone team presentation" loading="lazy"></div>
+                <div class="tile-image" data-tilt-in><img data-parallax-img src="assets/img/g1.JPG" alt="Columbia capstone team presentation" loading="lazy"></div>
                 <div class="tile-copy">
                     <h3>Wind turbine repurposing</h3>
                     <p>Geospatial machine learning for the carbon impact of 70,800 decommissioned blades. Delivered to NYC DDC.</p>
@@ -500,7 +506,7 @@
     <div class="wrap">
         <header class="sec-head reveal">
             <p class="eyebrow">Recognition</p>
-            <h2 class="sec-title">Independently verified.</h2>
+            <h2 class="sec-title">Awards and press.</h2>
         </header>
         <ul class="awards">
             <li class="award reveal">
@@ -552,13 +558,14 @@
         <header class="sec-head reveal">
             <p class="eyebrow">Résumé</p>
             <h2 class="sec-title">The paper version.</h2>
+            <p class="sec-sub">Complete master CV, 2026. Seven pages, every date verified.</p>
         </header>
         <div class="resume-actions reveal">
-            <a href="Vipul_Harihar_Resume_2025.pdf" download class="btn">Download PDF</a>
+            <a href="Vipul_Harihar_CV_2026.pdf" download class="btn">Download CV</a>
             <button class="link-chevron" id="resumeToggle" aria-expanded="false">Preview here</button>
         </div>
         <div class="resume-frame reveal" id="resumePreview" hidden>
-            <iframe data-src="Vipul_Harihar_Resume_2025.pdf" title="Résumé preview" loading="lazy"></iframe>
+            <iframe data-src="Vipul_Harihar_CV_2026.pdf" title="Curriculum vitae preview" loading="lazy"></iframe>
         </div>
     </div>
 </section>
@@ -593,7 +600,7 @@
 
         <div class="contact-direct reveal">
             <a class="contact-email" href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a>
-            <p class="contact-meta">Manhattan, New York · +1 (917) 214-5091</p>
+            <p class="contact-meta">Manhattan, New York</p>
         </div>
     </div>
 </section>

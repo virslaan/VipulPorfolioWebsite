@@ -15,9 +15,17 @@
     const nav = $('#nav');
     const navLinks = $('#navLinks');
     const navToggle = $('#navToggle');
+    let lastY = window.scrollY;
 
     const updateNav = () => {
-        if (nav) nav.classList.toggle('solid', window.scrollY > 10);
+        if (!nav) return;
+        const y = window.scrollY;
+        nav.classList.toggle('solid', y > 10);
+        // Step out of the way going down, return on the way up
+        const menuOpen = navLinks && navLinks.classList.contains('open');
+        const goingDown = y > lastY && y > 420;
+        nav.classList.toggle('hidden', goingDown && !menuOpen);
+        lastY = y;
     };
 
     if (navToggle && navLinks) {
@@ -101,7 +109,8 @@
 
     /* ── Films: only play what is on screen ─────────── */
 
-    $$('video').forEach((video) => {
+    // The scrubbed film is driven by scroll position, never by playback
+    $$('video:not(#scrubVideo)').forEach((video) => {
         const io = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -221,6 +230,127 @@
         });
     }
 
+    /* ── Word reveal ────────────────────────────────── */
+    /* Each word lights as the line travels through the viewport. */
+
+    const wordBlocks = $$('[data-words]').map((el) => {
+        const words = el.textContent.trim().split(/\s+/);
+        el.textContent = '';
+        words.forEach((w, i) => {
+            const span = document.createElement('span');
+            span.textContent = w;
+            el.appendChild(span);
+            if (i < words.length - 1) el.appendChild(document.createTextNode(' '));
+        });
+        return { el, spans: $$('span', el) };
+    });
+
+    const updateWords = () => {
+        if (reduced) return;
+        const vh = window.innerHeight;
+        wordBlocks.forEach(({ el, spans }) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > vh) return;
+            // 0 when the block enters the lower third, 1 once it clears the middle
+            const p = (vh * 0.82 - rect.top) / (vh * 0.52 + rect.height * 0.5);
+            const lit = Math.round(Math.max(0, Math.min(1, p)) * spans.length);
+            spans.forEach((s, i) => s.classList.toggle('lit', i < lit));
+        });
+    };
+
+    /* ── Parallax ───────────────────────────────────── */
+
+    const parallaxEls = $$('[data-parallax]').map((el) => ({ el, k: parseFloat(el.dataset.parallax) || 0.3 }));
+    const parallaxImgs = $$('[data-parallax-img]');
+
+    const updateParallax = () => {
+        if (reduced) return;
+        const vh = window.innerHeight;
+
+        parallaxEls.forEach(({ el, k }) => {
+            const rect = el.parentElement.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > vh) return;
+            el.style.transform = `translate3d(0, ${(-rect.top * k).toFixed(1)}px, 0)`;
+        });
+
+        parallaxImgs.forEach((img) => {
+            const frame = img.parentElement;
+            const rect = frame.getBoundingClientRect();
+            if (rect.bottom < -60 || rect.top > vh + 60) return;
+            const centre = rect.top + rect.height / 2;
+            const off = ((centre - vh / 2) / vh) * 26;
+            img.style.transform = `translate3d(0, ${off.toFixed(1)}px, 0) scale(1.14)`;
+        });
+    };
+
+    /* ── Scroll-scrubbed film ───────────────────────── */
+
+    const scrubSection = $('#revealFilm');
+    const scrubVideo = $('#scrubVideo');
+    const scrubCopies = $$('[data-scrub-copy]');
+    let scrubReady = false;
+    let scrubTarget = 0;
+    let scrubCurrent = 0;
+
+    if (scrubSection && scrubVideo) {
+        // A progress rail makes the pinned section feel intentional
+        const rail = document.createElement('div');
+        rail.className = 'scrub-rail';
+        rail.innerHTML = '<i></i>';
+        scrubSection.querySelector('.reveal-film-stage').appendChild(rail);
+        const railFill = rail.querySelector('i');
+
+        scrubVideo.addEventListener('loadedmetadata', () => { scrubReady = true; });
+        // Safari will not decode a frame until it has been asked to play once
+        scrubVideo.play().then(() => scrubVideo.pause()).catch(() => {});
+
+        var updateScrub = () => {
+            const rect = scrubSection.getBoundingClientRect();
+            const total = scrubSection.offsetHeight - window.innerHeight;
+            if (total <= 0) return;
+            const p = Math.max(0, Math.min(1, -rect.top / total));
+
+            railFill.style.width = (p * 100).toFixed(1) + '%';
+
+            // Two lines of copy, each holding for part of the scroll
+            scrubCopies.forEach((q, i) => {
+                const on = i === 0 ? p < 0.52 : p >= 0.52;
+                q.classList.toggle('on', on && p > 0.04 && p < 0.97);
+            });
+
+            if (scrubReady && scrubVideo.duration) {
+                scrubTarget = p * (scrubVideo.duration - 0.05);
+            }
+        };
+
+        // Ease the playhead toward the target so scrolling feels liquid
+        const scrubLoop = () => {
+            if (scrubReady && Math.abs(scrubTarget - scrubCurrent) > 0.005) {
+                scrubCurrent += (scrubTarget - scrubCurrent) * 0.16;
+                try { scrubVideo.currentTime = scrubCurrent; } catch (e) {}
+            }
+            requestAnimationFrame(scrubLoop);
+        };
+        if (!reduced) requestAnimationFrame(scrubLoop);
+    }
+
+    /* ── Work showcase counter ──────────────────────── */
+
+    const workCards = $$('[data-work]');
+    const workIndex = $('#workIndex');
+
+    const updateWork = () => {
+        if (!workIndex || !workCards.length) return;
+        const mid = window.innerHeight * 0.48;
+        let active = 0;
+        workCards.forEach((card, i) => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < mid) active = i;
+        });
+        workCards.forEach((c, i) => c.classList.toggle('active', i === active));
+        workIndex.textContent = String(active + 1).padStart(2, '0');
+    };
+
     /* ── Scroll loop ────────────────────────────────── */
 
     let ticking = false;
@@ -229,6 +359,10 @@
         ticking = true;
         requestAnimationFrame(() => {
             updateNav();
+            updateWords();
+            updateParallax();
+            updateWork();
+            if (typeof updateScrub === 'function') updateScrub();
             ticking = false;
         });
     };

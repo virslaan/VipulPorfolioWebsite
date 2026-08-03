@@ -115,6 +115,22 @@ img { max-width: 100%; display: block; }
 
 .nav-links a:hover { opacity: 1; }
 
+/* Quieter chrome: the bar steps out of the way going down,
+   and returns the moment you scroll back up */
+.nav.hidden { transform: translateY(-100%); }
+.nav { transition: background 0.4s var(--ease), border-color 0.4s var(--ease), transform 0.45s var(--ease); }
+
+.nav-cta {
+    padding: 6px 14px;
+    border-radius: 980px;
+    background: var(--ink);
+    color: #fff !important;
+    opacity: 1 !important;
+    transition: opacity 0.25s ease;
+}
+
+.nav-cta:hover { opacity: 0.82 !important; }
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -372,11 +388,46 @@ img { max-width: 100%; display: block; }
 
 /* ── Cards ──────────────────────────────────────────── */
 
+/* ── Sticky work showcase ───────────────────────────── */
+
+.work-layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.work-sticky {
+    position: sticky;
+    top: 118px;
+    margin-bottom: 0;
+}
+
+.work-counter {
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid var(--hair);
+    font-size: 0.875rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+}
+
 .cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 20px;
 }
+
+/* Cards settle from a slight depth as they enter */
+.cards .card {
+    transform: translateY(28px) scale(0.985);
+    opacity: 0;
+    transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), box-shadow 0.5s var(--ease);
+}
+
+.cards .card.in { opacity: 1; transform: none; }
+
+.cards .card.active { box-shadow: 0 22px 60px rgba(0, 0, 0, 0.09); }
 
 .card {
     background: var(--white);
@@ -390,7 +441,7 @@ img { max-width: 100%; display: block; }
     box-shadow: 0 18px 44px rgba(0, 0, 0, 0.07);
 }
 
-.card-wide { grid-column: span 2; }
+.card-wide { grid-column: auto; }
 
 .card-kicker {
     font-size: 13px;
@@ -430,51 +481,117 @@ img { max-width: 100%; display: block; }
 
 .note p { color: var(--ink-2); max-width: 760px; }
 
-/* ── Film ───────────────────────────────────────────── */
+/* ── Scroll-scrubbed reveal ─────────────────────────── */
+/* The section is tall; the stage pins while the film is
+   scrubbed frame by frame against scroll position.       */
 
-.film {
+.reveal-film {
     position: relative;
-    height: 78vh;
-    min-height: 460px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    height: 320vh;
     background: #000;
 }
 
-.film-video {
+.reveal-film-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reveal-film-video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    will-change: transform;
 }
 
-.film-scrim { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.46); }
+.reveal-film-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(78% 62% at 50% 50%, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.62) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.10) 30%, rgba(0,0,0,0.10) 70%, rgba(0,0,0,0.5) 100%);
+}
 
-.film-quote {
+.reveal-film-copy {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    width: min(860px, 100%);
     padding: 0 26px;
     text-align: center;
     color: #fff;
 }
 
-.film-quote p {
-    font-size: clamp(1.4rem, 3.6vw, 2.4rem);
-    font-weight: 500;
-    line-height: 1.28;
-    letter-spacing: -0.024em;
+.reveal-film-copy blockquote {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s var(--ease), transform 0.7s var(--ease);
 }
 
-.film-quote cite {
+.reveal-film-copy { display: grid; }
+
+.reveal-film-copy blockquote.on { opacity: 1; transform: none; }
+
+.reveal-film-copy p {
+    font-size: clamp(1.4rem, 3.6vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.26;
+    letter-spacing: -0.026em;
+}
+
+.reveal-film-copy cite {
     display: block;
-    margin-top: 24px;
+    margin-top: 22px;
     font-size: 0.875rem;
     font-style: normal;
-    color: rgba(255, 255, 255, 0.62);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.scrub-rail {
+    position: absolute;
+    left: 50%;
+    bottom: 42px;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 132px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.scrub-rail i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: #fff;
+    border-radius: 2px;
+}
+
+/* ── Word reveal ────────────────────────────────────── */
+
+.words span {
+    display: inline-block;
+    color: rgba(29, 29, 31, 0.16);
+    transition: color 0.45s var(--ease);
+}
+
+.words span.lit { color: var(--ink); }
+
+/* ── Depth ──────────────────────────────────────────── */
+
+[data-tilt-in] {
+    perspective: 1200px;
+}
+
+[data-parallax-img] {
+    will-change: transform;
 }
 
 /* ── Roles ──────────────────────────────────────────── */
@@ -896,6 +1013,12 @@ img { max-width: 100%; display: block; }
 
 /* ── Responsive ─────────────────────────────────────── */
 
+@media (max-width: 980px) {
+    .work-layout { grid-template-columns: 1fr; gap: 40px; }
+    .work-sticky { position: static; }
+    .work-counter { display: none; }
+}
+
 @media (max-width: 900px) {
     .figures-grid { grid-template-columns: repeat(2, 1fr); }
     .figure { padding-right: 16px; }
@@ -962,7 +1085,7 @@ img { max-width: 100%; display: block; }
 
     .form-row { grid-template-columns: 1fr; }
     .sheet-panel { padding: 40px 24px 34px; }
-    .film { height: 62vh; }
+    .reveal-film { height: 260vh; }
 }
 
 /* ── Reduced motion ─────────────────────────────────── */
@@ -977,4 +1100,10 @@ img { max-width: 100%; display: block; }
     .reveal { opacity: 1; transform: none; }
     .hero-name, .hero-role, .hero-line, .hero-links { opacity: 1; }
     .hero-video { animation: none; }
+    .cards .card { opacity: 1; transform: none; }
+    .words span { color: var(--ink); }
+    .reveal-film { height: auto; }
+    .reveal-film-stage { position: relative; height: 80svh; }
+    .reveal-film-copy blockquote { opacity: 1; transform: none; }
+    .reveal-film-copy blockquote[data-scrub-copy="1"] { display: none; }
 }
