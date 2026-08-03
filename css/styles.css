@@ -247,7 +247,7 @@ img { max-width: 100%; display: block; }
     text-align: center;
     overflow: hidden;
     background: #040814;
-    cursor: none;
+    cursor: default;
 }
 
 .hero-media {
@@ -304,58 +304,72 @@ html.cover-live .cover-veil {
     opacity: 0;
 }
 
-.cover-cursor {
-    position: absolute;
+.site-cursor {
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 3;
-    width: 42px;
-    height: 42px;
-    margin: -21px 0 0 -21px;
+    z-index: 2200;
+    width: 28px;
+    height: 28px;
+    margin: -14px 0 0 -14px;
     border-radius: 50%;
-    background: conic-gradient(from 40deg, #72e7ff, #8b7cff, #ff71bd, #ffc25c, #72e7ff);
-    padding: 1px;
-    box-shadow: 0 0 26px rgba(119, 173, 255, 0.3);
+    border: 1px solid currentColor;
+    color: #2b2d32;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.25s ease, box-shadow 0.3s ease;
+    transition: opacity 0.2s ease, color 0.35s ease, border-color 0.35s ease;
     will-change: transform;
 }
 
-.cover-cursor.on { opacity: 1; }
+.site-cursor.is-visible { opacity: 0.82; }
 
-.cover-cursor::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    border-radius: 50%;
-    background: rgba(4, 8, 20, 0.4);
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
-    transition: inset 0.3s var(--ease), background 0.3s ease;
-}
-
-.cover-cursor::after {
+.site-cursor::before {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 5px;
-    height: 5px;
-    margin: -2.5px;
+    width: 3px;
+    height: 3px;
+    margin: -1.5px;
     border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 0 13px rgba(213, 231, 255, 0.95);
-    transition: transform 0.3s var(--ease);
+    background: currentColor;
+    transition: transform 0.28s var(--ease);
 }
 
-.cover-cursor.is-link {
-    box-shadow: 0 0 38px rgba(132, 173, 255, 0.52);
+.site-cursor::after {
+    content: "";
+    position: absolute;
+    inset: -7px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    opacity: 0;
+    transform: scale(0.62);
+    transition: opacity 0.28s ease, transform 0.35s var(--ease);
 }
 
-.cover-cursor.is-link::before { inset: 4px; background: rgba(6, 10, 22, 0.28); }
-.cover-cursor.is-link::after { transform: scale(1.75); }
-.cover-cursor.is-down::after { transform: scale(2.6); opacity: 0.55; }
+.site-cursor.is-link::after { opacity: 0.34; transform: scale(1); }
+.site-cursor.is-link::before { transform: scale(1.7); }
+.site-cursor.is-down::before { transform: scale(2.5); }
+
+.site-cursor[data-theme="cover"],
+.site-cursor[data-theme="signal-dark"] { color: #eef5ff; }
+.site-cursor[data-theme="work"] { color: #315fd1; }
+.site-cursor[data-theme="experience"] { color: #9a6335; }
+.site-cursor[data-theme="projects"] { color: #39735f; }
+.site-cursor[data-theme="signal"] { color: #6550b8; }
+.site-cursor[data-theme="education"] { color: #b7c5e8; }
+.site-cursor[data-theme="recognition"] { color: #967124; }
+.site-cursor[data-theme="resume"] { color: #5d626b; }
+.site-cursor[data-theme="contact"] { color: #1d1d1f; }
+.site-cursor[data-theme="editorial"] { color: #303239; }
+
+.has-site-cursor,
+.has-site-cursor a,
+.has-site-cursor button,
+.has-site-cursor summary,
+.has-site-cursor input,
+.has-site-cursor textarea { cursor: none; }
+.has-site-cursor .hero { cursor: none; }
 
 .cover-signature {
     position: absolute;
@@ -509,7 +523,7 @@ html.cover-live .cover-veil {
 
 @media (hover: none), (pointer: coarse) {
     .hero { cursor: auto; }
-    .cover-cursor { display: none; }
+    .site-cursor { display: none; }
     .cover-kicker { letter-spacing: 0.18em; }
 }
 
@@ -641,6 +655,7 @@ html.cover-live .cover-veil {
     position: relative;
     isolation: isolate;
     overflow: clip;
+    background: #f1f4f8;
 }
 
 .work-section::before {
@@ -652,9 +667,9 @@ html.cover-live .cover-veil {
     opacity: 0;
     background:
         radial-gradient(520px circle at var(--work-x) var(--work-y),
-            rgba(91, 218, 255, 0.18) 0%,
-            rgba(119, 91, 255, 0.12) 28%,
-            rgba(255, 91, 183, 0.08) 48%,
+            rgba(71, 129, 255, 0.16) 0%,
+            rgba(74, 195, 222, 0.10) 34%,
+            rgba(81, 96, 180, 0.055) 52%,
             transparent 72%);
     transition: opacity 0.6s ease;
 }
@@ -670,10 +685,10 @@ html.cover-live .cover-veil {
     color: transparent;
     background:
         radial-gradient(240px circle at var(--heading-x) var(--heading-y),
-            #ffb44a 0%,
-            #ff5aa8 25%,
-            #8a68ff 52%,
-            #2c8cff 72%,
+            #5bcbdf 0%,
+            #3b7ee8 28%,
+            #3156bd 56%,
+            #253b73 75%,
             var(--ink) 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -2022,6 +2037,112 @@ html.cover-live .cover-veil {
 
 .award-row:hover .award-icon { transform: rotate(45deg) translate(2px, -2px); }
 
+/* ── Section identities ─────────────────────────────── */
+
+/* Experience: warm, archival and chronological */
+#experience {
+    background:
+        linear-gradient(180deg, rgba(169, 112, 55, 0.045), transparent 22%),
+        #f7f3ed;
+}
+
+#experience .eyebrow { color: #9b693d; }
+#experience .roles { border-top-color: rgba(91, 64, 39, 0.18); }
+#experience .role { border-bottom-color: rgba(91, 64, 39, 0.16); }
+#experience .role-head {
+    border-radius: 12px;
+    transition: padding 0.38s var(--ease), background 0.3s ease;
+}
+#experience .role-head:hover,
+#experience .role-head[aria-expanded="true"] {
+    padding-inline: 16px;
+    background: rgba(139, 88, 41, 0.065);
+}
+#experience .role-years { color: #9b693d; }
+
+/* Projects: a quiet studio surface */
+#projects { background: #edf2ef; }
+#projects .tile {
+    border: 1px solid rgba(40, 83, 67, 0.08);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+#projects .eyebrow { color: #47715f; }
+
+/* Signal: a clear doorway to the separate editorial space */
+#signal {
+    background:
+        radial-gradient(75% 140% at 100% 0%, rgba(101, 80, 184, 0.22), transparent 58%),
+        #111218;
+    color: #f4f5f8;
+}
+#signal .eyebrow { color: #a99bd8; }
+#signal .muted { color: #858894; }
+#signal .signal-teaser-copy { color: #a6a9b3; }
+#signal .link-chevron { color: #fff; }
+
+/* Education: academic blue with two distinct institutions */
+#education {
+    background:
+        radial-gradient(70% 90% at 0% 0%, rgba(76, 102, 166, 0.28), transparent 62%),
+        #121a2c;
+    color: #f3f5fa;
+}
+#education .eyebrow { color: #9fb0d8; }
+#education .muted { color: #8995b2; }
+#education .school {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.055);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.16);
+}
+#education .school::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #7898e6;
+}
+#education .school:nth-child(2)::before { background: #d4a75d; }
+#education .school-degree { color: #e4e8f2; }
+#education .school-meta { color: #8e9bb9; }
+#education .school ul { border-top-color: rgba(255, 255, 255, 0.10); }
+#education .school li { color: #b9c1d3; }
+
+/* Recognition: warm paper and restrained gold */
+#recognition {
+    background:
+        radial-gradient(70% 100% at 100% 0%, rgba(199, 159, 85, 0.13), transparent 60%),
+        #f4efe6;
+    color: #27231c;
+}
+#recognition .eyebrow { color: #92702f; }
+#recognition .awards { border-top-color: rgba(83, 65, 34, 0.20); }
+#recognition .award { border-bottom-color: rgba(83, 65, 34, 0.17); }
+#recognition .award-row {
+    border-radius: 10px;
+    transition: opacity 0.25s ease, padding 0.38s var(--ease), background 0.3s ease;
+}
+#recognition .award-row:not(.static):hover {
+    padding-inline: 16px;
+    background: rgba(180, 137, 57, 0.09);
+    opacity: 1;
+}
+#recognition .award:first-child .award-name { color: #76551d; }
+#recognition .award:first-child .award-name::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 10px 2px 0;
+    border-radius: 50%;
+    background: #bd8b35;
+    box-shadow: 0 0 0 5px rgba(189, 139, 53, 0.12);
+}
+#recognition .award-note { color: #6f6658; }
+
 /* ── Résumé ─────────────────────────────────────────── */
 
 .resume-actions { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
@@ -2361,7 +2482,7 @@ html.cover-live .cover-veil {
     .hero-name .ch { opacity: 1; transform: none; filter: none; }
     .cover-veil { opacity: 0; }
     .hero { cursor: auto; }
-    .cover-cursor { display: none; }
+    .site-cursor { display: none; }
     .hero-video { animation: none; }
     .cards .card { opacity: 1; transform: none; }
     .words span { color: var(--ink); }

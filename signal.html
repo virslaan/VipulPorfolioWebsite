@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 </head>
 <body class="signal-page">
+    <div class="site-cursor" id="siteCursor" aria-hidden="true"></div>
     <nav class="signal-nav" aria-label="Signal navigation">
         <a class="signal-nav-mark" href="index.html" aria-label="Back to portfolio">VH</a>
         <span>Signal</span>
@@ -21,7 +22,7 @@
     </nav>
 
     <main>
-        <header class="signal-page-hero">
+        <header class="signal-page-hero" data-cursor-theme="signal">
             <p class="signal-page-kicker">Vipul H. Harihar / Signal</p>
             <h1>Notes from building<br><span>systems people use.</span></h1>
             <p class="signal-page-intro">
@@ -37,7 +38,7 @@
             </div>
         </header>
 
-        <section class="signal-posts-section" aria-labelledby="postsTitle">
+        <section class="signal-posts-section" aria-labelledby="postsTitle" data-cursor-theme="editorial">
             <header class="signal-section-head">
                 <p class="mini-label">Posts</p>
                 <h2 id="postsTitle">From the work.</h2>
@@ -49,7 +50,7 @@
             </div>
         </section>
 
-        <section class="playground signal-research" id="playground" aria-labelledby="researchTitle">
+        <section class="playground signal-research" id="playground" aria-labelledby="researchTitle" data-cursor-theme="signal-dark">
             <div class="playground-shell">
                 <header class="signal-section-head signal-research-head">
                     <div>
@@ -90,6 +91,7 @@
         <a href="index.html">Back to portfolio</a>
     </footer>
 
+    <script src="js/cursor.js"></script>
     <script src="js/signal.js" defer></script>
 </body>
 </html>

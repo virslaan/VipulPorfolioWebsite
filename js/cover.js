@@ -19,7 +19,6 @@
 
     const media = hero.querySelector('.hero-media');
     const copy = document.getElementById('heroCopy');
-    const cursor = document.getElementById('coverCursor');
 
     let w = 0;
     let h = 0;
@@ -30,9 +29,8 @@
 
     const pointer = { x: 0.5, y: 0.45, tx: 0.5, ty: 0.45, active: false };
     const tilt = { x: 0, y: 0, tx: 0, ty: 0 };
-    const cursorPos = { x: 0, y: 0, tx: 0, ty: 0, ready: false };
 
-    const COUNT = Math.min(80, Math.floor((window.innerWidth * window.innerHeight) / 19000));
+    const COUNT = Math.min(32, Math.floor((window.innerWidth * window.innerHeight) / 38000));
     const nodes = Array.from({ length: COUNT }, () => spawn(true));
 
     function spawn(spread) {
@@ -63,7 +61,7 @@
         }
     }
 
-    function onMove(clientX, clientY, target) {
+    function onMove(clientX, clientY) {
         const rect = hero.getBoundingClientRect();
         if (rect.height <= 0) return;
         pointer.tx = (clientX - rect.left) / rect.width;
@@ -71,36 +69,21 @@
         pointer.active = true;
         tilt.tx = (pointer.tx - 0.5) * 2;
         tilt.ty = (pointer.ty - 0.5) * 2;
-
-        if (cursor) {
-            cursorPos.tx = clientX - rect.left;
-            cursorPos.ty = clientY - rect.top;
-            if (!cursorPos.ready) {
-                cursorPos.x = cursorPos.tx;
-                cursorPos.y = cursorPos.ty;
-                cursorPos.ready = true;
-            }
-            cursor.classList.add('on');
-            cursor.classList.toggle('is-link', Boolean(target?.closest('a, button')));
-        }
     }
 
-    hero.addEventListener('pointermove', (e) => onMove(e.clientX, e.clientY, e.target), { passive: true });
+    hero.addEventListener('pointermove', (e) => onMove(e.clientX, e.clientY), { passive: true });
     hero.addEventListener('pointerleave', () => {
         pointer.active = false;
         pointer.tx = 0.5;
         pointer.ty = 0.42;
         tilt.tx = 0;
         tilt.ty = 0;
-        if (cursor) cursor.classList.remove('on', 'is-link', 'is-down');
     }, { passive: true });
-    hero.addEventListener('pointerdown', () => cursor?.classList.add('is-down'), { passive: true });
-    hero.addEventListener('pointerup', () => cursor?.classList.remove('is-down'), { passive: true });
 
     // Touch: keep the field alive under the finger
     hero.addEventListener('touchmove', (e) => {
         const t = e.touches[0];
-        if (t) onMove(t.clientX, t.clientY, e.target);
+        if (t) onMove(t.clientX, t.clientY);
     }, { passive: true });
 
     function step(now) {
@@ -111,11 +94,6 @@
         pointer.y += (pointer.ty - pointer.y) * 0.08;
         tilt.x += (tilt.tx - tilt.x) * 0.06;
         tilt.y += (tilt.ty - tilt.y) * 0.06;
-        cursorPos.x += (cursorPos.tx - cursorPos.x) * 0.2;
-        cursorPos.y += (cursorPos.ty - cursorPos.y) * 0.2;
-        if (cursor && cursorPos.ready) {
-            cursor.style.transform = `translate3d(${cursorPos.x}px, ${cursorPos.y}px, 0)`;
-        }
 
         // Film and type lean with the pointer
         if (media && !reduced) {
@@ -142,8 +120,7 @@
         ctx.fillStyle = glow;
         ctx.fillRect(0, 0, w, h);
 
-        // Update + draw nodes
-        const pts = [];
+        // A few restrained light motes, never a decorative constellation
         for (let i = 0; i < nodes.length; i++) {
             const n = nodes[i];
             const dx = pointer.x - n.x;
@@ -171,10 +148,8 @@
             const py = n.y * h;
             const pulse = 0.55 + Math.sin(t * n.pulse + n.phase) * 0.45;
             const near = Math.exp(-dist2 * 10);
-            const alpha = (0.18 + near * 0.55) * n.z * enter * pulse;
-            const radius = (n.r + near * 2.8) * (0.7 + n.z * 0.5);
-
-            pts.push({ x: px, y: py, a: alpha, r: radius, z: n.z });
+            const alpha = (0.08 + near * 0.28) * n.z * enter * pulse;
+            const radius = (n.r + near * 1.8) * (0.7 + n.z * 0.5);
 
             ctx.beginPath();
             ctx.fillStyle = `rgba(235, 245, 255, ${alpha})`;
@@ -183,7 +158,7 @@
 
             if (near > 0.2) {
                 const halo = ctx.createRadialGradient(px, py, 0, px, py, radius * 6);
-                halo.addColorStop(0, `rgba(190, 220, 255, ${near * 0.18 * enter})`);
+                halo.addColorStop(0, `rgba(190, 220, 255, ${near * 0.10 * enter})`);
                 halo.addColorStop(1, 'rgba(190, 220, 255, 0)');
                 ctx.fillStyle = halo;
                 ctx.beginPath();
@@ -192,35 +167,12 @@
             }
         }
 
-        // Sparse constellation threads near the pointer
-        ctx.lineWidth = 1;
-        for (let i = 0; i < pts.length; i++) {
-            const a = pts[i];
-            for (let j = i + 1; j < pts.length; j++) {
-                const b = pts[j];
-                const dx = a.x - b.x;
-                const dy = a.y - b.y;
-                const d = Math.hypot(dx, dy);
-                if (d > 110) continue;
-                const midX = (a.x + b.x) * 0.5;
-                const midY = (a.y + b.y) * 0.5;
-                const toPtr = Math.hypot(midX - gx, midY - gy);
-                if (toPtr > Math.min(w, h) * 0.28) continue;
-                const alpha = (1 - d / 110) * 0.14 * enter * ((a.z + b.z) * 0.5);
-                ctx.strokeStyle = `rgba(210, 230, 255, ${alpha})`;
-                ctx.beginPath();
-                ctx.moveTo(a.x, a.y);
-                ctx.lineTo(b.x, b.y);
-                ctx.stroke();
-            }
-        }
-
-        // Core mote at the pointer
+        // Soft focus around the pointer
         if (enter > 0.2) {
-            const core = 10 + Math.sin(t * 2.2) * 3;
+            const core = 8 + Math.sin(t * 2.2) * 2;
             const coreG = ctx.createRadialGradient(gx, gy, 0, gx, gy, core * 5);
-            coreG.addColorStop(0, `rgba(255, 255, 255, ${0.55 * enter})`);
-            coreG.addColorStop(0.25, `rgba(200, 225, 255, ${0.22 * enter})`);
+            coreG.addColorStop(0, `rgba(255, 255, 255, ${0.28 * enter})`);
+            coreG.addColorStop(0.25, `rgba(200, 225, 255, ${0.12 * enter})`);
             coreG.addColorStop(1, 'rgba(200, 225, 255, 0)');
             ctx.fillStyle = coreG;
             ctx.beginPath();
