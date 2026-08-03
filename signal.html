@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal | Vipul H. Harihar</title>
+    <meta name="description" content="Working notes and live research from Vipul H. Harihar on AIRIA, AURA, applied AI, financial systems, data engineering and product development.">
+    <meta name="theme-color" content="#080a10">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+</head>
+<body class="signal-page">
+    <div class="site-cursor" id="siteCursor" aria-hidden="true"></div>
+    <nav class="signal-nav" aria-label="Signal navigation">
+        <a class="signal-nav-mark" href="index.html" aria-label="Back to portfolio">VH</a>
+        <span>Signal</span>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <main>
+        <header class="signal-page-hero" data-cursor-theme="signal">
+            <p class="signal-page-kicker">Vipul H. Harihar / Signal</p>
+            <h1>Notes from building<br><span>systems people use.</span></h1>
+            <p class="signal-page-intro">
+                AIRIA, AURA, applied AI, financial operations, secure data systems,
+                product engineering and the decisions behind the work.
+            </p>
+            <div class="signal-topics" aria-label="Suggested research topics">
+                <button type="button" data-signal-topic="financial AI">Financial AI</button>
+                <button type="button" data-signal-topic="retrieval augmented generation">RAG</button>
+                <button type="button" data-signal-topic="data pipelines">Data pipelines</button>
+                <button type="button" data-signal-topic="AI governance">AI governance</button>
+                <button type="button" data-signal-topic="investment technology">Investment technology</button>
+            </div>
+        </header>
+
+        <section class="signal-posts-section" aria-labelledby="postsTitle" data-cursor-theme="editorial">
+            <header class="signal-section-head">
+                <p class="mini-label">Posts</p>
+                <h2 id="postsTitle">From the work.</h2>
+            </header>
+            <div class="signal-posts" id="signalPosts" aria-live="polite">
+                <div class="signal-post-skeleton"></div>
+                <div class="signal-post-skeleton"></div>
+                <div class="signal-post-skeleton"></div>
+            </div>
+        </section>
+
+        <section class="playground signal-research" id="playground" aria-labelledby="researchTitle" data-cursor-theme="signal-dark">
+            <div class="playground-shell">
+                <header class="signal-section-head signal-research-head">
+                    <div>
+                        <p class="playground-kicker">Live research / Public sources</p>
+                        <h2 id="researchTitle">Explore around<br><span>the portfolio.</span></h2>
+                    </div>
+                    <p>
+                        Search topics connected to Vipul’s work. Results use live public stories
+                        and community activity. Unrelated searches are handed to Google instead
+                        of being forced into a fake portfolio answer.
+                    </p>
+                </header>
+
+                <form class="signal-search" id="signalSearch" role="search">
+                    <label class="sr-only" for="signalQuery">Search topics related to Vipul’s work</label>
+                    <span class="signal-search-icon" aria-hidden="true"></span>
+                    <input id="signalQuery" name="query" type="search" value="financial AI"
+                           placeholder="Search financial AI, RAG, data pipelines…" autocomplete="off">
+                    <button type="submit">Search</button>
+                </form>
+
+                <div class="signal-status" aria-live="polite">
+                    <span class="signal-live"><i></i> Live public sources</span>
+                    <span id="signalStatus">Connecting…</span>
+                </div>
+
+                <div class="signal-results signal-results-wide" id="signalResults" aria-live="polite">
+                    <div class="signal-skeleton"></div>
+                    <div class="signal-skeleton"></div>
+                    <div class="signal-skeleton"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="signal-footer">
+        <span>Vipul H. Harihar / New York</span>
+        <a href="index.html">Back to portfolio</a>
+    </footer>
+
+    <script src="js/cursor.js"></script>
+    <script src="js/signal.js" defer></script>
+</body>
+</html>
