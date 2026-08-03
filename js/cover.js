@@ -20,6 +20,8 @@
     const media = hero.querySelector('.hero-media');
     const copy = document.getElementById('heroCopy');
     const cursor = document.getElementById('coverCursor');
+    const films = Array.from(hero.querySelectorAll('.hero-video'));
+    const filmMarks = Array.from(hero.querySelectorAll('.hero-film-index span'));
 
     let w = 0;
     let h = 0;
@@ -33,6 +35,44 @@
 
     const COUNT = Math.min(140, Math.floor((window.innerWidth * window.innerHeight) / 14000));
     const nodes = Array.from({ length: COUNT }, () => spawn(true));
+
+    /* Distinct films breathe through the cover instead of repeating one shot. */
+    if (films.length > 1 && !reduced) {
+        let activeFilm = 0;
+        let filmTimer = 0;
+
+        const showFilm = (next) => {
+            const incoming = films[next];
+            incoming.play().catch(() => {});
+            films.forEach((film, index) => film.classList.toggle('is-active', index === next));
+            filmMarks.forEach((mark, index) => mark.classList.toggle('is-active', index === next));
+            activeFilm = next;
+        };
+
+        const scheduleFilm = () => {
+            window.clearTimeout(filmTimer);
+            filmTimer = window.setTimeout(() => {
+                showFilm((activeFilm + 1) % films.length);
+                scheduleFilm();
+            }, 9000);
+        };
+
+        films.forEach((film) => {
+            film.muted = true;
+            film.play().catch(() => {});
+        });
+        scheduleFilm();
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                window.clearTimeout(filmTimer);
+                films.forEach((film) => film.pause());
+            } else {
+                films[activeFilm].play().catch(() => {});
+                scheduleFilm();
+            }
+        });
+    }
 
     function spawn(spread) {
         return {

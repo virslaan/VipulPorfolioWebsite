@@ -55,7 +55,7 @@
             <span class="nav-indicator" id="navIndicator" aria-hidden="true"></span>
             <a href="#work" data-section="work">Work</a>
             <a href="#experience" data-section="experience">Experience</a>
-            <a href="#projects" data-section="projects">Projects</a>
+            <a href="#playground" data-section="playground">Playground</a>
             <a href="#education" data-section="education">Education</a>
             <a href="#resume" data-section="resume">Résumé</a>
         </div>
@@ -69,7 +69,7 @@
 <div class="nav-sheet" id="navSheet" hidden>
     <a href="#work"><span>01</span> Work</a>
     <a href="#experience"><span>02</span> Experience</a>
-    <a href="#projects"><span>03</span> Projects</a>
+    <a href="#playground"><span>03</span> Playground</a>
     <a href="#education"><span>04</span> Education</a>
     <a href="#recognition"><span>05</span> Recognition</a>
     <a href="#resume"><span>06</span> Résumé</a>
@@ -80,10 +80,17 @@
 <header class="hero cover" id="top">
     <div class="cover-veil" aria-hidden="true"></div>
     <div class="hero-media">
-        <video class="hero-video" id="heroVideo" poster="assets/img/hero-poster.jpg"
+        <video class="hero-video is-active" id="heroVideo" poster="assets/img/hero-poster.jpg"
                autoplay muted loop playsinline preload="metadata" aria-hidden="true">
             <source src="assets/img/hero-film.mp4" type="video/mp4">
         </video>
+        <video class="hero-video" id="heroVideoAlt" poster="assets/img/reveal-poster.jpg"
+               muted loop playsinline preload="metadata" aria-hidden="true">
+            <source src="assets/img/reveal-film.mp4" type="video/mp4">
+        </video>
+        <div class="hero-film-index" aria-hidden="true">
+            <span class="is-active"></span><span></span>
+        </div>
         <div class="hero-scrim"></div>
     </div>
     <canvas class="cover-canvas" id="coverCanvas" aria-hidden="true"></canvas>
@@ -457,6 +464,124 @@
     </div>
 </section>
 
+<!-- ─────────── LIVE INTELLIGENCE PLAYGROUND ─────────── -->
+<section class="playground" id="playground">
+    <div class="playground-shell">
+        <header class="playground-head reveal">
+            <div>
+                <p class="playground-kicker">Live experiment · Public data</p>
+                <h2>Search the signal.<br><span>Change the algorithm.</span></h2>
+            </div>
+            <p class="playground-intro">
+                A working intelligence engine over live community stories. Search any topic,
+                tune the ranking model, and inspect exactly why each result rises.
+            </p>
+        </header>
+
+        <form class="signal-search reveal" id="signalSearch" role="search">
+            <label class="sr-only" for="signalQuery">Search live stories</label>
+            <span class="signal-search-icon" aria-hidden="true"></span>
+            <input id="signalQuery" name="query" type="search" value="artificial intelligence"
+                   placeholder="Search AI, markets, climate, robotics…" autocomplete="off">
+            <button type="submit">Run signal</button>
+        </form>
+
+        <div class="signal-status reveal" aria-live="polite">
+            <span class="signal-live"><i></i> Live public feed</span>
+            <span id="signalStatus">Connecting…</span>
+            <span id="signalRefresh">Auto-refresh · 60s</span>
+        </div>
+
+        <div class="playground-grid">
+            <aside class="algorithm-panel reveal" aria-label="Ranking model controls">
+                <div class="algorithm-title">
+                    <div>
+                        <p class="mini-label">Your ranking model</p>
+                        <h3>Signal weights</h3>
+                    </div>
+                    <button class="text-button" type="button" id="resetWeights">Reset</button>
+                </div>
+
+                <label class="weight-control">
+                    <span><b>Relevance</b><output id="relevanceOut">40</output></span>
+                    <input type="range" id="relevanceWeight" min="0" max="100" value="40">
+                </label>
+                <label class="weight-control">
+                    <span><b>Momentum</b><output id="momentumOut">25</output></span>
+                    <input type="range" id="momentumWeight" min="0" max="100" value="25">
+                </label>
+                <label class="weight-control">
+                    <span><b>Conversation</b><output id="conversationOut">20</output></span>
+                    <input type="range" id="conversationWeight" min="0" max="100" value="20">
+                </label>
+                <label class="weight-control">
+                    <span><b>Freshness</b><output id="freshnessOut">15</output></span>
+                    <input type="range" id="freshnessWeight" min="0" max="100" value="15">
+                </label>
+
+                <div class="algorithm-note">
+                    <span>Transparent by design</span>
+                    <p>Scores use public points, comments, publication time, and query match.
+                       No private user tracking and no invented activity.</p>
+                </div>
+            </aside>
+
+            <div class="signal-results" id="signalResults" aria-live="polite">
+                <div class="signal-skeleton"></div>
+                <div class="signal-skeleton"></div>
+                <div class="signal-skeleton"></div>
+            </div>
+        </div>
+
+        <div class="intelligence-bottom">
+            <section class="pinboard reveal" aria-labelledby="pinboardTitle">
+                <div class="pinboard-head">
+                    <div>
+                        <p class="mini-label">Persistent brief</p>
+                        <h3 id="pinboardTitle">Pinned as JSON</h3>
+                    </div>
+                    <div class="pin-actions">
+                        <button type="button" id="copyPins">Copy</button>
+                        <button type="button" id="downloadPins">Download</button>
+                    </div>
+                </div>
+                <pre class="pin-json" id="pinJson"><code>{
+  "query": "artificial intelligence",
+  "pins": []
+}</code></pre>
+                <p class="pin-note">Pins live in this browser. Their scores update whenever your weights or live signals change.</p>
+            </section>
+
+            <aside class="why-panel reveal">
+                <p class="mini-label">Why this matters</p>
+                <h3>Not a mock feed.<br>A small production system.</h3>
+                <ul>
+                    <li><b>Live ingestion</b><span>Resilient API handling and refresh state.</span></li>
+                    <li><b>Explainable ranking</b><span>Every score exposes its strongest reason.</span></li>
+                    <li><b>Stateful product</b><span>Search, tuning, persistence, and JSON export.</span></li>
+                    <li><b>Human control</b><span>The algorithm adapts to what you value.</span></li>
+                </ul>
+                <p class="why-close">This is how I work: connect the data, make the model legible, and ship the interface end to end.</p>
+            </aside>
+        </div>
+
+        <section class="signal-letter reveal" aria-labelledby="signalLetterTitle">
+            <div>
+                <p class="mini-label">The Signal Letter</p>
+                <h3 id="signalLetterTitle">A newsletter shaped by your ranking model.</h3>
+                <p>Receive occasional notes on applied AI, systems, and the signals worth carrying forward.</p>
+            </div>
+            <form action="https://formsubmit.co/vhh2105@columbia.edu" method="POST">
+                <input type="hidden" name="_subject" value="New Signal Letter subscriber">
+                <input type="hidden" name="_captcha" value="false">
+                <label class="sr-only" for="signalEmail">Email address</label>
+                <input id="signalEmail" type="email" name="email" placeholder="you@company.com" required>
+                <button type="submit">Join the signal</button>
+            </form>
+        </section>
+    </div>
+</section>
+
 <!-- ─────────── GRADIENT BAND ─────────── -->
 <section class="band" id="band" aria-label="In production">
     <canvas class="band-canvas" id="bandCanvas" aria-hidden="true"></canvas>
@@ -695,6 +820,7 @@
 
 <script src="js/cover.js"></script>
 <script src="js/main.js"></script>
+<script src="js/playground.js" defer></script>
 <script src="js/dataviz.js" defer></script>
 </body>
 </html>

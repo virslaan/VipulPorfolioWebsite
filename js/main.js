@@ -49,7 +49,7 @@
         });
     }, { rootMargin: '-45% 0px -50% 0px' });
 
-    ['work', 'experience', 'projects', 'education', 'resume'].forEach((id) => {
+    ['work', 'experience', 'playground', 'education', 'resume'].forEach((id) => {
         const el = document.getElementById(id);
         if (el) spy.observe(el);
     });
