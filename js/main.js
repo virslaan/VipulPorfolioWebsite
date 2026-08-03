@@ -349,7 +349,29 @@
         scrubSection.querySelector('.reveal-film-stage').appendChild(rail);
         const railFill = rail.querySelector('i');
 
-        scrubVideo.addEventListener('loadedmetadata', () => { scrubReady = true; });
+        let scrubDisabled = false;
+
+        const markReady = () => {
+            if (scrubVideo.readyState >= 1 && isFinite(scrubVideo.duration)) scrubReady = true;
+        };
+
+        // Seeking needs HTTP range support. Where it is missing the film
+        // would sit frozen for the whole pinned section, so let it play instead.
+        setTimeout(() => {
+            const range = scrubVideo.seekable;
+            if (!range || range.length === 0 || range.end(range.length - 1) === 0) {
+                scrubDisabled = true;
+                scrubVideo.loop = true;
+                const p = scrubVideo.play();
+                if (p) p.catch(() => {});
+            }
+        }, 2500);
+        // The event can fire before this runs when the file is cached,
+        // so check the current state as well as listening for it
+        scrubVideo.addEventListener('loadedmetadata', markReady);
+        scrubVideo.addEventListener('durationchange', markReady);
+        scrubVideo.addEventListener('canplay', markReady);
+        markReady();
         // Safari will not decode a frame until it has been asked to play once
         scrubVideo.play().then(() => scrubVideo.pause()).catch(() => {});
 
@@ -374,7 +396,7 @@
 
         // Ease the playhead toward the target so scrolling feels liquid
         const scrubLoop = () => {
-            if (scrubReady && Math.abs(scrubTarget - scrubCurrent) > 0.005) {
+            if (scrubReady && !scrubDisabled && Math.abs(scrubTarget - scrubCurrent) > 0.005) {
                 scrubCurrent += (scrubTarget - scrubCurrent) * 0.16;
                 try { scrubVideo.currentTime = scrubCurrent; } catch (e) {}
             }
@@ -397,16 +419,16 @@
         // Navy anchors the field; the colour sits on top at low alpha so
         // the band reads deep and premium rather than neon.
         const blobs = [
-            { c: [ 74,  68, 200], a: 0.50, x: 0.26, y: 0.32, r: 0.60, ax: 0.18, ay: 0.15, sx: 0.00023, sy: 0.00031, ph: 0.0 },
-            { c: [ 16, 102, 190], a: 0.42, x: 0.72, y: 0.26, r: 0.56, ax: 0.17, ay: 0.19, sx: 0.00019, sy: 0.00026, ph: 1.7 },
-            { c: [  0, 140, 152], a: 0.34, x: 0.86, y: 0.74, r: 0.46, ax: 0.15, ay: 0.16, sx: 0.00025, sy: 0.00018, ph: 3.1 },
-            { c: [150,  58, 124], a: 0.26, x: 0.54, y: 0.82, r: 0.44, ax: 0.19, ay: 0.13, sx: 0.00027, sy: 0.00021, ph: 4.6 },
-            { c: [170,  94,  60], a: 0.20, x: 0.14, y: 0.84, r: 0.38, ax: 0.14, ay: 0.14, sx: 0.00017, sy: 0.00029, ph: 5.9 },
+            { c: [ 92,  48, 210], a: 0.40, x: 0.26, y: 0.32, r: 0.60, ax: 0.18, ay: 0.15, sx: 0.00023, sy: 0.00031, ph: 0.0 },
+            { c: [ 20,  84, 200], a: 0.34, x: 0.72, y: 0.26, r: 0.56, ax: 0.17, ay: 0.19, sx: 0.00019, sy: 0.00026, ph: 1.7 },
+            { c: [  0, 150, 190], a: 0.26, x: 0.86, y: 0.74, r: 0.46, ax: 0.15, ay: 0.16, sx: 0.00025, sy: 0.00018, ph: 3.1 },
+            { c: [200,  40, 130], a: 0.24, x: 0.54, y: 0.82, r: 0.44, ax: 0.19, ay: 0.13, sx: 0.00027, sy: 0.00021, ph: 4.6 },
+            { c: [225, 130,  50], a: 0.16, x: 0.14, y: 0.84, r: 0.38, ax: 0.14, ay: 0.14, sx: 0.00017, sy: 0.00029, ph: 5.9 },
         ];
 
         const paint = (t) => {
             g.globalCompositeOperation = 'source-over';
-            g.fillStyle = '#08203a';
+            g.fillStyle = '#070a1c';
             g.fillRect(0, 0, W, H);
             g.globalCompositeOperation = 'lighter';
 
