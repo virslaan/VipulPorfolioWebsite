@@ -1956,6 +1956,16 @@ html.cover-live .cover-veil {
     .signal-letter input, .signal-letter button { width: 100%; }
 }
 
+@media (max-width: 440px) {
+    .hero-copy { padding-inline: 14px; }
+    .hero-name {
+        font-size: clamp(2.35rem, 11.4vw, 3rem);
+        letter-spacing: -0.045em;
+    }
+    .hero-role { font-size: 1.02rem; }
+    .hero-line { max-width: 345px; font-size: 0.95rem; }
+}
+
 /* ── Reduced motion ─────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
