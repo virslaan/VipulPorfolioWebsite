@@ -124,7 +124,10 @@
         })();
     }
 
-    /* ═══════════ HERO PARTICLE CONSTELLATION ═══════════ */
+    /* ═══════════ HERO: GOLDEN FLOW FIELD ═══════════
+       Hundreds of particles ride an animated vector field and
+       leave silky molten-gold trails. The field bends around
+       the cursor, so the whole stream reacts to the visitor.  */
 
     const canvas = $('#heroCanvas');
     if (canvas && !prefersReducedMotion) {
@@ -133,7 +136,22 @@
         let W = 0, H = 0;
         const mouse = { x: -9999, y: -9999 };
         const DPR = Math.min(window.devicePixelRatio || 1, 2);
-        const PALETTE = ['#22d3ee', '#6366f1', '#a855f7', '#38bdf8'];
+        const PALETTE = [
+            'rgba(242, 207, 118, A)',
+            'rgba(232, 181, 74, A)',
+            'rgba(208, 138, 46, A)',
+            'rgba(194, 94, 42, A)',
+            'rgba(247, 230, 176, A)'
+        ];
+
+        const spawn = () => ({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            speed: 0.6 + Math.random() * 1.4,
+            life: 120 + Math.random() * 240,
+            width: 0.6 + Math.random() * 1.2,
+            color: PALETTE[Math.floor(Math.random() * PALETTE.length)]
+        });
 
         const resize = () => {
             const rect = canvas.parentElement.getBoundingClientRect();
@@ -142,16 +160,10 @@
             canvas.width = W * DPR;
             canvas.height = H * DPR;
             ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-            const count = Math.min(Math.floor((W * H) / 11000), 160);
-            particles = Array.from({ length: count }, () => ({
-                x: Math.random() * W,
-                y: Math.random() * H,
-                vx: (Math.random() - 0.5) * 0.35,
-                vy: (Math.random() - 0.5) * 0.35,
-                r: Math.random() * 1.8 + 0.6,
-                c: PALETTE[Math.floor(Math.random() * PALETTE.length)],
-                tw: Math.random() * Math.PI * 2
-            }));
+            ctx.fillStyle = '#070706';
+            ctx.fillRect(0, 0, W, H);
+            const count = Math.min(Math.floor((W * H) / 6000), 320);
+            particles = Array.from({ length: count }, spawn);
         };
 
         resize();
@@ -168,69 +180,50 @@
             mouse.y = -9999;
         });
 
-        const LINK_DIST = 130;
-        const MOUSE_DIST = 180;
-        let frame = 0;
+        let t = 0;
+        const MOUSE_R = 220;
+
+        const fieldAngle = (x, y) => {
+            // Layered waves produce an organic, slowly evolving current
+            let a = Math.sin(x * 0.0016 + t * 0.6) * 1.3
+                  + Math.cos(y * 0.0021 - t * 0.45) * 1.3
+                  + Math.sin((x + y) * 0.0008 + t * 0.25) * 0.8;
+            const dx = x - mouse.x;
+            const dy = y - mouse.y;
+            const d = Math.hypot(dx, dy);
+            if (d < MOUSE_R) {
+                // Bend the current into a vortex around the cursor
+                const f = 1 - d / MOUSE_R;
+                a += Math.atan2(dy, dx) * f * 0.9 + f * 2.4;
+            }
+            return a;
+        };
 
         (function draw() {
-            frame++;
-            ctx.clearRect(0, 0, W, H);
+            t += 0.005;
+            // Translucent wipe leaves glowing trails behind
+            ctx.fillStyle = 'rgba(7, 7, 6, 0.07)';
+            ctx.fillRect(0, 0, W, H);
+            ctx.lineCap = 'round';
 
             for (const p of particles) {
-                // Gentle mouse repulsion for a "the page notices you" feel
-                const dx = p.x - mouse.x;
-                const dy = p.y - mouse.y;
-                const md = Math.hypot(dx, dy);
-                if (md < MOUSE_DIST && md > 0.01) {
-                    const f = (MOUSE_DIST - md) / MOUSE_DIST * 0.5;
-                    p.vx += (dx / md) * f * 0.12;
-                    p.vy += (dy / md) * f * 0.12;
-                }
+                const a = fieldAngle(p.x, p.y);
+                const nx = p.x + Math.cos(a) * p.speed;
+                const ny = p.y + Math.sin(a) * p.speed;
 
-                p.vx = Math.max(-0.7, Math.min(0.7, p.vx * 0.995));
-                p.vy = Math.max(-0.7, Math.min(0.7, p.vy * 0.995));
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.x < -10) p.x = W + 10; else if (p.x > W + 10) p.x = -10;
-                if (p.y < -10) p.y = H + 10; else if (p.y > H + 10) p.y = -10;
-
-                const twinkle = 0.55 + 0.45 * Math.sin(p.tw + frame * 0.02);
-                ctx.globalAlpha = twinkle * 0.85;
-                ctx.fillStyle = p.c;
+                ctx.strokeStyle = p.color.replace('A', '0.5');
+                ctx.lineWidth = p.width;
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fill();
-            }
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(nx, ny);
+                ctx.stroke();
 
-            // Constellation links
-            ctx.globalAlpha = 1;
-            for (let i = 0; i < particles.length; i++) {
-                const a = particles[i];
-                for (let j = i + 1; j < particles.length; j++) {
-                    const b = particles[j];
-                    const dx = a.x - b.x;
-                    const dy = a.y - b.y;
-                    const d2 = dx * dx + dy * dy;
-                    if (d2 < LINK_DIST * LINK_DIST) {
-                        const alpha = (1 - Math.sqrt(d2) / LINK_DIST) * 0.16;
-                        ctx.strokeStyle = `rgba(120, 140, 255, ${alpha})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(a.x, a.y);
-                        ctx.lineTo(b.x, b.y);
-                        ctx.stroke();
-                    }
-                }
-                // Link to mouse
-                const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
-                if (dm < MOUSE_DIST) {
-                    ctx.strokeStyle = `rgba(34, 211, 238, ${(1 - dm / MOUSE_DIST) * 0.32})`;
-                    ctx.lineWidth = 1;
-                    ctx.beginPath();
-                    ctx.moveTo(a.x, a.y);
-                    ctx.lineTo(mouse.x, mouse.y);
-                    ctx.stroke();
+                p.x = nx;
+                p.y = ny;
+                p.life--;
+
+                if (p.life <= 0 || p.x < -20 || p.x > W + 20 || p.y < -20 || p.y > H + 20) {
+                    Object.assign(p, spawn());
                 }
             }
 
@@ -438,7 +431,7 @@
         confettiCanvas.height = window.innerHeight;
         confettiCanvas.style.display = 'block';
 
-        const colors = ['#f5c518', '#22d3ee', '#6366f1', '#a855f7', '#34d399', '#fb7185'];
+        const colors = ['#f5c518', '#f2cf76', '#e8b54a', '#d08a2e', '#c25e2a', '#fff6dd'];
         const pieces = Array.from({ length: 160 }, () => ({
             x: Math.random() * confettiCanvas.width,
             y: -20 - Math.random() * confettiCanvas.height * 0.5,
@@ -505,6 +498,74 @@
         });
     }
 
+    /* ═══════════ CONTACT FORM (FormSubmit AJAX, works on GitHub Pages) ═══════════ */
+
+    const contactForm = $('#contactForm');
+    if (contactForm) {
+        const statusEl = $('#formStatus');
+        const submitBtn = $('#contactSubmit');
+        const CONTACT_EMAIL = 'vhh2105@columbia.edu';
+
+        const setStatus = (msg, kind) => {
+            if (!statusEl) return;
+            statusEl.textContent = msg;
+            statusEl.classList.remove('ok', 'err');
+            if (kind) statusEl.classList.add(kind);
+        };
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = $('#cfName').value.trim();
+            const email = $('#cfEmail').value.trim();
+            const message = $('#cfMsg').value.trim();
+            const honey = contactForm.querySelector('[name="_honey"]').value;
+
+            if (honey) return; // bot caught in the honeypot
+            if (!name || !email || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                setStatus('Please fill in your name, a valid email, and a message.', 'err');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            $('span', submitBtn).textContent = 'Sending…';
+            setStatus('');
+
+            try {
+                const res = await fetch('https://formsubmit.co/ajax/' + CONTACT_EMAIL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        message,
+                        _subject: 'New message from your portfolio: ' + name,
+                        _template: 'table'
+                    })
+                });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                await res.json();
+                contactForm.reset();
+                $('span', submitBtn).textContent = 'Message sent';
+                setStatus("Got it. I'll get back to you soon.", 'ok');
+                launchConfetti();
+                setTimeout(() => {
+                    $('span', submitBtn).textContent = 'Send message';
+                    submitBtn.disabled = false;
+                }, 4000);
+            } catch (err) {
+                // Network/service failure: hand off to the visitor's mail app instead
+                $('span', submitBtn).textContent = 'Send message';
+                submitBtn.disabled = false;
+                setStatus('Direct send failed, opening your email app instead…', 'err');
+                const body = encodeURIComponent(message + '\n\n' + name + ' (' + email + ')');
+                window.location.href = 'mailto:' + CONTACT_EMAIL +
+                    '?subject=' + encodeURIComponent('Portfolio message from ' + name) +
+                    '&body=' + body;
+            }
+        });
+    }
+
     /* ═══════════ BACK TO TOP ═══════════ */
 
     const backToTop = $('#backToTop');
@@ -548,8 +609,8 @@
 
     console.log(
         '%c VH %c Vipul H. Harihar. Built end-to-end, like everything else. %c vhh2105@columbia.edu ',
-        'background:linear-gradient(100deg,#22d3ee,#6366f1,#a855f7);color:#06060f;font-weight:bold;border-radius:4px 0 0 4px;padding:4px 6px;',
-        'background:#10101f;color:#e8e8f0;padding:4px 8px;',
-        'background:#10101f;color:#22d3ee;border-radius:0 4px 4px 0;padding:4px 8px;'
+        'background:linear-gradient(100deg,#f2cf76,#e0a83e,#c25e2a);color:#0c0a06;font-weight:bold;border-radius:4px 0 0 4px;padding:4px 6px;',
+        'background:#171410;color:#ede9e0;padding:4px 8px;',
+        'background:#171410;color:#e8b54a;border-radius:0 4px 4px 0;padding:4px 8px;'
     );
 })();
