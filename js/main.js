@@ -78,17 +78,45 @@
         });
     }
 
+    const heroEl = $('#top');
+
     const updateNav = () => {
         if (!nav) return;
         const y = window.scrollY;
-        nav.classList.toggle('lifted', y > 10);
+        const heroH = heroEl ? heroEl.offsetHeight : window.innerHeight;
+        // Stay invisible across the cover. Only arrive once the entrance is behind you.
+        const pastCover = y > heroH * 0.58;
+        nav.classList.toggle('is-dormant', !pastCover);
+        nav.setAttribute('aria-hidden', pastCover ? 'false' : 'true');
+        nav.classList.toggle('lifted', pastCover);
         const sheetOpen = navSheet && !navSheet.hidden;
-        const goingDown = y > lastY + 2 && y > 420;
+        if (!pastCover) {
+            nav.classList.remove('tucked');
+            if (sheetOpen) closeSheet2();
+            lastY = y;
+            return;
+        }
+        const goingDown = y > lastY + 2 && y > heroH + 80;
         const goingUp = y < lastY - 2;
         if (goingDown && !sheetOpen) nav.classList.add('tucked');
-        else if (goingUp || y < 120) nav.classList.remove('tucked');
+        else if (goingUp) nav.classList.remove('tucked');
         lastY = y;
     };
+
+    /* ── Cover name: letter-by-letter entrance ───────── */
+
+    const splitName = $('#heroCopy [data-split]');
+    if (splitName) {
+        const text = splitName.getAttribute('data-split') || splitName.textContent || '';
+        splitName.textContent = '';
+        [...text].forEach((ch, i) => {
+            const span = document.createElement('span');
+            span.className = ch === ' ' ? 'ch space' : 'ch';
+            span.textContent = ch === ' ' ? '\u00a0' : ch;
+            span.style.animationDelay = (0.55 + i * 0.045) + 's';
+            splitName.appendChild(span);
+        });
+    }
 
     window.addEventListener('resize', () => moveIndicator(activeLink), { passive: true });
 
