@@ -44,6 +44,7 @@
 </script>
 </head>
 <body>
+<div class="site-cursor" id="siteCursor" aria-hidden="true"></div>
 
 <!-- ─────────── NAVIGATION (hidden on the cover) ─────────── -->
 <nav class="nav is-dormant" id="nav" aria-label="Primary" aria-hidden="true">
@@ -77,7 +78,7 @@
 </div>
 
 <!-- ─────────── COVER ─────────── -->
-<header class="hero cover" id="top">
+<header class="hero cover" id="top" data-cursor-theme="cover">
     <div class="cover-veil" aria-hidden="true"></div>
     <div class="hero-media">
         <video class="hero-video is-active" id="heroVideo" poster="assets/img/hero-poster.jpg"
@@ -87,7 +88,6 @@
         <div class="hero-scrim"></div>
     </div>
     <canvas class="cover-canvas" id="coverCanvas" aria-hidden="true"></canvas>
-    <div class="cover-cursor" id="coverCursor" aria-hidden="true"></div>
     <div class="cover-signature" aria-hidden="true">
         <span>Portfolio / 2026</span>
         <span>New York / USA</span>
@@ -102,6 +102,7 @@
         </p>
         <div class="hero-links">
             <a href="#work" class="link-chevron">Enter the work</a>
+            <a href="signal.html" class="link-chevron">Read Signal</a>
             <a href="#contact" class="link-chevron">Get in touch</a>
         </div>
     </div>
@@ -158,7 +159,7 @@
 </section>
 
 <!-- ─────────── WORK / PLATFORMS ─────────── -->
-<section class="section-grey work-section" id="work">
+<section class="section-grey work-section" id="work" data-cursor-theme="work">
     <div class="wrap work-layout">
       <div class="work-aside">
         <header class="sec-head work-sticky reveal">
@@ -266,7 +267,7 @@
 </section>
 
 <!-- ─────────── EXPERIENCE ─────────── -->
-<section class="section-white" id="experience">
+<section class="section-white" id="experience" data-cursor-theme="experience">
     <div class="wrap">
         <header class="sec-head reveal">
             <p class="eyebrow">Experience</p>
@@ -404,7 +405,7 @@
 </section>
 
 <!-- ─────────── PROJECTS ─────────── -->
-<section class="section-grey" id="projects">
+<section class="section-grey" id="projects" data-cursor-theme="projects">
     <div class="wrap">
         <header class="sec-head reveal">
             <p class="eyebrow">Projects</p>
@@ -462,7 +463,7 @@
 </section>
 
 <!-- ─────────── SIGNAL ─────────── -->
-<section class="signal-teaser section-white" id="signal">
+<section class="signal-teaser section-white" id="signal" data-cursor-theme="signal">
     <div class="wrap signal-teaser-grid">
         <div class="reveal">
             <p class="eyebrow">Signal</p>
@@ -542,7 +543,7 @@
 </section>
 
 <!-- ─────────── EDUCATION ─────────── -->
-<section class="section-grey" id="education">
+<section class="section-grey" id="education" data-cursor-theme="education">
     <div class="wrap">
         <header class="sec-head reveal">
             <p class="eyebrow">Education</p>
@@ -575,7 +576,7 @@
 </section>
 
 <!-- ─────────── RECOGNITION ─────────── -->
-<section class="section-white" id="recognition">
+<section class="section-white" id="recognition" data-cursor-theme="recognition">
     <div class="wrap">
         <header class="sec-head reveal">
             <p class="eyebrow">Recognition</p>
@@ -626,7 +627,7 @@
 </section>
 
 <!-- ─────────── RESUME ─────────── -->
-<section class="section-grey" id="resume">
+<section class="section-grey" id="resume" data-cursor-theme="resume">
     <div class="wrap resume-wrap">
         <header class="sec-head reveal">
             <p class="eyebrow">Résumé</p>
@@ -644,7 +645,7 @@
 </section>
 
 <!-- ─────────── CONTACT ─────────── -->
-<section class="section-white" id="contact">
+<section class="section-white" id="contact" data-cursor-theme="contact">
     <div class="wrap contact-wrap">
         <header class="sec-head reveal">
             <p class="eyebrow">Contact</p>
@@ -686,6 +687,7 @@
             <a href="https://github.com/virslaan" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://www.credly.com/users/vipul-harihar" target="_blank" rel="noopener noreferrer">Credly</a>
             <a href="https://datascience.columbia.edu/news/2025/a-data-science-alum-was-hired-to-fix-code-he-built-an-operating-system-instead/" target="_blank" rel="noopener noreferrer">Press</a>
+            <a href="signal.html">Signal</a>
             <a href="mailto:vhh2105@columbia.edu">Email</a>
         </div>
         <p class="footer-fine">Copyright 2026 Vipul H. Harihar. Designed and built by me.</p>
@@ -712,6 +714,7 @@
 </div>
 
 <script src="js/cover.js"></script>
+<script src="js/cursor.js"></script>
 <script src="js/main.js"></script>
 <script src="js/dataviz.js" defer></script>
 </body>
