@@ -13,16 +13,11 @@
     /* ── Navigation ─────────────────────────────────── */
 
     const nav = $('#nav');
-    const hero = $('.hero');
     const navLinks = $('#navLinks');
     const navToggle = $('#navToggle');
 
     const updateNav = () => {
-        if (!nav) return;
-        const heroBottom = hero ? hero.offsetHeight - 52 : 0;
-        const overFilm = window.scrollY < heroBottom;
-        nav.classList.toggle('on-film', overFilm);
-        nav.classList.toggle('solid', !overFilm && window.scrollY > 10);
+        if (nav) nav.classList.toggle('solid', window.scrollY > 10);
     };
 
     if (navToggle && navLinks) {

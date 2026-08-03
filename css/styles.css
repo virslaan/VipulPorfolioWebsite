@@ -81,11 +81,6 @@ img { max-width: 100%; display: block; }
     border-bottom-color: var(--hair-soft);
 }
 
-/* Over the film the bar stays legible in white */
-.nav.on-film .nav-name,
-.nav.on-film .nav-links a { color: rgba(255, 255, 255, 0.86); }
-.nav.on-film .nav-toggle span { background: rgba(255, 255, 255, 0.9); }
-
 .nav-inner {
     max-width: var(--wrap-wide);
     margin: 0 auto;
@@ -149,7 +144,7 @@ img { max-width: 100%; display: block; }
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    background: #000;
+    background: var(--grey);
 }
 
 .hero-media { position: absolute; inset: 0; }
@@ -167,18 +162,19 @@ img { max-width: 100%; display: block; }
     to   { transform: scale(1.14); }
 }
 
+/* The film is bright, so the type sits dark on a soft white veil */
 .hero-scrim {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.18) 32%, rgba(0,0,0,0.28) 68%, rgba(0,0,0,0.62) 100%);
+        linear-gradient(180deg, rgba(255,255,255,0.74) 0%, rgba(255,255,255,0.56) 34%, rgba(255,255,255,0.58) 66%, rgba(255,255,255,0.78) 100%);
 }
 
 .hero-copy {
     position: relative;
     z-index: 2;
     padding: 0 22px;
-    color: #fff;
+    color: var(--ink);
     max-width: 820px;
 }
 
@@ -196,7 +192,7 @@ img { max-width: 100%; display: block; }
     font-size: clamp(1.05rem, 2.4vw, 1.6rem);
     font-weight: 400;
     letter-spacing: -0.015em;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--ink);
     opacity: 0;
     animation: riseIn 1.3s var(--ease) 0.42s forwards;
 }
@@ -205,7 +201,7 @@ img { max-width: 100%; display: block; }
     margin: 22px auto 0;
     max-width: 560px;
     font-size: 1.0625rem;
-    color: rgba(255, 255, 255, 0.78);
+    color: var(--ink-2);
     opacity: 0;
     animation: riseIn 1.3s var(--ease) 0.58s forwards;
 }
@@ -220,7 +216,7 @@ img { max-width: 100%; display: block; }
     animation: riseIn 1.3s var(--ease) 0.74s forwards;
 }
 
-.hero-links .link-chevron { color: #fff; }
+.hero-links .link-chevron { color: var(--ink); }
 
 @keyframes riseIn {
     from { opacity: 0; transform: translateY(18px); }
@@ -235,7 +231,7 @@ img { max-width: 100%; display: block; }
     z-index: 2;
     width: 20px;
     height: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(0, 0, 0, 0.28);
     border-radius: 11px;
     display: flex;
     justify-content: center;
@@ -246,7 +242,7 @@ img { max-width: 100%; display: block; }
     width: 2px;
     height: 6px;
     border-radius: 2px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     animation: hint 2s var(--ease) infinite;
 }
 
