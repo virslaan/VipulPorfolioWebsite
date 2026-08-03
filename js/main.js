@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════
-   VIPUL H. HARIHAR — PORTFOLIO ENGINE
+   VIPUL H. HARIHAR - PORTFOLIO ENGINE
    Vanilla JS. No dependencies. Everything degrades gracefully.
    ════════════════════════════════════════════════════════════ */
 
@@ -547,7 +547,7 @@
     /* ═══════════ CONSOLE SIGNATURE ═══════════ */
 
     console.log(
-        '%c VH %c Vipul H. Harihar — built end-to-end, like everything else. %c vhh2105@columbia.edu ',
+        '%c VH %c Vipul H. Harihar. Built end-to-end, like everything else. %c vhh2105@columbia.edu ',
         'background:linear-gradient(100deg,#22d3ee,#6366f1,#a855f7);color:#06060f;font-weight:bold;border-radius:4px 0 0 4px;padding:4px 6px;',
         'background:#10101f;color:#e8e8f0;padding:4px 8px;',
         'background:#10101f;color:#22d3ee;border-radius:0 4px 4px 0;padding:4px 8px;'
