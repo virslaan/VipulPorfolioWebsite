@@ -162,12 +162,14 @@ img { max-width: 100%; display: block; }
     to   { transform: scale(1.14); }
 }
 
-/* The film is bright, so the type sits dark on a soft white veil */
+/* The film is bright, so the type sits dark on a veil that is
+   strongest behind the words and clears toward the edges */
 .hero-scrim {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(180deg, rgba(255,255,255,0.74) 0%, rgba(255,255,255,0.56) 34%, rgba(255,255,255,0.58) 66%, rgba(255,255,255,0.78) 100%);
+        radial-gradient(62% 52% at 50% 47%, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.62) 55%, rgba(255,255,255,0.30) 100%),
+        linear-gradient(180deg, rgba(255,255,255,0.60) 0%, rgba(255,255,255,0.10) 22%, rgba(255,255,255,0.10) 78%, rgba(255,255,255,0.55) 100%);
 }
 
 .hero-copy {
