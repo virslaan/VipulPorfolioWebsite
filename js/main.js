@@ -49,7 +49,7 @@
         });
     }, { rootMargin: '-45% 0px -50% 0px' });
 
-    ['work', 'experience', 'education', 'resume'].forEach((id) => {
+    ['vira', 'work', 'aura', 'experience', 'education', 'resume'].forEach((id) => {
         const el = document.getElementById(id);
         if (el) spy.observe(el);
     });
@@ -213,7 +213,7 @@
     /* ── Films: only play what is on screen ─────────── */
 
     // The scrubbed film is driven by scroll position, never by playback
-    $$('video:not(#scrubVideo)').forEach((video) => {
+    $$('video:not([data-scrub])').forEach((video) => {
         const io = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -386,77 +386,82 @@
         });
     };
 
-    /* ── Scroll-scrubbed film ───────────────────────── */
+    /* ── Scroll-scrubbed films ──────────────────────── */
+    /* Each pinned section scrubs its own film against scroll position. */
 
-    const scrubSection = $('#revealFilm');
-    const scrubVideo = $('#scrubVideo');
-    const scrubCopies = $$('[data-scrub-copy]');
-    let scrubReady = false;
-    let scrubTarget = 0;
-    let scrubCurrent = 0;
+    const scrubbers = $$('.reveal-film').map((section) => {
+        const video = $('video[data-scrub]', section);
+        if (!video) return null;
+        const copies = $$('[data-scrub-copy]', section);
 
-    if (scrubSection && scrubVideo) {
-        // A progress rail makes the pinned section feel intentional
         const rail = document.createElement('div');
         rail.className = 'scrub-rail';
         rail.innerHTML = '<i></i>';
-        scrubSection.querySelector('.reveal-film-stage').appendChild(rail);
+        $('.reveal-film-stage', section).appendChild(rail);
         const railFill = rail.querySelector('i');
 
-        let scrubDisabled = false;
+        const state = { ready: false, disabled: false, target: 0, current: 0 };
 
         const markReady = () => {
-            if (scrubVideo.readyState >= 1 && isFinite(scrubVideo.duration)) scrubReady = true;
+            if (video.readyState >= 1 && isFinite(video.duration)) state.ready = true;
         };
 
         // Seeking needs HTTP range support. Where it is missing the film
         // would sit frozen for the whole pinned section, so let it play instead.
         setTimeout(() => {
-            const range = scrubVideo.seekable;
+            const range = video.seekable;
             if (!range || range.length === 0 || range.end(range.length - 1) === 0) {
-                scrubDisabled = true;
-                scrubVideo.loop = true;
-                const p = scrubVideo.play();
+                state.disabled = true;
+                video.loop = true;
+                const p = video.play();
                 if (p) p.catch(() => {});
             }
         }, 2500);
         // The event can fire before this runs when the file is cached,
         // so check the current state as well as listening for it
-        scrubVideo.addEventListener('loadedmetadata', markReady);
-        scrubVideo.addEventListener('durationchange', markReady);
-        scrubVideo.addEventListener('canplay', markReady);
+        video.addEventListener('loadedmetadata', markReady);
+        video.addEventListener('durationchange', markReady);
+        video.addEventListener('canplay', markReady);
         markReady();
         // Safari will not decode a frame until it has been asked to play once
-        scrubVideo.play().then(() => scrubVideo.pause()).catch(() => {});
+        video.play().then(() => video.pause()).catch(() => {});
 
-        var updateScrub = () => {
-            const rect = scrubSection.getBoundingClientRect();
-            const total = scrubSection.offsetHeight - window.innerHeight;
+        const update = () => {
+            const rect = section.getBoundingClientRect();
+            const total = section.offsetHeight - window.innerHeight;
             if (total <= 0) return;
             const p = Math.max(0, Math.min(1, -rect.top / total));
 
             railFill.style.width = (p * 100).toFixed(1) + '%';
 
             // Two lines of copy, each holding for part of the scroll
-            scrubCopies.forEach((q, i) => {
+            copies.forEach((q, i) => {
                 const on = i === 0 ? p < 0.52 : p >= 0.52;
                 q.classList.toggle('on', on && p > 0.04 && p < 0.97);
             });
 
-            if (scrubReady && scrubVideo.duration) {
-                scrubTarget = p * (scrubVideo.duration - 0.05);
+            if (state.ready && video.duration) {
+                state.target = p * (video.duration - 0.05);
             }
         };
 
-        // Ease the playhead toward the target so scrolling feels liquid
+        return { video, state, update };
+    }).filter(Boolean);
+
+    const updateScrub = () => scrubbers.forEach((s) => s.update());
+
+    // Ease each playhead toward its target so scrolling feels liquid
+    if (scrubbers.length && !reduced) {
         const scrubLoop = () => {
-            if (scrubReady && !scrubDisabled && Math.abs(scrubTarget - scrubCurrent) > 0.005) {
-                scrubCurrent += (scrubTarget - scrubCurrent) * 0.16;
-                try { scrubVideo.currentTime = scrubCurrent; } catch (e) {}
-            }
+            scrubbers.forEach(({ video, state }) => {
+                if (state.ready && !state.disabled && Math.abs(state.target - state.current) > 0.005) {
+                    state.current += (state.target - state.current) * 0.16;
+                    try { video.currentTime = state.current; } catch (e) {}
+                }
+            });
             requestAnimationFrame(scrubLoop);
         };
-        if (!reduced) requestAnimationFrame(scrubLoop);
+        requestAnimationFrame(scrubLoop);
     }
 
     /* ── Mesh gradient band ─────────────────────────── */
@@ -557,7 +562,7 @@
             updateWords();
             updateParallax();
             updateWork();
-            if (typeof updateScrub === 'function') updateScrub();
+            updateScrub();
             ticking = false;
         });
     };
