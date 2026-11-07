@@ -29,13 +29,8 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 
 ## VIRA
 
-- VIRA is the AI-native wealth management platform launched by GenTrust and Verapath in September 2026. Site: https://virawealth.ai/
-- Vipul is part of the team building VIRA. At GenTrust he architected AIRIA and AURA, which are part of the technology VIRA builds on.
-- Announcement: https://verapath.com/news-and-resources/verapath-and-gentrust-launch-vira
-- PR Newswire release, September 16, 2026, with Vipul Harihar (Lead Software Engineer, GenTrust) named in the launch photo caption: https://www.prnewswire.com/news-releases/verapath-and-gentrust-launch-vira-an-ai-native-wealth-management-platform-for-rias-302881229.html
-- GenTrust describes VIRA as created jointly by GenTrust's AIRIA and Verapath (GenTrust, October 2026).
-- Vipul was part of the VIRA team at Booth 109 at Financial Planning's Advise AI conference in Austin, Texas, October 21 to 22, 2026, where Verapath was a Platinum Sponsor.
-- Further coverage: WealthTech Strategy, Global Fintech Edge, Structured Retail Products (September 22, 2026).
+- AIRIA and AURA are part of the technology behind VIRA, the AI-native wealth platform GenTrust and Verapath launched in September 2026 (https://virawealth.ai/). Vipul is part of the team that worked on it.
+- PR Newswire release, September 16, 2026, naming Vipul Harihar in the launch photo caption: https://www.prnewswire.com/news-releases/verapath-and-gentrust-launch-vira-an-ai-native-wealth-management-platform-for-rias-302881229.html
 
 ## Earlier experience
 
@@ -56,12 +51,39 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 - IBM Golden Employee, 2021
 - University Program Topper and Gold Medal, DIT University
 
+## Credentials (verified on Credly)
+
+- Google Data Analytics Professional Certificate (Google, 2022): https://www.credly.com/badges/e0dca12b-d66f-4f76-bfb4-82292ff449f1
+- Microsoft Certified: Azure Fundamentals (Microsoft, 2021): https://www.credly.com/badges/8e2cc8b9-784b-4aa4-aa28-7d11f1be348f
+- Applied Data Science with Python - Level 2 (IBM, 2021): https://www.credly.com/badges/0f74d20c-71e0-457b-bd3a-81c80f72d64a
+- Big Data Foundations - Level 2 (IBM, 2021): https://www.credly.com/badges/b2a955c2-5db8-48d4-83c8-b09c28539803
+- Data Science Foundations - Level 2 (V2) (IBM, 2021): https://www.credly.com/badges/58fe05db-8ba5-46fd-b054-938e98f4314a
+- Enterprise Design Thinking Practitioner (IBM, 2021): https://www.credly.com/badges/ec74d767-f588-466f-9295-2f968b022cbd
+- Hadoop Data Access - Level 1 (IBM, 2021): https://www.credly.com/badges/4d9e0cad-8bc3-4805-bbc6-0706c19efce9
+- Hadoop Programming - Level 1 (IBM, 2021): https://www.credly.com/badges/e5f9e681-0a3e-447a-9d84-1434db5372d8
+- Simplifying Data Pipelines with Apache Kafka (IBM, 2021): https://www.credly.com/badges/668c2a1e-3bee-42d0-852a-c9f5f1290ef0
+- The IBM Way (IBM, 2021): https://www.credly.com/badges/da3b2ea2-c108-43f4-b7ad-ffd46f2cc312
+- Big Data Foundations - Level 1 (IBM, 2021): https://www.credly.com/badges/4d16a408-b17c-46f8-9006-9769a2f4cc3c
+- Data Analysis Using Python (IBM, 2021): https://www.credly.com/badges/283320bd-cfb4-4cba-ba77-8d7cb2142fe8
+- Data Privacy Fundamentals (IBM, 2021): https://www.credly.com/badges/3583afc5-6501-4e01-b7cf-b8891c18b9dc
+- Data Science Foundations - Level 1 (IBM, 2021): https://www.credly.com/badges/273c3f50-5051-4ad5-99f2-9945877ad5e9
+- Data Science Methodologies (IBM, 2021): https://www.credly.com/badges/947032f7-b1bc-4610-a994-b141feeb3298
+- Data Science Tools (IBM, 2021): https://www.credly.com/badges/8171b4d2-ebe4-414a-924c-e7130a868da1
+- Data Visualization Using Python (IBM, 2021): https://www.credly.com/badges/df4a15c6-2bb8-43d1-872d-ce7e694aee5b
+- Hadoop Foundations - Level 1 (IBM, 2021): https://www.credly.com/badges/4e5e47dc-0970-4ddc-8b12-a6636a5b25ad
+- Spark - Level 1 (IBM, 2021): https://www.credly.com/badges/13f4b754-065e-4e53-84fd-9c406400d627
+- Python for Data Science (IBM, 2021): https://www.credly.com/badges/16c42224-0761-42c9-97b6-03714881f2d7
+- Big Data Engineer - Explorer Award 2018 (IBM, 2019): https://www.credly.com/badges/a28f40f3-0745-423d-a637-0348eb77e165
+- Predictive Analytics Modeler - Explorer Award 2018 (IBM, 2019): https://www.credly.com/badges/bc10e731-8952-4edd-9a7f-1f1a7f28da7f
+- Artificial Intelligence Analyst - Mastery Award 2019 (IBM, 2019): https://www.credly.com/badges/9130967a-5050-4ede-9242-3826676166a7
+- Artificial Intelligence Analyst - Explorer Award 2019 (IBM, 2019): https://www.credly.com/badges/44fb556a-81c8-4026-b6b9-eed7f7031baf
+- Business Intelligence Analyst - Mastery Award for Students 2018 (IBM, 2018): https://www.credly.com/badges/8245e656-77d0-4769-9642-99a8ed7bb859
+- Business Intelligence Analyst - Explorer Award for Students 2018 (IBM, 2018): https://www.credly.com/badges/c6f2df25-0079-4eab-9742-91ca071af636
+
 ## Links
 
 - Portfolio: https://virslaan.github.io/VipulPorfolioWebsite/
 - Press kit: https://virslaan.github.io/VipulPorfolioWebsite/press.html
-- VIRA launch announcement: https://verapath.com/news-and-resources/verapath-and-gentrust-launch-vira
-- VIRA: https://virawealth.ai/
 - CV (PDF): https://virslaan.github.io/VipulPorfolioWebsite/Vipul_Harihar_CV_2026.pdf
 - LinkedIn: https://www.linkedin.com/in/vipulhharihar
 - Instagram: https://www.instagram.com/vipulruless/

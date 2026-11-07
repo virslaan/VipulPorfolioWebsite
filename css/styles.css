@@ -2477,14 +2477,14 @@ html.cover-live .cover-veil {
 
 .wrap-wide { max-width: var(--wrap-wide); margin: 0 auto; padding: 0 22px; }
 
-/* Cover: an astronaut at the window, Earth below */
+/* Cover: the astronaut in blue light, copy on the left */
 .hero--orbit {
     --p: 0;
     --mx: 0;
     --my: 0;
     height: 100svh;
     min-height: 640px;
-    align-items: flex-start;
+    align-items: flex-end;
     background: #000;
     cursor: auto;
 }
@@ -2493,7 +2493,7 @@ html.cover-live .cover-veil {
     inset: 0;
     overflow: hidden;
     transform: scale(calc(1 + var(--p) * 0.12));
-    transform-origin: 50% 70%;
+    transform-origin: 70% 45%;
     will-change: transform;
 }
 .orbit-poster,
@@ -2503,10 +2503,10 @@ html.cover-live .cover-veil {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 46% 60%;
+    object-position: 62% 40%;
 }
 .orbit-poster {
-    transform: scale(1.06);
+    transform: scale(1.04);
     animation: orbitDrift 18s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 .orbit-video {
@@ -2517,14 +2517,14 @@ html.cover-live .cover-veil {
 .orbit-video.is-playing { opacity: 1; }
 .orbit-video.is-fading { opacity: 0; transition-duration: 0.9s; }
 @keyframes orbitDrift {
-    to { transform: scale(1.14); }
+    to { transform: scale(1.12); }
 }
 .orbit-scrim {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.7) 22%, rgba(0, 0, 0, 0.18) 48%, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0.55) 100%),
-        radial-gradient(120% 70% at 50% 100%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.5) 100%);
+        linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.55) 30%, rgba(0, 0, 0, 0) 58%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 26%, rgba(0, 0, 0, 0) 58%, rgba(0, 0, 0, 0.75) 100%);
 }
 .orbit-veil {
     position: absolute;
@@ -2537,112 +2537,44 @@ html.cover-live .cover-veil {
 @keyframes orbitVeil {
     to { opacity: 0; visibility: hidden; }
 }
-.orbit-stars {
-    position: absolute;
-    inset: 0 0 38% 0;
-    z-index: 1;
-    width: 100%;
-    height: 62%;
-    pointer-events: none;
-    opacity: calc(1 - var(--p) * 1.6);
-}
 .hero--orbit .hero-copy {
-    margin-top: clamp(96px, 15svh, 170px);
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    max-width: var(--wrap-wide);
+    margin: 0 auto;
+    padding: 0 40px clamp(96px, 15svh, 150px);
+    text-align: left;
     opacity: calc(1 - var(--p) * 2.2);
     transform: translate3d(calc(var(--mx) * 8px), calc(var(--p) * -120px + var(--my) * 5px), 0);
     transition: none;
 }
 .hero--orbit .cover-kicker { margin-bottom: 22px; color: rgba(255, 255, 255, 0.6); animation-delay: 0.7s; }
 .hero--orbit .hero-name {
-    font-size: clamp(3rem, 8.6vw, 6.6rem);
+    max-width: 8.5em;
+    font-size: clamp(3rem, 8vw, 6.4rem);
     letter-spacing: -0.042em;
     text-shadow: 0 10px 60px rgba(0, 0, 0, 0.6);
 }
 .hero--orbit .hero-role {
     margin-top: 18px;
-    font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+    max-width: 560px;
+    font-size: clamp(1.05rem, 2vw, 1.45rem);
     color: rgba(255, 255, 255, 0.92);
 }
-.hero--orbit .hero-line { margin-top: 18px; max-width: 600px; color: rgba(255, 255, 255, 0.66); }
-.hero--orbit .hero-links { margin-top: 30px; }
-.orbit-news-wrap {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: clamp(84px, 11svh, 120px);
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-    padding: 0 22px;
-    opacity: calc(1 - var(--p) * 2.4);
-}
-.orbit-news {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    max-width: 100%;
-    padding: 9px 16px 9px 9px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
-    background: rgba(10, 12, 20, 0.42);
-    -webkit-backdrop-filter: blur(14px) saturate(1.3);
-    backdrop-filter: blur(14px) saturate(1.3);
-    color: rgba(255, 255, 255, 0.86);
-    font-size: 0.875rem;
-    white-space: nowrap;
-    opacity: 0;
-    animation: riseIn 1.2s var(--ease) 2.2s forwards;
-    transition: border-color 0.3s ease, background 0.3s ease;
-}
-.orbit-news:hover { border-color: rgba(255, 255, 255, 0.4); background: rgba(10, 12, 20, 0.6); }
-.orbit-news-tag {
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: #fff;
-    color: #000;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-}
-.orbit-news-text { overflow: hidden; text-overflow: ellipsis; }
-.orbit-news::after { content: "\203A"; font-size: 1.1em; color: rgba(255, 255, 255, 0.6); }
+.hero--orbit .hero-line { margin: 16px 0 0; max-width: 520px; color: rgba(255, 255, 255, 0.66); }
+.hero--orbit .hero-links { margin-top: 30px; justify-content: flex-start; }
 .hero--orbit .hero-hint { bottom: 26px; }
 .hero--orbit.is-moving .hero-hint { opacity: 0 !important; transition: opacity 0.4s ease; }
+@media (max-width: 440px) {
+    .hero--orbit .hero-name { font-size: clamp(2.35rem, 11.4vw, 3rem); }
+}
 
 /* In the news */
 .news { background: var(--white); padding: 130px 0 120px; }
 .news-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 56px; }
 .news-head .sec-sub { max-width: 380px; color: var(--ink-2); }
-.news-lead {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 0;
-    overflow: hidden;
-    border-radius: 28px;
-    background: #05070d;
-    color: #fff;
-}
-.news-lead-media { position: relative; min-height: 380px; overflow: hidden; }
-.news-lead-media img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 58%;
-    transform: scale(1.04);
-    transition: transform 1.6s var(--ease);
-}
-.news-lead:hover .news-lead-media img { transform: scale(1.1); }
-.news-lead-body { display: flex; flex-direction: column; justify-content: center; padding: 52px 48px; }
-.news-meta { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.55); }
-.news-lead h3 { margin-top: 16px; font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.028em; }
-.news-lead p { margin-top: 16px; color: rgba(255, 255, 255, 0.72); line-height: 1.6; }
-.news-lead .link-chevron { margin-top: 26px; color: #fff; align-self: flex-start; }
-.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+.news-meta { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.news-grid--two { grid-template-columns: 1.25fr 1fr; }
 .news-card {
     display: flex;
     flex-direction: column;
@@ -2658,27 +2590,52 @@ html.cover-live .cover-veil {
 .news-card p { margin-top: 12px; font-size: 0.9375rem; line-height: 1.55; color: var(--ink-2); }
 .news-card .news-src { margin-top: auto; padding-top: 22px; font-size: 0.875rem; color: var(--ink); }
 .news-card .news-src::after { content: " \203A"; color: var(--ink-3); }
-.news-also { margin-top: 30px; font-size: 0.9375rem; color: var(--ink-3); }
-.news-also a { color: var(--ink-2); border-bottom: 1px solid var(--hair); }
-.news-also a:hover { color: var(--ink); border-color: var(--ink); }
+.news-card--dark { padding: 40px 38px 34px; background: #05070d; color: #fff; }
+.news-card--dark:hover { background: #0c1020; }
+.news-card--dark h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.16; letter-spacing: -0.028em; }
+.news-card--dark p { font-size: 1.0625rem; color: rgba(255, 255, 255, 0.72); }
+.news-card--dark .news-meta { color: rgba(255, 255, 255, 0.55); }
+.news-card--dark .news-src { color: #fff; }
+.news-card--dark .news-src::after { color: rgba(255, 255, 255, 0.55); }
+
+/* Credentials */
+.badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 14px; }
+.badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 26px 16px 22px;
+    border-radius: 20px;
+    background: var(--white);
+    text-align: center;
+    color: var(--ink);
+    transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+.badge img { width: 96px; height: 96px; object-fit: contain; transition: transform 0.6s var(--ease); }
+.badge:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.25); }
+.badge:hover img { transform: scale(1.06); }
+.badge-name { margin-top: 16px; font-size: 0.875rem; font-weight: 600; line-height: 1.35; letter-spacing: -0.01em; }
+.badge-meta { margin-top: 6px; font-size: 0.8125rem; color: var(--ink-3); }
+.sec-sub a { color: var(--ink); border-bottom: 1px solid var(--hair); }
 
 @media (max-width: 1000px) {
-    .news-lead { grid-template-columns: 1fr; }
-    .news-lead-media { min-height: 300px; }
-    .news-lead-media img { object-position: 50% 45%; }
-    .news-grid { grid-template-columns: 1fr 1fr; }
+    .news-grid, .news-grid--two { grid-template-columns: 1fr; }
 }
 @media (max-width: 740px) {
-    .hero--orbit .hero-copy { margin-top: clamp(84px, 13svh, 130px); }
-    .orbit-poster, .orbit-video { top: 10svh; object-position: 44% 60%; }
-    .orbit-news { font-size: 0.8125rem; gap: 10px; }
+    .hero--orbit .hero-copy { padding: 0 22px clamp(84px, 12svh, 120px); }
+    .orbit-poster, .orbit-video { object-position: 64% 30%; }
+    .orbit-scrim {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.55) 55%, rgba(0, 0, 0, 0.9) 100%);
+    }
+    .news-card--dark { padding: 32px 26px 28px; }
+    .badges { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .badge { padding: 16px 8px 14px; border-radius: 16px; }
+    .badge img { width: 64px; height: 64px; }
+    .badge-name { margin-top: 10px; font-size: 0.75rem; }
+    .badge-meta { font-size: 0.6875rem; }
     .news { padding: 88px 0; }
     .news-head { flex-direction: column; align-items: start; margin-bottom: 36px; }
-    .news-lead-body { padding: 34px 26px; }
     .news-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 480px) {
-    .orbit-news-date { display: none; }
 }
 
 /* Recognition strip under the figures */
@@ -2735,7 +2692,7 @@ html.cover-live .cover-veil {
 .footer-mark { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 10px; font-weight: 600; }
 .footer-aka { font-size: 13px; font-weight: 400; color: var(--ink-3); }
 
-/* Core film */
+/* Closing film */
 .reveal-film--core .reveal-film-scrim {
     background:
         radial-gradient(75% 60% at 50% 50%, rgba(4, 6, 20, 0.15) 0%, rgba(4, 6, 20, 0.6) 100%),
@@ -2828,5 +2785,4 @@ html.cover-live .cover-veil {
     .reveal-film-copy blockquote[data-scrub-copy="1"] { display: none; }
     .orbit-veil { display: none; }
     .orbit-poster { animation: none; }
-    .orbit-news { opacity: 1; transform: none; }
 }

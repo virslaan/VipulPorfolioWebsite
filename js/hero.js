@@ -1,8 +1,7 @@
 /* =====================================================
    COVER
-   The astronaut film fades in over its still frame, fades
-   through black on each loop, and drifts with scroll and the
-   pointer. A light starfield twinkles in the dark above Earth.
+   The film fades in over its still frame, fades through black
+   on each loop, and drifts with scroll and the pointer.
    Everything is driven through CSS variables on the cover.
    ===================================================== */
 
@@ -11,7 +10,6 @@
 
     const hero = document.getElementById('top');
     const video = document.getElementById('heroVideo');
-    const canvas = document.getElementById('orbitStars');
     if (!hero) return;
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -63,50 +61,8 @@
 
     if (reduced) return;
 
-    /* ── Starfield ──────────────────────────────────── */
-
-    let stars = [];
-    let ctx = null;
-    let cw = 0, ch = 0, dpr = 1;
     const target = { p: 0, mx: 0, my: 0 };
     const state = { p: 0, mx: 0, my: 0 };
-
-    const sizeCanvas = () => {
-        if (!canvas) return;
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
-        cw = canvas.clientWidth;
-        ch = canvas.clientHeight;
-        canvas.width = Math.round(cw * dpr);
-        canvas.height = Math.round(ch * dpr);
-        ctx = canvas.getContext('2d');
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        const count = Math.round(Math.min(170, (cw * ch) / 5200));
-        stars = Array.from({ length: count }, () => ({
-            x: Math.random() * cw,
-            y: Math.random() * ch,
-            r: Math.random() < 0.08 ? 1.25 + Math.random() * 0.6 : 0.4 + Math.random() * 0.7,
-            depth: 0.2 + Math.random() * 0.8,
-            phase: Math.random() * Math.PI * 2,
-            speed: 0.4 + Math.random() * 1.4,
-        }));
-    };
-
-    const drawStars = (t) => {
-        if (!ctx) return;
-        ctx.clearRect(0, 0, cw, ch);
-        for (const s of stars) {
-            const x = s.x - state.mx * 18 * s.depth;
-            const y = s.y - state.my * 10 * s.depth - state.p * 60 * s.depth;
-            const fade = Math.min(1, Math.max(0, 1 - y / ch) * 1.6);
-            const tw = 0.55 + 0.45 * Math.sin(t * 0.001 * s.speed + s.phase);
-            ctx.globalAlpha = fade * tw * (0.35 + s.depth * 0.6);
-            ctx.fillStyle = '#ffffff';
-            ctx.beginPath();
-            ctx.arc(x, y, s.r, 0, Math.PI * 2);
-            ctx.fill();
-        }
-        ctx.globalAlpha = 1;
-    };
 
     /* ── Scroll and pointer ─────────────────────────── */
 
@@ -129,7 +85,7 @@
         entries.forEach((e) => { visible = e.isIntersecting; });
     }, { threshold: 0 }).observe(hero);
 
-    const tick = (t) => {
+    const tick = () => {
         if (visible) {
             state.p += (target.p - state.p) * 0.14;
             state.mx += (target.mx - state.mx) * 0.06;
@@ -138,14 +94,12 @@
             hero.style.setProperty('--mx', state.mx.toFixed(4));
             hero.style.setProperty('--my', state.my.toFixed(4));
             hero.classList.toggle('is-moving', state.p > 0.03);
-            drawStars(t);
         }
         requestAnimationFrame(tick);
     };
 
-    sizeCanvas();
     measure();
     window.addEventListener('scroll', measure, { passive: true });
-    window.addEventListener('resize', () => { sizeCanvas(); measure(); }, { passive: true });
+    window.addEventListener('resize', measure, { passive: true });
     requestAnimationFrame(tick);
 })();
