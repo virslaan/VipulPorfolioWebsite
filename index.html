@@ -14,7 +14,7 @@
     <link rel="me" href="https://www.linkedin.com/in/vipulhharihar">
     <link rel="me" href="https://github.com/virslaan">
     <link rel="me" href="https://www.quora.com/profile/Vipul-Rules-1">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#ffffff">
 
     <meta property="og:site_name" content="Vipul H. Harihar">
     <meta property="og:type" content="profile">
@@ -36,7 +36,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=20261107b">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
@@ -153,7 +153,6 @@
             <span class="nav-indicator" id="navIndicator" aria-hidden="true"></span>
             <a href="#work" data-section="work">Work</a>
             <a href="#experience" data-section="experience">Experience</a>
-            <a href="#vira" data-section="vira">VIRA</a>
             <a href="#aura" data-section="aura">AURA</a>
             <a href="#education" data-section="education">Education</a>
             <a href="#resume" data-section="resume">Résumé</a>
@@ -166,25 +165,37 @@
 </nav>
 
 <div class="nav-sheet" id="navSheet" hidden>
-    <a href="#vira"><span>01</span> VIRA</a>
-    <a href="#work"><span>02</span> Work</a>
-    <a href="#aura"><span>03</span> AURA</a>
-    <a href="#experience"><span>04</span> Experience</a>
-    <a href="#education"><span>05</span> Education</a>
-    <a href="#recognition"><span>06</span> Recognition</a>
-    <a href="#contact"><span>07</span> Contact</a>
+    <a href="#work"><span>01</span> Work</a>
+    <a href="#aura"><span>02</span> AURA</a>
+    <a href="#experience"><span>03</span> Experience</a>
+    <a href="#education"><span>04</span> Education</a>
+    <a href="#recognition"><span>05</span> Recognition</a>
+    <a href="#contact"><span>06</span> Contact</a>
 </div>
 
 <!-- ─────────── COVER ─────────── -->
-<header class="hero cover" id="top" data-cursor-theme="cover">
-    <canvas class="hero-particles" id="heroParticles" aria-hidden="true"></canvas>
-    <div class="hero-copy" id="heroCopy">
-        <h1 class="hero-name">Vipul H. Harihar</h1>
-        <p class="hero-role"><span>Lead Software Engineer</span> · <span>AI and Data Science</span> · <span>New York</span></p>
-    </div>
-    <div class="hero-hint" aria-hidden="true">
-        <span class="hero-hint-line"></span>
-        <span class="hero-hint-label">Scroll</span>
+<header class="hero hero--studio" id="top" data-cursor-theme="contact">
+    <div class="hero-stage">
+        <div class="hero-media">
+            <video class="hero-video" id="heroVideo" poster="assets/img/studio-poster.jpg"
+                   autoplay muted loop playsinline preload="auto" aria-hidden="true">
+                <source src="assets/img/studio-film.mp4" type="video/mp4">
+            </video>
+            <div class="hero-scrim"></div>
+            <div class="hero-light" aria-hidden="true"></div>
+        </div>
+        <div class="hero-copy" id="heroCopy">
+            <h1 class="hero-name" data-split="Vipul H. Harihar">Vipul H. Harihar</h1>
+            <p class="hero-role">Lead Software Engineer</p>
+            <p class="hero-line">
+                AI and data science. Architect of AIRIA and AURA at GenTrust, New York.
+            </p>
+            <div class="hero-links">
+                <a href="#work" class="link-chevron">See the work</a>
+                <a href="#contact" class="link-chevron">Get in touch</a>
+            </div>
+        </div>
+        <div class="hero-hint" aria-hidden="true"><span></span></div>
     </div>
 </header>
 
@@ -208,47 +219,6 @@
             </p>
         </div>
     </div>
-</section>
-
-<!-- ─────────── VIRA ─────────── -->
-<section class="vira" id="vira" aria-labelledby="viraTitle" data-cursor-theme="signal-dark">
-    <div class="wrap">
-        <div class="vira-grid">
-            <header class="reveal">
-                <p class="eyebrow">The vision</p>
-                <h2 class="vira-title" id="viraTitle">VIRA</h2>
-                <p class="vira-sub">The AI-native wealth management platform from GenTrust and Verapath. Launched September 2026.</p>
-            </header>
-            <div class="vira-body reveal">
-                <p class="vira-lede">One intelligent system for the entire wealth firm.</p>
-                <p>
-                    Advisors should spend their time with clients, not stitching software together.
-                    VIRA replaces the usual stack of separate CRM, planning, portfolio accounting,
-                    rebalancing, tax and reporting tools with one AI-native system of record and a single
-                    view of every client, secured by Verapath's private AI infrastructure.
-                </p>
-                <ul class="vira-points">
-                    <li><b>One system of record</b><span>Every client, account and workflow in one place</span></li>
-                    <li><b>AI in every workflow</b><span>Intelligence built into the work, not bolted beside it</span></li>
-                    <li><b>Private by design</b><span>Client data stays inside a secure, governed environment</span></li>
-                    <li><b>Built by practitioners</b><span>Shaped inside a working advisory firm</span></li>
-                </ul>
-                <p class="vira-credit">
-                    Vipul contributes as part of the GenTrust engineering team, where AIRIA and AURA were built.
-                </p>
-                <div class="vira-links">
-                    <a class="link-chevron" href="https://verapath.com/news-and-resources/verapath-and-gentrust-launch-vira" target="_blank" rel="noopener noreferrer">Read the launch announcement</a>
-                    <a class="link-chevron" href="https://virawealth.ai/" target="_blank" rel="noopener noreferrer">virawealth.ai</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ─────────── RIBBON ─────────── -->
-<section class="ribbon" aria-hidden="true">
-    <div class="ribbon-row" data-dir="1"><div class="ribbon-track"><span class="rb-line">AIRIA</span><i>✦</i><span class="rb-solid">AURA</span><i>✦</i><span class="rb-line">OTO</span><i>✦</i><span class="rb-solid">ACE</span><i>✦</i><span class="rb-line">VIRA</span><i>✦</i><span class="rb-line">AIRIA</span><i>✦</i><span class="rb-solid">AURA</span><i>✦</i><span class="rb-line">OTO</span><i>✦</i><span class="rb-solid">ACE</span><i>✦</i><span class="rb-line">VIRA</span><i>✦</i><span class="rb-line">AIRIA</span><i>✦</i><span class="rb-solid">AURA</span><i>✦</i><span class="rb-line">OTO</span><i>✦</i><span class="rb-solid">ACE</span><i>✦</i><span class="rb-line">VIRA</span><i>✦</i><span class="rb-line">AIRIA</span><i>✦</i><span class="rb-solid">AURA</span><i>✦</i><span class="rb-line">OTO</span><i>✦</i><span class="rb-solid">ACE</span><i>✦</i><span class="rb-line">VIRA</span><i>✦</i></div></div>
-    <div class="ribbon-row ribbon-row--small" data-dir="-1"><div class="ribbon-track"><span>Artificial intelligence</span><i>·</i><span>Data science</span><i>·</i><span>Lead Software Engineer</span><i>·</i><span>GenTrust</span><i>·</i><span>New York</span><i>·</i><span>Columbia University</span><i>·</i><span>Artificial intelligence</span><i>·</i><span>Data science</span><i>·</i><span>Lead Software Engineer</span><i>·</i><span>GenTrust</span><i>·</i><span>New York</span><i>·</i><span>Columbia University</span><i>·</i><span>Artificial intelligence</span><i>·</i><span>Data science</span><i>·</i><span>Lead Software Engineer</span><i>·</i><span>GenTrust</span><i>·</i><span>New York</span><i>·</i><span>Columbia University</span><i>·</i><span>Artificial intelligence</span><i>·</i><span>Data science</span><i>·</i><span>Lead Software Engineer</span><i>·</i><span>GenTrust</span><i>·</i><span>New York</span><i>·</i><span>Columbia University</span><i>·</i></div></div>
 </section>
 
 <!-- ─────────── FIGURES ─────────── -->
@@ -499,6 +469,7 @@
                         <li>Resolved production memory and concurrency limits as adoption scaled to more than 20 simultaneous users.</li>
                         <li>Documented more than 80 hours of firm-wide time savings in a 30 day period.</li>
                         <li>Partner directly with the CIO, CFO, CCO, COO and president, supporting roughly 250 clients and more than $5 billion in assets.</li>
+                        <li>AIRIA and AURA are part of the technology foundation for <a href="https://virawealth.ai/" target="_blank" rel="noopener noreferrer">VIRA</a>, the AI-native wealth platform GenTrust and Verapath launched in September 2026.</li>
                     </ul>
                 </div>
             </article>
@@ -936,11 +907,11 @@
     </div>
 </div>
 
-<script src="js/hero.js" defer></script>
-<script src="js/cursor.js"></script>
-<script src="js/main.js"></script>
-<script src="js/aura.js" defer></script>
-<script src="js/motion.js" defer></script>
-<script src="js/dataviz.js" defer></script>
+<script src="js/hero.js?v=20261107b" defer></script>
+<script src="js/cursor.js?v=20261107b"></script>
+<script src="js/main.js?v=20261107b"></script>
+<script src="js/aura.js?v=20261107b" defer></script>
+<script src="js/motion.js?v=20261107b" defer></script>
+<script src="js/dataviz.js?v=20261107b" defer></script>
 </body>
 </html>
