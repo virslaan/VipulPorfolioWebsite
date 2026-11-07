@@ -114,8 +114,8 @@
         const gy = pointer.y * h;
         const breath = 0.55 + Math.sin(t * 1.1) * 0.12;
         const glow = ctx.createRadialGradient(gx, gy, 0, gx, gy, Math.max(w, h) * 0.42);
-        glow.addColorStop(0, `rgba(210, 230, 255, ${0.16 * enter * breath})`);
-        glow.addColorStop(0.35, `rgba(160, 200, 255, ${0.06 * enter})`);
+        glow.addColorStop(0, `rgba(240, 222, 186, ${0.16 * enter * breath})`);
+        glow.addColorStop(0.35, `rgba(214, 182, 128, ${0.06 * enter})`);
         glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
         ctx.fillStyle = glow;
         ctx.fillRect(0, 0, w, h);
@@ -152,14 +152,14 @@
             const radius = (n.r + near * 1.8) * (0.7 + n.z * 0.5);
 
             ctx.beginPath();
-            ctx.fillStyle = `rgba(235, 245, 255, ${alpha})`;
+            ctx.fillStyle = `rgba(250, 240, 220, ${alpha})`;
             ctx.arc(px, py, radius, 0, Math.PI * 2);
             ctx.fill();
 
             if (near > 0.2) {
                 const halo = ctx.createRadialGradient(px, py, 0, px, py, radius * 6);
-                halo.addColorStop(0, `rgba(190, 220, 255, ${near * 0.10 * enter})`);
-                halo.addColorStop(1, 'rgba(190, 220, 255, 0)');
+                halo.addColorStop(0, `rgba(226, 198, 150, ${near * 0.10 * enter})`);
+                halo.addColorStop(1, 'rgba(226, 198, 150, 0)');
                 ctx.fillStyle = halo;
                 ctx.beginPath();
                 ctx.arc(px, py, radius * 6, 0, Math.PI * 2);
@@ -172,8 +172,8 @@
             const core = 8 + Math.sin(t * 2.2) * 2;
             const coreG = ctx.createRadialGradient(gx, gy, 0, gx, gy, core * 5);
             coreG.addColorStop(0, `rgba(255, 255, 255, ${0.28 * enter})`);
-            coreG.addColorStop(0.25, `rgba(200, 225, 255, ${0.12 * enter})`);
-            coreG.addColorStop(1, 'rgba(200, 225, 255, 0)');
+            coreG.addColorStop(0.25, `rgba(236, 214, 172, ${0.12 * enter})`);
+            coreG.addColorStop(1, 'rgba(236, 214, 172, 0)');
             ctx.fillStyle = coreG;
             ctx.beginPath();
             ctx.arc(gx, gy, core * 5, 0, Math.PI * 2);
