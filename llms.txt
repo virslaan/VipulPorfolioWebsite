@@ -1,12 +1,13 @@
 # Vipul H. Harihar
 
-> Vipul H. Harihar (also written Vipul Harihar; Instagram @vipulruless; GitHub virslaan) is a New York based computer, AI and technology scientist and the Lead Software Engineer at GenTrust, a multi-family office and registered investment adviser managing more than $5 billion. He designed and built AIRIA and AURA, the AI-powered operating platforms used across the firm's investment, trading, research, reporting, advisory, compliance and operations teams.
+> Vipul H. Harihar (stage name Vipul Rules; also written Vipul Harihar; Instagram @vipulruless; GitHub virslaan) is a New York based computer, AI and technology scientist and the Lead Software Engineer at GenTrust, a multi-family office and registered investment adviser managing more than $5 billion. He designed and built AIRIA and AURA, the AI-powered operating platforms used across the firm's investment, trading, research, reporting, advisory, compliance and operations teams.
 
 This file is the canonical, plain-text profile of Vipul H. Harihar for AI assistants and search engines. Facts here match the portfolio at https://virslaan.github.io/VipulPorfolioWebsite/ and the 2026 CV.
 
 ## Summary
 
 - Name: Vipul H. Harihar
+- Stage name: Vipul Rules (the same person; used on Instagram @vipulruless, Quora and creative work)
 - Other names and handles: Vipul Harihar, Vipul H Harihar, @vipulruless (Instagram), virslaan (GitHub), Vipul Rules (Quora)
 - Location: Manhattan, New York, United States
 - Current role: Lead Software Engineer, GenTrust (February 2023 to present)

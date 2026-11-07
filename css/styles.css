@@ -2723,6 +2723,7 @@ body { background: var(--white); }
     color: #f3ede1;
 }
 .footer-mark { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(220, 199, 159, 0.4); font-size: 14px; }
+.footer-aka { font-family: var(--font); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-left: 6px; }
 .footer-links a { color: #b3ab9b; }
 .footer-links a:hover { color: var(--gold-soft); }
 .footer-fine { color: #7d7566; border-top-color: rgba(220, 199, 159, 0.14); }
