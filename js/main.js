@@ -194,6 +194,60 @@
 
     $$('.count').forEach((el) => countObserver.observe(el));
 
+    // Figures count again when touched or hovered
+    $$('.figure').forEach((fig) => {
+        const el = fig.querySelector('.count');
+        if (!el) return;
+        let busy = false;
+        const again = () => {
+            if (busy) return;
+            busy = true;
+            runCount(el);
+            setTimeout(() => { busy = false; }, 1400);
+        };
+        fig.addEventListener('pointerenter', again);
+        fig.addEventListener('click', again);
+    });
+
+    /* ── YouTube: thumbnail until tapped ────────────── */
+
+    $$('.yt[data-yt]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.yt;
+            const frame = document.createElement('iframe');
+            frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&rel=0`;
+            frame.title = btn.getAttribute('aria-label') || 'YouTube video';
+            frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+            frame.allowFullscreen = true;
+            btn.replaceChildren(frame);
+            btn.removeAttribute('data-yt');
+        }, { once: true });
+    });
+
+    /* ── Tilt cards ─────────────────────────────────── */
+
+    if (!reduced) {
+        $$('.tilt').forEach((card) => {
+            const move = (x, y) => {
+                const r = card.getBoundingClientRect();
+                const fx = (x - r.left) / r.width - 0.5;
+                const fy = (y - r.top) / r.height - 0.5;
+                card.style.setProperty('--tx', (fx * 8).toFixed(2) + 'deg');
+                card.style.setProperty('--ty', (fy * -8).toFixed(2) + 'deg');
+                card.classList.add('is-tilting');
+            };
+            const reset = () => {
+                card.classList.remove('is-tilting');
+                card.style.setProperty('--tx', '0deg');
+                card.style.setProperty('--ty', '0deg');
+            };
+            card.addEventListener('pointermove', (e) => move(e.clientX, e.clientY), { passive: true });
+            card.addEventListener('pointerleave', reset, { passive: true });
+            card.addEventListener('touchmove', (e) => move(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+            card.addEventListener('touchend', reset, { passive: true });
+        });
+    }
+
     /* ── Roles ──────────────────────────────────────── */
 
     $$('.role-head').forEach((head) => {

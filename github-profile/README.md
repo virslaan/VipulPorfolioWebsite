@@ -51,4 +51,4 @@ Python · Java · JavaScript · SQL · Anthropic and OpenAI APIs · AI agents ·
 
 ### Elsewhere
 
-[Website](https://virslaan.github.io/VipulPorfolioWebsite/) · [Press kit](https://virslaan.github.io/VipulPorfolioWebsite/press.html) · [LinkedIn](https://www.linkedin.com/in/vipulhharihar) · [Instagram @vipulruless](https://www.instagram.com/vipulruless/) · [Credly](https://www.credly.com/users/vipul-harihar) · [Email](mailto:vhh2105@columbia.edu)
+[Website](https://virslaan.github.io/VipulPorfolioWebsite/) · [Press kit](https://virslaan.github.io/VipulPorfolioWebsite/press.html) · [LinkedIn](https://www.linkedin.com/in/vipulhharihar) · [Instagram @vipulruless](https://www.instagram.com/vipulruless/) · [YouTube @vipulrules](https://www.youtube.com/@vipulrules) · [Credly](https://www.credly.com/users/vipul-harihar) · [Email](mailto:vhh2105@columbia.edu)

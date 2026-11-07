@@ -1,8 +1,9 @@
 /* =====================================================
    COVER
-   The film fades in over its still frame, fades through black
-   on each loop, and drifts with scroll and the pointer.
-   Everything is driven through CSS variables on the cover.
+   The film fades in over its still frame, loops, and drifts
+   with scroll, the pointer and a finger. A soft light follows
+   the pointer or touch. Everything is driven through CSS
+   variables on the cover.
    ===================================================== */
 
 (() => {
@@ -13,47 +14,42 @@
     if (!hero) return;
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
-        !(navigator.maxTouchPoints > 0);
 
     /* ── Film ───────────────────────────────────────── */
 
+    let heroVisible = true;
+
     if (video) {
+        video.muted = true;
+        video.defaultMuted = true;
+        video.setAttribute('muted', '');
+
         const show = () => video.classList.add('is-playing');
         video.addEventListener('playing', show);
+        video.addEventListener('timeupdate', () => { if (video.currentTime > 0) show(); });
         if (!video.paused && video.readyState >= 3) show();
 
-        // Fade through black instead of cutting back to the wide shot
-        video.addEventListener('timeupdate', () => {
-            if (video.duration && video.duration - video.currentTime < 1.0) {
-                video.classList.add('is-fading');
-            }
-        });
-        video.addEventListener('ended', () => {
-            video.currentTime = 0;
+        const kick = () => {
+            if (!heroVisible || !video.paused) return;
             const p = video.play();
             if (p) p.catch(() => {});
-            setTimeout(() => video.classList.remove('is-fading'), 120);
-        });
-
-        // Autoplay can be refused (Low Power Mode, data saver). The still
-        // frame underneath already covers that case; try again on first touch.
-        const kick = () => {
-            if (video.paused) {
-                const p = video.play();
-                if (p) p.catch(() => {});
-            }
         };
-        const p = video.play();
-        if (p) p.catch(() => {
-            window.addEventListener('touchstart', kick, { once: true, passive: true });
-            window.addEventListener('pointerdown', kick, { once: true, passive: true });
-        });
 
-        // Pause while the cover is off screen
+        // Autoplay can be refused or dropped (Low Power Mode, data saver,
+        // restoring a background tab). Retry on every chance the browser gives.
+        kick();
+        ['loadeddata', 'canplay'].forEach((ev) => video.addEventListener(ev, kick));
+        ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach((ev) =>
+            window.addEventListener(ev, kick, { passive: true }));
+        window.addEventListener('pageshow', kick);
+        window.addEventListener('focus', kick);
+        document.addEventListener('visibilitychange', () => { if (!document.hidden) kick(); });
+        setInterval(kick, 2000);
+
         new IntersectionObserver((entries) => {
             entries.forEach((e) => {
-                if (e.isIntersecting) kick();
+                heroVisible = e.isIntersecting;
+                if (heroVisible) kick();
                 else video.pause();
             });
         }, { threshold: 0.05 }).observe(hero);
@@ -64,21 +60,39 @@
     const target = { p: 0, mx: 0, my: 0 };
     const state = { p: 0, mx: 0, my: 0 };
 
-    /* ── Scroll and pointer ─────────────────────────── */
+    /* ── Scroll, pointer and touch ──────────────────── */
 
     const measure = () => {
         const h = hero.offsetHeight || window.innerHeight;
         target.p = Math.max(0, Math.min(1, window.scrollY / h));
     };
 
-    if (finePointer) {
-        hero.addEventListener('pointermove', (e) => {
-            const r = hero.getBoundingClientRect();
-            target.mx = (e.clientX - r.left) / r.width - 0.5;
-            target.my = (e.clientY - r.top) / r.height - 0.5;
-        }, { passive: true });
-        hero.addEventListener('pointerleave', () => { target.mx = 0; target.my = 0; }, { passive: true });
-    }
+    let dimTimer = 0;
+    const aim = (x, y) => {
+        const r = hero.getBoundingClientRect();
+        const fx = (x - r.left) / r.width;
+        const fy = (y - r.top) / r.height;
+        target.mx = fx - 0.5;
+        target.my = fy - 0.5;
+        hero.style.setProperty('--lx', (fx * 100).toFixed(1) + '%');
+        hero.style.setProperty('--ly', (fy * 100).toFixed(1) + '%');
+        hero.classList.add('is-lit');
+        clearTimeout(dimTimer);
+    };
+    const release = (delay) => {
+        clearTimeout(dimTimer);
+        dimTimer = setTimeout(() => {
+            target.mx = 0;
+            target.my = 0;
+            hero.classList.remove('is-lit');
+        }, delay);
+    };
+
+    hero.addEventListener('pointermove', (e) => aim(e.clientX, e.clientY), { passive: true });
+    hero.addEventListener('pointerleave', () => release(0), { passive: true });
+    hero.addEventListener('touchstart', (e) => aim(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+    hero.addEventListener('touchmove', (e) => aim(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+    hero.addEventListener('touchend', () => release(900), { passive: true });
 
     let visible = true;
     new IntersectionObserver((entries) => {
@@ -88,8 +102,8 @@
     const tick = () => {
         if (visible) {
             state.p += (target.p - state.p) * 0.14;
-            state.mx += (target.mx - state.mx) * 0.06;
-            state.my += (target.my - state.my) * 0.06;
+            state.mx += (target.mx - state.mx) * 0.08;
+            state.my += (target.my - state.my) * 0.08;
             hero.style.setProperty('--p', state.p.toFixed(4));
             hero.style.setProperty('--mx', state.mx.toFixed(4));
             hero.style.setProperty('--my', state.my.toFixed(4));

@@ -15,6 +15,7 @@
     <link rel="me" href="https://github.com/virslaan">
     <link rel="me" href="https://www.quora.com/profile/Vipul-Rules-1">
     <link rel="me" href="https://www.wikidata.org/wiki/Q142081770">
+    <link rel="me" href="https://www.youtube.com/@vipulrules">
     <meta name="theme-color" content="#000000">
 
     <meta property="og:site_name" content="Vipul H. Harihar">
@@ -37,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=20261107m">
+    <link rel="stylesheet" href="css/styles.css?v=20261107n">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
@@ -126,13 +127,15 @@
         "IBM Golden Employee, 2021",
         "Valedictorian, University Program Topper and Gold Medal, DIT University"
       ],
-      "subjectOf": [{ "@id": "https://datascience.columbia.edu/news/data-science-alum-was-hired-fix-code-he-built-operating-system-instead" }, { "@id": "https://www.prnewswire.com/news-releases/verapath-and-gentrust-launch-vira-an-ai-native-wealth-management-platform-for-rias-302881229.html" }],
+      "subjectOf": [{ "@id": "https://datascience.columbia.edu/news/data-science-alum-was-hired-fix-code-he-built-operating-system-instead" }, { "@type": "VideoObject", "name": "#StudentSpeak: Mr. Vipul H. Harihar (B.Tech. CSE, Batch 2016 - 2020)", "url": "https://www.youtube.com/watch?v=IAy0BgZs1BU", "embedUrl": "https://www.youtube-nocookie.com/embed/IAy0BgZs1BU", "thumbnailUrl": "https://i.ytimg.com/vi/IAy0BgZs1BU/maxresdefault.jpg", "uploadDate": "2021-10-20", "publisher": { "@type": "CollegeOrUniversity", "name": "DIT University" } }, { "@type": "NewsArticle", "headline": "Congratulating Vipul H. Harihar from BTech-CSE for his selection as Junior Software Engineer Intern with Google", "url": "https://www.dituniversity.edu.in/students-achievements/congratulating-vipul-h-harihar-from-btech-cse-for-his-selection-as-junior-software-engineer-intern-with-google", "datePublished": "2020-09", "publisher": { "@type": "CollegeOrUniversity", "name": "DIT University" } }, { "@id": "https://www.prnewswire.com/news-releases/verapath-and-gentrust-launch-vira-an-ai-native-wealth-management-platform-for-rias-302881229.html" }],
       "sameAs": [
         "https://www.linkedin.com/in/vipulhharihar",
         "https://www.instagram.com/vipulruless/",
         "https://github.com/virslaan",
         "https://www.credly.com/users/vipul-harihar",
         "https://www.quora.com/profile/Vipul-Rules-1",
+        "https://www.youtube.com/@vipulrules",
+        "https://www.youtube.com/channel/UCYqM-AlwKVrfotOYmoGgdPQ",
         "https://www.wikidata.org/wiki/Q142081770"
       ]
     },
@@ -215,17 +218,20 @@
     <a href="#education"><span>04</span> Education</a>
     <a href="#recognition"><span>05</span> Recognition</a>
     <a href="#credentials"><span>06</span> Credentials</a>
-    <a href="#contact"><span>07</span> Contact</a>
+    <a href="#offclock"><span>07</span> Off the clock</a>
+    <a href="#contact"><span>08</span> Contact</a>
 </div>
 
 <!-- ─────────── COVER ─────────── -->
 <header class="hero hero--orbit" id="top" data-cursor-theme="cover">
     <div class="orbit-media">
         <img class="orbit-poster" src="assets/img/hero-poster.jpg" alt="" aria-hidden="true" fetchpriority="high">
-        <video class="orbit-video" id="heroVideo" autoplay muted playsinline preload="auto" aria-hidden="true">
+        <video class="orbit-video" id="heroVideo" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+            <source src="assets/img/hero-film-sm.mp4" type="video/mp4" media="(max-width: 900px)">
             <source src="assets/img/hero-film.mp4" type="video/mp4">
         </video>
         <div class="orbit-scrim"></div>
+        <div class="orbit-light" aria-hidden="true"></div>
     </div>
     <div class="hero-copy" id="heroCopy">
         <p class="cover-kicker">New York · United States</p>
@@ -309,21 +315,40 @@
         <header class="news-head reveal">
             <div>
                 <p class="eyebrow">In the news</p>
-                <h2 class="sec-title" id="newsTitle">Recent<br><span class="muted">coverage.</span></h2>
+                <h2 class="sec-title" id="newsTitle">Every story,<br><span class="muted">in one place.</span></h2>
             </div>
         </header>
-        <div class="news-grid news-grid--two">
-            <a class="news-card news-card--dark reveal" href="https://datascience.columbia.edu/news/data-science-alum-was-hired-fix-code-he-built-operating-system-instead" target="_blank" rel="noopener noreferrer">
+        <div class="news-grid news-grid--all">
+            <a class="news-card news-card--dark news-card--wide reveal" href="https://datascience.columbia.edu/news/data-science-alum-was-hired-fix-code-he-built-operating-system-instead" target="_blank" rel="noopener noreferrer">
                 <p class="news-meta">Columbia University · September 2025</p>
                 <h3>A Data Science Alum Was Hired to Fix Code. He Built an Operating System Instead.</h3>
                 <p>“I didn't come to DSI with all the answers. But I left with the ability to build something from start to finish.”</p>
                 <span class="news-src">Data Science Institute</span>
             </a>
+            <div class="news-card news-card--video reveal">
+                <button class="yt" type="button" data-yt="IAy0BgZs1BU" aria-label="Play the DIT University StudentSpeak video">
+                    <img src="assets/img/yt/IAy0BgZs1BU.jpg" alt="Vipul H. Harihar in DIT University's StudentSpeak video" loading="lazy" width="1280" height="720">
+                    <span class="yt-play" aria-hidden="true"></span>
+                </button>
+                <p class="news-meta">DIT University · YouTube · October 2021</p>
+                <h3>#StudentSpeak: Vipul H. Harihar, B.Tech. CSE 2016 to 2020</h3>
+            </div>
+            <div class="news-card news-card--static reveal">
+                <p class="news-meta">Forbes · 2026</p>
+                <h3>Forbes 30 Under 30 nominee</h3>
+                <p>Nominated for the 2026 list for work across enterprise AI and financial technology.</p>
+            </div>
             <a class="news-card reveal" href="https://www.prnewswire.com/news-releases/verapath-and-gentrust-launch-vira-an-ai-native-wealth-management-platform-for-rias-302881229.html" target="_blank" rel="noopener noreferrer">
                 <p class="news-meta">PR Newswire · September 2026</p>
                 <h3>GenTrust and Verapath launch VIRA</h3>
                 <p>The launch announcement for the AI-native wealth platform built on GenTrust's AIRIA. Vipul is named in the launch photo.</p>
                 <span class="news-src">Read the release</span>
+            </a>
+            <a class="news-card reveal" href="https://www.dituniversity.edu.in/students-achievements/congratulating-vipul-h-harihar-from-btech-cse-for-his-selection-as-junior-software-engineer-intern-with-google" target="_blank" rel="noopener noreferrer">
+                <p class="news-meta">DIT University · September 2020</p>
+                <h3>Selected as Junior Software Engineer Intern with Google</h3>
+                <p>DIT University congratulates its B.Tech. CSE valedictorian and Gold Medalist.</p>
+                <span class="news-src">DIT University news</span>
             </a>
         </div>
     </div>
@@ -974,6 +999,46 @@
     </div>
 </section>
 
+<!-- ─────────── OFF THE CLOCK ─────────── -->
+<section class="offclock" id="offclock" aria-labelledby="offTitle" data-cursor-theme="cover">
+    <div class="wrap">
+        <header class="sec-head reveal">
+            <p class="eyebrow">Vipul Rules</p>
+            <h2 class="sec-title" id="offTitle">Off the clock.</h2>
+            <p class="sec-sub">Vipul Rules is the name Vipul uses for video and everyday life in New York. Nearly 9,000 people follow along on Instagram.</p>
+        </header>
+        <div class="offclock-grid">
+            <div class="offclock-videos">
+                <figure class="tilt reveal">
+                    <button class="yt" type="button" data-yt="qOZfvNo01uA" aria-label="Play Turning 28 in NYC">
+                        <img src="assets/img/yt/qOZfvNo01uA.jpg" alt="Turning 28 in NYC video thumbnail" loading="lazy" width="480" height="360">
+                        <span class="yt-play" aria-hidden="true"></span>
+                    </button>
+                    <figcaption><strong>Turning 28 in NYC</strong><span>YouTube · November 2025</span></figcaption>
+                </figure>
+                <figure class="tilt reveal">
+                    <button class="yt" type="button" data-yt="xxPcR1vPTRI" aria-label="Play A new sense of purpose">
+                        <img src="assets/img/yt/xxPcR1vPTRI.jpg" alt="A new sense of purpose video thumbnail" loading="lazy" width="1280" height="720">
+                        <span class="yt-play" aria-hidden="true"></span>
+                    </button>
+                    <figcaption><strong>A new sense of purpose :)</strong><span>YouTube · October 2025</span></figcaption>
+                </figure>
+            </div>
+            <div class="offclock-ig tilt reveal">
+                <div class="ig-frame">
+                    <iframe src="https://www.instagram.com/vipulruless/embed/" title="Vipul Rules on Instagram" loading="lazy" scrolling="no"></iframe>
+                </div>
+                <a class="ig-follow" href="https://www.instagram.com/vipulruless/" target="_blank" rel="noopener noreferrer me">Follow @vipulruless</a>
+            </div>
+        </div>
+        <div class="offclock-links reveal">
+            <a href="https://www.youtube.com/@vipulrules" target="_blank" rel="noopener noreferrer me">YouTube <span>@vipulrules</span></a>
+            <a href="https://www.instagram.com/vipulruless/" target="_blank" rel="noopener noreferrer me">Instagram <span>@vipulruless</span></a>
+            <a href="https://github.com/virslaan/TechHub---By-Vipul-Rules" target="_blank" rel="noopener noreferrer">TechHub <span>by Vipul Rules</span></a>
+        </div>
+    </div>
+</section>
+
 <!-- ─────────── RESUME ─────────── -->
 <section class="section-white" id="resume" data-cursor-theme="resume">
     <div class="wrap resume-wrap">
@@ -1045,6 +1110,7 @@
             <p class="contact-meta">Manhattan, New York</p>
             <div class="contact-social">
                 <a href="https://www.instagram.com/vipulruless/" target="_blank" rel="noopener noreferrer me">Instagram <span>@vipulruless</span></a>
+                <a href="https://www.youtube.com/@vipulrules" target="_blank" rel="noopener noreferrer me">YouTube <span>@vipulrules</span></a>
                 <a href="https://www.linkedin.com/in/vipulhharihar" target="_blank" rel="noopener noreferrer me">LinkedIn <span>vipulhharihar</span></a>
                 <a href="https://github.com/virslaan" target="_blank" rel="noopener noreferrer me">GitHub <span>virslaan</span></a>
                 <a href="https://www.quora.com/profile/Vipul-Rules-1" target="_blank" rel="noopener noreferrer me">Quora <span>Vipul Rules</span></a>
@@ -1090,10 +1156,10 @@
     </div>
 </div>
 
-<script src="js/hero.js?v=20261107m" defer></script>
-<script src="js/cursor.js?v=20261107m"></script>
-<script src="js/main.js?v=20261107m"></script>
-<script src="js/motion.js?v=20261107m" defer></script>
-<script src="js/dataviz.js?v=20261107m" defer></script>
+<script src="js/hero.js?v=20261107n" defer></script>
+<script src="js/cursor.js?v=20261107n"></script>
+<script src="js/main.js?v=20261107n"></script>
+<script src="js/motion.js?v=20261107n" defer></script>
+<script src="js/dataviz.js?v=20261107n" defer></script>
 </body>
 </html>
