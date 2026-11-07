@@ -9,6 +9,8 @@
     const $ = (s, c = document) => c.querySelector(s);
     const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // iPadOS reports a desktop browser, so check for touch points as well
+    const touch = navigator.maxTouchPoints > 0 || window.matchMedia('(hover: none)').matches;
 
     /* ── Navigation ─────────────────────────────────── */
 
@@ -49,7 +51,7 @@
         });
     }, { rootMargin: '-45% 0px -50% 0px' });
 
-    ['work', 'experience', 'education', 'resume'].forEach((id) => {
+    ['news', 'work', 'experience', 'education', 'resume'].forEach((id) => {
         const el = document.getElementById(id);
         if (el) spy.observe(el);
     });
@@ -213,7 +215,7 @@
     /* ── Films: only play what is on screen ─────────── */
 
     // The scrubbed film is driven by scroll position, never by playback
-    $$('video:not([data-scrub])').forEach((video) => {
+    $$('video:not([data-scrub]):not(#heroVideo)').forEach((video) => {
         const io = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -402,13 +404,30 @@
 
         const state = { ready: false, disabled: false, target: 0, current: 0 };
 
+        // Touch browsers decode seeks too slowly to scrub smoothly and will not
+        // load video data until asked to play, so the film simply loops on screen.
+        if (touch || reduced) {
+            state.disabled = true;
+            video.loop = true;
+            new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const p = video.play();
+                        if (p) p.catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.2 }).observe(section);
+        }
+
         const markReady = () => {
             if (video.readyState >= 1 && isFinite(video.duration)) state.ready = true;
         };
 
         // Seeking needs HTTP range support. Where it is missing the film
         // would sit frozen for the whole pinned section, so let it play instead.
-        setTimeout(() => {
+        if (!state.disabled) setTimeout(() => {
             const range = video.seekable;
             if (!range || range.length === 0 || range.end(range.length - 1) === 0) {
                 state.disabled = true;
@@ -424,7 +443,7 @@
         video.addEventListener('canplay', markReady);
         markReady();
         // Safari will not decode a frame until it has been asked to play once
-        video.play().then(() => video.pause()).catch(() => {});
+        if (!state.disabled) video.play().then(() => video.pause()).catch(() => {});
 
         const update = () => {
             const rect = section.getBoundingClientRect();

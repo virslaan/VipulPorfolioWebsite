@@ -2477,116 +2477,208 @@ html.cover-live .cover-veil {
 
 .wrap-wide { max-width: var(--wrap-wide); margin: 0 auto; padding: 0 22px; }
 
-/* Cover: a quiet studio film that settles into a floating frame */
-.hero--studio {
+/* Cover: an astronaut at the window, Earth below */
+.hero--orbit {
     --p: 0;
     --mx: 0;
     --my: 0;
-    display: block;
-    height: 185svh;
-    min-height: 0;
-    background: var(--white);
-    overflow: visible;
+    height: 100svh;
+    min-height: 640px;
+    align-items: flex-start;
+    background: #000;
     cursor: auto;
 }
-.hero--studio .hero-stage {
-    position: sticky;
-    top: 0;
-    height: 100svh;
-    min-height: 620px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-.hero--studio .hero-media {
+.orbit-media {
     position: absolute;
     inset: 0;
     overflow: hidden;
-    background: var(--grey);
-    transform: scale(calc(1 - var(--p) * 0.16));
-    border-radius: calc(var(--p) * 44px);
-    box-shadow: 0 50px 120px rgba(0, 0, 0, calc(var(--p) * 0.16));
-    transition: none;
+    transform: scale(calc(1 + var(--p) * 0.12));
+    transform-origin: 50% 70%;
     will-change: transform;
 }
-.hero--studio .hero-video {
-    inset: 0;
-    object-position: center;
-    filter: none;
-    opacity: 0;
-    transform:
-        translate3d(calc(var(--mx) * -16px), calc(var(--my) * -10px), 0)
-        scale(calc(1.08 + var(--p) * 0.1));
-    animation: none;
-    transition: opacity 1.6s var(--ease);
-}
-.hero--studio .hero-video.is-active { opacity: 1; }
-.hero--studio .hero-scrim {
-    opacity: calc(1 - var(--p) * 0.9);
-    background:
-        radial-gradient(62% 52% at 50% 47%, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.62) 55%, rgba(255, 255, 255, 0.30) 100%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, rgba(255, 255, 255, 0.10) 22%, rgba(255, 255, 255, 0.10) 78%, rgba(255, 255, 255, 0.55) 100%);
-}
-.hero-light {
+.orbit-poster,
+.orbit-video {
     position: absolute;
     inset: 0;
-    background: radial-gradient(520px circle at var(--lx, 50%) var(--ly, 45%), rgba(255, 255, 255, 0.55), transparent 62%);
-    opacity: 0;
-    transition: opacity 0.8s ease;
-    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 46% 60%;
 }
-.hero--studio.is-lit .hero-light { opacity: 1; }
-.hero--studio .hero-copy {
-    max-width: 820px;
-    color: var(--ink);
-    opacity: calc(1 - var(--p) * 2.4);
-    transform: translate3d(0, calc(var(--p) * -90px), 0) scale(calc(1 - var(--p) * 0.08));
+.orbit-poster {
+    transform: scale(1.06);
+    animation: orbitDrift 18s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+.orbit-video {
+    opacity: 0;
+    transform: translate3d(calc(var(--mx) * -14px), calc(var(--my) * -8px), 0) scale(1.04);
+    transition: opacity 1.4s var(--ease);
+}
+.orbit-video.is-playing { opacity: 1; }
+.orbit-video.is-fading { opacity: 0; transition-duration: 0.9s; }
+@keyframes orbitDrift {
+    to { transform: scale(1.14); }
+}
+.orbit-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.7) 22%, rgba(0, 0, 0, 0.18) 48%, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0.55) 100%),
+        radial-gradient(120% 70% at 50% 100%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.5) 100%);
+}
+.orbit-veil {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    background: #000;
+    pointer-events: none;
+    animation: orbitVeil 1.8s var(--ease) 0.15s forwards;
+}
+@keyframes orbitVeil {
+    to { opacity: 0; visibility: hidden; }
+}
+.orbit-stars {
+    position: absolute;
+    inset: 0 0 38% 0;
+    z-index: 1;
+    width: 100%;
+    height: 62%;
+    pointer-events: none;
+    opacity: calc(1 - var(--p) * 1.6);
+}
+.hero--orbit .hero-copy {
+    margin-top: clamp(96px, 15svh, 170px);
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: calc(1 - var(--p) * 2.2);
+    transform: translate3d(calc(var(--mx) * 8px), calc(var(--p) * -120px + var(--my) * 5px), 0);
     transition: none;
 }
-.hero--studio .hero-name {
-    font-size: clamp(2.9rem, 8.2vw, 5.6rem);
-    line-height: 1.04;
-    letter-spacing: -0.032em;
-    color: var(--ink);
-    text-shadow: none;
+.hero--orbit .cover-kicker { margin-bottom: 22px; color: rgba(255, 255, 255, 0.6); animation-delay: 0.7s; }
+.hero--orbit .hero-name {
+    font-size: clamp(3rem, 8.6vw, 6.6rem);
+    letter-spacing: -0.042em;
+    text-shadow: 0 10px 60px rgba(0, 0, 0, 0.6);
 }
-.hero--studio .hero-role {
-    margin-top: 14px;
-    font-size: clamp(1.05rem, 2.4vw, 1.6rem);
-    letter-spacing: -0.015em;
-    text-transform: none;
-    color: var(--ink);
-    animation-delay: 1.15s;
+.hero--orbit .hero-role {
+    margin-top: 18px;
+    font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+    color: rgba(255, 255, 255, 0.92);
 }
-.hero--studio .hero-line { margin-top: 20px; color: var(--ink-2); animation-delay: 1.3s; }
-.hero--studio .hero-links { margin-top: 30px; animation-delay: 1.45s; }
-.hero--studio .hero-links .link-chevron { color: var(--ink); }
-.hero--studio .hero-hint {
-    bottom: 34px;
-    left: calc(50% - 10px);
-    transform: none;
-    width: 20px;
-    height: 32px;
-    gap: 0;
-    padding-top: 6px;
-    border: 1px solid rgba(0, 0, 0, 0.28);
-    border-radius: 11px;
+.hero--orbit .hero-line { margin-top: 18px; max-width: 600px; color: rgba(255, 255, 255, 0.66); }
+.hero--orbit .hero-links { margin-top: 30px; }
+.orbit-news-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: clamp(84px, 11svh, 120px);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    padding: 0 22px;
+    opacity: calc(1 - var(--p) * 2.4);
+}
+.orbit-news {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 100%;
+    padding: 9px 16px 9px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(10, 12, 20, 0.42);
+    -webkit-backdrop-filter: blur(14px) saturate(1.3);
+    backdrop-filter: blur(14px) saturate(1.3);
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.875rem;
+    white-space: nowrap;
     opacity: 0;
-    animation: riseIn 1.2s var(--ease) 1.9s forwards;
+    animation: riseIn 1.2s var(--ease) 2.2s forwards;
+    transition: border-color 0.3s ease, background 0.3s ease;
 }
-.hero--studio .hero-hint span {
-    width: 2px;
-    height: 6px;
-    border-radius: 2px;
-    background: rgba(0, 0, 0, 0.5);
-    animation: studioHint 2s var(--ease) infinite;
+.orbit-news:hover { border-color: rgba(255, 255, 255, 0.4); background: rgba(10, 12, 20, 0.6); }
+.orbit-news-tag {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #fff;
+    color: #000;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
 }
-.hero--studio.is-moving .hero-hint { animation: none; opacity: 0; transition: opacity 0.4s ease; }
-@keyframes studioHint {
-    0%   { transform: translateY(0); opacity: 1; }
-    70%  { transform: translateY(11px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 0; }
+.orbit-news-text { overflow: hidden; text-overflow: ellipsis; }
+.orbit-news::after { content: "\203A"; font-size: 1.1em; color: rgba(255, 255, 255, 0.6); }
+.hero--orbit .hero-hint { bottom: 26px; }
+.hero--orbit.is-moving .hero-hint { opacity: 0 !important; transition: opacity 0.4s ease; }
+
+/* In the news */
+.news { background: var(--white); padding: 130px 0 120px; }
+.news-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 56px; }
+.news-head .sec-sub { max-width: 380px; color: var(--ink-2); }
+.news-lead {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 0;
+    overflow: hidden;
+    border-radius: 28px;
+    background: #05070d;
+    color: #fff;
+}
+.news-lead-media { position: relative; min-height: 380px; overflow: hidden; }
+.news-lead-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 58%;
+    transform: scale(1.04);
+    transition: transform 1.6s var(--ease);
+}
+.news-lead:hover .news-lead-media img { transform: scale(1.1); }
+.news-lead-body { display: flex; flex-direction: column; justify-content: center; padding: 52px 48px; }
+.news-meta { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.55); }
+.news-lead h3 { margin-top: 16px; font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.028em; }
+.news-lead p { margin-top: 16px; color: rgba(255, 255, 255, 0.72); line-height: 1.6; }
+.news-lead .link-chevron { margin-top: 26px; color: #fff; align-self: flex-start; }
+.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+.news-card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 28px 28px;
+    border-radius: 22px;
+    background: var(--grey);
+    color: var(--ink);
+    transition: transform 0.5s var(--ease), background 0.3s ease;
+}
+.news-card:hover { transform: translateY(-4px); background: #ececef; }
+.news-card .news-meta { color: var(--ink-3); }
+.news-card h3 { margin-top: 14px; font-size: 1.1875rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.02em; }
+.news-card p { margin-top: 12px; font-size: 0.9375rem; line-height: 1.55; color: var(--ink-2); }
+.news-card .news-src { margin-top: auto; padding-top: 22px; font-size: 0.875rem; color: var(--ink); }
+.news-card .news-src::after { content: " \203A"; color: var(--ink-3); }
+.news-also { margin-top: 30px; font-size: 0.9375rem; color: var(--ink-3); }
+.news-also a { color: var(--ink-2); border-bottom: 1px solid var(--hair); }
+.news-also a:hover { color: var(--ink); border-color: var(--ink); }
+
+@media (max-width: 1000px) {
+    .news-lead { grid-template-columns: 1fr; }
+    .news-lead-media { min-height: 300px; }
+    .news-lead-media img { object-position: 50% 45%; }
+    .news-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 740px) {
+    .hero--orbit .hero-copy { margin-top: clamp(84px, 13svh, 130px); }
+    .orbit-poster, .orbit-video { top: 10svh; object-position: 44% 60%; }
+    .orbit-news { font-size: 0.8125rem; gap: 10px; }
+    .news { padding: 88px 0; }
+    .news-head { flex-direction: column; align-items: start; margin-bottom: 36px; }
+    .news-lead-body { padding: 34px 26px; }
+    .news-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+    .orbit-news-date { display: none; }
 }
 
 /* Recognition strip under the figures */
@@ -2707,7 +2799,6 @@ html.cover-live .cover-veil {
 }
 
 @media (max-width: 740px) {
-    .hero--studio .hero-video { object-position: 72% center; }
     .profile { padding: 88px 0; }
     .profile-facts div { grid-template-columns: 1fr; gap: 4px; }
     .press-strip { margin-top: 44px; }
@@ -2735,4 +2826,7 @@ html.cover-live .cover-veil {
     .reveal-film-stage { position: relative; height: 80svh; }
     .reveal-film-copy blockquote { opacity: 1; transform: none; }
     .reveal-film-copy blockquote[data-scrub-copy="1"] { display: none; }
+    .orbit-veil { display: none; }
+    .orbit-poster { animation: none; }
+    .orbit-news { opacity: 1; transform: none; }
 }

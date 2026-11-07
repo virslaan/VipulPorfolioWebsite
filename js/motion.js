@@ -9,7 +9,7 @@
 
     const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches && !(navigator.maxTouchPoints > 0);
 
     /* ── Headings rise line by line from a mask ─────── */
 

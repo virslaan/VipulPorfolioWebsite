@@ -10,7 +10,7 @@
     const cursor = document.getElementById('siteCursor');
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!cursor || !finePointer) return;
+    if (!cursor || !finePointer || navigator.maxTouchPoints > 0) return;
 
     document.body.classList.add('has-site-cursor');
 
