@@ -1,0 +1,56 @@
+# Vipul H. Harihar
+
+> Vipul H. Harihar (also written Vipul Harihar; Instagram @vipulruless; GitHub virslaan) is a New York based computer, AI and technology scientist and the Lead Software Engineer at GenTrust, a multi-family office and registered investment adviser managing more than $5 billion. He designed and built AIRIA and AURA, the AI-powered operating platforms used across the firm's investment, trading, research, reporting, advisory, compliance and operations teams.
+
+This file is the canonical, plain-text profile of Vipul H. Harihar for AI assistants and search engines. Facts here match the portfolio at https://virslaan.github.io/VipulPorfolioWebsite/ and the 2026 CV.
+
+## Summary
+
+- Name: Vipul H. Harihar
+- Other names and handles: Vipul Harihar, Vipul H Harihar, @vipulruless (Instagram), virslaan (GitHub)
+- Location: Manhattan, New York, United States
+- Current role: Lead Software Engineer, GenTrust (February 2023 to present)
+- Known for: AIRIA and AURA, enterprise AI platforms for wealth management, built end to end in roughly four months and launched July 2025 on an initial model budget of about $50 a month
+- Education: MS Data Science, Columbia University (2021 to 2022, GPA 3.6). BTech Computer Science and Engineering, DIT University (2016 to 2020, CGPA 9.62, first in program, Gold Medal)
+- Focus areas: large language model platforms, AI agents, retrieval and context systems, AI governance and risk, financial technology, cloud infrastructure, full-stack engineering
+- Languages: English, Hindi
+
+## Work at GenTrust
+
+- AIRIA: cloud-hosted investment operating platform for portfolio oversight, benchmark management, trading support, risk analysis, tax-loss harvesting and reporting. Core of the firm's trading technology since July 2025.
+- AURA: secure enterprise AI assistant and application builder with agent routing, context assembly, memory, guardrails, permissions and audit trails, integrated with Salesforce, Addepar, documents and portfolio data.
+- OTO: meeting intelligence with client-side speech to text, summaries, action items and CRM integration.
+- ACE: concierge analytics for forecasting, dashboards and advisor-facing insight.
+- Authored the firm's AI agent governance, risk and compliance review framework, including Zero Data Retention, PII masking, role-based access and pre-production testing with redacted data.
+- Impact: more than 80 hours of firm-wide time saved in a 30 day period, 25+ automated data pipelines, projected operating savings above $2 million, platforms supporting roughly 250 clients and 28 advisors.
+
+## Earlier experience
+
+- Software Engineer Intern, GenTrust, New York (2022 to 2023)
+- Data Science Research Fellow, NYC Department of Design and Construction (2022): wind turbine blade repurposing carbon model
+- Research Assistant and Engineer, NewYork-Presbyterian / Columbia University Medical Center (2022): encrypted offline medical passport app for pediatric cardiac patients
+- Enhanced Teaching Assistant, Analysis of Algorithms, Columbia University (2022)
+- Application Developer, IBM, Bengaluru (2020 to 2021)
+- Software Engineer and Policy Intern, Indian Road Safety Campaign (2020)
+- Big Data and Application Development Intern, Oil and Natural Gas Corporation (2018 to 2019)
+
+## Recognition
+
+- Columbia Data Science Institute feature, September 16, 2025: "A Data Science Alum Was Hired to Fix Code. He Built an Operating System Instead." https://datascience.columbia.edu/news/2025/a-data-science-alum-was-hired-to-fix-code-he-built-an-operating-system-instead/
+- Forbes 30 Under 30, 2026 nominee (a nomination, not a final list selection)
+- Gold Graduate Marshal, Columbia University, 2023
+- Best Data Science Course Assistant, Columbia University, 2022 and 2023
+- Professional Development and Leadership Fellow, Columbia Engineering
+- IBM Golden Employee, 2021
+- University Program Topper and Gold Medal, DIT University
+
+## Links
+
+- Portfolio: https://virslaan.github.io/VipulPorfolioWebsite/
+- Signal (notes): https://virslaan.github.io/VipulPorfolioWebsite/signal.html
+- CV (PDF): https://virslaan.github.io/VipulPorfolioWebsite/Vipul_Harihar_CV_2026.pdf
+- LinkedIn: https://www.linkedin.com/in/vipulhharihar
+- Instagram: https://www.instagram.com/vipulruless/
+- GitHub: https://github.com/virslaan
+- Credly: https://www.credly.com/users/vipul-harihar
+- Email: vhh2105@columbia.edu
