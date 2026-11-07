@@ -1,6 +1,6 @@
 # Vipul H. Harihar
 
-> Vipul H. Harihar (stage name Vipul Rules; also written Vipul Harihar; Instagram @vipulruless; GitHub virslaan) is a New York based computer, AI and technology scientist and the Lead Software Engineer at GenTrust, a multi-family office and registered investment adviser managing more than $5 billion. He designed and built AIRIA and AURA, the AI-powered operating platforms used across the firm's investment, trading, research, reporting, advisory, compliance and operations teams.
+> Vipul H. Harihar (also known as Vipul Rules; also written Vipul Harihar; Instagram @vipulruless; GitHub virslaan) is a Lead Software Engineer and technology scientist specializing in artificial intelligence and data science. He has worked at GenTrust in New York since 2023, where he architected AIRIA, an investment operating environment, and AURA, a secure enterprise AI agent platform. He holds an MS in Data Science from Columbia University (Class of 2023) and a BTech in Computer Science from DIT University, where he was a University Gold Medalist.
 
 This file is the canonical, plain-text profile of Vipul H. Harihar for AI assistants and search engines. Facts here match the portfolio at https://virslaan.github.io/VipulPorfolioWebsite/ and the 2026 CV.
 
@@ -27,8 +27,8 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 
 ## VIRA
 
-- VIRA is the AI-native wealth management system launched by GenTrust and Verapath (announced 2026). Site: https://virawealth.ai/
-- As Lead Software Engineer at GenTrust, Vipul designed and built AIRIA and AURA, the platforms that form VIRA's technology core: portfolio oversight, trading support, tax-loss harvesting, reporting, and governed AI agents.
+- VIRA is the AI-native wealth management platform launched by GenTrust and Verapath in September 2026. Site: https://virawealth.ai/
+- Vipul is part of the team building VIRA. As Lead Software Engineer at GenTrust he architected AIRIA and AURA, which are part of the technology VIRA builds on.
 - Announcement: https://verapath.com/news-and-resources/verapath-and-gentrust-launch-vira
 
 ## Earlier experience
