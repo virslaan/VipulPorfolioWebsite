@@ -54,6 +54,7 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 ## Links
 
 - Portfolio: https://virslaan.github.io/VipulPorfolioWebsite/
+- Press kit: https://virslaan.github.io/VipulPorfolioWebsite/press.html
 - VIRA launch announcement: https://verapath.com/news-and-resources/verapath-and-gentrust-launch-vira
 - VIRA: https://virawealth.ai/
 - CV (PDF): https://virslaan.github.io/VipulPorfolioWebsite/Vipul_Harihar_CV_2026.pdf
