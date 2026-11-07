@@ -7,7 +7,7 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 ## Summary
 
 - Name: Vipul H. Harihar
-- Other names and handles: Vipul Harihar, Vipul H Harihar, @vipulruless (Instagram), virslaan (GitHub)
+- Other names and handles: Vipul Harihar, Vipul H Harihar, @vipulruless (Instagram), virslaan (GitHub), Vipul Rules (Quora)
 - Location: Manhattan, New York, United States
 - Current role: Lead Software Engineer, GenTrust (February 2023 to present)
 - Known for: AIRIA and AURA, enterprise AI platforms for wealth management, built end to end in roughly four months and launched July 2025 on an initial model budget of about $50 a month
@@ -52,5 +52,6 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 - LinkedIn: https://www.linkedin.com/in/vipulhharihar
 - Instagram: https://www.instagram.com/vipulruless/
 - GitHub: https://github.com/virslaan
+- Quora (Vipul Rules): https://www.quora.com/profile/Vipul-Rules-1
 - Credly: https://www.credly.com/users/vipul-harihar
 - Email: vhh2105@columbia.edu
