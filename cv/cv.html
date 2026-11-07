@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<meta name="author" content="Vipul H. Harihar">
+<title>Vipul H. Harihar | CV 2026</title>
+<style>
+@font-face {
+    font-family: "Inter CV";
+    src: url("Inter.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@page {
+    size: 8.5in 11in;
+    margin: 0.6in 0.62in 0.62in;
+    @bottom-left {
+        content: "Vipul H. Harihar  ·  CV 2026";
+        font-family: "Inter CV", Helvetica, Arial, sans-serif;
+        font-size: 7pt;
+        color: #8a8a8a;
+        letter-spacing: 0.02em;
+    }
+    @bottom-right {
+        content: counter(page) " / " counter(pages);
+        font-family: "Inter CV", Helvetica, Arial, sans-serif;
+        font-size: 7pt;
+        color: #8a8a8a;
+    }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+    margin: 0;
+    font-family: "Inter CV", Helvetica, Arial, sans-serif;
+    font-size: 9pt;
+    line-height: 1.37;
+    color: #1d1d1f;
+    font-feature-settings: "kern", "liga", "calt", "tnum" 0;
+    text-rendering: optimizeLegibility;
+}
+
+a { color: #1f3a5f; text-decoration: none; }
+
+/* Header */
+.head { padding-bottom: 10pt; border-bottom: 0.75pt solid #1d1d1f; margin-bottom: 4pt; }
+.name {
+    margin: 0;
+    font-size: 22pt;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+.title {
+    margin: 3pt 0 7pt;
+    font-size: 10.5pt;
+    font-weight: 450;
+    color: #444;
+}
+.contact, .links {
+    margin: 0;
+    font-size: 8.3pt;
+    color: #555;
+    line-height: 1.55;
+}
+.contact span + span::before,
+.links a + a::before {
+    content: "·";
+    color: #aaa;
+    margin: 0 6pt;
+}
+
+/* Sections */
+h2 {
+    margin: 12pt 0 4pt;
+    padding-bottom: 2.5pt;
+    border-bottom: 0.5pt solid #c8c8c8;
+    font-size: 10.5pt;
+    font-weight: 600;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.1em;
+    color: #4a4a4a;
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+p { margin: 0; }
+.summary { color: #2b2b2b; }
+.summary + .summary { margin-top: 4pt; }
+
+/* Entries */
+.entry { margin-top: 6.5pt; }
+.entry:first-of-type { margin-top: 4pt; }
+.entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14pt;
+    break-after: avoid;
+    page-break-after: avoid;
+}
+.role { font-weight: 600; font-size: 9.6pt; color: #111; }
+.org { font-weight: 450; color: #1d1d1f; }
+.entry-head > div:first-child { flex: 1 1 auto; }
+.when {
+    flex: none;
+    text-align: right;
+    font-size: 8.4pt;
+    color: #555;
+    font-variant-numeric: tabular-nums;
+}
+.when .sep { color: #b5b5b5; margin: 0 5pt; }
+.meta {
+    margin-top: 0.5pt;
+    font-size: 8.3pt;
+    color: #6b6b6b;
+    break-after: avoid;
+    page-break-after: avoid;
+}
+.keep { break-inside: avoid; page-break-inside: avoid; }
+
+ul {
+    margin: 3pt 0 0;
+    padding-left: 11pt;
+}
+li {
+    margin: 0 0 1.4pt;
+    padding-left: 1pt;
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+li::marker { color: #9a9a9a; font-size: 0.85em; }
+
+.sub {
+    margin: 6pt 0 1pt;
+    font-size: 8.2pt;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 0.02em;
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+/* Two-column label lists */
+.grid {
+    display: grid;
+    grid-template-columns: 1.2in 1fr;
+    column-gap: 10pt;
+    row-gap: 2pt;
+    margin-top: 4pt;
+}
+.grid dt { font-weight: 600; color: #333; font-size: 8.7pt; }
+.grid dd { margin: 0; }
+
+.items { list-style: none; padding-left: 0; margin-top: 4pt; }
+.items li { margin-bottom: 2pt; padding-left: 0; }
+.items .lead { font-weight: 600; color: #111; }
+.items .note { color: #6b6b6b; }
+
+.muted { color: #6b6b6b; }
+</style>
+</head>
+<body>
+
+<header class="head">
+    <h1 class="name">Vipul H. Harihar</h1>
+    <p class="title">Computer, AI and Technology Scientist and Engineer</p>
+    <p class="contact">
+        <span>New York, NY, United States</span><span><a href="mailto:vhh2105@columbia.edu">vhh2105@columbia.edu</a></span>
+    </p>
+    <p class="links">
+        <a href="https://virslaan.github.io/VipulPorfolioWebsite/">Portfolio</a><a href="https://www.linkedin.com/in/vipulhharihar">linkedin.com/in/vipulhharihar</a><a href="https://github.com/virslaan">github.com/virslaan</a><a href="https://www.credly.com/users/vipul-harihar">Credly</a><a href="https://virslaan.github.io/VipulPorfolioWebsite/press.html">Press kit</a>
+    </p>
+</header>
+
+<section>
+    <h2>Profile</h2>
+    <p class="summary">
+        Engineer and data scientist with 6+ years of experience across enterprise AI, financial technology, cloud
+        infrastructure, full-stack systems, machine learning, healthcare engineering and government research.
+        At GenTrust, a New York registered investment adviser with nearly $6 billion in assets under management,
+        a legacy modernization assignment grew into AIRIA and AURA: a secure, AI-powered operating environment that
+        connects investment, trading, benchmark, risk, research, reporting, CRM, document and compliance workflows.
+        Built the platform end to end in approximately four months; it launched in July 2025.
+        MS in Data Science, Columbia University.
+    </p>
+</section>
+
+<section>
+    <h2>Experience</h2>
+
+    <div class="entry">
+        <div class="entry-head">
+            <div><span class="role">Lead Software Engineer</span> <span class="muted">·</span> <span class="org">GenTrust</span></div>
+            <div class="when">New York, NY<span class="sep">|</span>Feb 2023 – Present</div>
+        </div>
+        <ul>
+            <li>Own the architecture, engineering, security, reliability and continued evolution of AIRIA, the firm’s investment operating platform, and AURA, its enterprise AI assistant and application builder.</li>
+            <li>Designed and built the platform in approximately four months as its primary architect and developer, from front end, back end, APIs and mobile integration to data pipelines, cloud deployment and visual design, on an initial API budget of about $50 per month. Launched July 2025; now a core part of the firm’s trading technology.</li>
+            <li>Built AURA as an in-house platform rather than a thin connection to an external model: application builder, agent routing, context assembly, memory, guardrails, permissions, audit trails and document handling, integrated with AIRIA, Salesforce, Addepar, firm documents and portfolio data.</li>
+            <li>Built a knowledge and context system that connects thousands of internal documents, procedures, compliance guidance, portfolio data and business rules to bounded AI experiences, without exposing firm data for model training.</li>
+            <li>Delivered portfolio and investment capabilities: benchmark history and overrides, current performance, underweight/overweight analysis, risk exposure, betas, tax-loss harvesting, trading support and firm-wide reporting.</li>
+            <li>Developed document, meeting and CRM tools: analysis of research reports, financial statements, Excel workbooks and password-protected PDFs; speech-to-text meeting summaries, action items and advisor notes (OTO); concierge analytics and forecasting (ACE); and reporting automation.</li>
+            <li>Designed privacy and AI-governance controls: Anthropic Zero Data Retention, PII masking and redaction, restricted task scopes, role-based access, audit trails and data separation.</li>
+            <li>Architect and operate AWS and Azure infrastructure, authentication, secrets, monitoring, backups and deployment; resolved memory and concurrency limits as adoption grew to 20+ simultaneous users. Kept model costs low through scoped prompts, retrieval-first context and routing only necessary work to higher-cost models.</li>
+            <li>Final technical reviewer for code, architecture, infrastructure and security work from contractors and collaborating engineers. Work with the CIO, CFO, CCO, COO, president and investment, trading, compliance and operations teams to turn business needs into secure production tools.</li>
+            <li>Documented more than 80 hours of firm-wide time savings in a 30-day period. Program estimates attribute 25+ automated data pipelines and projected operating savings above $2 million to the platform, which supports 28 advisors, roughly 250 clients and nearly $6 billion in assets under management.</li>
+        </ul>
+
+        <p class="sub">AI agent governance, risk and compliance framework</p>
+        <ul>
+            <li>Authored the firm’s review framework for new AI agents: access-delta review of every new system, data source, credential and permission; action and identity review, with human confirmation for higher-risk actions; data-use and third-party review, including Zero Data Retention and no use of firm or client data for external model training; and restricted-data review with masking, segmentation and data minimization.</li>
+            <li>Defined lifecycle and approval steps: pre-production testing with redacted or synthetic data, prompt-injection and unauthorized-access tests, rollback paths, logging and alerting, periodic recertification, and technology, cybersecurity, compliance and business sign-off before deployment.</li>
+        </ul>
+    </div>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">Software Engineer Intern</span> <span class="muted">·</span> <span class="org">GenTrust</span></div>
+            <div class="when">New York, NY<span class="sep">|</span>Aug 2022 – Jan 2023</div>
+        </div>
+        <ul>
+            <li>Supported software engineering, data science, testing, documentation and internal application development before promotion to a full-time role.</li>
+            <li>Contributed to Java-based systems, data workflows, troubleshooting and early architecture work for the firm’s investment-technology environment.</li>
+        </ul>
+    </div>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">Research Assistant &amp; Engineer</span> <span class="muted">·</span> <span class="org">NewYork-Presbyterian / Columbia University Medical Center</span></div>
+            <div class="when">New York, NY<span class="sep">|</span>May 2022 – Dec 2022</div>
+        </div>
+        <div class="meta">Volunteer research</div>
+        <ul>
+            <li>Engineered an encrypted, offline-capable medical passport application for a research cohort of 79 pediatric cardiac patients, minimizing server-side exposure of sensitive information.</li>
+            <li>Led two application-development initiatives, mentored three research assistants in coding and debugging, and built two data pipelines to improve client-side analysis speed and accuracy.</li>
+        </ul>
+    </div>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">Data Science Research Fellow, Wind Energy Capstone</span> <span class="muted">·</span> <span class="org">NYC Department of Design and Construction</span></div>
+            <div class="when">New York, NY<span class="sep">|</span>Sep 2022 – Dec 2022</div>
+        </div>
+        <ul>
+            <li>Led a five-member Columbia team analyzing approximately 15 GB of data to model the carbon impact and logistics of repurposing about 70,800 decommissioned wind-turbine blades.</li>
+            <li>Developed a geographic optimization approach to minimize greenhouse-gas emissions and delivered a cloud-hosted sustainability-planning application.</li>
+        </ul>
+    </div>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">Enhanced Teaching Assistant, Analysis of Algorithms</span> <span class="muted">·</span> <span class="org">Columbia University</span></div>
+            <div class="when">New York, NY<span class="sep">|</span>Jan 2022 – Dec 2022</div>
+        </div>
+        <ul>
+            <li>Supported CSOR W4231 for Professor Eleni Drinea through grading, exam proctoring, office hours and explanation of advanced algorithmic concepts. Received the Best Data Science Course Assistant Award for 2022 and 2023.</li>
+        </ul>
+    </div>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">Application Developer</span> <span class="muted">·</span> <span class="org">IBM</span></div>
+            <div class="when">Bengaluru, India<span class="sep">|</span>Feb 2021 – Aug 2021</div>
+        </div>
+        <ul>
+            <li>Developed and supported full-stack enterprise applications using Java, SQL, JavaScript and relational databases; diagnosed production defects and implemented fixes across application and data layers.</li>
+            <li>Contributed to migrating financial application Java modules toward Red Hat OpenShift and microservices; automated SQL and reporting workflows and improved CI/CD release processes. Portfolio materials report a 33% reduction in hosting cost from the modernization work.</li>
+        </ul>
+    </div>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">Associate System Engineer</span> <span class="muted">·</span> <span class="org">IBM</span></div>
+            <div class="when">Bengaluru, India<span class="sep">|</span>Jan 2021 – Feb 2021</div>
+        </div>
+        <ul>
+            <li>Supported enterprise application operations, troubleshooting, testing and SQL workflows before moving to Application Developer.</li>
+        </ul>
+    </div>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">Java Full-Stack Development Engineer Trainee</span> <span class="muted">·</span> <span class="org">IBM</span></div>
+            <div class="when">Dehradun, India<span class="sep">|</span>Feb 2020 – Dec 2020</div>
+        </div>
+        <ul>
+            <li>Completed full-stack engineering training in Java, SQL, web technologies, application architecture, testing and the software-development lifecycle, along with IBM learning tracks in AI, Python, Cognos, data science, Spark, Kafka and Hadoop.</li>
+        </ul>
+    </div>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">Software Engineer Intern / Policy Intern</span> <span class="muted">·</span> <span class="org">Indian Road Safety Campaign</span></div>
+            <div class="when">India<span class="sep">|</span>Jul 2020 – Dec 2020</div>
+        </div>
+        <ul>
+            <li>Built a full-stack accident-risk and road-defect mapping platform with Angular and Spring, supporting road-safety awareness for more than 16,000 commuters, with real-time alerts for 17 accident-prone areas.</li>
+        </ul>
+    </div>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">Big Data Engineer Intern</span> <span class="muted">·</span> <span class="org">Oil and Natural Gas Corporation (ONGC)</span></div>
+            <div class="when">Dehradun, India<span class="sep">|</span>May 2019 – Jun 2019</div>
+        </div>
+        <ul>
+            <li>Supported big-data analytics with Hadoop, Google BigQuery and Python; built workflows to extract, clean, analyze and present large datasets.</li>
+        </ul>
+    </div>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">Summer Intern, Application Developer</span> <span class="muted">·</span> <span class="org">ONGC</span></div>
+            <div class="when">Dehradun, India<span class="sep">|</span>May 2018 – Jun 2018</div>
+        </div>
+        <ul>
+            <li>Supported application development and data visualization in JavaScript over operational datasets.</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>Education</h2>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">Master of Science in Data Science</span> <span class="muted">·</span> <span class="org">Columbia University</span> <span class="muted">· GPA 3.6&nbsp;/&nbsp;4.0</span></div>
+            <div class="when">New York, NY<span class="sep">|</span>Aug 2021 – Dec 2022</div>
+        </div>
+        <ul>
+            <li>Coursework: Applied Machine Learning, Natural Language Processing, Deep Learning, Big Data Technologies, Time Series Analysis, Algorithms for Data Science, Cloud Computing, Bayesian Statistics.</li>
+            <li>Data Science Department Representative, Engineering Graduate Student Council (Sep 2021 – Dec 2022); Data Science Day support lead.</li>
+        </ul>
+    </div>
+
+    <div class="entry keep">
+        <div class="entry-head">
+            <div><span class="role">B.Tech in Computer Science and Engineering</span> <span class="muted">·</span> <span class="org">DIT University</span></div>
+            <div class="when">Dehradun, India<span class="sep">|</span>Aug 2016 – May 2020</div>
+        </div>
+        <ul>
+            <li>CGPA 9.62 / 10.0; graduated first in the program, with a specialization in Big Data Analytics. Coursework included Artificial Intelligence, Database Management Systems, Distributed Systems, Software Engineering, Computer Networks and Big Data Engineering.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="keep">
+    <h2>Recognition &amp; Press</h2>
+    <dl class="grid">
+        <dt>Columbia DSI</dt>
+        <dd><a href="https://datascience.columbia.edu/news/data-science-alum-was-hired-fix-code-he-built-operating-system-instead">“A Data Science Alum Was Hired to Fix Code. He Built an Operating System Instead.”</a> <span class="muted">Sep 16, 2025</span></dd>
+        <dt>VIRA</dt>
+        <dd>AIRIA and AURA are part of the technology behind VIRA, launched by GenTrust and Verapath in September 2026 (<a href="https://www.prnewswire.com/news-releases/verapath-and-gentrust-launch-vira-an-ai-native-wealth-management-platform-for-rias-302881229.html">PR Newswire</a>).</dd>
+        <dt>Columbia University</dt>
+        <dd>Gold Graduate Marshal (May 2023) · Best Data Science Course Assistant Award (2022 and 2023) · Professional Development and Leadership Fellow, Columbia Engineering (Feb 2022)</dd>
+        <dt>IBM</dt>
+        <dd>IBM Golden Employee (Feb 2021)</dd>
+        <dt>DIT University</dt>
+        <dd>University Program Topper, Gold Medal and Roll of Honor (Dec 2020) · Merit-Based Scholarship and Academic Brilliance Award</dd>
+    </dl>
+</section>
+
+<section class="keep">
+    <h2>Certifications</h2>
+    <dl class="grid">
+        <dt>Microsoft</dt>
+        <dd>Microsoft Certified: Azure Fundamentals (2021)</dd>
+        <dt>Google</dt>
+        <dd>Google Data Analytics Professional Certificate (2022)</dd>
+        <dt>IBM</dt>
+        <dd>24 IBM digital badges, verified on <a href="https://www.credly.com/users/vipul-harihar">Credly</a>, including Artificial Intelligence Analyst Mastery Award 2019, Enterprise Design Thinking Practitioner, Big Data Foundations, Data Science Foundations, Spark, Kafka and Hadoop</dd>
+        <dt>Aspiring Minds</dt>
+        <dd>Business Analyst, Data Processing Specialist and English certifications (Apr 2019)</dd>
+    </dl>
+</section>
+
+<section class="keep">
+    <h2>Technical Skills</h2>
+    <dl class="grid">
+        <dt>Languages</dt>
+        <dd>Python, Java, JavaScript, SQL, Bash, R, C/C++, HTML, CSS</dd>
+        <dt>AI and ML</dt>
+        <dd>Claude and OpenAI APIs, AI agents, retrieval and context systems, NLP, TensorFlow, PyTorch</dd>
+        <dt>Web</dt>
+        <dd>Flask, Spring Boot, React, Angular, Node.js, REST APIs, mobile integration</dd>
+        <dt>Cloud and DevOps</dt>
+        <dd>AWS (EC2, S3, RDS, CloudFormation), Azure, GCP/BigQuery, Docker, Git, CI/CD, Red Hat OpenShift</dd>
+        <dt>Data</dt>
+        <dd>ETL pipelines, MySQL, NoSQL, Oracle, DB2, pandas, Spark, Kafka, Hadoop, Power BI, Tableau</dd>
+        <dt>Architecture</dt>
+        <dd>Distributed systems, microservices, API design, role-based access, PII masking, audit logging</dd>
+        <dt>Spoken languages</dt>
+        <dd>English and Hindi, full professional proficiency</dd>
+    </dl>
+</section>
+
+<section class="keep">
+    <h2>Selected Projects</h2>
+    <ul class="items">
+        <li><span class="lead">VeeLens</span> <span class="note">·</span> Real-time browser object detection across 90 classes with TensorFlow.js and COCO-SSD.</li>
+        <li><span class="lead">Deep Learning DJ</span> <span class="note">·</span> Columbia project using camera-based emotion recognition to drive music recommendation.</li>
+        <li><span class="lead">Road Defect Inspection</span> <span class="note">·</span> Machine learning imaging platform for potholes and accident reports, with nearby-user alerts.</li>
+        <li><span class="lead">Omnifood</span> <span class="note">·</span> Spring Boot food-service platform built during COVID-19 to support delivery, donations and less food waste.</li>
+        <li><span class="lead">More on GitHub</span> <span class="note">·</span> 47 public repositories, including VeeMusic, DJ VeePULL, VeeCreate Audio Books and TechHub.</li>
+    </ul>
+</section>
+
+</body>
+</html>
