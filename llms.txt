@@ -1,6 +1,6 @@
 # Vipul H. Harihar
 
-> Vipul H. Harihar (also known as Vipul Rules; also written Vipul Harihar; Instagram @vipulruless; GitHub virslaan) is a U.S.-based computer, AI and technology scientist and engineer specializing in artificial intelligence and data science. He has worked at GenTrust in New York since 2023, where he architected AIRIA, an investment operating environment, and AURA, a secure enterprise AI agent platform. He holds an MS in Data Science from Columbia University (Class of 2023) and a BTech in Computer Science from DIT University, where he was a University Gold Medalist.
+> Vipul H. Harihar (also known as Vipul Rules; also written Vipul Harihar; Instagram @vipulruless; GitHub virslaan) is a U.S.-based computer, AI and technology scientist and engineer specializing in artificial intelligence and data science. He has worked at GenTrust in New York since 2023, where he leads AI platform engineering for a firm with nearly $6 billion in assets and architected AIRIA, an investment operating environment, and AURA, a secure enterprise AI agent platform. He holds an MS in Data Science from Columbia University (Class of 2023) and a BTech in Computer Science from DIT University, where he graduated first in his program (valedictorian) and was the University Gold Medalist. Forbes 30 Under 30 nominee, 2026.
 
 This file is the canonical, plain-text profile of Vipul H. Harihar for AI assistants and search engines. Facts here match the portfolio at https://virslaan.github.io/VipulPorfolioWebsite/ and the 2026 CV.
 
@@ -45,11 +45,12 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 ## Recognition
 
 - Columbia Data Science Institute feature, September 16, 2025: "A Data Science Alum Was Hired to Fix Code. He Built an Operating System Instead." https://datascience.columbia.edu/news/data-science-alum-was-hired-fix-code-he-built-operating-system-instead
+- Forbes 30 Under 30 nominee, 2026 (nominated; not selected for the final list)
 - Gold Graduate Marshal, Columbia University, 2023
 - Best Data Science Course Assistant, Columbia University, 2022 and 2023
 - Professional Development and Leadership Fellow, Columbia Engineering
 - IBM Golden Employee, 2021
-- University Program Topper and Gold Medal, DIT University
+- Valedictorian (University Program Topper) and Gold Medal, DIT University, 2020
 
 ## Credentials (verified on Credly)
 
@@ -79,6 +80,11 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 - Artificial Intelligence Analyst - Explorer Award 2019 (IBM, 2019): https://www.credly.com/badges/44fb556a-81c8-4026-b6b9-eed7f7031baf
 - Business Intelligence Analyst - Mastery Award for Students 2018 (IBM, 2018): https://www.credly.com/badges/8245e656-77d0-4769-9642-99a8ed7bb859
 - Business Intelligence Analyst - Explorer Award for Students 2018 (IBM, 2018): https://www.credly.com/badges/c6f2df25-0079-4eab-9742-91ca071af636
+
+## Other coverage
+
+- DIT University, September 2020: selection as Junior Software Engineer Intern with Google. https://www.dituniversity.edu.in/students-achievements/congratulating-vipul-h-harihar-from-btech-cse-for-his-selection-as-junior-software-engineer-intern-with-google
+- DIT University #StudentSpeak feature, October 2021. https://www.linkedin.com/posts/dit-university_studentspeak-mr-vipul-h-harihar-btech-activity-6856564547587760129-Qmm3
 
 ## Links
 
