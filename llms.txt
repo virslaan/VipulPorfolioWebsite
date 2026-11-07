@@ -50,7 +50,6 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 ## Recognition
 
 - Columbia Data Science Institute feature, September 16, 2025: "A Data Science Alum Was Hired to Fix Code. He Built an Operating System Instead." https://datascience.columbia.edu/news/data-science-alum-was-hired-fix-code-he-built-operating-system-instead
-- Forbes 30 Under 30, 2026 nominee (a nomination, not a final list selection)
 - Gold Graduate Marshal, Columbia University, 2023
 - Best Data Science Course Assistant, Columbia University, 2022 and 2023
 - Professional Development and Leadership Fellow, Columbia Engineering
