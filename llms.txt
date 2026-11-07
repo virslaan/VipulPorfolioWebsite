@@ -25,6 +25,12 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 - Authored the firm's AI agent governance, risk and compliance review framework, including Zero Data Retention, PII masking, role-based access and pre-production testing with redacted data.
 - Impact: more than 80 hours of firm-wide time saved in a 30 day period, 25+ automated data pipelines, projected operating savings above $2 million, platforms supporting roughly 250 clients and 28 advisors.
 
+## VIRA
+
+- VIRA is the AI-native wealth management system launched by GenTrust and Verapath (announced 2026). Site: https://virawealth.ai/
+- As Lead Software Engineer at GenTrust, Vipul designed and built AIRIA and AURA, the platforms that form VIRA's technology core: portfolio oversight, trading support, tax-loss harvesting, reporting, and governed AI agents.
+- Announcement: https://verapath.com/news-and-resources/verapath-and-gentrust-launch-vira
+
 ## Earlier experience
 
 - Software Engineer Intern, GenTrust, New York (2022 to 2023)
@@ -48,7 +54,8 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 ## Links
 
 - Portfolio: https://virslaan.github.io/VipulPorfolioWebsite/
-- Signal (notes): https://virslaan.github.io/VipulPorfolioWebsite/signal.html
+- VIRA launch announcement: https://verapath.com/news-and-resources/verapath-and-gentrust-launch-vira
+- VIRA: https://virawealth.ai/
 - CV (PDF): https://virslaan.github.io/VipulPorfolioWebsite/Vipul_Harihar_CV_2026.pdf
 - LinkedIn: https://www.linkedin.com/in/vipulhharihar
 - Instagram: https://www.instagram.com/vipulruless/
