@@ -51,7 +51,7 @@
         });
     }, { rootMargin: '-45% 0px -50% 0px' });
 
-    ['news', 'work', 'experience', 'education', 'resume'].forEach((id) => {
+    ['news', 'work', 'experience', 'education', 'credentials', 'resume'].forEach((id) => {
         const el = document.getElementById(id);
         if (el) spy.observe(el);
     });
