@@ -52,7 +52,7 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 - IBM Golden Employee, 2021
 - Valedictorian (University Program Topper) and Gold Medal, DIT University, 2020
 
-## Credentials (verified on Credly)
+## Credentials (26 verified on Credly, plus six Aspiring Minds certificates)
 
 - Google Data Analytics Professional Certificate (Google, 2022): https://www.credly.com/badges/e0dca12b-d66f-4f76-bfb4-82292ff449f1
 - Microsoft Certified: Azure Fundamentals (Microsoft, 2021): https://www.credly.com/badges/8e2cc8b9-784b-4aa4-aa28-7d11f1be348f
@@ -80,6 +80,13 @@ This file is the canonical, plain-text profile of Vipul H. Harihar for AI assist
 - Artificial Intelligence Analyst - Explorer Award 2019 (IBM, 2019): https://www.credly.com/badges/44fb556a-81c8-4026-b6b9-eed7f7031baf
 - Business Intelligence Analyst - Mastery Award for Students 2018 (IBM, 2018): https://www.credly.com/badges/8245e656-77d0-4769-9642-99a8ed7bb859
 - Business Intelligence Analyst - Explorer Award for Students 2018 (IBM, 2018): https://www.credly.com/badges/c6f2df25-0079-4eab-9742-91ca071af636
+
+- Business Analyst (Aspiring Minds AMCAT, April 2019, credential 11459070-94): https://myamcat.com/certificate/11459070/business-analyst/94
+- Data Processing Specialist (Aspiring Minds AMCAT, April 2019, credential 11459070-211): https://myamcat.com/certificate/11459070/data-processing-specialist/211
+- Software Development Trainee (Aspiring Minds AMCAT, April 2019, credential 11459070-166): https://myamcat.com/certificate/11459070/software-development-trainee/166
+- Software Engineer, IT Services (Aspiring Minds AMCAT, April 2019, credential 11459070-259): https://myamcat.com/certificate/11459070/software-engineer---it-services/259
+- English Comprehension (Aspiring Minds AMCAT, April 2019, credential 11459070-283): https://myamcat.com/certificate/11459070/in-english-comprehension/283
+- Proficiency in English (Aspiring Minds AMCAT, April 2019, credential 11459070-284): https://myamcat.com/certificate/11459070/proficiency-in-english/284
 
 ## Other coverage
 

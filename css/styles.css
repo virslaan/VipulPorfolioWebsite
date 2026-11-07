@@ -2617,6 +2617,12 @@ html.cover-live .cover-veil {
 .badge-name { margin-top: 16px; font-size: 0.875rem; font-weight: 600; line-height: 1.35; letter-spacing: -0.01em; }
 .badge-meta { margin-top: 6px; font-size: 0.8125rem; color: var(--ink-3); }
 .sec-sub a { color: var(--ink); border-bottom: 1px solid var(--hair); }
+.certs-more { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--hair); }
+.certs-more h3 { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.02em; }
+.certs-more-meta { margin-top: 4px; font-size: 0.875rem; color: var(--ink-3); }
+.certs-more ul { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; list-style: none; padding: 0; }
+.certs-more a { display: inline-block; padding: 9px 16px; border: 1px solid var(--hair); border-radius: 999px; background: var(--white); font-size: 0.875rem; color: var(--ink); transition: border-color 0.25s ease; }
+.certs-more a:hover { border-color: var(--ink); }
 
 @media (max-width: 1000px) {
     .news-grid, .news-grid--two { grid-template-columns: 1fr; }
