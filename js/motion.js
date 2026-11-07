@@ -1,7 +1,7 @@
 /* =====================================================
    MOTION
-   Heading line reveals, card spotlights, console
-   tilt and magnetic links.
+   Heading line reveals, card spotlights and
+   magnetic links.
    ===================================================== */
 
 (() => {
@@ -47,31 +47,6 @@
         }, { passive: true });
         card.addEventListener('pointerleave', () => card.classList.remove('lit'), { passive: true });
     });
-
-    /* ── AURA console: tilts toward the cursor ──────── */
-
-    const consoleEl = document.querySelector('.aura-console');
-    if (consoleEl) {
-        const stage = consoleEl.parentElement;
-        const t = { x: 0, y: 0, tx: 0, ty: 0, raf: 0 };
-        const loop = () => {
-            t.x += (t.tx - t.x) * 0.1;
-            t.y += (t.ty - t.y) * 0.1;
-            consoleEl.style.transform = `perspective(1400px) rotateX(${(t.y * -5).toFixed(2)}deg) rotateY(${(t.x * 7).toFixed(2)}deg)`;
-            consoleEl.style.setProperty('--gx', `${(50 + t.x * 40).toFixed(1)}%`);
-            consoleEl.style.setProperty('--gy', `${(50 + t.y * 40).toFixed(1)}%`);
-            if (Math.abs(t.tx - t.x) > 0.001 || Math.abs(t.ty - t.y) > 0.001) t.raf = requestAnimationFrame(loop);
-            else t.raf = 0;
-        };
-        const kick = () => { if (!t.raf) t.raf = requestAnimationFrame(loop); };
-        stage.addEventListener('pointermove', (e) => {
-            const r = consoleEl.getBoundingClientRect();
-            t.tx = Math.max(-1, Math.min(1, (e.clientX - r.left) / r.width * 2 - 1));
-            t.ty = Math.max(-1, Math.min(1, (e.clientY - r.top) / r.height * 2 - 1));
-            kick();
-        }, { passive: true });
-        stage.addEventListener('pointerleave', () => { t.tx = 0; t.ty = 0; kick(); }, { passive: true });
-    }
 
     /* ── Magnetic links ─────────────────────────────── */
 
